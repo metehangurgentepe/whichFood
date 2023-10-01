@@ -7,7 +7,25 @@
 		<key>WhichFood.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>40</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>66BED80C2AAF48E300D5664B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>66BED8222AAF48E400D5664B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>66BED82C2AAF48E400D5664B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

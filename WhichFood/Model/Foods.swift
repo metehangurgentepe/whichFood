@@ -9,22 +9,22 @@ import Foundation
 
 struct Ingredient {
     var name: String
-    var category: Category
+    var category: CategoryModel
     var isSelected: Bool
     
-    init(name: String, category: Category, isSelected: Bool) {
+    init(name: String, category: CategoryModel, isSelected: Bool) {
             self.name = name
             self.category = category
             self.isSelected = isSelected
     }
 }
 
-enum Category: String {
+enum CategoryModel: String {
     case vegetable
     case meat
     case dairyProducts
     case grain
-    // Diğer kategorileri buraya ekleyin
+    
 }
 
 

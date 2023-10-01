@@ -6,3 +6,15 @@
 //
 
 import Foundation
+import FirebaseFirestore
+
+struct Recipe: Codable{
+    var id: String
+    var name: String
+    var recipe: [String]
+    var ingredients: [String]
+    var description: String
+    var cookTime: String
+    var userId: String
+    var createdAt: Timestamp
+}

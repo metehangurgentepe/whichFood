@@ -13,17 +13,22 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
+        // İlk sekme için bir ViewController oluşturun
+          let firstViewController = HomeViewController()
+           //firstViewController.view.backgroundColor = UIColor.red
+          firstViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: nil)
 
-    /*
-    // MARK: - Navigation
+          // İkinci sekme için bir ViewController oluşturun
+          let secondViewController = PlanFoodViewController()
+          //secondViewController.view.backgroundColor = UIColor.blue
+          secondViewController.tabBarItem = UITabBarItem(title: "Restaurants", image: UIImage(systemName: "bell"), selectedImage: nil)
+        
+            let thirdViewController = NotesViewController()
+            thirdViewController.tabBarItem = UITabBarItem(title: "Notes", image: UIImage(systemName: "note.text"), selectedImage: nil)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+          // TabBarController'a sekme görünümlerini ekleyin
+          viewControllers = [firstViewController, secondViewController,thirdViewController]
     }
-    */
 
 }

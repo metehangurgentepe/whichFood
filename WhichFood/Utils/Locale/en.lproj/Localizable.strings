@@ -5,3 +5,12 @@
   Created by Metehan Gürgentepe on 12.09.2023.
   
 */
+
+
+"tabHome" = "Title bu";
+
+
+//Premium
+"premiumWeekButton" = "Haftalık Premium";
+"lifetimeButton" = "Hayat Boyu Premium";
+"continueButton" = "Devam";

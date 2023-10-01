@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct User: Decodable{
+    var fcmToken: String
+    var id: String
+    var isPremium: Bool
+}
