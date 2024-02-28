@@ -7,16 +7,10 @@
 
 import Foundation
 
-struct Ingredient {
+struct Ingredient: Equatable {
     var name: String
     var category: CategoryModel
     var isSelected: Bool
-    
-    init(name: String, category: CategoryModel, isSelected: Bool) {
-            self.name = name
-            self.category = category
-            self.isSelected = isSelected
-    }
 }
 
 enum CategoryModel: String {

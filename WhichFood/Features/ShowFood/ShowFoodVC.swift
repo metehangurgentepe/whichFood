@@ -7,54 +7,91 @@
 
 import UIKit
 
+protocol ShowFoodViewDelegate: AnyObject {
+    func handleViewModelOutput(_ output: ShowFoodViewModelOutput)
+}
+
 class ShowFoodVC: UIViewController {
     var selectedFoods : [Ingredient] = []
     var selectedCategory : [String] = []
-    private let viewModel = ShowFoodViewModel()
+    private lazy var image = UIImage(named: "recipe_background")
+    private lazy var imageView = UIImageView()
+    private lazy var cookTimeLabel = UILabel()
+    private lazy var saveButton = UIButton()
+    private lazy var foodNameLabel = UILabel()
+    private lazy var activityIndicator = UIActivityIndicatorView(style: .large)
+    private lazy var alertAction = UIAlertAction(title: LocaleKeys.DetailRecipe.savedSuccess.rawValue.locale(), style: .default)
+    private lazy var progressViewContainer = UIView()
+    private var refreshButton = UIBarButtonItem()
+    private lazy var segmentedControl : UISegmentedControl = {
+        let slider = UISegmentedControl()
+        slider.insertSegment(withTitle: LocaleKeys.DetailRecipe.ingredients.rawValue.locale(), at: 0, animated: true)
+        slider.insertSegment(withTitle: LocaleKeys.DetailRecipe.recipe.rawValue.locale(), at: 1, animated: true)
+        slider.backgroundColor = Colors.secondAccent.color
+        slider.selectedSegmentTintColor =  Colors.accent.color
+        return slider
+    }()
+    private lazy var recipeLabel: UILabel = {
+        let label = UILabel()
+        guard let customFont = UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize) else {
+            fatalError("""
+                Failed to load the "CustomFont-Light" font.
+                Make sure the font file is included in the project and the font name is spelled correctly.
+                """
+            )
+        }
+        label.font = UIFontMetrics.default.scaledFont(for: customFont).withSize(15)
+        label.adjustsFontForContentSizeCategory = true
+        return label
+    }()
+    private lazy var ingredientsLabel : UILabel = {
+        let label = UILabel()
+        guard let customFont = UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize) else {
+            fatalError("""
+                Failed to load the "CustomFont-Light" font.
+                Make sure the font file is included in the project and the font name is spelled correctly.
+                """
+            )
+        }
+        label.font = UIFontMetrics.default.scaledFont(for: customFont).withSize(15)
+        label.adjustsFontForContentSizeCategory = true
+        return label
+    }()
     
-    let segmentedControl = UISegmentedControl()
-    let image = UIImage(named: "food")
-    let imageView = UIImageView()
-    let cookTimeLabel = UILabel()
-    let saveButton = UIButton()
-    let recipeLabel = UILabel()
-    let ingredientsLabel = UILabel()
-    let foodNameLabel = UILabel()
-    let activityIndicator = UIActivityIndicatorView(style: .large) // Add a UIActivityIndicatorView
-    let alertAction = UIAlertAction(title: "Saved Successfully", style: .default)
-    let progressViewContainer = UIView()
-
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
+    private let viewModel = ShowFoodViewModel()
+    var recipe: RecipeResponseModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         design()
         segmentedControl.selectedSegmentIndex = 0
         viewModel.delegate = self
         viewModel.fetchFoodRecipe(foods: selectedFoods, category: selectedCategory)
-        if viewModel.isLoading {
-            activityIndicator.startAnimating()
-        }
+        updateColorsWhenTraitColor()
     }
     
     @objc func segmentedControlValueChanged() {
-        // Handle segmented control value change here
         updateLabelsVisibility()
-    }
-    
-    func setupRefreshButton() {
-        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshButtonTapped))
-        navigationItem.rightBarButtonItem = refreshButton
     }
     
     @objc func refreshButtonTapped() {
         activityIndicator.startAnimating()
         progressViewContainer.isHidden = false
+        Task{
+           try await viewModel.increaseUsageApi()
+        }
         viewModel.fetchFoodRecipe(foods: selectedFoods, category: selectedCategory)
     }
     
     func design() {
+        setupScrollView()
         recipeLabel.isHidden = true
-        setupLabel()
+        setupRecipeLabel()
         setupSegmentedControl()
         setupPhoto()
         setupIngredientLabel()
@@ -65,19 +102,133 @@ class ShowFoodVC: UIViewController {
         setupActivityIndicator()
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
     }
-
+    
+    @objc func saveRecipe() {
+        Task{
+            viewModel.saveRecipe(recipe!)
+            let alert = showAlert(title: LocaleKeys.DetailRecipe.success.rawValue.locale(),
+                                  message: LocaleKeys.DetailRecipe.savedSuccess.rawValue.locale(),
+                                  buttonTitle: LocaleKeys.DetailRecipe.okButton.rawValue.locale(), secondButtonTitle: nil, completionHandler:  {
+                self.navigationController?.popToRootViewController(animated: true)
+            })
+            self.present(alert, animated: true)
+            alertAction.isEnabled = true
+        }
+    }
+    
+    private func backButton() {
+        let home = HomeViewController()
+        self.navigationController?.popToViewController(home, animated: true)
+    }
+    
+}
+// MARK: ShowFood delegate
+extension ShowFoodVC: ShowFoodViewDelegate{
+    func handleViewModelOutput(_ output: ShowFoodViewModelOutput) {
+        switch output {
+        case .setLoading(let isLoading):
+            DispatchQueue.main.async {
+                if isLoading{
+                    self.activityIndicator.startAnimating()
+                    self.progressViewContainer.isHidden = false
+                    self.saveButton.isEnabled = false
+                    self.refreshButton.isEnabled = false
+                } else {
+                    self.activityIndicator.stopAnimating()
+                    self.progressViewContainer.isHidden = true
+                    self.saveButton.isEnabled = true
+                    self.refreshButton.isEnabled = true
+                }
+            }
+        case .showRecipe(let recipe):
+            self.recipe = recipe
+            cookTimeLabel.text = recipe.cookTime
+            foodNameLabel.text = recipe.foodName
+            ingredientsLabel.text = recipe.ingredients.joined(separator: "\n")
+            recipeLabel.text = recipe.recipe.joined(separator: "\n")
+        case .showError(let error):
+            DispatchQueue.main.async{
+                var alert = UIAlertController()
+                switch error {
+                case ApiUsageError.exceededApiLimit:
+                    alert = showAlert(
+                        title: LocaleKeys.DetailRecipe.error.rawValue.locale(),
+                        message: LocaleKeys.Error.apiUsageError.rawValue.locale(),
+                        buttonTitle:LocaleKeys.Error.okButton.rawValue.locale() ,
+                        secondButtonTitle: LocaleKeys.Error.backButton.rawValue.locale(),
+                        completionHandler: self.backButton,
+                        completionSecondHandler: self.backButton
+                    )
+                default:
+                    alert = showAlert(
+                        title: LocaleKeys.DetailRecipe.error.rawValue.locale(),
+                        message: LocaleKeys.DetailRecipe.errorOccured.rawValue.locale(),
+                        buttonTitle: LocaleKeys.DetailRecipe.tryAgain.rawValue.locale(),
+                        secondButtonTitle: LocaleKeys.Error.backButton.rawValue.locale(),
+                        completionHandler: self.refreshButtonTapped,
+                        completionSecondHandler: self.backButton)
+                }
+                self.activityIndicator.stopAnimating()
+                self.progressViewContainer.isHidden = true
+                self.present(alert, animated: true)
+            }
+        case .saveRecipe:
+            viewModel.saveRecipe(recipe)
+        }
+    }
+}
+// MARK: ShwoFood design extension
+extension ShowFoodVC {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateColorsWhenTraitColor()
+    }
+    
+    func setupRefreshButton() {
+        refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshButtonTapped))
+        navigationItem.rightBarButtonItem = refreshButton
+    }
+    
+    private func updateColorsWhenTraitColor() {
+        if traitCollection.userInterfaceStyle == .dark {
+            progressViewContainer.backgroundColor = .white
+            activityIndicator.color = .black
+        } else {
+            progressViewContainer.backgroundColor = .black
+            activityIndicator.color = .white
+        }
+    }
+    
     func updateLabelsVisibility() {
         let selectedIndex = segmentedControl.selectedSegmentIndex
         
-        // Show/hide labels based on the segmented control's selection
         recipeLabel.isHidden = selectedIndex != 1
         ingredientsLabel.isHidden = selectedIndex != 0
+    }
+    
+    func setupScrollView() {
+        scrollView.isScrollEnabled = true
+        scrollView.alwaysBounceVertical = true
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsHorizontalScrollIndicator = true
+        
+        view.addSubview(scrollView)
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,constant: -view.bounds.height * 0.15),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,constant: 10),
+            
+            scrollView.widthAnchor.constraint(equalToConstant: view.bounds.width),
+            scrollView.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.35)
+        ])
     }
     
     func setupSaveButton() {
         view.addSubview(saveButton)
         
-        saveButton.setTitle("Save Recipe", for: .normal)
+        saveButton.setTitle(NSLocalizedString(LocaleKeys.DetailRecipe.saveButton.rawValue, comment: "Save Recipe"), for: .normal)
         saveButton.backgroundColor = Colors.primary.color
         saveButton.addTarget(self, action: #selector(saveRecipe), for: .touchUpInside)
         saveButton.layer.cornerRadius = 12
@@ -85,78 +236,11 @@ class ShowFoodVC: UIViewController {
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            saveButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,constant: -view.bounds.height * 0.03),
+            saveButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,constant: -view.bounds.height * 0.05),
             saveButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
             saveButton.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.8),
             saveButton.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.07)
-        ])
-        
-        // Add animation to the button
-            saveButton.addTarget(self, action: #selector(buttonTapped), for: .touchDown)
-            saveButton.addTarget(self, action: #selector(buttonReleased), for: .touchUpInside)
-            saveButton.addTarget(self, action: #selector(buttonReleased), for: .touchUpOutside)
-    }
-    
-    @objc func buttonTapped() {
-        UIView.animate(withDuration: 0.1) {
-            self.saveButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        }
-    }
-
-    @objc func buttonReleased() {
-        UIView.animate(withDuration: 0.1) {
-            self.saveButton.transform = .identity
-        }
-    }
-    
-    @objc func saveRecipe() {
-        Task{
-            do {
-                try await viewModel.saveRecipe()
-                showAlert(title: "Success", message: "Recipe saved successfully", buttonTitle: "OK") {
-//                    let homeVC = HomeViewController()
-                    self.navigationController?.popToRootViewController(animated: true)
-                }
-                // alertAction isEnabled özelliğini etkinleştirin
-                alertAction.isEnabled = true
-            } catch {
-                showAlert(title: "Error", message: "Could not saved recipe", buttonTitle: "OK")
-            }
-        }
-    }
-    
-    func showAlert(title: String, message: String, buttonTitle: String, completionHandler: (() -> Void)? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: buttonTitle, style: .default) { _ in
-            // Eylem düğmesine basıldığında çalışacak kodu burada tanımlayabilirsiniz
-            completionHandler?() // completionHandler nil değilse çağırır
-        }
-        
-        alertController.addAction(okAction)
-        
-        present(alertController, animated: true, completion: nil)
-    }
-
-    
-    
-    
-    func setupPhoto() {
-        view.addSubview(imageView)
-        
-        let capInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        let resizableImage = image!.resizableImage(withCapInsets: capInsets)
-        
-        imageView.image = resizableImage
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: self.view.topAnchor,constant: 150),
-            imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            
-            imageView.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.3),
-            
         ])
     }
     
@@ -164,10 +248,11 @@ class ShowFoodVC: UIViewController {
         foodNameLabel.textColor = .white
         foodNameLabel.textAlignment = .right // Sağa hizalı
         foodNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+        foodNameLabel.numberOfLines = 2
         foodNameLabel.font = .preferredFont(forTextStyle: .title2)
+        
         imageView.addSubview(foodNameLabel)
-
+        
         NSLayoutConstraint.activate([
             foodNameLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -30), // 10 piksel yukarıdan
             foodNameLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor, constant: -10), // 10 piksel soldan
@@ -182,9 +267,9 @@ class ShowFoodVC: UIViewController {
         cookTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         cookTimeLabel.font = .preferredFont(forTextStyle: .headline)
-       
+        
         imageView.addSubview(cookTimeLabel)
-
+        
         NSLayoutConstraint.activate([
             cookTimeLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10), // 10 piksel yukarıdan
             cookTimeLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor, constant: -10), // 10 piksel soldan
@@ -195,97 +280,96 @@ class ShowFoodVC: UIViewController {
     
     func setupSegmentedControl() {
         view.addSubview(segmentedControl)
-       
-        segmentedControl.insertSegment(withTitle: "Malzemeler", at: 0, animated: true)
-        segmentedControl.insertSegment(withTitle: "Yapılışı", at: 1, animated: true)
-
+        
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-
         
         NSLayoutConstraint.activate([
-            segmentedControl.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            segmentedControl.centerYAnchor.constraint(equalTo: self.view.centerYAnchor,constant: -view.bounds.height * 0.05),
             segmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
-            segmentedControl.widthAnchor.constraint(equalToConstant: view.bounds.width ),
+            segmentedControl.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.9),
             segmentedControl.heightAnchor.constraint(equalToConstant: view.bounds.width * 0.1)
         ])
     }
     
-    func setupLabel() {
-        view.addSubview(recipeLabel)
-        recipeLabel.textColor = .black
-        recipeLabel.font = UIFont.systemFont(ofSize: 16)
+    func setupRecipeLabel() {
+        scrollView.addSubview(recipeLabel)
         recipeLabel.numberOfLines = 30
         
         recipeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            recipeLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor,constant: view.bounds.height * 0.2),
-            recipeLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,constant: 10),
-            
-            recipeLabel.widthAnchor.constraint(equalToConstant: view.bounds.width),
-            recipeLabel.heightAnchor.constraint(equalToConstant: view.bounds.height)
+            recipeLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            recipeLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            recipeLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
+            recipeLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
+            recipeLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -10)
         ])
     }
+    
     func setupIngredientLabel() {
-        view.addSubview(ingredientsLabel)
-        ingredientsLabel.textColor = .black
-        ingredientsLabel.font = .preferredFont(forTextStyle: .title3)
-        ingredientsLabel.numberOfLines = 30
+        guard let customFont = UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize) else {
+            fatalError("""
+                Failed to load the "CustomFont-Light" font.
+                Make sure the font file is included in the project and the font name is spelled correctly.
+                """
+            )
+        }
+        ingredientsLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+        ingredientsLabel.adjustsFontForContentSizeCategory = true
         
+        scrollView.addSubview(ingredientsLabel)
+        ingredientsLabel.numberOfLines = 30
         
         ingredientsLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            ingredientsLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor,constant: view.bounds.height * 0.2),
-            ingredientsLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,constant: 10),
-            
-            ingredientsLabel.widthAnchor.constraint(equalToConstant: view.bounds.width),
-            ingredientsLabel.heightAnchor.constraint(equalToConstant: view.bounds.height)
+            ingredientsLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            ingredientsLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            ingredientsLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
+            ingredientsLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
+            ingredientsLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -10)
         ])
     }
+    
     func setupActivityIndicator() {
         view.addSubview(progressViewContainer)
         progressViewContainer.addSubview(activityIndicator)
         progressViewContainer.backgroundColor = .black
         progressViewContainer.translatesAutoresizingMaskIntoConstraints = false
         progressViewContainer.layer.cornerRadius = 12
-    
+        
         activityIndicator.color = .white
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         
         NSLayoutConstraint.activate([
-                progressViewContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                progressViewContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                progressViewContainer.widthAnchor.constraint(equalToConstant: 75),
-                progressViewContainer.heightAnchor.constraint(equalToConstant: 75),
-                
-                activityIndicator.centerXAnchor.constraint(equalTo: progressViewContainer.centerXAnchor),
-                activityIndicator.centerYAnchor.constraint(equalTo: progressViewContainer.centerYAnchor),
-            ])
-    }
-}
-
-extension ShowFoodVC: ShowFoodViewDelegate{
-    func didFinish() {
-        DispatchQueue.main.async {
-            let recipeText = self.viewModel.recipe.joined(separator: "\n")
-            let ingredientsText = self.viewModel.ingredients.joined(separator: "\n")
-            self.recipeLabel.text = recipeText
-            self.ingredientsLabel.text = ingredientsText
-            self.foodNameLabel.text = self.viewModel.foodName
-            self.cookTimeLabel.text = self.viewModel.cookTime
-            self.activityIndicator.stopAnimating() // Stop the activity indicator when data is loaded
-            self.progressViewContainer.isHidden = true
-        }
+            progressViewContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            progressViewContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            progressViewContainer.widthAnchor.constraint(equalToConstant: 75),
+            progressViewContainer.heightAnchor.constraint(equalToConstant: 75),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: progressViewContainer.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: progressViewContainer.centerYAnchor),
+        ])
     }
     
-    func didFail(error: Error) {
-        DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating() // Stop the activity indicator in case of an error
-            self.progressViewContainer.isHidden = true
-            self.showAlert(title: "Error", message: "Error occured", buttonTitle: "Try Again",completionHandler: self.refreshButtonTapped)
-        }
+    func setupPhoto() {
+        view.addSubview(imageView)
+        
+        let size = CGSize(width: view.bounds.width, height: view.bounds.height * 0.42)
+        let resizableImage = image!.resize(toSize: size)
+        imageView.layer.cornerRadius = 12
+        imageView.image = resizableImage
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            imageView.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.3),
+            
+        ])
     }
+    
 }

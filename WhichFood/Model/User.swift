@@ -6,9 +6,14 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
-struct User: Decodable{
+struct User: Codable{
     var fcmToken: String
     var id: String
     var isPremium: Bool
+    var numberOfUsageApi: Int
+    var successNumberOfUsageApi: Int
+    var lastPremiumDate: Timestamp?
+    var premiumType: String
 }

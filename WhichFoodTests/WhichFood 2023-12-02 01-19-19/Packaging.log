@@ -1,0 +1,234 @@
+2023-12-01 22:19:07 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x2b008ad00; archive(resolved)="<IDEArchive: 0x6000563e0660>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x600005f45d40; teamID='UZH69S3QN2', teamName='Metehan Gurgentepe', teamType='Individual', username='metegrgntepe@gmail.com', isFreeProvisioningTeam='0'>">
+	Chain (15, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x2b008ad00; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600005f45d40; teamID='UZH69S3QN2', teamName='Metehan Gurgentepe', teamType='Individual', username='metegrgntepe@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x2b00b0320; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600005f45d40; teamID='UZH69S3QN2', teamName='Metehan Gurgentepe', teamType='Individual', username='metegrgntepe@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2b03a9030; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600005f45d40; teamID='UZH69S3QN2', teamName='Metehan Gurgentepe', teamType='Individual', username='metegrgntepe@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2b972cdb0; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600005f45d40; teamID='UZH69S3QN2', teamName='Metehan Gurgentepe', teamType='Individual', username='metegrgntepe@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2b974b230; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600005f45d40; teamID='UZH69S3QN2', teamName='Metehan Gurgentepe', teamType='Individual', username='metegrgntepe@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2bc3ab490; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600005f45d40; teamID='UZH69S3QN2', teamName='Metehan Gurgentepe', teamType='Individual', username='metegrgntepe@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2bc3ab260; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600005f45d40; teamID='UZH69S3QN2', teamName='Metehan Gurgentepe', teamType='Individual', username='metegrgntepe@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x2bc3aa780; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600005f45d40; teamID='UZH69S3QN2', teamName='Metehan Gurgentepe', teamType='Individual', username='metegrgntepe@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x10def2c80; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600005f45d40; teamID='UZH69S3QN2', teamName='Metehan Gurgentepe', teamType='Individual', username='metegrgntepe@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x10def1bb0; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="(null)">
+	<IDEDistributionContext: 0x2bc3a5c40; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="(null)">
+	<IDEDistributionContext: 0x2bc3a8ed0; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x6000604ed6d0>", team="(null)">
+	<IDEDistributionContext: 0x10dfd2400; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x2b61ed040; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x2b61e8490; archive = "<IDEArchive: 0x6000563e0660>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x2b008ad00>
+2023-12-01 22:19:07 +0000  Processing step: IDEDistributionCreateDestRootStep
+2023-12-01 22:19:07 +0000  Processing step: IDEDistributionCopyItemStep
+2023-12-01 22:19:07 +0000  Running /usr/bin/ditto '-V' '/Users/metehangurgentepe/Library/Developer/Xcode/Archives/2023-12-02/WhichFood 2.12.2023, 01.18.xcarchive/Products/Applications/WhichFood.app' '/var/folders/4s/5l84r45s1sd32xh4dznwjp3h0000gn/T/XcodeDistPipeline.~~~JdGhQx/Root/Payload/WhichFood.app'
+2023-12-01 22:19:07 +0000  >>> Copying /Users/metehangurgentepe/Library/Developer/Xcode/Archives/2023-12-02/WhichFood 2.12.2023, 01.18.xcarchive/Products/Applications/WhichFood.app 
+2023-12-01 22:19:07 +0000  copying file ./de.lproj/Localizable.strings ... 
+2023-12-01 22:19:07 +0000  8291 bytes for ./de.lproj/Localizable.strings
+2023-12-01 22:19:07 +0000  copying file ./_CodeSignature/CodeResources ... 
+2023-12-01 22:19:07 +0000  11747 bytes for ./_CodeSignature/CodeResources
+2023-12-01 22:19:07 +0000  copying file ./Montserrat-VariableFont_wght.ttf ... 
+2023-12-01 22:19:07 +0000  394140 bytes for ./Montserrat-VariableFont_wght.ttf
+2023-12-01 22:19:07 +0000  copying file ./en.lproj/Localizable.strings ... 
+2023-12-01 22:19:07 +0000  6547 bytes for ./en.lproj/Localizable.strings
+2023-12-01 22:19:07 +0000  copying file ./WhichFood ... 
+2023-12-01 22:19:07 +0000  17232368 bytes for ./WhichFood
+copying file ./OpenSans-Italic-VariableFont_wdth,wght.ttf ... 
+2023-12-01 22:19:07 +0000  580356 bytes for ./OpenSans-Italic-VariableFont_wdth,wght.ttf
+2023-12-01 22:19:07 +0000  copying file ./es.lproj/Localizable.strings ... 
+2023-12-01 22:19:07 +0000  8054 bytes for ./es.lproj/Localizable.strings
+2023-12-01 22:19:07 +0000  copying file ./it.lproj/Localizable.strings ... 
+2023-12-01 22:19:07 +0000  7310 bytes for ./it.lproj/Localizable.strings
+2023-12-01 22:19:07 +0000  copying file ./AppIcon60x60@2x.png ... 
+2023-12-01 22:19:07 +0000  16945 bytes for ./AppIcon60x60@2x.png
+2023-12-01 22:19:07 +0000  copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/close-with-transparency@2x.png ... 
+2023-12-01 22:19:07 +0000  837 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/close-with-transparency@2x.png
+2023-12-01 22:19:07 +0000  copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/close-with-transparency.png ... 
+2023-12-01 22:19:07 +0000  379 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/close-with-transparency.png
+2023-12-01 22:19:07 +0000  copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/oTF-1C-LZP-view-SM1-hn-m3n.nib ... 
+2023-12-01 22:19:07 +0000  10799 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/oTF-1C-LZP-view-SM1-hn-m3n.nib
+2023-12-01 22:19:07 +0000  copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/card-view-vc.nib ... 
+2023-12-01 22:19:07 +0000  1040 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/card-view-vc.nib
+2023-12-01 22:19:07 +0000  copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/banner-view-vc.nib ... 
+2023-12-01 22:19:07 +0000  1044 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/banner-view-vc.nib
+2023-12-01 22:19:07 +0000  copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/x01-lq-3r6-view-1pz-BP-O6T.nib ... 
+2023-12-01 22:19:07 +0000  13221 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/x01-lq-3r6-view-1pz-BP-O6T.nib
+copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/lbb-HM-tHJ-view-vRb-yf-OWE.nib ... 
+2023-12-01 22:19:07 +0000  4842 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/lbb-HM-tHJ-view-vRb-yf-OWE.nib
+copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/modal-view-vc.nib ... 
+2023-12-01 22:19:07 +0000  1042 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/modal-view-vc.nib
+copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/lGH-bl-7Xw-view-ef6-R8-q1S.nib ... 
+2023-12-01 22:19:07 +0000  3628 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/lGH-bl-7Xw-view-ef6-R8-q1S.nib
+2023-12-01 22:19:07 +0000  copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/image-only-vc.nib ... 
+2023-12-01 22:19:07 +0000  1046 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/image-only-vc.nib
+copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/Info.plist ... 
+2023-12-01 22:19:07 +0000  243 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/Info.plist
+2023-12-01 22:19:07 +0000  copying file ./Firebase_FirebaseInAppMessaging_iOS.bundle/Info.plist ... 
+2023-12-01 22:19:07 +0000  716 bytes for ./Firebase_FirebaseInAppMessaging_iOS.bundle/Info.plist
+2023-12-01 22:19:07 +0000  copying file ./cs.lproj/Localizable.strings ... 
+2023-12-01 22:19:07 +0000  8405 bytes for ./cs.lproj/Localizable.strings
+copying file ./GoogleService-Info.plist ... 
+2023-12-01 22:19:07 +0000  485 bytes for ./GoogleService-Info.plist
+copying file ./Assets.car ... 
+2023-12-01 22:19:08 +0000  6885263 bytes for ./Assets.car
+2023-12-01 22:19:08 +0000  copying file ./tr.lproj/Localizable.strings ... 
+8208 bytes for ./tr.lproj/Localizable.strings
+copying file ./AppIcon76x76@2x~ipad.png ... 
+2023-12-01 22:19:08 +0000  23332 bytes for ./AppIcon76x76@2x~ipad.png
+2023-12-01 22:19:08 +0000  copying file ./ru.lproj/Localizable.strings ... 
+2023-12-01 22:19:08 +0000  9259 bytes for ./ru.lproj/Localizable.strings
+2023-12-01 22:19:08 +0000  copying file ./RevenueCat_RevenueCat.bundle/PrivacyInfo.xcprivacy ... 
+2023-12-01 22:19:08 +0000  945 bytes for ./RevenueCat_RevenueCat.bundle/PrivacyInfo.xcprivacy
+copying file ./RevenueCat_RevenueCat.bundle/Info.plist ... 
+2023-12-01 22:19:08 +0000  688 bytes for ./RevenueCat_RevenueCat.bundle/Info.plist
+2023-12-01 22:19:08 +0000  copying file ./fr.lproj/Localizable.strings ... 
+2023-12-01 22:19:08 +0000  8518 bytes for ./fr.lproj/Localizable.strings
+2023-12-01 22:19:08 +0000  copying file ./OpenSans-VariableFont_wdth,wght.ttf ... 
+2023-12-01 22:19:08 +0000  529700 bytes for ./OpenSans-VariableFont_wdth,wght.ttf
+2023-12-01 22:19:08 +0000  copying file ./embedded.mobileprovision ... 
+2023-12-01 22:19:08 +0000  12533 bytes for ./embedded.mobileprovision
+2023-12-01 22:19:08 +0000  copying file ./Info.plist ... 
+2023-12-01 22:19:08 +0000  1983 bytes for ./Info.plist
+copying file ./PkgInfo ... 
+2023-12-01 22:19:08 +0000  8 bytes for ./PkgInfo
+2023-12-01 22:19:08 +0000  /usr/bin/ditto exited with 0
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionEmbedProfileStep
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionInfoPlistStep
+2023-12-01 22:19:08 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2023-12-01 22:19:08 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2023-12-01 22:19:08 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2023-12-01 22:19:08 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionSymbolsStep
+2023-12-01 22:19:08 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionAppThinningStep
+2023-12-01 22:19:08 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionArchThinningStep
+2023-12-01 22:19:08 +0000  Running /Users/metehangurgentepe/Downloads/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/4s/5l84r45s1sd32xh4dznwjp3h0000gn/T/XcodeDistPipeline.~~~JdGhQx/Root/Payload/WhichFood.app/WhichFood' '-verify_arch' 'arm64e'
+2023-12-01 22:19:08 +0000  /Users/metehangurgentepe/Downloads/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2023-12-01 22:19:08 +0000  Skipping architecture thinning for item "WhichFood" because arch "arm64e" wasn't found
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionODRStep
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionStripXattrsStep
+2023-12-01 22:19:08 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionCodesignStep
+2023-12-01 22:19:08 +0000  Entitlements for <IDEDistributionItem: 0x6000562b15c0; bundleID='com.metehangurgentepe.WhichFood', path='<DVTFilePath:0x600012ee5340:'/Users/metehangurgentepe/Library/Developer/Xcode/Archives/2023-12-02/WhichFood 2.12.2023, 01.18.xcarchive/Products/Applications/WhichFood.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60009a4ba120; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60000f262b80; name='Apple Development: Metehan Gurgentepe (378T7PW2WN)', hash='18C009E85BF7B6DA47001EE524EDC5AC8F82EB31', serialNumber='233E6CBCEAD8F928218E03F3264E6190', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-08-14 11:51:30 +0000''>', entitlements='{
+    "application-identifier" = "UZH69S3QN2.com.metehangurgentepe.WhichFood";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = UZH69S3QN2;
+    "get-task-allow" = 1;
+}', teamID='UZH69S3QN2', identifier='com.metehangurgentepe.WhichFood', executablePath='<DVTFilePath:0x600012e7eed0:'/Users/metehangurgentepe/Library/Developer/Xcode/Archives/2023-12-02/WhichFood 2.12.2023, 01.18.xcarchive/Products/Applications/WhichFood.app/WhichFood'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "UZH69S3QN2.com.metehangurgentepe.WhichFood";
+    "aps-environment" = production;
+    "com.apple.developer.team-identifier" = UZH69S3QN2;
+    "get-task-allow" = 0;
+}
+2023-12-01 22:19:08 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2023-12-01 22:19:08 +0000  Entitlements for <IDEDistributionItem: 0x6000562b15c0; bundleID='com.metehangurgentepe.WhichFood', path='<DVTFilePath:0x600012ee5340:'/Users/metehangurgentepe/Library/Developer/Xcode/Archives/2023-12-02/WhichFood 2.12.2023, 01.18.xcarchive/Products/Applications/WhichFood.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60009a4ba120; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60000fdbba80; name='Apple Development: Metehan Gurgentepe (378T7PW2WN)', hash='18C009E85BF7B6DA47001EE524EDC5AC8F82EB31', serialNumber='233E6CBCEAD8F928218E03F3264E6190', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-08-14 11:51:30 +0000''>', entitlements='{
+    "application-identifier" = "UZH69S3QN2.com.metehangurgentepe.WhichFood";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = UZH69S3QN2;
+    "get-task-allow" = 1;
+}', teamID='UZH69S3QN2', identifier='com.metehangurgentepe.WhichFood', executablePath='<DVTFilePath:0x600012e7eed0:'/Users/metehangurgentepe/Library/Developer/Xcode/Archives/2023-12-02/WhichFood 2.12.2023, 01.18.xcarchive/Products/Applications/WhichFood.app/WhichFood'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "UZH69S3QN2.com.metehangurgentepe.WhichFood";
+    "aps-environment" = production;
+    "com.apple.developer.team-identifier" = UZH69S3QN2;
+    "get-task-allow" = 0;
+}
+2023-12-01 22:19:08 +0000  Writing entitlements for <IDEDistributionItem: 0x6000562b15c0; bundleID='com.metehangurgentepe.WhichFood', path='<DVTFilePath:0x600012ee5340:'/Users/metehangurgentepe/Library/Developer/Xcode/Archives/2023-12-02/WhichFood 2.12.2023, 01.18.xcarchive/Products/Applications/WhichFood.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60009a4ba120; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60000f260180; name='Apple Development: Metehan Gurgentepe (378T7PW2WN)', hash='18C009E85BF7B6DA47001EE524EDC5AC8F82EB31', serialNumber='233E6CBCEAD8F928218E03F3264E6190', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2023-08-14 11:51:30 +0000''>', entitlements='{
+    "application-identifier" = "UZH69S3QN2.com.metehangurgentepe.WhichFood";
+    "aps-environment" = development;
+    "com.apple.developer.team-identifier" = UZH69S3QN2;
+    "get-task-allow" = 1;
+}', teamID='UZH69S3QN2', identifier='com.metehangurgentepe.WhichFood', executablePath='<DVTFilePath:0x600012e7eed0:'/Users/metehangurgentepe/Library/Developer/Xcode/Archives/2023-12-02/WhichFood 2.12.2023, 01.18.xcarchive/Products/Applications/WhichFood.app/WhichFood'>', hardenedRuntime='0'>'> to: /var/folders/4s/5l84r45s1sd32xh4dznwjp3h0000gn/T/XcodeDistPipeline.~~~JdGhQx/entitlements~~~E0Lkln
+2023-12-01 22:19:08 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AE6A7DF42C1A4E56F02E021E84CCA6A8A5513273' '--entitlements' '/var/folders/4s/5l84r45s1sd32xh4dznwjp3h0000gn/T/XcodeDistPipeline.~~~JdGhQx/entitlements~~~E0Lkln' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/4s/5l84r45s1sd32xh4dznwjp3h0000gn/T/XcodeDistPipeline.~~~JdGhQx/Root/Payload/WhichFood.app'
+2023-12-01 22:19:08 +0000  /var/folders/4s/5l84r45s1sd32xh4dznwjp3h0000gn/T/XcodeDistPipeline.~~~JdGhQx/Root/Payload/WhichFood.app: replacing existing signature
+2023-12-01 22:19:08 +0000  /var/folders/4s/5l84r45s1sd32xh4dznwjp3h0000gn/T/XcodeDistPipeline.~~~JdGhQx/Root/Payload/WhichFood.app: signed app bundle with Mach-O thin (arm64) [com.metehangurgentepe.WhichFood]
+2023-12-01 22:19:08 +0000  /usr/bin/codesign exited with 0
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionZipODRItemStep
+2023-12-01 22:19:08 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionCreateIPAStep
+2023-12-01 22:19:08 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/4s/5l84r45s1sd32xh4dznwjp3h0000gn/T/XcodeDistPipeline.~~~JdGhQx/Root' '/var/folders/4s/5l84r45s1sd32xh4dznwjp3h0000gn/T/XcodeDistPipeline.~~~JdGhQx/Packages/WhichFood.ipa'
+2023-12-01 22:19:08 +0000  >>> Copying /var/folders/4s/5l84r45s1sd32xh4dznwjp3h0000gn/T/XcodeDistPipeline.~~~JdGhQx/Root 
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/de.lproj/Localizable.strings ... 
+2023-12-01 22:19:08 +0000  8291 bytes for ./Payload/WhichFood.app/de.lproj/Localizable.strings
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/_CodeSignature/CodeResources ... 
+2023-12-01 22:19:08 +0000  11747 bytes for ./Payload/WhichFood.app/_CodeSignature/CodeResources
+copying file ./Payload/WhichFood.app/Montserrat-VariableFont_wght.ttf ... 
+2023-12-01 22:19:08 +0000  394140 bytes for ./Payload/WhichFood.app/Montserrat-VariableFont_wght.ttf
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/en.lproj/Localizable.strings ... 
+2023-12-01 22:19:08 +0000  6547 bytes for ./Payload/WhichFood.app/en.lproj/Localizable.strings
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/WhichFood ... 
+2023-12-01 22:19:08 +0000  17232368 bytes for ./Payload/WhichFood.app/WhichFood
+copying file ./Payload/WhichFood.app/OpenSans-Italic-VariableFont_wdth,wght.ttf ... 
+2023-12-01 22:19:08 +0000  580356 bytes for ./Payload/WhichFood.app/OpenSans-Italic-VariableFont_wdth,wght.ttf
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/es.lproj/Localizable.strings ... 
+2023-12-01 22:19:08 +0000  8054 bytes for ./Payload/WhichFood.app/es.lproj/Localizable.strings
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/it.lproj/Localizable.strings ... 
+2023-12-01 22:19:08 +0000  7310 bytes for ./Payload/WhichFood.app/it.lproj/Localizable.strings
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/AppIcon60x60@2x.png ... 
+2023-12-01 22:19:08 +0000  16945 bytes for ./Payload/WhichFood.app/AppIcon60x60@2x.png
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/close-with-transparency@2x.png ... 
+2023-12-01 22:19:08 +0000  837 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/close-with-transparency@2x.png
+copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/close-with-transparency.png ... 
+2023-12-01 22:19:08 +0000  379 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/close-with-transparency.png
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/oTF-1C-LZP-view-SM1-hn-m3n.nib ... 
+2023-12-01 22:19:08 +0000  10799 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/oTF-1C-LZP-view-SM1-hn-m3n.nib
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/card-view-vc.nib ... 
+2023-12-01 22:19:08 +0000  1040 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/card-view-vc.nib
+copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/banner-view-vc.nib ... 
+2023-12-01 22:19:08 +0000  1044 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/banner-view-vc.nib
+copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/x01-lq-3r6-view-1pz-BP-O6T.nib ... 
+2023-12-01 22:19:08 +0000  13221 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/x01-lq-3r6-view-1pz-BP-O6T.nib
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/lbb-HM-tHJ-view-vRb-yf-OWE.nib ... 
+2023-12-01 22:19:08 +0000  4842 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/lbb-HM-tHJ-view-vRb-yf-OWE.nib
+copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/modal-view-vc.nib ... 
+2023-12-01 22:19:08 +0000  1042 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/modal-view-vc.nib
+copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/lGH-bl-7Xw-view-ef6-R8-q1S.nib ... 
+2023-12-01 22:19:08 +0000  3628 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/lGH-bl-7Xw-view-ef6-R8-q1S.nib
+copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/image-only-vc.nib ... 
+2023-12-01 22:19:08 +0000  1046 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/image-only-vc.nib
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/Info.plist ... 
+243 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/FIRInAppMessageDisplayStoryboard.storyboardc/Info.plist
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/Info.plist ... 
+2023-12-01 22:19:08 +0000  716 bytes for ./Payload/WhichFood.app/Firebase_FirebaseInAppMessaging_iOS.bundle/Info.plist
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/cs.lproj/Localizable.strings ... 
+2023-12-01 22:19:08 +0000  8405 bytes for ./Payload/WhichFood.app/cs.lproj/Localizable.strings
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/GoogleService-Info.plist ... 
+2023-12-01 22:19:08 +0000  485 bytes for ./Payload/WhichFood.app/GoogleService-Info.plist
+copying file ./Payload/WhichFood.app/Assets.car ... 
+2023-12-01 22:19:08 +0000  6885263 bytes for ./Payload/WhichFood.app/Assets.car
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/tr.lproj/Localizable.strings ... 
+2023-12-01 22:19:08 +0000  8208 bytes for ./Payload/WhichFood.app/tr.lproj/Localizable.strings
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/AppIcon76x76@2x~ipad.png ... 
+2023-12-01 22:19:08 +0000  23332 bytes for ./Payload/WhichFood.app/AppIcon76x76@2x~ipad.png
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/ru.lproj/Localizable.strings ... 
+2023-12-01 22:19:08 +0000  9259 bytes for ./Payload/WhichFood.app/ru.lproj/Localizable.strings
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/RevenueCat_RevenueCat.bundle/PrivacyInfo.xcprivacy ... 
+945 bytes for ./Payload/WhichFood.app/RevenueCat_RevenueCat.bundle/PrivacyInfo.xcprivacy
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/RevenueCat_RevenueCat.bundle/Info.plist ... 
+688 bytes for ./Payload/WhichFood.app/RevenueCat_RevenueCat.bundle/Info.plist
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/fr.lproj/Localizable.strings ... 
+2023-12-01 22:19:08 +0000  8518 bytes for ./Payload/WhichFood.app/fr.lproj/Localizable.strings
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/OpenSans-VariableFont_wdth,wght.ttf ... 
+2023-12-01 22:19:08 +0000  529700 bytes for ./Payload/WhichFood.app/OpenSans-VariableFont_wdth,wght.ttf
+copying file ./Payload/WhichFood.app/embedded.mobileprovision ... 
+2023-12-01 22:19:08 +0000  14604 bytes for ./Payload/WhichFood.app/embedded.mobileprovision
+2023-12-01 22:19:08 +0000  copying file ./Payload/WhichFood.app/Info.plist ... 
+2023-12-01 22:19:08 +0000  1983 bytes for ./Payload/WhichFood.app/Info.plist
+copying file ./Payload/WhichFood.app/PkgInfo ... 
+8 bytes for ./Payload/WhichFood.app/PkgInfo
+2023-12-01 22:19:08 +0000  /usr/bin/ditto exited with 0
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2023-12-01 22:19:08 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2023-12-01 22:19:08 +0000  IDEDistributionItem init <DVTFilePath:0x600012ec7d40:'/var/folders/4s/5l84r45s1sd32xh4dznwjp3h0000gn/T/XcodeDistPipeline.~~~JdGhQx/Root/Payload/WhichFood.app'>
+2023-12-01 22:19:08 +0000  Processing step: IDEDistributionCreateManifestStep

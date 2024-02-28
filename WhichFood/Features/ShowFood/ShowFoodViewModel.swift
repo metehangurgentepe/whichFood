@@ -6,20 +6,36 @@
 //
 
 import Foundation
-import OpenAISwift
+import FirebaseFirestore
+import FirebaseFunctions
 
-protocol ShowFoodViewDelegate: AnyObject {
-    func didFinish()
-    func didFail(error: Error)
+
+struct RecipeResponseModel: Decodable,Equatable {
+    var foodName: String
+    var ingredients : [String]
+    var recipe: [String]
+    var cookTime: String
+    var description: String
+}
+
+enum ShowFoodViewModelOutput: Equatable {
+    case setLoading(Bool)
+    case showRecipe(RecipeResponseModel)
+    case showError(Error)
+    case saveRecipe
+}
+
+protocol ShowFoodViewModelProtocol {
+    var delegate: ShowFoodViewDelegate? { get set }
+    func fetchFoodRecipe(foods: [Ingredient],category: [String])
+    func saveRecipe()
 }
 
 class ShowFoodViewModel {
     var selectedFoods = [Ingredient]()
     
     weak var delegate: ShowFoodViewDelegate?
-    private(set) var isLoading: Bool = false // Add isLoading property
-    
-    //private(set) var recipe : String = ""
+    private(set) var isLoading: Bool = false
     private(set) var ingredients : [String] = []
     private(set) var recipe : [String] = []
     private(set) var cookTime : String = ""
@@ -31,11 +47,12 @@ class ShowFoodViewModel {
         let foodnames = foods.map { $0.name }
         let joinedCategoryStr = category.joined(separator: ", ")
         let joinedStr = foodnames.joined(separator: ", ")
-        print(joinedStr)
-        return "\(joinedStr) malzemeleri ile bir yemek tarifi öneririr misin? \(joinedCategoryStr) yemekler bu özellikleri içersin. \(jsonString) halinde json olarak ver. sadece json ver. önüne arkasına hiç bir şey yazma"
+        let currentLanguage = Bundle.main.preferredLocalizations.first ?? "Base"
+        print(currentLanguage)
+        return "\(currentLanguage) \(LocaleKeys.ShowFood.prompt1.rawValue.locale()) \(joinedStr) \(LocaleKeys.ShowFood.prompt2.rawValue.locale()) \(joinedCategoryStr) \(LocaleKeys.ShowFood.prompt3.rawValue.locale())\(jsonString) \(LocaleKeys.ShowFood.prompt4.rawValue.locale()) "
     }
     
-        let jsonString = """
+    let jsonString = """
         {
           "foodName": "",
           "ingredients": [
@@ -48,65 +65,120 @@ class ShowFoodViewModel {
           "description": ""
         }
         """
-
     
-    func saveRecipe() async throws{
-        isLoading = true
-        try await SavedRecipesManager
-            .shared
-            .saveRecipe(name: foodName, recipe: recipe, ingredients: ingredients, desc: desc, cookTime: cookTime)
-        isLoading = false
+    func saveRecipe(_ recipe: RecipeResponseModel?) {
+        Task { [weak self] in
+            self?.delegate?.handleViewModelOutput(.setLoading(true))
+            if let recipe = recipe {
+                try await SavedRecipesManager
+                    .shared
+                    .saveRecipe(name: recipe.foodName,
+                                recipe: recipe.recipe,
+                                ingredients: recipe.ingredients,
+                                desc: recipe.description,
+                                cookTime: recipe.cookTime)
+                self?.delegate?.handleViewModelOutput(.setLoading(false))
+            } else {
+                let error = NSError()
+                self?.delegate?.handleViewModelOutput(.showError(error))
+            }
+        }
     }
     
+    func increaseUsageApi() async throws{
+        do{
+            try await UserManager.shared.increaseApiUsage()
+        } catch{
+            self.delegate?.handleViewModelOutput(.showError(error))
+        }
+    }
+    
+    func separateJson(json: String) -> Data? {
+        if let startIndex = json.range(of: "{"),
+           let endIndex = json.range(of: "}", options: .backwards) {
+            let jsonSubstring = json[startIndex.upperBound...endIndex.lowerBound]
+            var jsonString = json
+            return jsonString.data(using: .utf8)
+        }
+        return nil
+    }
+
     @MainActor
-    func fetchFoodRecipe(foods: [Ingredient],category: [String]) {
-        isLoading = true // Set isLoading to true when the fetch operation begins
+    func fetchFoodRecipe(foods: [Ingredient], category: [String]) {
         Task { [weak self] in
-            APICaller.shared.getResponse(input: generateString(foods: foods, category: category)) { result in
-                print(category)
+            self?.delegate?.handleViewModelOutput(.setLoading(true))
+            SavedRecipesManager.shared.postData(input: self?.generateString(foods: foods, category: category) ?? "Give recipe") { response, error in
                 do {
-                    switch result {
-                    case .success(let output):
-                        if let data = self?.seperateJson(json: output).data(using: .utf8) {
-                            let responseModel = try JSONDecoder().decode(ResponseModel.self, from: data)
-                            self?.foodName = responseModel.foodName
-                            self?.cookTime = responseModel.cookTime
-                            self?.desc = responseModel.description
-                            self?.ingredients = responseModel.ingredients
-                            self?.recipe = responseModel.recipe
-                            self?.isLoading = false // Set isLoading to false when the fetch operation is complete
-                            self?.delegate?.didFinish()
-                        } else {
-                            self?.desc = "hata"
-                            self?.delegate?.didFinish()
+                    if let error = error {
+                        throw error
+                    }
+                    guard let response = response else {
+                        throw NSError(domain: "YourDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: "Response is nil"])
+                    }
+                    
+                    if let data = self?.separateJson(json: response) {
+                        let responseModel = try JSONDecoder().decode(RecipeResponseModel.self, from: data)
+                        let recipe = RecipeResponseModel(foodName: responseModel.foodName, ingredients: responseModel.ingredients, recipe: responseModel.recipe, cookTime: responseModel.cookTime, description: responseModel.description)
+                        DispatchQueue.main.async{
+                            self?.delegate?.handleViewModelOutput(.showRecipe(recipe))
                         }
-                    case .failure(let error):
-                        self?.isLoading = false // Set isLoading to false in case of an error
-                        self?.delegate?.didFail(error: error)
+                    } else {
+                        let error = NSError(domain: "YourDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: "JSON decoding failed"])
+                        self?.delegate?.handleViewModelOutput(.showError(error))
                     }
                 } catch {
-                    self?.isLoading = false // Set isLoading to false in case of a decoding error
-                    self?.delegate?.didFail(error: error)
+                    DispatchQueue.main.async{
+                        self?.delegate?.handleViewModelOutput(.showError(error))
+                    }
+                }
+                DispatchQueue.main.async{
+                    self?.delegate?.handleViewModelOutput(.setLoading(false))
                 }
             }
         }
     }
     
-    func seperateJson(json:String)-> String {
-        if let startIndex = json.range(of: "{"),
-           let endIndex = json.range(of: "}", options: .backwards) {
-            let jsonSubstring = json[startIndex.upperBound...endIndex.lowerBound]
-            var jsonString = json
-            return jsonString
-        }
-        return json
-    }
+//    func postData(foods: [Ingredient], category: [String]) async {
+//        do {
+//             Task { [weak self] in
+//                self?.delegate?.handleViewModelOutput(.setLoading(true))
+//                do {
+//                   try await SavedRecipesManager.shared.fetchRecipe(message: self?.generateString(foods: foods, category: category) ?? "Give recipe") { response, error in
+//                        if let error = error {
+//                            self?.delegate?.handleViewModelOutput(.showError(error))
+//                        }
+//                        
+//                        if let data = self?.separateJson(json: response?.text ?? "nil") {
+//                            let responseModel = try JSONDecoder().decode(RecipeResponseModel.self, from: data)
+//                            let recipe = RecipeResponseModel(foodName: responseModel.foodName, ingredients: responseModel.ingredients, recipe: responseModel.recipe, cookTime: responseModel.cookTime, description: responseModel.description)
+//                            self?.delegate?.handleViewModelOutput(.showRecipe(recipe))
+//                        } else {
+////                            self?.delegate?.handleViewModelOutput(.showError(error ?? nil))
+//                        }
+//                    }
+//                } catch {
+//                    self?.delegate?.handleViewModelOutput(.showError(error))
+//                }
+//                
+//                self?.delegate?.handleViewModelOutput(.setLoading(false))
+//            }
+//        } catch {
+//            self.delegate?.handleViewModelOutput(.showError(error))
+//        }
+//    }
+
 }
 
-struct ResponseModel: Decodable {
-    var foodName: String
-    var ingredients : [String]
-    var recipe: [String]
-    var cookTime: String
-    var description: String
+
+extension ShowFoodViewModelOutput {
+    static func == (lhs: ShowFoodViewModelOutput, rhs: ShowFoodViewModelOutput) -> Bool {
+        switch (lhs, rhs) {
+        case (.setLoading(let a), .setLoading(let b)):
+            return a == b
+        case (.showRecipe(let a), .showRecipe(let b)):
+            return a == b
+        default:
+            return false
+        }
+    }
 }
