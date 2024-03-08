@@ -7,23 +7,23 @@
 
 import UIKit
 
-class CustomCell: UITableViewCell {
+class SelectFoodCell: UITableViewCell {
     let foodName = UILabel()
     var checkboxImageView = UIImageView()
+    var isSelectedCell: Bool?
     
     func configure(with ingredient: Ingredient) {
         foodName.text = ingredient.name
         if ingredient.isSelected {
-            checkboxImageView.image = UIImage(named: "checkmark.square.fill")
+            checkboxImageView.image = Images.selectedCheck
         } else {
-            checkboxImageView.image = UIImage(named: "rectangle")
+            checkboxImageView.image = Images.unselectedCheck
         }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(foodName)
-        addSubview(checkboxImageView)
         addSubview(checkboxImageView)
         
         foodName.translatesAutoresizingMaskIntoConstraints = false

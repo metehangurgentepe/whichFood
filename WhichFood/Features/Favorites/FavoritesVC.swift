@@ -1,13 +1,13 @@
 //
-//  NewSettingsVC.swift
+//  FavoritesVC.swift
 //  WhichFood
 //
-//  Created by Metehan Gürgentepe on 1.03.2024.
+//  Created by Metehan Gürgentepe on 6.03.2024.
 //
 
 import UIKit
 
-class NewSettingsVC: UIViewController {
+class FavoritesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
