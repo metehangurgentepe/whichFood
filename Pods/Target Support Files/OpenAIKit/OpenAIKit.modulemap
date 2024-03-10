@@ -1,6 +1,0 @@
-framework module OpenAIKit {
-  umbrella header "OpenAIKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

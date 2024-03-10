@@ -1,0 +1,172 @@
+/*
+  Localizable.strings
+  WhichFood
+
+  Created by Metehan Gürgentepe on 12.09.2023.
+  
+*/
+
+
+"tabHome" = "Title bu";
+
+
+//Premium
+"premiumWeekButton" = "Haftalık Premium";
+"lifetimeButton" = "Yıllık Premium";
+"continueButton" = "Devam";
+
+
+
+// onboarding
+"feature_1" = "Evinizde olan malzemeleri seçin uygulama sizin için ne yemek yapabileceğini göstersin.";
+"feature_2" = "Size uygun yemek kategorilerini seçin, en lezzetli yemekleri siz yiyin.";
+"feature_3" = "Beğendiğiniz yemek tariflerini kaydedin istediğiniz zaman yapın.";
+"feature_1_title" = "Uygun malzemeler";
+"feature_2_title" = "Bol kategori";
+"feature_3_title" = "Tarifleri kaydedin";
+"footer" ="Metehan Gürgentepe tarafından tasarlanıp kodlanmıştır";
+"more" = "daha fazlasını gör...";
+"feature_button" = "Devam";
+"feature_welcome" = "Hoşgeldiniz";
+
+
+// detail recipe
+
+"detail_ingredients" = "Malzemeler";
+"detail_recipe" = "Yapılışı";
+"detail_success" = "Başarıyla Kaydedildi";
+"detail_save" = "Tarifi Kaydet";
+"detail_success_title" = "Başarılı";
+"detail_ok_button" = "Tamam";
+"detail_error_title" = "Hata";
+"detail_error_message" = "Tarif kaydedilemedi";
+"detail_try_again" = "Tekrar deneyin";
+"detail_error_occured" = "Hata oluştu";
+
+
+// food categories
+"category_healthy" = "Sağlıklı";
+"category_easy" = "Kolay";
+"category_mid" = "Orta";
+"category_hard" = "Zor";
+"category_enjoy" = "Keyifli";
+"category_hearty" = "Doyurucu";
+"category_vegan" = "Vegan ";
+"category_vegetarian" = "Vejeteryan";
+"category_breakfast" = "Kahvaltı";
+"category_lunch" = "Öğlen";
+"category_dinner" = "Akşam";
+"category_dessert" = "Tatlı";
+
+
+// ingredients
+"ingredients_bread" = "Ekmek";
+"ingredients_garlic" = "Sarımsak";
+"ingredients_parsley" = "Maydanoz";
+"ingredients_tomato" = "Domates";
+"ingredients_carrot" = "Havuç";
+"ingredients_potato" = "Patates";
+"ingredients_dill" = "Maydanoz";
+"ingredients_spring_onion" = "Taze Soğan";
+"ingredients_pepper" = "Biber";
+"ingredients_zucchini" = "Kabak";
+"ingredients_eggplant" = "Patlıcan";
+"ingredients_rice" = "Pirinç";
+"ingredients_mushroom" = "Mantar";
+"ingredients_fresh_basil" = "Fesleğen";
+"ingredients_lettuce" = "Marul";
+"ingredients_peas" = "Bezelye";
+"ingredients_butter" = "Tereyağı";
+"ingredients_spinach" = "Ispanak";
+"ingredients_fresh_mint" = "Taze Nane";
+"ingredients_celery" = "Kereviz";
+"ingredients_thyme" = "Taze Kekik";
+"ingredients_egg" = "Yumurta";
+"ingredients_ground_beef" = "Kıyma";
+"ingredients_chicken" = "Tavuk Eti";
+"ingredients_diced_beef" = "Kuşbaşı Et";
+"ingredients_fish" = "Balık";
+"ingredients_lamb" = "Kuzu Eti";
+"ingredients_turkey" = "Hindi Eti";
+"ingredients_beef" = "Dana Eti";
+"ingredients_sausage" = "Sosis";
+"ingredients_hotDog" = "Sosis";
+"ingredients_calamari" = "Kalamar";
+"ingredients_pastrami" = "Pastırma";
+"ingredients_bonito" = "Palamut";
+"ingredients_chickenNuggets" = "Tavuk Baget";
+"ingredients_cheese" = "Peynir";
+"ingredients_yogurt" = "Yoğurt";
+"ingredients_milk" = "Süt";
+"ingredients_cream" = "Krema";
+"ingredients_ricotta" = "Ricotta";
+"ingredients_lemon" = "Limon";
+"ingredients_avocado" = "Avokado";
+"ingredients_grape" = "Üzüm";
+"ingredients_fig" = "İncir";
+"ingredients_orange" = "Portakal";
+"ingredients_blackOlive" = "Siyah Zeytin";
+"ingredients_greenApple" = "Yeşil Elma";
+"ingredients_strawberry" = "Çilek";
+"ingredients_raspberry" = "Frambuaz";
+"ingredients_blackberry" = "Böğürtlen";
+"ingredients_mulberry" = "Karadut";
+"ingredients_kiwi" = "Kivi";
+"ingredients_apple" = "Elma";
+"ingredients_pomegranate" = "Nar";
+"ingredients_quince" = "Ayva";
+"ingredients_walnut" = "Ceviz";
+"ingredients_pineNuts" = "Dolmalık Fıstık (Çam)";
+"ingredients_pistachio" = "Antep Fıstığı";
+"ingredients_sunDriedTomato" = "Kurutulmuş Domates";
+"ingredients_coconut" = "Hindistancevizi";
+"ingredients_almond" = "Badem";
+"ingredients_hazelnut" = "Fındık";
+"ingredients_driedApricot" = "Kuru Kayısı";
+
+
+// home
+"home_recipe" = "Tarifler";
+"home_create_button" = "Tarif oluştur";
+"home_no_item" = "Kayıtlı tarif bulunmuyor";
+
+//select category
+"next_button" = "İleri";
+
+
+// select food
+"apply_button" = "Tarif oluştur";
+
+// premium
+"premium_1_title" = "Sınırsız tarif ekle";
+"premium_1" = "Ekleme sınırı olmadan tariflerini ekle ve takip et";
+"premium_2_title" = "Ne yemek yapacağım diye düşünme";
+"premium_2" = "Yemeklerle kafanı doldurma";
+"premium_3_title" = "İstediğin bu";
+"premium_3" = "İstediğin türde, istediğin malzemelerle yemek yap";
+
+
+// settings
+"settings_title" = "Ayarlar";
+"settings_user" = "Kullanıcı ID:";
+"settings_premium" = "Premium";
+"settings_language" = "Dil";
+"settings_dark_mode" = "Karanlık Modu";
+"settings_write_me" = "Bana yaz";
+"settings_about_app" = "WhichFood hakkında";
+"settings_hello" = "Merhaba";
+"settings_mail_title_error" = "E-posta gönderme desteklenmiyor";
+"settings_mail_message_error" = "E-posta göndermek için bir e-posta hesabınızın yapılandırılması gerekiyor";
+"settings_ok_button" = "Tamam";
+"settings_select_theme" = "Uygun Temayı Seçiniz";
+"settings_light_mode" = "Aydınlık Mod";
+"settings_dark_mode_button" = "Karanlık Mod";
+
+
+
+
+// error alert
+"error_alert" = "Hata";
+"error_occured" = "Hata oluştu";
+"error_ok_button" = "Tamam";
+"error_back_button" = "Geri";

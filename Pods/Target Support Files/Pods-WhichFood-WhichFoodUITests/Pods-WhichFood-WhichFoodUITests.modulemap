@@ -1,6 +1,0 @@
-framework module Pods_WhichFood_WhichFoodUITests {
-  umbrella header "Pods-WhichFood-WhichFoodUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

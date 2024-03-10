@@ -1,0 +1,189 @@
+/*
+  Localizable.strings
+  WhichFood
+
+  Created by Metehan Gürgentepe on September 12, 2023.
+  
+*/
+
+"tabHome" = "عنوان اینجا";
+
+//Premium
+"premiumWeekButton" = "پریمیوم هفتگی";
+"lifetimeButton" = "پریمیوم سالانه";
+"continueButton" = "ادامه";
+
+// onboarding
+"feature_1" = "مواد اولیه موجود در خانه خود را انتخاب کنید و به اپلیکیشن اجازه دهید به شما نشان دهد چه غذاهایی می‌توانید بپزید.";
+"feature_2" = "دسته‌های غذایی را که با سلیقه شما هماهنگ هستند، انتخاب کنید و از لذت پختن بهترین غذاها لذت ببرید.";
+"feature_3" = "دستورات دلخواه خود را ذخیره کنید و هر زمان که دوست دارید بپزید.";
+"feature_1_title" = "مواد اولیه در دسترس";
+"feature_2_title" = "دسته‌های فراوان";
+"feature_3_title" = "ذخیره دستورات پخت";
+"footer" = "طراحی و کدنویسی توسط Metehan Gürgentepe";
+"more" = "بیشتر ببینید...";
+"feature_button" = "ادامه";
+"feature_welcome" = "خوش آمدید";
+
+// detail recipe
+"detail_ingredients" = "مواد اولیه";
+"detail_recipe" = "دستورات";
+"detail_success" = "با موفقیت ذخیره شد";
+"detail_save" = "ذخیره دستور پخت";
+"detail_success_title" = "موفقیت";
+"detail_ok_button" = "تایید";
+"detail_error_title" = "خطا";
+"detail_error_message" = "دستور پخت ذخیره نشد";
+"detail_try_again" = "دوباره امتحان کنید";
+"detail_error_occurred" = "خطایی رخ داده است";
+
+// food categories
+"category_healthy" = "سالم";
+"category_easy" = "آسان";
+"category_mid" = "متوسط";
+"category_hard" = "سخت";
+"category_enjoy" = "لذت بخش";
+"category_hearty" = "خوشمزه";
+"category_vegan" = "گیاه‌خوار";
+"category_vegetarian" = "گیاه‌خوار";
+"category_breakfast" = "صبحانه";
+"category_lunch" = "ناهار";
+"category_dinner" = "شام";
+"category_dessert" = "دسر";
+
+// ingredients
+"ingredients_bread" = "نان";
+"ingredients_garlic" = "سیر";
+"ingredients_parsley" = "جعفری";
+"ingredients_tomato" = "گوجه‌فرنگی";
+"ingredients_carrot" = "هویج";
+"ingredients_potato" = "سیب‌زمینی";
+"ingredients_dill" = "شوید";
+"ingredients_spring_onion" = "پیازچه";
+"ingredients_pepper" = "فلفل";
+"ingredients_zucchini" = "کدو";
+"ingredients_eggplant" = "بادمجان";
+"ingredients_rice" = "برنج";
+"ingredients_mushroom" = "قارچ";
+"ingredients_fresh_basil" = "رزماری تازه";
+"ingredients_lettuce" = "کاهو";
+"ingredients_peas" = "نخود";
+"ingredients_butter" = "کره";
+"ingredients_spinach" = "اسفناج";
+"ingredients_fresh_mint" = "نعناع تازه";
+"ingredients_celery" = "کرفس";
+"ingredients_thyme" = "آویشن";
+"ingredients_egg" = "تخم‌مرغ";
+"ingredients_ground_beef" = "گوشت چرخ‌کرده";
+"ingredients_chicken" = "مرغ";
+"ingredients_diced_beef" = "گوشت خرد شده";
+"ingredients_fish" = "ماهی";
+"ingredients_lamb" = "گوسفند";
+"ingredients_turkey" = "بوقلمون";
+"ingredients_beef" = "گوشت گاو";
+"ingredients_sausage" = "سوسیس";
+"ingredients_hotDog" = "هات‌داگ";
+"ingredients_calamari" = "کلماری";
+"ingredients_pastrami" = "پاسترما";
+"ingredients_bonito" = "بونیتو";
+"ingredients_chickenNuggets" = "ناگت مرغ";
+"ingredients_cheese" = "پنیر";
+"ingredients_yogurt" = "ماست";
+"ingredients_milk" = "شیر";
+"ingredients_cream" = "خامه";
+"ingredients_ricotta" = "ریکوتا";
+"ingredients_lemon" = "لیمو";
+"ingredients_avocado" = "آووکادو";
+"ingredients_grape" = "انگور";
+"ingredients_fig" = "انجیر";
+"ingredients_orange" = "پرتقال";
+"ingredients_blackOlive" = "زیتون سیاه";
+"ingredients_greenApple" = "سیب سبز";
+"ingredients_strawberry" = "توت فرنگی";
+"ingredients_raspberry" = "تمشک";
+"ingredients_blackberry" = "توت سیاه";
+"ingredients_mulberry" = "توت";
+"ingredients_kiwi" = "کیوی";
+"ingredients_apple" = "سیب";
+"ingredients_pomegranate" = "انار";
+"ingredients_quince" = "به";
+"ingredients_walnut" = "گردو";
+"ingredients_pineNuts" = "انگشت‌پیچ";
+"ingredients_pistachio" = "پسته";
+"ingredients_sunDriedTomato" = "گوجه‌فرنگی خشک‌شده";
+"ingredients_coconut" = "نارگیل";
+"ingredients_almond" = "بادام";
+"ingredients_hazelnut" = "فندق";
+"ingredients_driedApricot" = "میوه خشک زردآلو";
+
+// home
+"home_recipe" = "دستورات پخت";
+"home_create_button" = "ایجاد دستور پخت";
+"home_no_item" = "هیچ دستور پخت ذخیره‌شده‌ای نیست";
+
+//select category
+"next_button" = "بعدی";
+"select_label" = "نوع غذا را انتخاب کنید";
+"choose_label" = "یک یا چند مورد انتخاب کنید";
+
+// select food
+"apply_button" = "ایجاد دستور پخت";
+"search_food" = "جستجوی مواد اولیه";
+
+// premium
+"premium_1_title" = "افزودن دستور پخت بی‌نهایت";
+"premium_1" = "افزودن و دنبال کردن دستورات پخت بدون هیچ محدودیتی.";
+"premium_2_title" = "نگران نباشید چه غذایی بپزید";
+"premium_2" = "نگران نباشید چه غذایی بپزید.";
+"premium_3_title" = "این بستگی به شما دارد";
+"premium_3" = "هر چه خواستید با موادی که دوست دارید غذا بپزید.";
+"premium_subscribed" = "شما مشترک هستید";
+"premium_subheadline" = "تبریک می‌گویم، شما با موفقیت دسترسی پریمیوم به تمام ویژگی‌های اپلیکیشن را فعال کرده‌اید، از آن لذت ببرید!";
+"premium_expiration" = "تاریخ انقضا: ";
+"premium_restore" = "آیا می‌خواهید خریدها را بازیابی کنید؟";
+
+// settings
+"settings_title" = "تنظیمات";
+"settings_user" = "شناسه کاربر:";
+"settings_premium" = "پریمیوم";
+"settings_language" = "زبان";
+"settings_dark_mode" = "حالت تاریک";
+"settings_write_me" = "به من بنویسید";
+"settings_about_app" = "درباره WhichFood";
+"settings_hello" = "سلام";
+"settings_mail_title_error" = "ارسال ایمیل پشتیبانی نمی‌شود";
+"settings_mail_message_error" = "برای ارسال ایمیل، باید یک حساب ایمیل پیکربندی کنید.";
+"settings_ok_button" = "تایید";
+"settings_select_theme" = "انتخاب تم";
+"settings_light_mode" = "حالت روشن";
+"settings_dark_mode_button" = "حالت تاریک";
+"settings_error_title" = "تغییر تنظیمات زبان";
+"settings_error_message" = "اگر می‌خواهید از اپلیکیشن به زبان دیگری استفاده کنید، می‌توانید آن را از گزینه زبان در صفحه بعد تغییر دهید.";
+"settings_close" = "بستن";
+"settings_continue" = "ادامه";
+
+//show food
+"show_food_prompt1" = "آیا می‌توانید یک دستور پخت با مواد اولیه زیر پیشنهاد دهید:";
+"show_food_prompt2" = "آیا می‌توانید یک دستور پخت با این مواد اولیه پیشنهاد دهید؟ ";
+"show_food_prompt3" = "غذاها با این ویژگی‌ها. هیچ چیزی جلوی آن ننویسید.";
+"show_food_prompt4" = "اطلاعات را به فرمت JSON ارائه دهید، به عنوان ساده JSON بدون افزودن هیچ چیزی قبل یا بعد از آن، فرمت JSON به صورت زیر است: ";
+
+// account
+"account_date" = "هیچ";
+"account_premium" = "هیچ";
+"account_id" = "هیچ";
+"account_user_id" = "شناسه کاربر";
+"account_premium_name" = "پریمیوم";
+"account_last_date" = "تاریخ انقضا";
+"account_copy" = "کپی";
+"account_title" = "حساب";
+"account_usage_api" = "تعداد دستور پخت ایجاد شده";
+
+// error alert
+"error_alert" = "خطا";
+"error_occurred" = "خطایی رخ داده است";
+"error_ok_button" = "تایید";
+"error_back_button" = "بازگشت";
+"error_api_usage" = "شما به محدودیت استفاده از API رسیده‌اید";
+
+//image to text

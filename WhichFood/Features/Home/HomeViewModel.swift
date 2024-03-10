@@ -6,51 +6,69 @@
 //
 
 import Foundation
+import FirebaseStorage
+import UIKit
 
-protocol HomeViewModelDelegate: AnyObject{
-    func didFinish()
-    func didFail(error: Error)
-    func isLoading()
-   // var isLoading: Bool { get set }
+
+enum RecipeListViewModelOutput: Equatable {
+    case setLoading(Bool)
+    case showRecipeList([Recipe])
+    case showError(Error)
+    case emptyList
 }
 
-class HomeViewModel{
+protocol HomeViewModelProtocol {
+    var delegate: HomeViewModelDelegate? {get set}
+    func getRecipes()
+    func delete(id: String,index: Int)
+    func selectRecipe(at index: Int)
+}
+
+class HomeViewModel: HomeViewModelProtocol{
     weak var delegate: HomeViewModelDelegate?
-    
     private(set) var recipes : [Recipe] = []
-    
+    private(set) var isEmptyRecipe: Bool = true
     
     @MainActor
     func getRecipes() {
+        delegate?.handleViewModelOutput(.setLoading(true))
+        
         Task{ [weak self] in
-       //     self?.delegate?.isLoading = true
-            self?.delegate?.isLoading()
             do {
                 self?.recipes = try await SavedRecipesManager.shared.getAllRecipes()
-                self?.delegate?.didFinish()
-               // self?.delegate?.isLoading = false
+                if let recipes = self?.recipes, !recipes.isEmpty{
+                    self?.delegate?.handleViewModelOutput(.showRecipeList(recipes))
+                    self?.delegate?.handleViewModelOutput(.setLoading(false))
+                } else {
+                    self?.delegate?.handleViewModelOutput(.emptyList)
+                    self?.delegate?.handleViewModelOutput(.setLoading(false))
+                }
             } catch{
-                self?.delegate?.didFail(error: error)
-              //  self?.delegate?.isLoading = false
+                self?.delegate?.handleViewModelOutput(.showError(error))
+                self?.delegate?.handleViewModelOutput(.setLoading(false))
             }
         }
     }
     
     func delete(id: String,index: Int) {
         SavedRecipesManager.shared.deleteRecipe(id: id)
-        recipes.remove(at: index)
+        self.delegate?.delete(index: index)
     }
     
-    func formatDate(_ dateString: String) -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-        
-        if let date = dateFormatter.date(from: dateString) {
-            dateFormatter.dateFormat = "dd MMMM yyyy"
-            dateFormatter.locale = Locale(identifier: "tr_TR") // Türkçe formatı
-            return dateFormatter.string(from: date)
-        } else {
-            return nil // Tarih çözümlenemezse nil döndürün.
+    func selectRecipe(at index: Int) {
+        delegate?.navigate(to: .details(index))
+    }
+}
+
+extension RecipeListViewModelOutput {
+    static func == (lhs: RecipeListViewModelOutput, rhs: RecipeListViewModelOutput) -> Bool {
+        switch (lhs, rhs) {
+        case (.setLoading(let a), .setLoading(let b)):
+            return a == b
+        case (.showRecipeList(let a), .showRecipeList(let b)):
+            return a == b
+        default:
+            return false
         }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct Recipe: Codable{
+struct Recipe: Codable, Equatable{
     var id: String
     var name: String
     var recipe: [String]
