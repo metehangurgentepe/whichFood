@@ -19,7 +19,7 @@ enum NavigationType {
     case present(UIViewController)
 }
 
-class HomeViewController: DataLoadingVC {
+class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
     
     enum Section {
         case main
@@ -94,8 +94,19 @@ class HomeViewController: DataLoadingVC {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecipeCell.identifier, for: indexPath) as! HomeRecipeCell
             let recipe = self.recipes[indexPath.row]
             cell.configure(recipe: recipe)
+            cell.delegate = self
             return cell
         })
+    }
+    
+    
+    func deleteRecipe(recipe: Recipe) {
+        viewModel.deleteRecipe(recipe: recipe)
+    }
+    
+    
+    func showError(error: Error) {
+        self.delegate.delegate?.handleViewModelOutput(.showError(error as! WFError))
     }
     
     
@@ -290,6 +301,23 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         default:
             break
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
+            return self.makeContextMenu(for: indexPaths.first!)
+        }
+    }
+    
+    
+    func makeContextMenu(for indexPath: IndexPath) -> UIMenu {
+        let deleteAction = UIAction(title: "Delete", image: SFSymbols.deleteIcon) { _ in
+            self.viewModel.deleteRecipe(recipe: self.recipes[indexPath.row])
+            self.updatedData(on: self.recipes)
+        }
+        
+        let contextMenu = UIMenu(title: "", children: [deleteAction])
+        return contextMenu
     }
 }
 

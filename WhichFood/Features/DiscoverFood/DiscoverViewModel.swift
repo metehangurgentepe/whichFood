@@ -129,9 +129,8 @@ class DiscoverFoodViewModel {
                                         type: recipe.type ?? "",
                                         imageURL: downloadURL.absoluteString
                             )
-                        self.delegate?.handleViewModelOutput(.setLoading(false))
-                        
                     }
+                    self.delegate?.handleViewModelOutput(.setLoading(false))
                     self.delegate?.handleViewModelOutput(.successSave)
                 } catch {
                     self.delegate?.handleViewModelOutput(.showError(error))

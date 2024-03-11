@@ -9,6 +9,19 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+    var topmostViewController: UIViewController {
+        if let presented = self.presentedViewController {
+            return presented.topmostViewController
+        }
+        if let navigation = self as? UINavigationController {
+            return navigation.visibleViewController?.topmostViewController ?? navigation
+        }
+        if let tab = self as? UITabBarController {
+            return tab.selectedViewController?.topmostViewController ?? tab
+        }
+        return self
+    }
+    
     func topMostViewController() -> UIViewController {
         if let presentedViewController = presentedViewController {
             return presentedViewController.topMostViewController()

@@ -286,6 +286,8 @@ struct LocaleKeys {
         case dessert = "home_dessert"
         case favorites = "home_favorites"
         case search  = "home_search"
+        case deleteRecipe = "home_delete_recipe"
+        case sureDelete = "home_sure_deleted"
     }
     enum SelectCategory: String{
         case nextButton = "next_button"

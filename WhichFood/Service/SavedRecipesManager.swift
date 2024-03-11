@@ -54,8 +54,9 @@ class SavedRecipesManager{
     }
     
     
-    func deleteRecipe(id:String) {
-        recipesCollection.document(id).delete()
+    func deleteRecipeByUserID(id:String) {
+        let field = ["userId": ""]
+        recipesCollection.document(id).updateData(field)
     }
     
     

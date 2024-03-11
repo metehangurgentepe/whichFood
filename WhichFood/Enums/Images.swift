@@ -50,4 +50,5 @@ enum SFSymbols {
     static let saveButton = UIImage(systemName: "externaldrive.badge.plus")
     static let copy = UIImage(systemName: "doc.on.doc")
     static let wandAndStars = UIImage(systemName: "wand.and.stars")
+    static let deleteIcon = UIImage(systemName: "trash.fill")
 }

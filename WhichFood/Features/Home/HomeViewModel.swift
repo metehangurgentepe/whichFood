@@ -21,6 +21,7 @@ protocol HomeViewModelProtocol {
     var delegate: HomeViewModelDelegate? {get set}
     func getRecipes()
     func selectRecipe(at index: Int)
+    func deleteRecipe(recipe: Recipe)
 }
 
 class HomeViewModel: HomeViewModelProtocol{
@@ -47,6 +48,13 @@ class HomeViewModel: HomeViewModelProtocol{
                 self.delegate?.handleViewModelOutput(.showError(error as! WFError))
                 self.delegate?.handleViewModelOutput(.setLoading(false))
             }
+        }
+    }
+    
+    func deleteRecipe(recipe: Recipe) {
+        SavedRecipesManager.shared.deleteRecipeByUserID(id: recipe.id)
+        Task{
+            await self.getRecipes()
         }
     }
     
