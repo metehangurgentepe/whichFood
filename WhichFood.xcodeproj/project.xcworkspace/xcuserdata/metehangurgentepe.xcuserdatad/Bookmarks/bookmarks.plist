@@ -12,13 +12,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>87</string>
+					<string>189</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>86</string>
+					<string>188</string>
 					<key>Timestamp</key>
-					<string>730737159.015476</string>
+					<string>730918661.9286619</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -27,23 +27,117 @@
 					<key>payload</key>
 					<dict>
 						<key>relative-path</key>
-						<string>WhichFood/Features/Settings/SettingsViewModel.swift</string>
+						<string>WhichFood/Features/SelectFood/SelectFoodViewController.swift</string>
 					</dict>
 				</dict>
 			</dict>
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>    }
+				<string>    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 </string>
 				<key>leading</key>
-				<string>            self.delegate?.handleViewModelOutput(.sendMail)
-        }))
+				<string>    
+    
 </string>
 				<key>trailing</key>
-				<string>    
-    func sendMail() {
-        if MFMailComposeViewController.canSendMail() {
+				<string>        if viewModel.inSearchMode(searchField) {
+            var food = viewModel.filteredFoods[indexPath.row]
+            viewModel.filteredFoods[indexPath.row].isSelected.toggle()
+</string>
+			</dict>
+			<key>title</key>
+			<string>fonksiyonu düzenle</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>232</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>231</string>
+					<key>Timestamp</key>
+					<string>730918661.928618</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WhichFood/Features/SelectFood/SelectFoodViewController.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>            let vc = ShowFoodVC()
+</string>
+				<key>leading</key>
+				<string>    func navigate() {
+        DispatchQueue.main.async{
+</string>
+				<key>trailing</key>
+				<string>            let vm = ShowFoodViewModel()
+            vc.selectedFoods = self.viewModel.selectedFoods
+            vc.selectedCategory = self.categories
+</string>
+			</dict>
+			<key>title</key>
+			<string>buna bir init tanımlayabilirsin</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>190</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>189</string>
+					<key>Timestamp</key>
+					<string>731578333.920593</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WhichFood/Features/Settings/SettingsView.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                        Image("Eventier")
+</string>
+				<key>leading</key>
+				<string>                Section(header: Text(LocaleKeys.Settings.otherApps.rawValue.locale())) {
+                    HStack{
+</string>
+				<key>trailing</key>
+				<string>                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
 </string>
 			</dict>
 			<key>type</key>
@@ -57,13 +151,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>131</string>
+					<string>106</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>130</string>
+					<string>105</string>
 					<key>Timestamp</key>
-					<string>723743503.131741</string>
+					<string>731848711.365183</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -72,27 +166,226 @@
 					<key>payload</key>
 					<dict>
 						<key>relative-path</key>
-						<string>WhichFood/Features/ImageToText/ImageToTextViewModel.swift</string>
+						<string>WhichFood/Features/DiscoverFood/DiscoverViewModel.swift</string>
 					</dict>
 				</dict>
 			</dict>
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>        }
+				<string>    func saveRecipe(_ recipe: RecipeResponseModel?) {
 </string>
 				<key>leading</key>
-				<string>                }
-            }
+				<string>    
+    
 </string>
 				<key>trailing</key>
-				<string>    }
+				<string>        Task { [weak self] in
+            guard let self = self else { return }
+            self.delegate?.handleViewModelOutput(.setLoading(true))
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>148</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>147</string>
+					<key>Timestamp</key>
+					<string>731848680.523168</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WhichFood/Features/ShowFood/ShowFoodVC.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>        let home = HomeViewController()
+</string>
+				<key>leading</key>
+				<string>    
+    private func backButton() {
+</string>
+				<key>trailing</key>
+				<string>        self.navigationController?.popToViewController(home, animated: true)
+    }
     
-    func saveRecipe(recipe: RecipeResponseModel?) async{
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>44</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>43</string>
+					<key>Timestamp</key>
+					<string>731454702.4432859</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WhichFood/Features/Search/SearchViewController.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>        searchController.searchBar.placeholder = LocaleKeys.Home.search.rawValue.locale()
+</string>
+				<key>leading</key>
+				<string>        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+</string>
+				<key>trailing</key>
+				<string>        navigationItem.searchController = searchController
+    }
+    
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>75</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>74</string>
+					<key>Timestamp</key>
+					<string>731542776.89511</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WhichFood/Service/SavedRecipesManager.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>    func getRecipes() async throws -&gt; [Recipe] {
+</string>
+				<key>leading</key>
+				<string>    
+    
+</string>
+				<key>trailing</key>
+				<string>        do {
+            let array = try await recipesCollection
+                .limit(to: 20)
 </string>
 			</dict>
 			<key>title</key>
-			<string>Burada bir hata var çözmek lazım.</string>
+			<string>currentLanguage ile aynı olanları çekicez</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WhichFood/Utils/Locale/Languages/tr.lproj/Localizable.strings</string>
+					</dict>
+				</dict>
+				<key>type</key>
+				<string>DVTDocumentLocation</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>54</string>
+					<key>StartingColumnNumber</key>
+					<string>77</string>
+					<key>StartingLineNumber</key>
+					<string>53</string>
+					<key>Timestamp</key>
+					<string>731577670.254877</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WhichFood/Features/Search/SearchCell.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>
+</string>
+				<key>leading</key>
+				<string>        let padding: CGFloat = 20
+        let minimumItemSpacing: CGFloat = 10
+        let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)</string>
+				<key>trailing</key>
+				<string>        let itemWidth =  availableWidth / 3
+        
+        addSubview(imageView)
+</string>
+			</dict>
 			<key>type</key>
 			<string>bookmark</string>
 		</dict>

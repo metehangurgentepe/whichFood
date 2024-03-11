@@ -122,12 +122,92 @@
 "ingredients_almond" = "لوز";
 "ingredients_hazelnut" = "بندق";
 "ingredients_driedApricot" = "مشمش مجفف";
+"ingredients_shrimp" = "جمبري";
+"ingredients_salmon" = "سلمون";
+"ingredients_clams" = "صدف";
+"ingredients_scallops" = "حليب البحر";
+"ingredients_lobster" = "جمبري كبير";
+"ingredients_crab" = "سلطعون";
+"ingredients_prawns" = "جمبري";
+"ingredients_caviar" = "كافيار";
+"ingredients_oysters" = "محار";
+"ingredients_mussels" = "محار";
+"ingredients_anchovies" = "أنشوفة";
+"ingredients_sardines" = "سردين";
+"ingredients_haddock" = "حدوق";
+"ingredients_cod" = "سمك السلمون";
+"ingredients_tuna" = "تونة";
+"ingredients_trout" = "سمك القز";
+"ingredients_duck" = "بط";
+"ingredients_veal" = "لحم العجل";
+"ingredients_rabbit" = "أرنب";
+"ingredients_quail" = "سمان";
+"ingredients_pork" = "لحم الخنزير";
+"ingredients_bacon" = "لحم الخنزير المدخن";
+"ingredients_ham" = "لحم خنزير مدخن";
+"ingredients_cabbage" = "ملفوف";
+"ingredients_broccoli" = "بروكلي";
+"ingredients_cauliflower" = "زهرة القرنبيط";
+"ingredients_asparagus" = "أسبراغوس";
+"ingredients_artichoke" = "خرشوف";
+"ingredients_kale" = "ملفوف";
+"ingredients_brussels_sprouts" = "بروكسل البراعم";
+"ingredients_cucumber" = "خيار";
+"ingredients_radish" = "فجل";
+"ingredients_sweet_potato" = "بطاطا حلوة";
+"ingredients_beetroot" = "لبنة";
+"ingredients_pumpkin" = "يقطين";
+"ingredients_turnip" = "لفت";
+"ingredients_okra" = "بامية";
+"ingredients_parsnip" = "لفت مقدس";
+"ingredients_leek" = "كرفس";
+"ingredients_blueberry" = "توت أزرق";
+"ingredients_cranberry" = "توت عرعر";
+"ingredients_watermelon" = "بطيخ";
+"ingredients_papaya" = "بابايا";
+"ingredients_pineapple" = "أناناس";
+"ingredients_mango" = "مانجو";
+"ingredients_passion_fruit" = "فاكهة العاطفة";
+"ingredients_date" = "تمر";
+"ingredients_dragon_fruit" = "فاكهة التنين";
+"ingredients_persimmon" = "كاكي";
+"ingredients_star_fruit" = "فاكهة النجمة";
+"ingredients_black_currant" = "الكشمش الأسود";
+"ingredients_rosemary" = "إكليل الجبل";
+"ingredients_sage" = "المريمية";
+"ingredients_mint" = "نعناع";
+"ingredients_cilantro" = "الكزبرة";
+"ingredients_bay_leaf" = "ورق الغار";
+"ingredients_oregano" = "الزعتر";
+"ingredients_tarragon" = "الطرخون";
+"ingredients_chives" = "الثوم الأخضر";
+"ingredients_lemongrass" = "عشب الليمون";
+"ingredients_marjoram" = "المردقوش";
+"ingredients_coriander" = "الكزبرة";
+"ingredients_basil" = "إكليل الجبل";
+"ingredients_cashew" = "كاجو";
+"ingredients_macadamia" = "مكاديميا";
+"ingredients_pecan" = "البقان";
+"ingredients_peanut" = "فول الصويا";
+"ingredients_cocoa" = "كاكاو";
+"ingredients_chestnut" = "الكستناء";
+
 
 
 // الصفحة الرئيسية
 "home_recipe" = "الوصفات";
 "home_create_button" = "إنشاء وصفة";
 "home_no_item" = "لا توجد وصفات محفوظة";
+"home_all" = "الكل";
+"home_meaty" = "لحمي";
+"home_vegetarian" = "نباتي";
+"home_dessert" = "حلوى";
+"take_photo" = "التقط صورة لوصفتك المكتوبة.";
+"image_info" = "ستتمكن من إضافة صورة وصفتك المكتوبة إلى الوصفات في التطبيق.";
+"home_favorites" = "المفضلة";
+"home_search" = "البحث";
+
+
 
 // اختيار الفئة
 "next_button" = "التالي";
@@ -137,6 +217,16 @@
 // اختيار الطعام
 "apply_button" = "إنشاء وصفة";
 "search_food" = "البحث عن مكون";
+"select_filter" = "المكونات المرشحة";
+"select_vegetable" = "خضروات";
+"select_meat" = "لحم";
+"select_dairy" = "منتجات الألبان";
+"select_grain" = "حبوب";
+"select_fruit" = "فاكهة";
+"select_seafood" = "مأكولات بحرية";
+"select_herb" = "عشبة";
+"select_nut" = "جوزة";
+
 
 
 // بريميوم
@@ -150,6 +240,18 @@
 "premium_subheadline" = "تهانينا، لقد قمت بتنشيط الوصول إلى جميع ميزات التطبيق بنجاح، استمتع بها!";
 "premium_expiration" = "تاريخ الانتهاء: ";
 "premium_restore" = "هل ترغب في استعادة المشتريات؟";
+
+// language
+"language_turkish" = "التركية";
+"language_english" = "English";
+"language_german" = "ألماني";
+"language_czech" = "تشيكي";
+"language_arabic" = "العربية";
+"language_french" = "فرنسي";
+"language_italian" = "إيطالي";
+"language_russian" = "الروسية";
+"language_iranian" = "الإيرانية";
+"language_spansish" = "إسباني";
 
 
 // الإعدادات
@@ -171,12 +273,30 @@
 "settings_error_message" = "إذا كنت ترغب في استخدام التطبيق بلغة مختلفة، يمكنك تغييرها من خيار اللغة في الصفحة التالية.";
 "settings_close" = "إغلاق";
 "settings_continue" = "متابعة";
+"settings_account_settings" = "إعدادات الحساب";
+"settings_account" = "الحساب";
+"settings_support" = "الدعم";
+"settings_feedback" = "إرسال تعليق";
+"settings_write_comment" = "كتابة تعليق";
+"settings_share" = "مشاركة";
+"settings_appearance" = "المظهر";
+"settings_other_apps" = "اكتشف تطبيقات أخرى";
+"settings_rights_privacy" = "الحقوق والخصوصية";
+"settings_terms_of_service" = "شروط الخدمة";
+"settings_privacy_policy" = "سياسة الخصوصية";
+"settings_language_language_change" = "تم تغيير اللغة";
+"settings_language_language_apply_change" = "إعادة تشغيل التطبيق لتغيير اللغة";
+
 
 // عرض الطعام
 "show_food_prompt1" = "هل يمكنك أن تقترح وصفة باستخدام المكونات:";
 "show_food_prompt2" = "هل يمكنك أن تقترح وصفة باستخدام المكونات؟ ";
 "show_food_prompt3" = "الوجبات التي تحتوي على هذه الميزات. لا تكتب أي شيء أمامها.";
 "show_food_prompt4" = "قدم البيانات في تنسيق JSON، ببساطة كـ JSON، دون إضافة أي شيء قبل أو بعد ذلك، ال JSON هو: ";
+"show_food_prompt5" = "اختر نوعًا بناءً على ما إذا كان لحمًا أو خضارًا أو حلوًا. واحد فقط من هذه الأنواع.";
+"random_prompt" = "أعطني وصفة عشوائية";
+"json_prompt" = "هذا بالضبط JSON";
+
 
 
 // الحساب
@@ -192,9 +312,20 @@
 
 
 
+
 // تنبيه الخطأ
 "error_alert" = "خطأ";
 "error_occurred" = "حدث خطأ";
 "error_ok_button" = "موافق";
 "error_back_button" = "رجوع";
 "error_api_usage" = "لقد وصلت إلى حد استخدام واجهة برمجة التطبيقات";
+"error_api" = "فشل في جلب البيانات";
+"invalid_endpoint" = "نقطة نهاية غير صالحة";
+"invalid_response" = "استجابة غير صالحة";
+"error_no_data" = "لا توجد بيانات";
+"error_serialization" = "فشل في فك تشفير البيانات";
+"error_unable_to_favorite" = "حدث خطأ أثناء إضافة هذا المستخدم إلى المفضلة. يرجى المحاولة مرة أخرى.";
+"error_already_in_favorites" = "مضاف بالفعل إلى المفضلة";
+"network_error" = "هناك مشكلة في اتصال الإنترنت";
+"upload_photo_error" = "كان هناك مشكلة في تحميل الصورة";
+

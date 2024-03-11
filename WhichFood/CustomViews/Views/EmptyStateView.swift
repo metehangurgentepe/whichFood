@@ -35,7 +35,8 @@ class EmptyStateView: UIView {
     private func configureLogoImageView() {
         addSubview(logoImageView)
         
-        logoImageView.image = Images.icon
+        logoImageView.alpha = 0.3
+//        logoImageView.image = Images.recipe
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         let logoBottomConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 100 : 40
@@ -53,7 +54,7 @@ class EmptyStateView: UIView {
         addSubview(messageLabel)
         
         messageLabel.numberOfLines = 3
-        messageLabel.textColor = .black
+        messageLabel.textColor = .secondaryLabel
         
         let labelCenterYConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -60 : -150
         let messageLabelConstraints = messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: labelCenterYConstant)

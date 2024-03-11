@@ -88,7 +88,7 @@ class ImageToTextViewModel: ImageToTextViewModelProtocol{
         do {
             let response = try await ImageToTextManager.shared.postImage(url: imageUrl)
             print(response)
-            await changeText(text: response)
+            try await changeText(text: response)
         } catch {
             DispatchQueue.main.async{
                 self.delegate?.handleViewModelOutput(.showError(error))
@@ -97,37 +97,25 @@ class ImageToTextViewModel: ImageToTextViewModelProtocol{
         }
     }
     
-    func changeText(text: TextModel) async {
+    func changeText(text: TextModel) async throws {
         delegate?.handleViewModelOutput(.setLoading(true))
-        DispatchQueue.main.async{
-            let recipe = text.TextDetections.map { text in
-                return text.DetectedText
+        let recipe = text.TextDetections.map { text in
+            return text.DetectedText
+        }
+        
+        let input = "Convert this text into a proper recipe. Do not change the language. \(recipe) export this in \(self.jsonString) "
+        
+        do{
+            let response = try await SavedRecipesManager.shared.postData(input: input)
+            if let data = self.separateJson(json: response) {
+                let responseModel = try JSONDecoder().decode(RecipeResponseModel.self, from: data)
+                let recipe = RecipeResponseModel(foodName: responseModel.foodName, ingredients: responseModel.ingredients, recipe: responseModel.recipe, cookTime: responseModel.cookTime, description: responseModel.description, type: responseModel.type)
+                self.delegate?.handleViewModelOutput(.showRecipe(recipe))
+                self.delegate?.handleViewModelOutput(.setLoading(false))
             }
-            
-            let input = "Convert this text into a proper recipe. Do not change the language. \(recipe) export this in \(self.jsonString) "
-            
-            SavedRecipesManager.shared.postData(input: input) { [weak self] text, error in
-                guard let self = self else { return }
-                
-                if let error = error {
-                    self.delegate?.handleViewModelOutput(.showError(error))
-                } else if let recipeText = text {
-                    do {
-                        if let data = self.separateJson(json: recipeText) {
-                            let responseModel = try JSONDecoder().decode(RecipeResponseModel.self, from: data)
-                            let recipe = RecipeResponseModel(foodName: responseModel.foodName, ingredients: responseModel.ingredients, recipe: responseModel.recipe, cookTime: responseModel.cookTime, description: responseModel.description)
-                            self.delegate?.handleViewModelOutput(.showRecipe(recipe))
-                            self.delegate?.handleViewModelOutput(.setLoading(false))
-                        } else {
-                            let error = NSError()
-                            self.delegate?.handleViewModelOutput(.showError(error))
-                        }
-                    } catch {
-                        self.delegate?.handleViewModelOutput(.showError(error))
-                        self.delegate?.handleViewModelOutput(.setLoading(false))
-                    }
-                }
-            }
+        } catch {
+            self.delegate?.handleViewModelOutput(.showError(error))
+            self.delegate?.handleViewModelOutput(.setLoading(false))
         }
     }
     
@@ -139,7 +127,10 @@ class ImageToTextViewModel: ImageToTextViewModelProtocol{
                     recipe: recipe.recipe,
                     ingredients: recipe.ingredients,
                     desc: recipe.description,
-                    cookTime: recipe.cookTime)
+                    cookTime: recipe.cookTime,
+                    type: recipe.type!,
+                    imageURL: recipe.imageURL!
+                )
                 self.delegate?.handleViewModelOutput(.saved)
             } catch{
                 self.delegate?.handleViewModelOutput(.showError(error))
@@ -153,8 +144,8 @@ class ImageToTextViewModel: ImageToTextViewModelProtocol{
     func separateJson(json: String) -> Data? {
         if let startIndex = json.range(of: "{"),
            let endIndex = json.range(of: "}", options: .backwards) {
-            let jsonSubstring = json[startIndex.upperBound...endIndex.lowerBound]
-            var jsonString = json
+            _ = json[startIndex.upperBound...endIndex.lowerBound]
+            let jsonString = json
             return jsonString.data(using: .utf8)
         }
         return nil

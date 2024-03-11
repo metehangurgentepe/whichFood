@@ -13,14 +13,12 @@ struct UIOnboardingHelper {
         Bundle.main.appIcon ?? .init(named: "onboarding-icon")!
     }
     
-    // First Title Line
-    // Welcome Text
+    
     static func setUpFirstTitleLine() -> NSMutableAttributedString {
         .init(string: NSLocalizedString(LocaleKeys.Onboarding.welcome.rawValue, comment: ""), attributes: [.foregroundColor: UIColor.label])
     }
     
-    // Second Title Line
-    // App Name
+    
     static func setUpSecondTitleLine() -> NSMutableAttributedString {
         .init(string: Bundle.main.displayName ?? "WhichFood", attributes: [
             .foregroundColor: Colors.primary.color

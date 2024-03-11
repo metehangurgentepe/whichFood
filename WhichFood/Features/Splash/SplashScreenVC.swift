@@ -61,14 +61,9 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
     }
     
     func setupTitleLabel() {
-        guard let openSansFont = UIFont(name: "OpenSans-Regular", size: 20) else {
-                // Handle the case where the font couldn't be loaded
-                return
-        }
-        
         let letters = Array("WhichFood")
         var letterLabels: [UILabel] = []
-        let fixedSpacing: CGFloat = 13.0  // Fixed spacing between letters
+        let fixedSpacing: CGFloat = 13.0
 
         var totalWidth: CGFloat = 0.0
 
@@ -82,24 +77,21 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
             } else{
                 label.textColor = .black
             }
-//            label.textColor = titleLabel.textColor
+            
             label.translatesAutoresizingMaskIntoConstraints = false
             letterLabels.append(label)
 
-            // Calculate the width of the letter and update the total width
             let letterWidth = label.intrinsicContentSize.width
             totalWidth += letterWidth
 
-            // Add fixed spacing for all letters except the last one
             if index < letters.count - 1 {
                 totalWidth += fixedSpacing
             }
         }
 
-        // Adjust the initial offset for symmetry (considering 'W' and 'D')
         let initialOffset: CGFloat = (view.bounds.width - totalWidth + fixedSpacing) / 2
 
-        // Add letter labels to the view with fixed spacing
+        
         for (index, letterLabel) in letterLabels.enumerated() {
             view.addSubview(letterLabel)
 
@@ -111,20 +103,17 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
                 letterLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 150),
             ])
 
-            // Set initial transform for rising effect
             letterLabel.transform = CGAffineTransform(translationX: 0, y: -20)
 
-            // Calculate delay for each letter
             let delay = Double(index) * 0.1
 
-            // Animate rising and falling
             UIView.animate(withDuration: 0.5, delay: delay, options: .curveEaseInOut, animations: {
                 letterLabel.transform = .identity
             }, completion: { _ in
-                // Add completion block if needed
             })
         }
     }
+    
     
     func setupPhoto() {
         let size = CGSize(width: 300, height: 300)
@@ -140,21 +129,17 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
         rotatePhoto()
     }
     
+    
     func rotatePhoto() {
-        // Döndürme animasyonu için CGAffineTransform kullanılır
-        let rotationTransform = CGAffineTransform(rotationAngle: .pi) // 180 derece döndürme
+        let rotationTransform = CGAffineTransform(rotationAngle: .pi)
         
         UIView.animate(withDuration: 2.0, animations: {
-            // Animasyon bloğunda döndürme transform'u uygulanır
             self.icon.transform = rotationTransform
         }) { (completed) in
-//            // Animasyon tamamlandığında burada ek işlemler yapabilirsiniz
-//            // Örneğin, orijinal konumuna geri döndürmek için:
-//            UIView.animate(withDuration: 0.0, animations: {
-//                self.icon.transform = .identity // Orijinal transform'a geri döndürme
-//            })
+
         }
     }
+    
     
     func setupErrorLabel() {
         view.addSubview(errorLabel)

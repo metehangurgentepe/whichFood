@@ -19,6 +19,11 @@ protocol SplashViewModelProtocol {
 }
 
 class SplashViewModel: SplashViewModelProtocol {
+    
+    func signIn() {
+        
+    }
+    
     weak var delegate: SplashViewDelegate?
     
     var userID: String?
@@ -37,22 +42,21 @@ class SplashViewModel: SplashViewModelProtocol {
         } catch {
             switch error {
             case KeychainError.duplicateEntry:
-                print("duplicate")
+                self.delegate?.showError(KeychainError.duplicateEntry)
             default:
-                print(error)
+                self.delegate?.showError(error)
             }
         }
     }
     
     func getKeychain() async -> String? {
-        let onboarding = await OnboardingVC()
+        _ = await OnboardingVC()
         let home = await MainTabBarController()
 
         if let data = KeychainManager.get(account: "account") {
             let id = String(decoding: data, as: UTF8.self)
 
             await MainActor.run {
-//                home.hidesBottomBarWhenPushed = true
                 self.delegate?.navigate(vc: home)
             }
             return id
@@ -61,22 +65,16 @@ class SplashViewModel: SplashViewModelProtocol {
                 try self.saveKeychain()
                 try await createUser()
                 
-                print("Before navigate to onboarding")
                 await MainActor.run {
                     self.delegate?.navigateToOnboarding()
                 }
-                print("After navigate to onboarding")
             } catch {
-                print(error)
+                self.delegate?.showError(error)
             }
         }
         return nil
     }
 
-    
-    func signIn() {
-//        Auth.auth().signInAnonymously()
-    }
     
     func fetchUser() async throws {
         do {
@@ -90,7 +88,6 @@ class SplashViewModel: SplashViewModelProtocol {
                 }
             }
 
-            // Now 'customerInfo' should have the correct type (CustomerInfo?).
 
             if let info = customerInfo {
                 if !info.activeSubscriptions.isEmpty {
@@ -99,8 +96,9 @@ class SplashViewModel: SplashViewModelProtocol {
                     try await UserManager.shared.makeUserNullPremium()
                 }
             }
+            
         } catch {
-            print(error)
+            self.delegate?.showError(error)
         }
     }
 }

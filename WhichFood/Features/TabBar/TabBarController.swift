@@ -7,10 +7,20 @@
 
 import Foundation
 import UIKit
+import SwiftUI
+
+struct SettingsViewWrapper: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        let settingsVC = UIHostingController(rootView: SettingsView())
+        return settingsVC
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+}
 
 
 class MainTabBarController: UITabBarController {
-    override func viewDidLoad() {   
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupTabs()
@@ -29,11 +39,19 @@ class MainTabBarController: UITabBarController {
             with: LocaleKeys.Home.recipe.rawValue.locale(),
             and: SFSymbols.home,
             vc: HomeViewController())
+        let search = self.createNav(
+            with: LocaleKeys.Home.search.rawValue.locale(),
+            and: SFSymbols.search,
+            vc: SearchViewController())
+        let favorites = self.createNav(
+            with: LocaleKeys.Home.favorites.rawValue.locale(),
+            and: SFSymbols.favorites,
+            vc: FavoriteViewController())
         let settings = self.createNav(
             with: LocaleKeys.Settings.title.rawValue.locale(),
             and: SFSymbols.settings,
             vc: SettingsVC())
-        self.setViewControllers([home,settings], animated: true)
+        self.setViewControllers([home, favorites, search, settings], animated: true)
     }
     
     
@@ -45,5 +63,11 @@ class MainTabBarController: UITabBarController {
         nav.navigationBar.prefersLargeTitles = false
         
         return nav
+    }
+    
+    
+    private func wrappedSettingsView() -> UIViewController {
+        let settingsVC = UIHostingController(rootView: SettingsViewWrapper())
+        return settingsVC
     }
 }

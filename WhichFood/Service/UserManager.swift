@@ -42,7 +42,7 @@ class UserManager{
     func getUserId() -> String? {
         var userId : String?
         Purchases.shared.getCustomerInfo {info, error in
-            if let error = error {
+            if error != nil {
                 userId = nil
             }
             
@@ -116,18 +116,18 @@ class UserManager{
     
     func increaseApiUsage() async throws{
         do {
-            var user = try await getUser()
+            let user = try await getUser()
             if let user = user{
                 if !user.isPremium && user.numberOfUsageApi <= 4{
                     try await userCollection.document(user.id).updateData(["numberOfUsageApi" : user.numberOfUsageApi + 1])
                 } else if user.isPremium {
                     try await userCollection.document(user.id).updateData(["numberOfUsageApi" : user.numberOfUsageApi + 1])
                 } else {
-                    throw ApiUsageError.exceededApiLimit
+                    throw WFError.apiUsageError
                 }
             }
         } catch {
-           throw error
+           throw WFError.apiUsageError
         }
     }
     

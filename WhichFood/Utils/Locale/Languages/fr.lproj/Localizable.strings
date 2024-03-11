@@ -107,12 +107,90 @@
 "ingredients_almond" = "Amande";
 "ingredients_hazelnut" = "Noisette";
 "ingredients_driedApricot" = "Abricot Sec";
+"ingredients_shrimp" = "Crevettes" ;
+"ingredients_salmon" = "Saumon" ;
+"ingredients_clams" = "Moules" ;
+"ingredients_scallops" = "Palourdes" ;
+"ingredients_lobster" = "Homard" ;
+"ingredients_crab" = "Crabe" ;
+"ingredients_prawns" = "Crevettes" ;
+"ingredients_caviar" = "Caviar" ;
+"ingredients_oysters" = "Asters" ;
+"ingredients_mussels" = "Moules" ;
+"ingredients_anchovies" = "Anchois" ;
+"ingredients_sardines" = "Sardines" ;
+"ingredients_haddock" = "Poisson aiglefin" ;
+"ingredients_cod" = "Cabillaud" ;
+"ingredients_tuna" = "Thon" ;
+"ingredients_trout" = "Truite" ;
+"ingredients_duck" = "Canard" ;
+"ingredients_veal" = "Veau" ;
+"ingredients_rabbit" = "lapin" ;
+"ingredients_quail" = "Caille" ;
+"ingredients_pork" = "Porc" ;
+"ingredients_bacon" = "Bacon de bœuf" ;
+"ingredients_ham" = "Ham" ;
+"ingredients_cabbage" = "Chou" ;
+"ingredients_broccoli" = "Brocoli" ;
+"ingredients_cauliflower" = "Chou-fleur" ;
+"ingredients_asparagus" = "Asparagus" ;
+"ingredients_artichoke" = "Artichaut" ;
+"ingredients_kale" = "Chou" ;
+"ingredients_brussels_sprouts" = "Choux de Bruxelles" ;
+"ingredients_cucumber" = "Concombre" ;
+"ingredients_radish" = "Radis" ;
+"ingredients_sweet_potato" = "Patate douce" ;
+"ingredients_beetroot" = "Betterave" ;
+"ingredients_pumpkin" = "Citrouille" ;
+"ingredients_turnip" = "Navet" ;
+"ingredients_okra" = "Okra" ;
+"ingredients_parsnip" = "Shakshuka" ;
+"ingredients_leek" = "Poireau" ;
+"ingredients_blueberry" = "Myrtille" ;
+"ingredients_cranberry" = "Canneberge" ;
+"ingrédients_melon d'eau" = "pastèque" ;
+"ingredients_papaya" = "Papaye" ;
+"ingredients_pineapple" = "Ananas" ;
+"ingredients_mango" = "Mangue" ;
+"ingredients_passion_fruit" = "Fruit" ;
+"ingredients_date" = "Date" ;
+"ingredients_dragon_fruit" = "Fruit du dragon" ;
+"ingredients_persimmon" = "Kaki" ;
+"ingredients_star_fruit" = "Fruit de l'étoile" ;
+"ingredients_black_currant" = "Cassis" ;
+"ingredients_rosemary" = "Romarin" ;
+"ingredients_sage" = "Sauge" ;
+"ingredients_mint" = "Menthe" ;
+"ingredients_cilantro" = "Coriandre" ;
+"ingredients_bay_leaf" = "Feuille de laurier" ;
+"ingredients_oregano" = "Thym" ;
+"ingredients_tarragon" = "Estragon" ;
+"ingredients_chives" = "Ciboulette" ;
+"ingredients_lemongrass" = "Herbe au citron" ;
+"ingredients_marjoram" = "Basilic" ;
+"ingredients_coriander" = "Coriandre" ;
+"ingredients_basil" = "Romarin" ;
+"ingredients_cashew" = "Noix de cajou" ;
+"ingredients_macadamia" = "Noix de Macadamia" ;
+"ingredients_pecan" = "Noix" ;
+"ingredients_peanut" = "cacahuète" ;
+"ingredients_cocoa" = "Cacao" ;
+"ingredients_chestnut" = "Châtaigne" ;
 
 
 // home
 "home_recipe" = "Recettes";
 "home_create_button" = "Créer une Recette";
 "home_no_item" = "Aucune recette enregistrée";
+"home_all" = "Tout";
+"home_meaty" = "Viandeux";
+"home_vegetarian" = "Végétarien";
+"home_dessert" = "Dessert";
+"take_photo" = "Prenez une photo de votre recette écrite" ;
+"image_info" = "Vous pourrez ajouter la photo de votre recette écrite aux recettes de l'application" ;
+"home_favorites" = "Favoris";
+"home_search" = "Rechercher";
+
 
 // select category
 "next_button" = "Suivant";
@@ -123,6 +201,28 @@
 // select food
 "apply_button" = "Créer une Recette";
 "search_food" = "Rechercher un ingrédient";
+"select_filter" = "Ingrédients filtrés";
+"select_vegetable" = "Légume";
+"select_meat" = "Viande";
+"select_dairy" = "Produits laitiers";
+"select_grain" = "Grain";
+"select_fruit" = "Fruit";
+"select_seafood" = "Fruits de mer";
+"select_herb" = "Herbe";
+"select_nut" = "Noix";
+
+//language
+"language_turkish" = "turc" ;
+"language_english" = "anglais" ;
+"language_german" = "allemand" ;
+"language_czech" = "tchèque" ;
+"language_arabic" = "arabe" ;
+"language_french" = "français" ;
+"language_italian" = "italien" ;
+"language_russian" = "russe" ;
+"language_iranian" = "iranien" ;
+"language_spansish" = "espagnol" ;
+
 
 // premium
 "premium_1_title" = "Ajoutez des Recettes Illimitées";
@@ -155,13 +255,31 @@
 "settings_error_title" = "Modifier les Paramètres de Langue";
 "settings_error_message" = "Si vous souhaitez utiliser l'application dans une autre langue, vous pouvez le changer depuis l'option de langue à la page suivante.";
 "settings_close" = "Fermer";
-"settings_continue" = "Continuer";
+"settings_continue" = "Continuer";"settings_account_settings" = "Paramètres du compte";
+"settings_account" = "Compte";
+"settings_support" = "Support";
+"settings_feedback" = "Envoyer des commentaires";
+"settings_write_comment" = "Écrire un commentaire";
+"settings_share" = "Partager";
+"settings_appearance" = "Apparence";
+"settings_other_apps" = "Découvrir d'autres applications";
+"settings_rights_privacy" = "Droits et confidentialité";
+"settings_terms_of_service" = "Conditions d'utilisation";
+"settings_privacy_policy" = "Politique de confidentialité";
+"settings_language_change" = "La langue a changé" ;
+"settings_language_apply_change" = "Redémarrer l'application pour changer de langue" ;
+
+
+
 
 // show food
 "show_food_prompt1" = "Pouvez-vous suggérer une recette avec les ingrédients :";
 "show_food_prompt2" = "Pouvez-vous suggérer une recette avec les ingrédients ? ";
 "show_food_prompt3" = "les repas contiennent ces caractéristiques. Ne rien écrire devant.";
 "show_food_prompt4" = "Fournissez les données au format JSON, simplement en tant que JSON, sans rien ajouter avant ou après, le json est :";
+"show_food_prompt5" = "Choisissez un type selon qu'il s'agit d'une viande, d'un légume ou d'une friandise. Un seul de ces types" ;
+"random_prompt" = "Donne-moi une recette au hasard";
+"json_prompt" = "exactement ce JSON";
 
 
 // account
@@ -183,3 +301,12 @@
 "error_ok_button" = "OK";
 "error_back_button" = "Retour";
 "error_api_usage" = "Vous avez atteint la limite d'utilisation de l'API";
+"error_api" = "Échec lors de la récupération des données";
+"invalid_endpoint" = "Point de terminaison invalide";
+"invalid_response" = "Réponse invalide";
+"error_no_data" = "Aucune donnée";
+"error_serialization" = "Échec de la décodage des données";
+"error_unable_to_favorite" = "Une erreur s'est produite lors de l'ajout de cet utilisateur aux favoris. Veuillez réessayer.";
+"error_already_in_favorites" = "Déjà ajouté aux favoris";
+"network_error" = "Problème de connexion internet";
+"upload_photo_error" = "Un problème est survenu lors du téléchargement de de la photo";

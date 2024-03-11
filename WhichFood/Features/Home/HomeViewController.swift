@@ -10,15 +10,21 @@ import SkeletonView
 
 protocol HomeViewModelDelegate: AnyObject{
     func handleViewModelOutput(_ output: RecipeListViewModelOutput)
-    func delete(index: Int)
     func navigate(to navigationType: NavigationType)
 }
 
 enum NavigationType {
     case details(Int)
+    case goToVC(UIViewController)
+    case present(UIViewController)
 }
 
 class HomeViewController: DataLoadingVC {
+    
+    enum Section {
+        case main
+    }
+    
     private lazy var nextButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = Colors.primary.color
@@ -27,23 +33,11 @@ class HomeViewController: DataLoadingVC {
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
     }()
-    private lazy var tableView: UITableView = {
-        let table = UITableView()
-        table.rowHeight = 85
-        table.separatorStyle = .none
-        table.separatorInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        table.register(RecipeCell.self, forCellReuseIdentifier: "recipeCell")
-        return table
-    }()
-    private let customNavigationBar: UINavigationBar = {
-            let navBar = UINavigationBar()
-            return navBar
-    }()
     
     private lazy var categoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 100, height: 35)
+        layout.itemSize = CGSize(width: 70, height: 35)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = false
@@ -51,32 +45,35 @@ class HomeViewController: DataLoadingVC {
         return collectionView
     }()
     
-    var label : UILabel = {
-        let label = UILabel()
-        label.text = LocaleKeys.Home.noItem.rawValue.locale()
-        label.textColor = .gray.withAlphaComponent(0.5)
-        label.textAlignment = .center
-        label.font = .preferredFont(forTextStyle: .headline)
-        return label
-    }()
+    var recipeCollectionView: UICollectionView!
+    var dataSource: UICollectionViewDiffableDataSource<Section, Recipe>!
+    
     
     lazy var viewModel = HomeViewModel()
     var delegate : HomeViewModelProtocol!
     var recipes = [Recipe]()
-    let categories = Categories.categoriesList
+    let categories = Categories.homeCategoryList
+    var counter = 0
+    var categoryIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         viewModel.delegate = self
-        viewModel.getRecipes()
-        label.isHidden = true
+        
+        recipeCollectionView.delegate = self
+        configureDataSource()
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewModel.getRecipes()
+        if categoryIndexPath != nil {
+            categoryCollectionView.deselectItem(at: categoryIndexPath!, animated: true)
+        }
     }
+    
     
     @objc func showCameraAlert() {
         let alert = showAlert(title: LocaleKeys.Home.takePhoto.rawValue.locale(),
@@ -84,7 +81,6 @@ class HomeViewController: DataLoadingVC {
                               buttonTitle: LocaleKeys.Error.backButton.rawValue.locale(),
                               secondButtonTitle: LocaleKeys.Error.okButton.rawValue.locale(),
                               completionHandler: {
-//            self.dismiss(animated: true)
         }, completionSecondHandler: {
             self.goToCamera()
         }
@@ -92,42 +88,58 @@ class HomeViewController: DataLoadingVC {
         self.present(alert, animated: true)
     }
     
+    
+    func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource(collectionView: recipeCollectionView, cellProvider: { collectionView, indexPath, follower in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecipeCell.identifier, for: indexPath) as! HomeRecipeCell
+            let recipe = self.recipes[indexPath.row]
+            cell.configure(recipe: recipe)
+            return cell
+        })
+    }
+    
+    
+    func updatedData(on recipes: [Recipe]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(recipes)
+        DispatchQueue.main.async{
+            self.dataSource.apply(snapshot,animatingDifferences: true)
+        }
+    }
+    
+    
     @objc func goToCamera() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
-        self.present(imagePicker, animated: true, completion: nil)
+        viewModel.delegate?.navigate(to: .present(imagePicker))
     }
+    
     
     @objc func goToPremium() {
         let vc = PremiumVC()
-        self.present(vc, animated: true)
+        viewModel.delegate?.navigate(to: .present(vc))
     }
     
-    private func stopSkeletonAnimation() {
-            tableView.stopSkeletonAnimation()
-            tableView.hideSkeleton(reloadDataAfter: false, transition: .crossDissolve(0.2))
-    }
     
     private func configure() {
         navigationItem.largeTitleDisplayMode = .always
         self.view.backgroundColor = .systemBackground
-        title = LocaleKeys.Home.recipe.rawValue
+        title = LocaleKeys.Home.recipe.rawValue.locale()
         
-        tableView.delegate = self
-        tableView.dataSource = self
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         
         navigationItem.hidesBackButton = true
         
+        connfigureDiscoverRecipeBarButton()
         settingsButton()
-        setupLabels()
         setupCategoryButtons()
         setUpButton()
-        setupRecipeTable()
-        
+        configureCollectionView()
     }
+    
     
     @objc func didTapButton() {
         UIView.animate(withDuration: 0.1, animations: {
@@ -141,35 +153,37 @@ class HomeViewController: DataLoadingVC {
         }
         let vc = SelectCategoryVC()
         vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        viewModel.delegate?.navigate(to: .goToVC(vc))
     }
 }
 
 extension HomeViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                let vc = ImageToTextVC()
-                self.navigationController?.pushViewController(vc, animated: true)
-                picker.dismiss(animated: true, completion: nil)
+        if info[UIImagePickerController.InfoKey.originalImage] is UIImage {
+            let vc = ImageToTextVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+            picker.dismiss(animated: true, completion: nil)
         }
     }
 }
 
 // MARK: Design Extension
 extension HomeViewController {
-    
-    private func setupLabels() {
-        view.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
+    func configureCollectionView() {
+        recipeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UIHelper.createTwoColumntFlowLayout(in: view))
+        view.addSubview(recipeCollectionView)
+        recipeCollectionView.backgroundColor = .systemBackground
+        recipeCollectionView.register(HomeRecipeCell.self, forCellWithReuseIdentifier: HomeRecipeCell.identifier)
         
+        recipeCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            
-            label.heightAnchor.constraint(equalToConstant: 40),
-            label.widthAnchor.constraint(equalToConstant: view.bounds.width),
+            recipeCollectionView.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor, constant: -2),
+            recipeCollectionView.bottomAnchor.constraint(equalTo: nextButton.topAnchor),
+            recipeCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            recipeCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     }
+    
     
     private func setUpButton() {
         self.view.addSubview(nextButton)
@@ -179,23 +193,11 @@ extension HomeViewController {
         NSLayoutConstraint.activate([
             nextButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
-            nextButton.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.07),
+            nextButton.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.05),
             nextButton.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.85)
         ])
     }
-
-    private func setupRecipeTable() {
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor),
-            tableView.bottomAnchor.constraint(equalTo: nextButton.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
-    }
-
+    
     private func setupCategoryButtons() {
         view.addSubview(categoryCollectionView)
         
@@ -208,17 +210,31 @@ extension HomeViewController {
             categoryCollectionView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
-
+    
+    
+    private func connfigureDiscoverRecipeBarButton() {
+        let image = SFSymbols.wandAndStars!.withRenderingMode(.alwaysOriginal).withTintColor(.gray)
+        let discoverButton = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(navigateToDiscoverScreen))
+        navigationItem.leftBarButtonItem = discoverButton
+    }
+    
+    
+    @objc func navigateToDiscoverScreen() {
+        Task{
+            try await viewModel.increaseApiUsage()
+        }
+    }
+    
     
     private func settingsButton() {
         let circularView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         circularView.layer.cornerRadius = 15
         circularView.backgroundColor = UIColor.orange
-
+        
         let cameraImageView = UIImageView(image: Images.camera)
         cameraImageView.contentMode = .scaleAspectFit
         cameraImageView.tintColor = UIColor.white
-
+        
         let centeredFrame = CGRect(
             x: (circularView.bounds.width - circularView.bounds.width * 0.65) / 2,
             y: (circularView.bounds.height - circularView.bounds.height * 0.65) / 2,
@@ -226,16 +242,16 @@ extension HomeViewController {
             height: circularView.bounds.height * 0.65
         )
         cameraImageView.frame = centeredFrame
-
+        
         circularView.addSubview(cameraImageView)
-
+        
         let cameraButton = UIBarButtonItem(customView: circularView)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showCameraAlert))
         circularView.addGestureRecognizer(tapGesture)
-
+        
         let premiumButton = UIBarButtonItem(image: Images.premium?.withTintColor(Colors.crownColor.color, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(goToPremium))
-
+        
         navigationItem.rightBarButtonItems = [
             cameraButton,
             premiumButton
@@ -243,45 +259,9 @@ extension HomeViewController {
     }
 }
 
-// MARK: Table view extension
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes.count
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.selectRecipe(at: indexPath.row)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell
-        let recipe = recipes[indexPath.row]
-        cell.foodName.text = recipe.name
-        cell.ingredientLabel.text = recipe.ingredients.joined(separator: ", ")
-        cell.createdTime.text = formatDate(recipe.createdAt)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableView.beginUpdates()
-            let id = recipes[indexPath.row].id
-            viewModel.delete(id: id,index: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
-            tableView.endUpdates()
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        .delete
-    }
-}
-
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        categories.count
+        return categories.count
     }
     
     
@@ -297,51 +277,69 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return CGSize(width: 200, height: 40)
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case recipeCollectionView:
+            viewModel.delegate?.navigate(to: .details(indexPath.row))
+            
+        case categoryCollectionView:
+            categoryIndexPath = indexPath
+            let category = categories[indexPath.item]
+            viewModel.filter(word: category)
+        default:
+            break
+        }
+    }
 }
 
 // MARK: DELEGATE EXTENSION
 extension HomeViewController: HomeViewModelDelegate {
     func navigate(to navigationType: NavigationType) {
-        switch navigationType {
-        case .details(let index):
-            let recipe = recipes[index]
-            let viewModel = DetailRecipeViewModel(recipe: recipe)
-            let viewController = DetailRecipeBuilder.make(with: viewModel)
-            show(viewController, sender: nil)
+        DispatchQueue.main.async{ [weak self] in
+            guard let self = self else { return }
+            switch navigationType {
+            case .details(let index):
+                let recipe = recipes[index]
+                let viewModel = DetailRecipeViewModel(recipe: recipe)
+                let viewController = DetailRecipeBuilder.make(with: viewModel)
+                show(viewController, sender: nil)
+                
+            case .goToVC(let vc):
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            case .present(let vc):
+                self.present(vc,animated:true)
+            }
         }
     }
     
-    func delete(index: Int) {
-        recipes.remove(at: index)
-        tableView.reloadData()
-    }
     
     func handleViewModelOutput(_ output: RecipeListViewModelOutput) {
-        DispatchQueue.main.async {[weak self] in
+        DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             switch output {
             case .setLoading(let isLoading):
                 if isLoading {
-                    self.showLoadingView()
+                    self.customLoadingView()
                 } else {
                     self.dismissLoadingView()
                 }
                 
             case .showRecipeList(let recipes):
-                    self.recipes = recipes
-                    self.tableView.reloadData()
-                    if recipes.count != 0 {
-                        self.label.isHidden = true
-                    }
+                self.recipes = recipes
+                updatedData(on: self.recipes)
+                hideEmptyStateView(in: recipeCollectionView)
                 
             case.emptyList:
-                    self.label.isHidden = false
+                showEmptyStateView(with: LocaleKeys.Home.noItem.rawValue.locale(), in: recipeCollectionView)
                 
             case .showError(let error):
-                let alert = showAlert(title: LocaleKeys.Error.alert.rawValue.locale(),
-                                      message: error.localizedDescription,
-                                      buttonTitle: LocaleKeys.Error.okButton.rawValue.locale(), secondButtonTitle: nil)
-                self.present(alert, animated: true)
+                presentAlertOnMainThread(
+                    title: LocaleKeys.Error.alert.rawValue.locale(),
+                    message: error.localizedDescription,
+                    buttonTitle: LocaleKeys.Error.okButton.rawValue.locale()
+                )
             }
         }
     }

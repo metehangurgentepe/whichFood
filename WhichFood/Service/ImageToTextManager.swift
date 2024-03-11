@@ -11,11 +11,12 @@ import Alamofire
 
 class ImageToTextManager {
     static let shared = ImageToTextManager()
+    private let baseURL = Constants.Api.baseURL
     
     private init(){}
     
     func postImage(url: String) async throws -> TextModel {
-        let apiUrl = "https://europe-west3-whichfood-983f1.cloudfunctions.net/postImage"
+        let apiUrl = "\(baseURL)/postImage"
 
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",

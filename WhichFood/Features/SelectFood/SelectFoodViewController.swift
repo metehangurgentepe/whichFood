@@ -7,20 +7,18 @@
 
 import UIKit
 
-
 protocol SelectFoodViewDelegate: AnyObject {
     func onIngredientsUpdated()
-    func onError(_ error: Error)
+    func onError(_ error: WFError)
     func buttonLoading(isLoading: Bool)
     func navigate()
 }
 
 class SelectFoodViewController: UIViewController {
-//    private lazy var viewModel = SelectFoodViewModel()
     private lazy var tableView = UITableView()
     private lazy var button : UIButton = {
         let button = UIButton()
-        button.setTitle(NSLocalizedString(LocaleKeys.SelectFood.applyButton.rawValue, comment:"Apply Button"), for: .normal)
+        button.setTitle(LocaleKeys.SelectFood.applyButton.rawValue.locale(), for: .normal)
         button.backgroundColor = Colors.primary.color
         button.layer.cornerRadius = 12
         return button
@@ -32,7 +30,7 @@ class SelectFoodViewController: UIViewController {
         indicator.color = .black
         return indicator
     }()
-   
+    
     private var searchField = UISearchController(searchResultsController: nil)
     var categories : [String] = []
     lazy var viewModel = SelectFoodViewModel()
@@ -45,7 +43,7 @@ class SelectFoodViewController: UIViewController {
         configure()
     }
     
-    /// design functions
+    
     private func configure() {
         view.backgroundColor = .systemBackground
         navigationItem.largeTitleDisplayMode = .never
@@ -78,9 +76,9 @@ class SelectFoodViewController: UIViewController {
 extension SelectFoodViewController {
     func updateCheckbox(_ isSelected: Bool) -> UIImage{
         if isSelected {
-            return UIImage(named: "checkmark.square.fill") ?? UIImage()
+            return Images.selectedCheck ?? UIImage()
         } else {
-            return UIImage(named: "rectangle") ?? UIImage()
+            return Images.unselectedCheck ?? UIImage()
         }
     }
     
@@ -97,7 +95,7 @@ extension SelectFoodViewController {
     
     func setupTableView() {
         tableView.rowHeight = 60
-        tableView.register(CustomCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(SelectFoodCell.self, forCellReuseIdentifier: "cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.tableHeaderView = nil
@@ -137,31 +135,92 @@ extension SelectFoodViewController {
 
 // MARK: Tableview extension
 extension SelectFoodViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let inSearchMode = self.viewModel.inSearchMode(searchField)
-        return inSearchMode ? self.viewModel.filteredFoods.count : self.viewModel.foods.count
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if viewModel.inSearchMode(searchField) {
+            return 1
+        } else {
+            return viewModel.categorizedIngredients.keys.count
+        }
     }
     
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if viewModel.inSearchMode(searchField) {
+            return LocaleKeys.SelectFood.filter.rawValue.locale()
+        } else {
+            let categories = Array(viewModel.categorizedIngredients.keys)
+            return categories[section].locale()
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if viewModel.inSearchMode(searchField) {
+            return viewModel.filteredFoods.count
+        } else {
+            let categories = Array(viewModel.categorizedIngredients.keys)
+            let category = categories[section]
+            return viewModel.categorizedIngredients[category]?.count ?? 0
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
-        let inSearchMode = self.viewModel.inSearchMode(searchField)
-        let ingredient = viewModel.inSearchMode(searchField) ? viewModel.filteredFoods[indexPath.row] : viewModel.foods[indexPath.row]
-        cell.configure(with: ingredient)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SelectFoodCell
+        
+        if viewModel.inSearchMode(searchField) {
+            let food = viewModel.filteredFoods[indexPath.row]
+            cell.configure(with: food)
+        } else {
+            let categories = Array(viewModel.categorizedIngredients.keys)
+            
+            let category = categories[indexPath.section]
+            
+            if let foods = viewModel.categorizedIngredients[category] {
+                let food = foods[indexPath.row]
+                cell.configure(with: food)
+            }
+        }
+        
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.chooseIngredient(index:indexPath.row, searchController: searchField)
-        print(viewModel.foods.filter{$0.isSelected == true})
-        print(viewModel.selectedFoods.count)
+        if viewModel.inSearchMode(searchField) {
+            var food = viewModel.filteredFoods[indexPath.row]
+            viewModel.filteredFoods[indexPath.row].isSelected.toggle()
+            
+            if var array = viewModel.categorizedIngredients[food.category.rawValue] {
+                if let index = array.firstIndex(where: { $0.name == food.name }) {
+                    array[index].isSelected.toggle()
+                }
+                viewModel.categorizedIngredients.updateValue(array, forKey: food.category.rawValue)
+            }
+            
+            viewModel.chooseIngredient(ingredient: food)
+            
+            viewModel.delegate?.onIngredientsUpdated()
+        } else {
+            let categories = Array(viewModel.categorizedIngredients.keys)
+            let category = categories[indexPath.section]
+            
+            guard var foods = viewModel.categorizedIngredients[category] else {
+                return
+            }
+            
+            foods[indexPath.row].isSelected.toggle()
+            viewModel.chooseIngredient(ingredient: foods[indexPath.row])
+            viewModel.categorizedIngredients[category] = foods
+            
+            viewModel.delegate?.onIngredientsUpdated()
+        }
     }
 }
 
 extension SelectFoodViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         self.viewModel.updateSearchController(searchBarText: searchController.searchBar.text)
-        print(viewModel.filteredFoods)
     }
 }
 
@@ -195,11 +254,11 @@ extension SelectFoodViewController: SelectFoodViewDelegate {
         }
     }
     
-    func onError(_ error: Error) {
+    func onError(_ error: WFError) {
         DispatchQueue.main.async{
             var alert = UIAlertController()
             switch error {
-            case ApiUsageError.exceededApiLimit:
+            case WFError.apiUsageError:
                 alert = showAlert(
                     title: LocaleKeys.Error.alert.rawValue.locale(),
                     message:LocaleKeys.Error.apiUsageError.rawValue.locale() ,

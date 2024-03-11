@@ -21,7 +21,7 @@ class HomeRecipeCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .headline).withSize(12)
+        label.font = .boldSystemFont(ofSize: 14)
         label.textColor = .black
         label.lineBreakMode = .byClipping
         label.textAlignment = .right
@@ -119,6 +119,7 @@ class HomeRecipeCell: UICollectionViewCell {
         checkIsSaved(recipe: recipe)
         setupSubviews()
     }
+    
     
     @objc func addFavoritesRecipe() {
         checkIsSaved(recipe: recipe!)

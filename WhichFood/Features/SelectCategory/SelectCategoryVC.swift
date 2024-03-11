@@ -84,6 +84,7 @@ extension SelectCategoryVC {
         ])
     }
     
+    
     func setupLabels() {
         let stack = UIStackView()
         
@@ -103,6 +104,7 @@ extension SelectCategoryVC {
         ])
     }
     
+    
     func animateProgressView() {
         self.progressView.setProgress(0, animated: false)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -112,6 +114,7 @@ extension SelectCategoryVC {
             })
         }
     }
+    
     
     func setButtonTitles() {
         var stackViews: [UIStackView] = []

@@ -119,12 +119,92 @@
 "ingredients_almond" = "Badem";
 "ingredients_hazelnut" = "Fındık";
 "ingredients_driedApricot" = "Kuru Kayısı";
+"ingredients_shrimp" = "Karides";
+"ingredients_salmon" = "Somon";
+"ingredients_clams" = "Midye";
+"ingredients_scallops" = "İstiridye";
+"ingredients_lobster" = "Istakoz";
+"ingredients_crab" = "Yengeç";
+"ingredients_prawns" = "Karides";
+"ingredients_caviar" = "Havyar";
+"ingredients_oysters" = "Asters";
+"ingredients_mussels" = "Midye";
+"ingredients_anchovies" = "Hamsi";
+"ingredients_sardines" = "Sardalya";
+"ingredients_haddock" = "Haddock Balığı";
+"ingredients_cod" = "Morina";
+"ingredients_tuna" = "Ton Balığı";
+"ingredients_trout" = "Alabalık";
+"ingredients_duck" = "Ördek";
+"ingredients_veal" = "Dana Eti";
+"ingredients_rabbit" = "Tavşan";
+"ingredients_quail" = "Bıldırcın";
+"ingredients_pork" = "Domuz Eti";
+"ingredients_bacon" = "Dana Pastırması";
+"ingredients_ham" = "Jambon";
+"ingredients_cabbage" = "Lahana";
+"ingredients_broccoli" = "Brokoli";
+"ingredients_cauliflower" = "Karnabahar";
+"ingredients_asparagus" = "Kuşkonmaz";
+"ingredients_artichoke" = "Enginar";
+"ingredients_kale" = "Lahana";
+"ingredients_brussels_sprouts" = "Brüksel Lahanası";
+"ingredients_cucumber" = "Salatalık";
+"ingredients_radish" = "Turp";
+"ingredients_sweet_potato" = "Tatlı Patates";
+"ingredients_beetroot" = "Pancar";
+"ingredients_pumpkin" = "Bal Kabağı";
+"ingredients_turnip" = "Şalgam";
+"ingredients_okra" = "Bamya";
+"ingredients_parsnip" = "Şakşuka";
+"ingredients_leek" = "Pırasa";
+"ingredients_blueberry" = "Yaban Mersini";
+"ingredients_cranberry" = "Kızılcık";
+"ingredients_watermelon" = "Karpuz";
+"ingredients_papaya" = "Papaya";
+"ingredients_pineapple" = "Ananas";
+"ingredients_mango" = "Mango";
+"ingredients_passion_fruit" = "Meyve";
+"ingredients_date" = "Hurma";
+"ingredients_dragon_fruit" = "Ejder Meyvesi";
+"ingredients_persimmon" = "Kaki";
+"ingredients_star_fruit" = "Yıldız Meyvesi";
+"ingredients_black_currant" = "Frenk Üzümü";
+"ingredients_rosemary" = "Biberiye";
+"ingredients_sage" = "Adaçayı";
+"ingredients_mint" = "Nane";
+"ingredients_cilantro" = "Kişniş";
+"ingredients_bay_leaf" = "Defne Yaprağı";
+"ingredients_oregano" = "Kekik";
+"ingredients_tarragon" = "Tarhun";
+"ingredients_chives" = "Frenk Soğanı";
+"ingredients_lemongrass" = "Limon Ot";
+"ingredients_marjoram" = "Fesleğen";
+"ingredients_coriander" = "Kişniş";
+"ingredients_basil" = "Biberiye";
+"ingredients_cashew" = "Kaju Fıstığı";
+"ingredients_macadamia" = "Macadamia Fıstığı";
+"ingredients_pecan" = "Ceviz";
+"ingredients_peanut" = "Fıstık";
+"ingredients_cocoa" = "Kakao";
+"ingredients_chestnut" = "Kestane";
+
 
 
 // home
 "home_recipe" = "Tarifler";
 "home_create_button" = "Tarif oluştur";
 "home_no_item" = "Kayıtlı tarif bulunmuyor";
+"home_all" = "Hepsi";
+"home_meaty" = "Etli";
+"home_vegetarian" = "Vejetaryen";
+"home_dessert" = "Tatlı";
+"take_photo" = "Yazılı tarifin fotoğrafını çekin.";
+"image_info" = "Çektiğiniz yazılı tarifi uygulamadaki tariflere ekleyebileceksiniz.";
+"home_favorites" = "Favoriler";
+"home_search" = "Ara";
+
+
 
 //select category
 "next_button" = "İleri";
@@ -132,10 +212,32 @@
 "choose_label" = "Bir veya daha fazlasını seçin";
 
 
-
 // select food
 "apply_button" = "Tarif oluştur";
 "search_food" = "Malzeme ara";
+"select_filter" = "Filtrelenmiş Malzemeler";
+"select_vegetable" = "Sebze";
+"select_meat" = "Et";
+"select_dairy" = "Süt Ürünleri";
+"select_grain" = "Tahıl";
+"select_fruit" = "Meyve";
+"select_seafood" = "Deniz Ürünleri";
+"select_herb" = "Ot";
+"select_nut" = "Fındık";
+
+
+// language
+"language_turkish" = "Türkçe";
+"language_english" = "İngilizce";
+"language_german" = "Almanca";
+"language_czech" = "Çekçe";
+"language_arabic" = "Arapça";
+"language_french" = "Fransızca";
+"language_italian" = "İtalyanca";
+"language_russian" = "Rusça";
+"language_iranian" = "İranca";
+"language_spansish" = "İspanyolca";
+
 
 // premium
 "premium_1_title" = "Sınırsız tarif ekle";
@@ -148,8 +250,6 @@
 "premium_subheadline" = "Tebrikler, tüm uygulama özelliklerine Premium erişimini başarıyla etkinleştirdiniz, keyfini çıkarın!";
 "premium_expiration" = "Son Kullanma Tarihi: ";
 "premium_restore" = "Satın alımları geri yüklemek istiyor musunuz?";
-
-
 
 
 // settings
@@ -171,6 +271,20 @@
 "settings_error_message" = "Uygulamayı farklı bir dilde kullanmak istiyorsan, sonraki sayfadaki dil seçeneğinden değiştirebilirsin.";
 "settings_close" = "Kapat";
 "settings_continue" = "Devam et";
+"settings_account_settings" = "Hesap Ayarları";
+"settings_account" = "Hesap";
+"settings_support" = "Destek";
+"settings_feedback" = "Geri Bildirim Gönder";
+"settings_write_comment" = "Yorum Yaz";
+"settings_share" = "Paylaş";
+"settings_appearance" = "Görünüm";
+"settings_other_apps" = "Diğer Uygulamaları Keşfedin";
+"settings_rights_privacy" = "Yasal Haklar & Gizlilik";
+"settings_terms_of_service" = "Kullanım Koşulları";
+"settings_privacy_policy" = "Gizlilik Politikası";
+"settings_language_change" = "Dil değiştirildi";
+"settings_language_apply_change" = "Dili değiştirebilmek için uygulamayı tekrar başlat";
+
 
 // account
 "account_date" = "Hiçbiri";
@@ -183,11 +297,15 @@
 "account_title" = "Hesap";
 "account_usage_api" = "Oluşturulan tarif sayısı";
 
+
 // show food prompt
 "show_food_prompt1" = "İçindekilerle bir tarif önerebilir misiniz:";
 "show_food_prompt2" = "İçindekilerle bir tarif önerebilir misiniz? ";
 "show_food_prompt3" = "yemekler bu özelliklere sahiptir. Onun önüne hiçbir şey yazmayın.";
 "show_food_prompt4" = "Verileri JSON formatında, sadece JSON olarak sağlayın, lütfen başka bir şey eklemeyin, json şu şekildedir: ";
+"show_food_prompt5" = "Etli, sebzeli veya tatlı olmasına bağlı olarak bir tür seç. Sadece bu türlerden birisi olsun.";
+"random_prompt" = "Bana rastgele bir tarif ver";
+"json_prompt" = "tam olarak bu JSON";
 
 
 
@@ -198,3 +316,12 @@
 "error_ok_button" = "Tamam";
 "error_back_button" = "Geri";
 "error_api_usage" = "API kullanım sınırına ulaştınız";
+"error_api" = "Veriler alınamadı";
+"invalid_endpoint" = "Geçersiz bağlantı noktası";
+"invalid_response" = "Geçersiz yanıt";
+"error_no_data" = "Veri bulunamadı";
+"error_serialization" = "Veri çözümlenirken hata oluştu";
+"error_unable_to_favorite" = "Bu kullanıcının favori olarak işaretlenmesinde bir hata oluştu. Lütfen tekrar deneyin.";
+"error_already_in_favorites" = "Zaten favorilere eklendi";
+"network_error" = "İnternet bağlantısıyla ilgili bir sorun var";
+"upload_photo_error" = "Fotoğraf yüklenirken bir sorun oluştu";

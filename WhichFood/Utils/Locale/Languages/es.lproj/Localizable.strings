@@ -114,11 +114,90 @@
 "ingredients_almond" = "Almendra";
 "ingredients_hazelnut" = "Avellana";
 "ingredients_driedApricot" = "Albaricoque Seco";
+"ingredients_shrimp" = "Gambas";
+"ingredients_salmon" = "Salmón";
+"ingredients_clams" = "Mejillones";
+"ingredients_scallops" = "Almejas";
+"ingredients_lobster" = "Langosta";
+"ingredients_crab" = "Cangrejo";
+"ingredients_prawns" = "Gambas";
+"ingredients_caviar" = "Caviar";
+"ingredients_oysters" = "Asters";
+"ingredients_mussels" = "Mejillones";
+"ingredients_anchovies" = "Anchoas";
+"ingredients_sardines" = "Sardinas";
+"ingredients_haddock" = "Eglefino";
+"ingredients_cod" = "Bacalao";
+"ingredients_tuna" = "Atún";
+"ingredients_trout" = "Trucha";
+"ingredients_duck" = "Pato";
+"ingredients_veal" = "Ternera";
+"ingredients_rabbit" = "Conejo";
+"ingredients_quail" = "Codorniz";
+"ingredients_pork" = "Cerdo";
+"ingredients_bacon" = "Tocino de buey";
+"ingredients_ham" = "Jamón";
+"ingredients_cabbage" = "Col";
+"ingredients_broccoli" = "Brócoli";
+"ingredients_cauliflower" = "Coliflor";
+"ingredients_asparagus" = "Espárragos";
+"ingredients_artichoke" = "Alcachofa";
+"ingredients_kale" = "Col";
+"ingredients_brussels_sprouts" = "Coles de Bruselas";
+"ingredients_cucumber" = "Pepino";
+"ingredients_radish" = "Rábano";
+"ingredients_sweet_potato" = "Batata";
+"ingredients_beetroot" = "Remolacha";
+"ingredients_pumpkin" = "Calabaza";
+"ingredients_turnip" = "Nabo";
+"ingredients_okra" = "Okra";
+"ingredients_parsnip" = "Shakshuka";
+"ingredients_leek" = "Puerro";
+"ingredients_blueberry" = "Arándano";
+"ingredients_cranberry" = "Arándano rojo";
+"ingredients_watermelon" = "Sandía";
+"ingredients_papaya" = "Papaya";
+"ingredients_pineapple" = "Piña";
+"ingredients_mango" = "Mango";
+"ingredients_passion_fruit" = "Fruta";
+"ingredients_date" = "Fecha";
+"ingredients_dragon_fruit" = "Fruta del dragón";
+"ingredients_persimmon" = "Caqui";
+"ingredients_star_fruit" = "Fruta estrella";
+"ingredients_black_currant" = "Grosella negra";
+"ingredients_rosemary" = "Romero";
+"ingredients_sage" = "Salvia";
+"ingredients_mint" = "Menta";
+"ingredients_cilantro" = "Cilantro";
+"ingredients_bay_leaf" = "Hoja de laurel";
+"ingredients_oregano" = "Tomillo";
+"ingredients_tarragon" = "Estragón";
+"ingredients_chives" = "Cebollino";
+"ingredients_lemongrass" = "Hierba limón";
+"ingredients_marjoram" = "Albahaca";
+"ingredients_coriander" = "Cilantro";
+"ingredients_basil" = "Romero";
+"ingredients_cashew" = "Anacardo";
+"ingredients_macadamia" = "Nuez de Macadamia";
+"ingredients_pecan" = "Nuez";
+"ingredients_peanut" = "Cacahuete";
+"ingredients_cocoa" = "Cacao";
+"ingredients_chestnut" = "Castaña";
 
 // Inicio
 "home_recipe" = "Recetas";
 "home_create_button" = "Crear Receta";
 "home_no_item" = "No hay recetas guardadas";
+"home_all" = "Todo";
+"home_meaty" = "Carnoso";
+"home_vegetarian" = "Vegetariano";
+"home_dessert" = "Postre";
+"take_photo" = "Haz una foto de tu receta escrita";
+"image_info" = "Podrás añadir la foto de tu receta escrita a las recetas de la app";
+"home_favorites" = "Favoritos";
+"home_search" = "Buscar";
+
+
 
 // Seleccionar Categoría
 "next_button" = "Siguiente";
@@ -129,6 +208,29 @@
 // Seleccionar Comida
 "apply_button" = "Crear Receta";
 "search_food" = "Buscar ingrediente";
+"select_filter" = "Ingredientes Filtrados";
+"select_vegetable" = "Vegetal";
+"select_meat" = "Carne";
+"select_dairy" = "Productos lácteos";
+"select_grain" = "Grano";
+"select_fruit" = "Fruta";
+"select_seafood" = "Mariscos";
+"select_herb" = "Hierba";
+"select_nut" = "Fruto seco";
+
+// language
+"language_turkish" = "turco";
+"language_english" = "inglés";
+"language_german" = "Alemán";
+"language_czech" = "checo";
+"language_arabic" = "árabe";
+"language_french" = "francés";
+"language_italian" = "Italiano";
+"language_russian" = "Ruso";
+"language_iranian" = "iraní";
+"language_spansish" = "español";
+
+
 
 // Premium
 "premium_1_title" = "Agregar Recetas Ilimitadas";
@@ -148,6 +250,9 @@
 "show_food_prompt2" = "¿Puedes sugerir una receta con ingredientes? ";
 "show_food_prompt3" = "las comidas contienen estas características. No escriba nada delante de esto.";
 "show_food_prompt4" = "Proporcione los datos en formato JSON, simplemente como JSON, sin agregar nada antes ni después, el json es: ";
+"show_food_prompt5" = "Elige un tipo según sea carne, verdura o dulce. Sólo uno de estos tipos";
+"random_prompt" = "Dame una receta al azar";
+"json_prompt" = "exactamente este JSON";
 
 
 
@@ -170,6 +275,22 @@
 "settings_error_message" = "Si deseas utilizar la aplicación en un idioma diferente, puedes cambiarlo desde la opción de idioma en la siguiente página.";
 "settings_close" = "Cerrar";
 "settings_continue" = "Continuar";
+"settings_account_settings" = "Configuración de la cuenta";
+"settings_account" = "Cuenta";
+"settings_support" = "Soporte";
+"settings_feedback" = "Enviar comentarios";
+"settings_write_comment" = "Escribir un comentario";
+"settings_share" = "Compartir";
+"settings_appearance" = "Apariencia";
+"settings_other_apps" = "Descubre otras aplicaciones";
+"settings_rights_privacy" = "Derechos y privacidad";
+"settings_terms_of_service" = "Términos de servicio";
+"settings_privacy_policy" = "Política de privacidad";
+"settings_language_change" = "Cambio de idioma";
+"settings_language_apply_change" = "Reinicia la aplicación para cambiar el idioma";
+
+
+
 
 // cuenta
 "account_date" = "Ninguno";
@@ -190,3 +311,12 @@
 "error_ok_button" = "Aceptar";
 "error_back_button" = "Atrás";
 "error_api_usage" = "Ha alcanzado el límite de uso de la API";
+"error_api" = "Error al obtener datos";
+"invalid_endpoint" = "Endpoint inválido";
+"invalid_response" = "Respuesta inválida";
+"error_no_data" = "Sin datos";
+"error_serialization" = "Error al decodificar datos";
+"error_unable_to_favorite" = "Hubo un error al agregar este usuario a favoritos. Por favor, inténtalo de nuevo.";
+"error_already_in_favorites" = "Ya agregado a favoritos";
+"network_error" = "Hay un problema con la conexión a Internet";
+"upload_photo_error" = "Hubo un problema al subir la foto";

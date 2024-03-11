@@ -117,11 +117,90 @@
 "ingredients_almond" = "Mandorla";
 "ingredients_hazelnut" = "Nocciola";
 "ingredients_driedApricot" = "Albicocca Secca";
+"ingredients_shrimp" = "Gamberetti";
+"ingredienti_salmone" = "Salmone";
+"ingredients_clams" = "Cozze";
+"ingredienti_capesante" = "Vongole";
+"ingredients_lobster" = "Aragosta";
+"ingredienti_granchio" = "Granchio";
+"ingredienti_gamberi" = "Gamberetti";
+"ingredients_caviar" = "Caviale";
+"ingredients_oysters" = "Asters";
+"ingredienti_cozze" = "Cozze";
+"ingredients_anchovies" = "Acciughe";
+"ingredienti_sardine" = "Sardine";
+"ingredients_haddock" = "Pesce eglefino";
+"ingredients_cod" = "Merluzzo";
+"ingredienti_tonno" = "Tonno";
+"ingredienti_trota" = "Trota";
+"ingredients_duck" = "Anatra";
+"ingredienti_vitello" = "vitello";
+"ingredienti_coniglio" = "Coniglio";
+"ingredients_quail" = "Quaglia";
+"ingredienti_maiale" = "Maiale";
+"ingredients_bacon" = "Bacon di manzo";
+"ingredients_ham" = "Prosciutto";
+"ingredients_cabbage" = "Cavolo";
+"ingredienti_broccoli" = "Broccoli";
+"ingredients_cauliflower" = "Cavolfiore";
+"ingredienti_asparagi" = "Asparagi";
+"ingredienti_carciofo" = "Carciofo";
+"ingredienti_cavolo" = "Cavolo";
+"ingredienti_cavoli_di_bruxelles" = "Cavoli di Bruxelles";
+"ingredienti_cetriolo" = "Cetriolo";
+"ingredienti_ravanello" = "ravanello";
+"ingredienti_patata_dolce" = "Patata dolce";
+"ingredienti_barbabietola" = "Barbabietola";
+"ingredienti_zucca" = "Zucca";
+"ingredients_turnip" = "Rapa";
+"ingredienti_okra" = "Okra";
+"ingredienti_pisello" = "Shakshuka";
+"ingredienti_porro" = "Porro";
+"ingredienti_mirtillo" = "Mirtillo";
+"ingredienti_mirtillo rosso" = "Mirtillo rosso";
+"ingredienti_cocomero" = "Anguria";
+"ingredienti_papaya" = "Papaya";
+"ingredienti_ananas" = "Ananas";
+"ingredienti_mango" = "Mango";
+"ingredients_passion_fruit" = "Frutta";
+"ingredienti_data" = "Data";
+"ingredienti_frutto_drago" = "Frutto del drago";
+"ingredienti_persimmon" = "Kaki";
+"ingredienti_frutto_stella" = "Frutto stella";
+"ingredienti_ribes_nero" = "Ribes nero";
+"ingredienti_rosmarino" = "Rosmarino";
+"ingredienti_salvia" = "Salvia";
+"ingredienti_menta" = "Menta";
+"ingredienti_cilantro" = "Coriandolo";
+"ingredienti_foglia_di_alloro" = "Alloro";
+"ingredienti_oregano" = "Timo";
+"ingredienti_tarragone" = "Dragoncello";
+"ingredienti_erba cipollina" = "Erba cipollina";
+"ingredienti_cetriola" = "erba limone";
+"ingredienti_maggiorana" = "Basilico";
+"ingredienti_coriandolo" = "Coriandolo";
+"ingredienti_basilico" = "rosmarino";
+"ingredienti_anacardi" = "Anacardi";
+"ingredienti_macadamia" = "Noce di Macadamia";
+"ingredienti_pecan" = "Noce";
+"ingredients_peanut" = "Peanut";
+"ingredienti_cacao" = "Cacao";
+"ingredienti_castagna" = "Castagna";
 
 // Casa
 "home_recipe" = "Ricette";
 "home_create_button" = "Crea Ricetta";
 "home_no_item" = "Nessuna Ricetta Salvata";
+"home_all" = "Tutto";
+"home_meaty" = "Carnoso";
+"home_vegetarian" = "Vegetariano";
+"home_dessert" = "Dolce";
+"take_photo" = "Scatta una foto della tua ricetta scritta";
+"image_info" = "Potrete aggiungere la foto della vostra ricetta scritta alle ricette dell'app";
+"home_favorites" = "Preferiti";
+"home_search" = "Cerca";
+
+
 
 // Seleziona Categoria
 "next_button" = "Avanti";
@@ -129,9 +208,33 @@
 "choose_label" = "Scegli uno o più";
 
 
+// language
+"language_turkish" = "Turkish";
+"language_english" = "English";
+"language_german" = "German";
+"language_czech" = "Czech";
+"language_arabic" = "Arabic";
+"language_french" = "French";
+"language_italian" = "Italiano";
+"language_russian" = "Russian";
+"language_iranian" = "iraniano";
+"language_spansish" = "Spanish";
+
+
 // Seleziona Cibo
 "apply_button" = "Crea Ricetta";
 "search_food" = "Cerca ingrediente";
+"select_filter" = "Ingredienti Filtrati";
+"select_vegetable" = "Vegetale";
+"select_meat" = "Carne";
+"select_dairy" = "Prodotti Lattiero-caseari";
+"select_grain" = "Grano";
+"select_fruit" = "Frutta";
+"select_seafood" = "Frutti di mare";
+"select_herb" = "Erba";
+"select_nut" = "Noce";
+
+
 
 // Premium
 "premium_1_title" = "Aggiungi Ricette Illimitate";
@@ -151,6 +254,9 @@
 "show_food_prompt2" = "Puoi suggerire una ricetta con gli ingredienti? ";
 "show_food_prompt3" = "i pasti contengono queste caratteristiche. Non scrivere nulla davanti.";
 "show_food_prompt4" = "Fornisci i dati in formato JSON, semplicemente come JSON, senza aggiungere nulla prima o dopo, il JSON è: ";
+"show_food_prompt5" = "Scegliete un tipo a seconda che sia carne, verdura o dolce. Solo uno di questi tipi";
+"random_prompt" = "Dammi una ricetta casuale";
+"json_prompt" = "esattamente questo JSON";
 
 
 // Impostazioni
@@ -172,6 +278,20 @@
 "settings_error_message" = "Se desideri utilizzare l'applicazione in una lingua diversa, puoi cambiarla dalla pagina successiva tramite l'opzione di lingua.";
 "settings_close" = "Chiudi";
 "settings_continue" = "Continua";
+"settings_account_settings" = "Impostazioni account";
+"settings_account" = "Account";
+"settings_support" = "Supporto";
+"settings_feedback" = "Invia feedback";
+"settings_write_comment" = "Scrivi un commento";
+"settings_share" = "Condividi";
+"settings_appearance" = "Aspetto";
+"settings_other_apps" = "Scopri altre app";
+"settings_rights_privacy" = "Diritti e privacy";
+"settings_terms_of_service" = "Termini di servizio";
+"settings_privacy_policy" = "Informativa sulla privacy";
+"settings_language_change" = "Lingua cambiata";
+"settings_language_apply_change" = "Riavvia l'applicazione per cambiare la lingua";
+
 
 
 // account
@@ -192,3 +312,12 @@
 "error_ok_button" = "OK";
 "error_back_button" = "Indietro";
 "error_api_usage" = "Hai raggiunto il limite di utilizzo dell'API";
+"error_api" = "Errore durante il recupero dei dati";
+"invalid_endpoint" = "Endpoint non valido";
+"invalid_response" = "Risposta non valida";
+"error_no_data" = "Nessun dato";
+"error_serialization" = "Errore durante la decodifica dei dati";
+"error_unable_to_favorite" = "Si è verificato un errore nel seguire questo utente. Si prega di riprovare.";
+"error_already_in_favorites" = "Già aggiunto ai preferiti";
+"network_error" = "Problema con la connessione internet";
+"upload_photo_error" = "Si è verificato un problema durante il caricamento della foto";

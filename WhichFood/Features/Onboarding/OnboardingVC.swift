@@ -16,8 +16,6 @@ class OnboardingVC: UIViewController {
         presentOnboarding()
     }
     
-    func isAppOpenBefore() {
-    }
     
     @objc private func presentOnboarding() {
         let onboardingController: UIOnboardingViewController = .init(withConfiguration: .setUp())
@@ -26,13 +24,15 @@ class OnboardingVC: UIViewController {
     }
 }
 
+
 extension OnboardingVC {
     private func setUp() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.tintColor = .init(named: "camou")
-//        navigationItem.rightBarButtonItem = .init(image: .init(systemName: "rectangle"), style: .plain, target: self, action: #selector(presentOnboarding))
     }
 }
+
+
 extension OnboardingVC: UIOnboardingViewControllerDelegate {
     func didFinishOnboarding(onboardingViewController: UIOnboardingViewController) {
         onboardingViewController.modalTransitionStyle = .crossDissolve
@@ -40,25 +40,9 @@ extension OnboardingVC: UIOnboardingViewControllerDelegate {
                 UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
                 UserDefaults.standard.set(true,forKey: "isFirstLaunch")
         }
-        let homeVC = HomeViewController()
-        self.navigationController?.pushViewController(homeVC, animated: true)
+        
+        let tabbar = MainTabBarController()
+        tabbar.modalPresentationStyle = .fullScreen
+        self.present(tabbar, animated: true)
     }
 }
-
-//#if DEBUG
-//struct ViewControllerContainer: UIViewControllerRepresentable {
-//    func makeUIViewController(context: Context) -> UINavigationController {
-//        return .init(rootViewController: OnboardingVC.init())
-//    }
-//    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {}
-//}
-//
-//struct ContentViewController_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            ViewControllerContainer()
-//                .preferredColorScheme(.dark)
-//        }
-//    }
-//}
-//#endif

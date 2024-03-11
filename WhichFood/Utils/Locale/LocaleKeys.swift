@@ -35,6 +35,9 @@ struct LocaleKeys {
         case prompt2 = "show_food_prompt2"
         case prompt3 = "show_food_prompt3"
         case prompt4 = "show_food_prompt4"
+        case prompt5 = "show_food_prompt5"
+        case random_prompt = "random_prompt"
+        case json_prompt = "json_prompt"
     }
     enum Onboarding: String{
         case feature1 = "feature_1"
@@ -60,6 +63,7 @@ struct LocaleKeys {
         case tryAgain = "detail_try_again"
         case errorOccured = "detail_error_occured"
     }
+    
     enum Settings: String{
         case title = "settings_title"
         case userId = "settings_user"
@@ -79,7 +83,21 @@ struct LocaleKeys {
         case errorMessage = "settings_error_message"
         case closeButton = "settings_close"
         case continueButton = "settings_continue"
+        case accountSettings = "settings_account_settings"
+        case account = "settings_account"
+        case support = "settings_support"
+        case giveFeedback = "settings_feedback"
+        case writeComment = "settings_write_comment"
+        case share = "settings_share"
+        case appearence = "settings_appearance"
+        case otherApps = "settings_other_apps"
+        case rightAndPrivacy = "settings_rights_privacy"
+        case termsOfService = "settings_terms_of_service"
+        case privacyPolicy = "settings_privacy_policy"
+        case languageChange = "settings_language_change"
+        case applyChange = "settings_language_apply_change"
     }
+    
     enum Ingredient: String {
         case bread = "ingredients_bread"
         case garlic = "ingredients_garlic"
@@ -112,8 +130,6 @@ struct LocaleKeys {
         case hotDog = "ingredients_hot_dog"
         case calamari = "ingredients_calamari"
         case pastrami = "ingredients_pastrami"
-        case butter = "ingredients_butter"
-        case rice = "ingredients_rice"
         case bonito = "ingredients_bonito"
         case chickenNuggets = "ingredients_chicken_nuggets"
         case cheese = "ingredients_cheese"
@@ -144,8 +160,90 @@ struct LocaleKeys {
         case almond = "ingredients_almond"
         case hazelnut = "ingredients_hazelnut"
         case driedApricot = "ingredients_dried_apricot"
+        case shrimp = "ingredients_shrimp"
+        case salmon = "ingredients_salmon"
+        case clams = "ingredients_clams"
+        case scallops = "ingredients_scallops"
+        case lobster = "ingredients_lobster"
+        case crab = "ingredients_crab"
+        case prawns = "ingredients_prawns"
+        case caviar = "ingredients_caviar"
+        case oysters = "ingredients_oysters"
+        case mussels = "ingredients_mussels"
+        case anchovies = "ingredients_anchovies"
+        case sardines = "ingredients_sardines"
+        case haddock = "ingredients_haddock"
+        case cod = "ingredients_cod"
+        case tuna = "ingredients_tuna"
+        case trout = "ingredients_trout"
+        case duck = "ingredients_duck"
+        case veal = "ingredients_veal"
+        case rabbit = "ingredients_rabbit"
+        case quail = "ingredients_quail"
+        case pork = "ingredients_pork"
+        case bacon = "ingredients_bacon"
+        case ham = "ingredients_ham"
+        case cabbage = "ingredients_cabbage"
+        case broccoli = "ingredients_broccoli"
+        case cauliflower = "ingredients_cauliflower"
+        case asparagus = "ingredients_asparagus"
+        case artichoke = "ingredients_artichoke"
+        case kale = "ingredients_kale"
+        case brusselsSprouts = "ingredients_brussels_sprouts"
+        case cucumber = "ingredients_cucumber"
+        case radish = "ingredients_radish"
+        case sweetPotato = "ingredients_sweet_potato"
+        case beetroot = "ingredients_beetroot"
+        case pumpkin = "ingredients_pumpkin"
+        case turnip = "ingredients_turnip"
+        case okra = "ingredients_okra"
+        case parsnip = "ingredients_parsnip"
+        case leek = "ingredients_leek"
+        case blueberry = "ingredients_blueberry"
+        case cranberry = "ingredients_cranberry"
+        case watermelon = "ingredients_watermelon"
+        case papaya = "ingredients_papaya"
+        case pineapple = "ingredients_pineapple"
+        case mango = "ingredients_mango"
+        case passionFruit = "ingredients_passion_fruit"
+        case date = "ingredients_date"
+        case dragonFruit = "ingredients_dragon_fruit"
+        case persimmon = "ingredients_persimmon"
+        case starFruit = "ingredients_star_fruit"
+        case blackCurrant = "ingredients_black_currant"
+        case rosemary = "ingredients_rosemary"
+        case sage = "ingredients_sage"
+        case mint = "ingredients_mint"
+        case cilantro = "ingredients_cilantro"
+        case bayLeaf = "ingredients_bay_leaf"
+        case oregano = "ingredients_oregano"
+        case tarragon = "ingredients_tarragon"
+        case chives = "ingredients_chives"
+        case lemongrass = "ingredients_lemongrass"
+        case marjoram = "ingredients_marjoram"
+        case coriander = "ingredients_coriander"
+        case basil = "ingredients_basil"
+        case cashew = "ingredients_cashew"
+        case macadamia = "ingredients_macadamia"
+        case pecan = "ingredients_pecan"
+        case peanut = "ingredients_peanut"
+        case cocoa = "ingredients_cocoa"
+        case chestnut = "ingredients_chestnut"
     }
-
+    
+    enum Languages: String {
+        case turkish = "language_turkish"
+        case english = "language_english"
+        case german = "language_german"
+        case czech = "language_czech"
+        case arabic = "language_arabic"
+        case french = "language_french"
+        case italian = "language_italian"
+        case russian = "language_russian"
+        case iranian = "language_iranian"
+        case spanish = "language_spansish"
+    }
+    
     enum FoodCategory: String {
         case healthy = "category_healthy"
         case easy = "category_easy"
@@ -160,6 +258,7 @@ struct LocaleKeys {
         case dinner = "category_dinner"
         case dessert = "category_dessert"
     }
+    
     enum AccountScreen: String {
         case date = "account_date"
         case premium = "account_premium"
@@ -181,6 +280,12 @@ struct LocaleKeys {
         case noItem = "home_no_item"
         case showAlert = "image_info"
         case takePhoto = "take_photo"
+        case all = "home_all"
+        case meaty = "home_meaty"
+        case veggie = "home_vegetarian"
+        case dessert = "home_dessert"
+        case favorites = "home_favorites"
+        case search  = "home_search"
     }
     enum SelectCategory: String{
         case nextButton = "next_button"
@@ -190,6 +295,15 @@ struct LocaleKeys {
     enum SelectFood: String{
         case applyButton = "apply_button"
         case searchFood = "search_food"
+        case filter = "select_filter"
+        case vegetable = "select_vegetable"
+        case meat = "select_meat"
+        case dairy = "select_dairy"
+        case grain = "select_grain"
+        case fruit = "select_fruit"
+        case seafood = "select_seafood"
+        case herb = "select_herb"
+        case nut = "select_nut"
     }
     enum Error: String {
         case alert = "error_alert"
@@ -197,8 +311,19 @@ struct LocaleKeys {
         case okButton = "error_ok_button"
         case backButton = "error_back_button"
         case apiUsageError = "error_api_usage"
+        case apiError = "error_api"
+        case invalidEndpoint = "invalid_endpoint"
+        case invalidResponse = "invalid_response"
+        case noData = "error_no_data"
+        case serializationError = "error_serialization"
+        case unableToFavorite = "error_unable_to_favorite"
+        case alreadyInFavorites = "error_already_in_favorites"
+        case networkError = "network_error"
+        case uploadPhotoError = "upload_photo_error"
     }
 }
+
+
 extension String{
     func locale() -> String {
         return NSLocalizedString(self, comment: "")

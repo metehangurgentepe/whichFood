@@ -22,28 +22,16 @@ class ImageToTextVC: UIViewController {
     private lazy var image = UIImageView()
     private lazy var recipeText : UILabel = {
        let label = UILabel()
-        guard let customFont = UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize) else {
-            fatalError("""
-                Failed to load the "CustomFont-Light" font.
-                Make sure the font file is included in the project and the font name is spelled correctly.
-                """
-            )
-        }
-        label.font = UIFontMetrics.default.scaledFont(for: customFont).withSize(20)
+        let customFont = Fonts.openSans
+        label.font = UIFontMetrics.default.scaledFont(for: customFont!).withSize(20)
         label.textAlignment = .left
         label.numberOfLines = 20
         return label
     }()
     private lazy var ingredientLabel : UILabel = {
-       let label = UILabel()
-        guard let customFont = UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize) else {
-            fatalError("""
-                Failed to load the "CustomFont-Light" font.
-                Make sure the font file is included in the project and the font name is spelled correctly.
-                """
-            )
-        }
-        label.font = UIFontMetrics.default.scaledFont(for: customFont).withSize(20)
+        let label = UILabel()
+        let customFont = Fonts.openSans
+        label.font = UIFontMetrics.default.scaledFont(for: customFont!).withSize(20)
         label.textAlignment = .left
         label.numberOfLines = 20
         return label
@@ -316,11 +304,13 @@ extension ImageToTextVC: ImageToTextViewModelDelegate{
                         self.activityIndicator.stopAnimating()
                     }
                 }
+                
             case .showError(let error):
                 let alert = showAlert(title: LocaleKeys.Error.alert.rawValue.locale(),
                                       message: error.localizedDescription,
                                       buttonTitle: LocaleKeys.Error.okButton.rawValue.locale(), secondButtonTitle: nil)
                 self.present(alert, animated: true)
+                
             case .showRecipe(let text):
                 DispatchQueue.main.async {
                     self.recipe = text
@@ -332,6 +322,7 @@ extension ImageToTextVC: ImageToTextViewModelDelegate{
                     self.foodNameLabel.text = text.foodName
                     self.cookTimeLabel.text = text.cookTime
                 }
+                
             case .saved:
                 let alert = showAlert(title: LocaleKeys.DetailRecipe.savedSuccess.rawValue.locale(),
                                       message: "",

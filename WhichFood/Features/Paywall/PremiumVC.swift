@@ -18,7 +18,7 @@ protocol PremiumViewControllerDelegate : AnyObject {
     func handleViewModelOutput(_ output: PremiumViewModelOutput)
 }
 
-class PremiumVC: UIViewController {
+class PremiumVC: DataLoadingVC {
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(PremiumTableViewCell.self, forCellReuseIdentifier: PremiumTableViewCell.identifier)
@@ -321,6 +321,7 @@ extension PremiumVC: UITableViewDelegate, UITableViewDataSource {
         return properties.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PremiumTableViewCell.identifier, for: indexPath) as! PremiumTableViewCell
         let model = properties[indexPath.row]
@@ -328,6 +329,7 @@ extension PremiumVC: UITableViewDelegate, UITableViewDataSource {
         cell.accessoryType = .none
         return cell
     }
+    
     
     func addProperties() {
         properties.append(Property(
@@ -344,14 +346,16 @@ extension PremiumVC: UITableViewDelegate, UITableViewDataSource {
             subtitle: LocaleKeys.Premium.premium3.rawValue.locale()))
     }
     
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y != 0 {
             scrollView.contentOffset.y = 0
         }
     }
 }
-// MARK: DESIGN PREMİUM VİEW CONTROLLER
 
+
+// MARK: DESIGN PREMİUM VİEW CONTROLLER
 extension PremiumVC {
     func setupPremiumText() {
         view.addSubview(premiumText)
@@ -424,6 +428,7 @@ extension PremiumVC {
         }
     }
     
+    
     func setupLatestExpirationDateLabel() {
         view.addSubview(latestExpirationDateLabel)
         
@@ -440,6 +445,7 @@ extension PremiumVC {
         ])
     }
     
+    
     func setupBackgroundImage() {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = Images.background
@@ -449,6 +455,7 @@ extension PremiumVC {
         backgroundView.addSubview(backgroundImage)
         view.addSubview(backgroundView)
     }
+    
     
     private func setupPremiumPhoto() {
         view.addSubview(premiumPhoto)
@@ -466,6 +473,7 @@ extension PremiumVC {
         ])
     }
     
+    
     private func setupPremiumLabel() {
         view.addSubview(premiumLabel)
       
@@ -479,9 +487,12 @@ extension PremiumVC {
         ])
     }
     
+    
     private func setupPremiumSubheadlineLabel() {
         view.addSubview(premiumLabelSubheadline)
+        
         premiumLabelSubheadline.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             premiumLabelSubheadline.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             premiumLabelSubheadline.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 100),
@@ -490,6 +501,7 @@ extension PremiumVC {
             premiumLabelSubheadline.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.9)
         ])
     }
+    
     
     private func setupExitButton() {
         view.addSubview(exitButton)
@@ -505,8 +517,12 @@ extension PremiumVC {
         ])
     }
     
+    
     private func setupContinueButton() {
+        continueButton.addTarget(self, action: #selector(didTapSubscribe), for: .touchUpInside)
+        
         continueButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -view.bounds.height * 0.09),
             continueButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -515,9 +531,8 @@ extension PremiumVC {
             continueButton.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.85),
         ])
         
-        continueButton.addTarget(self, action: #selector(didTapSubscribe), for: .touchUpInside)
+       
     }
-    
     
     
     private func setupTable() {
@@ -539,6 +554,7 @@ extension PremiumVC {
             tableView.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.85)
         ])
     }
+    
     
     private func setupIndicator() {
         view.addSubview(progressViewContainer)
@@ -624,101 +640,94 @@ extension PremiumVC {
 }
 
 extension PremiumVC: PremiumViewControllerDelegate {
+    fileprivate func userPremium() {
+        self.premiumLabel.isHidden = false
+        self.premiumPhoto.isHidden = false
+        self.premiumLabelSubheadline.isHidden = false
+        self.latestExpirationDateLabel.isHidden = false
+        self.tableView.isHidden = true
+        self.continueButton.isHidden = true
+        self.weekButton.isHidden = true
+        self.annualButton.isHidden = true
+        self.lifetimePriceLabel.isHidden = true
+        self.weekPriceLabel.isHidden = true
+    }
+    
+    
+    fileprivate func userNotPremium() {
+        self.premiumLabel.isHidden = true
+        self.premiumPhoto.isHidden = true
+        self.premiumLabelSubheadline.isHidden = true
+        self.latestExpirationDateLabel.isHidden = true
+        self.tableView.isHidden = false
+        self.continueButton.isHidden = false
+        self.weekButton.isHidden = false
+        self.annualButton.isHidden = false
+        self.lifetimePriceLabel.isHidden = false
+        self.weekPriceLabel.isHidden = false
+    }
+    
+    
     func handleViewModelOutput(_ output: PremiumViewModelOutput) {
-        switch output {
-        case .setLoading(let isLoading):
-            switch isLoading {
-            case true:
-                DispatchQueue.main.async{
-                    self.progressViewContainer.isHidden = false
-                    self.progressView.isHidden = false
-                    self.progressView.startAnimating()
+        DispatchQueue.main.async{
+            switch output {
+            case .setLoading(let isLoading):
+                switch isLoading {
+                case true:
+                    self.customLoadingView()
+                    
+                case false:
+                    self.dismissLoadingView()
                 }
-            case false:
-                DispatchQueue.main.async{
-                    self.progressViewContainer.isHidden = true
-                    self.progressView.isHidden = true
-                    self.progressView.stopAnimating()
-                }
-            }
-            
-        case .showAlert:
-            let alert = showAlert(
-                title: LocaleKeys.Premium.restore.rawValue.locale(),
-                message: "",
-                buttonTitle: LocaleKeys.Settings.okButton.rawValue.locale(),
-                secondButtonTitle: LocaleKeys.Error.backButton.rawValue.locale(),
-                completionHandler:  {
-                    Purchases.shared.restorePurchases()
-                })
-            self.present(alert, animated:true)
-            
-        case .showError(let error):
-            let alert = showAlert(title: LocaleKeys.Error.alert.rawValue.locale(),
-                                  message: error.localizedDescription,
-                                  buttonTitle: LocaleKeys.Error.okButton.rawValue.locale(), secondButtonTitle: nil)
-            self.present(alert, animated:true)
-            
-        case .getUserInfo(let info):
-            latestExpirationDateLabel.text = "\(LocaleKeys.Premium.latestExpirationDate.rawValue.locale()) \( String(describing: info.latestExpirationDate!.formatted()))"
-            
-        case.userIsPremium(let isPremium):
-            DispatchQueue.main.async{
+                
+            case .showAlert:
+                let alert = showAlert(
+                    title: LocaleKeys.Premium.restore.rawValue.locale(),
+                    message: "",
+                    buttonTitle: LocaleKeys.Settings.okButton.rawValue.locale(),
+                    secondButtonTitle: LocaleKeys.Error.backButton.rawValue.locale(),
+                    completionHandler:  {
+                        Purchases.shared.restorePurchases()
+                    })
+                self.present(alert, animated:true)
+                
+            case .showError(let error):
+                let alert = showAlert(title: LocaleKeys.Error.alert.rawValue.locale(),
+                                      message: error.localizedDescription,
+                                      buttonTitle: LocaleKeys.Error.okButton.rawValue.locale(), secondButtonTitle: nil)
+                self.present(alert, animated:true)
+                
+            case .getUserInfo(let info):
+                self.latestExpirationDateLabel.text = "\(LocaleKeys.Premium.latestExpirationDate.rawValue.locale()) \( String(describing: info.latestExpirationDate!.formatted()))"
+                
+            case.userIsPremium(let isPremium):
                 if isPremium {
-                    self.premiumLabel.isHidden = false
-                    self.premiumPhoto.isHidden = false
-                    self.premiumLabelSubheadline.isHidden = false
-                    self.latestExpirationDateLabel.isHidden = false
-                    self.tableView.isHidden = true
-                    self.continueButton.isHidden = true
-                    self.weekButton.isHidden = true
-                    self.annualButton.isHidden = true
-                    self.lifetimePriceLabel.isHidden = true
-                    self.weekPriceLabel.isHidden = true
-                    self.progressView.stopAnimating()
+                    self.userPremium()
+                    
                 } else {
-                    self.premiumLabel.isHidden = true
-                    self.premiumPhoto.isHidden = true
-                    self.premiumLabelSubheadline.isHidden = true
-                    self.latestExpirationDateLabel.isHidden = true
-                    self.tableView.isHidden = false
-                    self.continueButton.isHidden = false
-                    self.weekButton.isHidden = false
-                    self.annualButton.isHidden = false
-                    self.lifetimePriceLabel.isHidden = false
-                    self.weekPriceLabel.isHidden = false
+                    self.userNotPremium()
                 }
+                
+            case .getOfferings(let offering):
+                self.offering = offering
+                if let weekOffering = offering.weekly {
+                    self.weekPriceLabel.text = weekOffering.localizedPriceString
+                }
+                if let annual = offering.annual {
+                    self.lifetimePriceLabel.text = annual.localizedPriceString
+                }
+                
+            case .getAllOfferings(let package):
+                self.packages = package
+                self.weekPriceLabel.text = package[0].localizedPriceString
+                self.lifetimePriceLabel.text = package[1].localizedPriceString
+                
+            case .userBecamePremium:
+                self.createLayer()
+                self.userPremium()
+                
             }
-            
-        case .getOfferings(let offering):
-            self.offering = offering
-            if let weekOffering = offering.weekly {
-                weekPriceLabel.text = weekOffering.localizedPriceString
-            }
-            if let annual = offering.annual {
-                lifetimePriceLabel.text = annual.localizedPriceString
-            }
-            
-        case .getAllOfferings(let package):
-            self.packages = package
-            weekPriceLabel.text = package[0].localizedPriceString
-            lifetimePriceLabel.text = package[1].localizedPriceString
-            
-        case .userBecamePremium:
-            createLayer()
-            self.premiumLabel.isHidden = false
-            self.premiumPhoto.isHidden = false
-            self.premiumLabelSubheadline.isHidden = false
-            self.latestExpirationDateLabel.isHidden = false
-            self.tableView.isHidden = true
-            self.continueButton.isHidden = true
-            self.weekButton.isHidden = true
-            self.annualButton.isHidden = true
-            self.lifetimePriceLabel.isHidden = true
-            self.weekPriceLabel.isHidden = true
-            self.progressView.stopAnimating()
         }
-        
     }
 }
 

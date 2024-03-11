@@ -11,7 +11,7 @@ import UIKit
 protocol SelectFoodViewModelProtocol{
     var delegate: SelectFoodViewDelegate? {get set}
     
-    func chooseIngredient(index: Int, searchController : UISearchController)
+    func chooseIngredient(ingredient: Ingredient)
     func inSearchMode(_ searchController: UISearchController) -> Bool
     func updateSearchController(searchBarText: String?)
     
@@ -22,99 +22,165 @@ final class SelectFoodViewModel: SelectFoodViewModelProtocol {
     weak var view: SelectFoodViewDelegate?
     
     var foods: [Ingredient] = [
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.fish.rawValue, comment: "Balık"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.lamb.rawValue, comment: "Kuzu"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.turkey.rawValue, comment: "Hindi"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.beef.rawValue, comment: "Sığır Et"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.sausage.rawValue, comment: "Sosis"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.calamari.rawValue, comment: "Kalamar"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.pastrami.rawValue, comment: "Pastırma"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.butter.rawValue, comment: "Tereyağı"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.rice.rawValue, comment: "Pirinç"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.garlic.rawValue, comment: "Sarımsak"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.parsley.rawValue, comment: "Maydanoz"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.tomato.rawValue, comment: "Domates"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.carrot.rawValue, comment: "Havuç"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.potato.rawValue, comment: "Patates"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.springOnion.rawValue, comment: "Taze Soğan"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.pepper.rawValue, comment: "Biber"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.zucchini.rawValue, comment: "Kabak"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.eggplant.rawValue, comment: "Patlıcan"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.mushroom.rawValue, comment: "Mantar"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.freshBasil.rawValue, comment: "Taze Fesleğen"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.lettuce.rawValue, comment: "Marul"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.peas.rawValue, comment: "Bezelye"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.spinach.rawValue, comment: "Ispanak"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.freshMint.rawValue, comment: "Taze Nane"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.celery.rawValue, comment: "Kereviz"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.thyme.rawValue, comment: "Kekik"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.egg.rawValue, comment: "Yumurta"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.groundBeef.rawValue, comment: "Kıyma"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.chicken.rawValue, comment: "Tavuk"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.dicedBeef.rawValue, comment: "Küp Kıyma"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.bread.rawValue, comment: "Ekmek"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.cheese.rawValue, comment: "Peynir"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.yogurt.rawValue, comment: "Yoğurt"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.milk.rawValue, comment: "Süt"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.cream.rawValue, comment: "Krema"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.ricotta.rawValue, comment: "Ricotta Peyniri"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.lemon.rawValue, comment: "Limon"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.avocado.rawValue, comment: "Avokado"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.grape.rawValue, comment: "Üzüm"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.fig.rawValue, comment: "İncir"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.orange.rawValue, comment: "Portakal"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.strawberry.rawValue, comment: "Çilek"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.raspberry.rawValue, comment: "Ahududu"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.blackberry.rawValue, comment: "Böğürtlen"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.mulberry.rawValue, comment: "Dut"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.kiwi.rawValue, comment: "Kivi"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.apple.rawValue, comment: "Elma"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.pomegranate.rawValue, comment: "Nar"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.quince.rawValue, comment: "Ayva"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.walnut.rawValue, comment: "Ceviz"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.pistachio.rawValue, comment: "Antep Fıstığı"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.coconut.rawValue, comment: "Hindistancevizi"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.almond.rawValue, comment: "Badem"), category: .vegetable, isSelected: false),
-        Ingredient(name: NSLocalizedString(LocaleKeys.Ingredient.hazelnut.rawValue, comment: "Findik"), category: .vegetable, isSelected: false),
-    ] { didSet {
-        //        onRecipesUpdated?()
-    }}
+        Ingredient(name: LocaleKeys.Ingredient.fish.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.lamb.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.turkey.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.beef.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.sausage.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.groundBeef.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.chicken.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.dicedBeef.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.pastrami.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.calamari.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.egg.rawValue.locale(), category: .dairy, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.cheese.rawValue.locale(), category: .dairy, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.yogurt.rawValue.locale(), category: .dairy, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.milk.rawValue.locale(), category: .dairy, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.cream.rawValue.locale(), category: .dairy, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.ricotta.rawValue.locale(), category: .dairy, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.bread.rawValue.locale(), category: .grain, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.thyme.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.parsley.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.freshBasil.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.freshMint.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.garlic.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.tomato.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.carrot.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.potato.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.springOnion.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.pepper.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.zucchini.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.eggplant.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.mushroom.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.lettuce.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.peas.rawValue, category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.spinach.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.celery.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.lemon.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.avocado.rawValue.locale(),category: .fruit,isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.grape.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.fig.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.orange.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.strawberry.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.raspberry.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.blackberry.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.mulberry.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.kiwi.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.apple.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.pomegranate.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.quince.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.walnut.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.pistachio.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.coconut.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.almond.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.hazelnut.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.shrimp.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.salmon.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.clams.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.scallops.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.lobster.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.crab.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.prawns.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.caviar.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.oysters.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.mussels.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.anchovies.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.sardines.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.haddock.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.cod.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.tuna.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.trout.rawValue.locale(), category: .seafood, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.duck.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.veal.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.rabbit.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.quail.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.pork.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.bacon.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.ham.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.sausage.rawValue.locale(), category: .meat, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.cabbage.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.broccoli.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.cauliflower.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.asparagus.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.artichoke.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.kale.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.brusselsSprouts.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.cucumber.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.radish.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.sweetPotato.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.beetroot.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.pumpkin.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.turnip.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.okra.rawValue.locale(), category: .vegetable, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.blueberry.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.cranberry.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.watermelon.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.papaya.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.pineapple.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.mango.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.passionFruit.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.date.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.dragonFruit.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.persimmon.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.starFruit.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.pomegranate.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.blackCurrant.rawValue.locale(), category: .fruit, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.rosemary.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.sage.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.mint.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.cilantro.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.bayLeaf.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.oregano.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.tarragon.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.chives.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.lemongrass.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.marjoram.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.coriander.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.basil.rawValue.locale(), category: .herb, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.walnut.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.pistachio.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.cashew.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.hazelnut.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.macadamia.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.pineNuts.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.pecan.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.almond.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.peanut.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.cocoa.rawValue.locale(), category: .nut, isSelected: false),
+        Ingredient(name: LocaleKeys.Ingredient.chestnut.rawValue.locale(), category: .nut, isSelected: false)
+    ]
     
     weak var delegate: SelectFoodViewDelegate?
     var filteredFoods = [Ingredient]()
     private (set) var selectedFoods : [Ingredient] = []
     
-    func chooseIngredient(index: Int, searchController : UISearchController){
-        var ingredient = inSearchMode(searchController) ? filteredFoods[index] : foods[index]
+    var categorizedIngredients: [String: [Ingredient]] = [:]
+    
+    init() {
+        let sortedFoods = foods.sorted { $0.category.rawValue < $1.category.rawValue }
         
-        if inSearchMode(searchController) {
-            filteredFoods[index].isSelected = !filteredFoods[index].isSelected
-            if let ingredientIndexInFoods = foods.firstIndex(where: { $0.name == filteredFoods[index].name }) {
-                foods[ingredientIndexInFoods].isSelected = filteredFoods[index].isSelected
-            }
-        } else{
-            foods[index].isSelected = !foods[index].isSelected
-        }
-        
-        if selectedFoods.contains(where: {$0.name == ingredient.name}) {
-            if let removedIndex = selectedFoods.firstIndex(where: {$0.name == ingredient.name}) {
-                selectedFoods.remove(at: removedIndex)
-            }
-            if inSearchMode(searchController) {
-                filteredFoods[index].isSelected = false
+        for ingredient in sortedFoods {
+            let categoryKey = ingredient.category.localizedValue
+            if categorizedIngredients[categoryKey] == nil {
+                categorizedIngredients[categoryKey] = [ingredient]
             } else {
-                foods[index].isSelected = false
+                categorizedIngredients[categoryKey]?.append(ingredient)
+            }
+        }
+    }
+    
+    
+    func chooseIngredient(ingredient: Ingredient) {
+        if selectedFoods.contains(where: { $0.name == ingredient.name }) {
+            if let removedIndex = selectedFoods.firstIndex(where: { $0.name == ingredient.name }) {
+                selectedFoods.remove(at: removedIndex)
             }
         } else {
             selectedFoods.append(ingredient)
-            if inSearchMode(searchController) {
-                filteredFoods[index].isSelected = true
-            } else {
-                foods[index].isSelected = true
-            }
         }
-        self.delegate?.onIngredientsUpdated()
     }
+    
+    
     
     func increaseApiUsage() async throws {
         self.delegate?.buttonLoading(isLoading: true)
@@ -122,7 +188,7 @@ final class SelectFoodViewModel: SelectFoodViewModelProtocol {
             try await UserManager.shared.increaseApiUsage()
             self.delegate?.navigate()
         } catch {
-            self.delegate?.onError(error)
+            self.delegate?.onError(error as! WFError)
         }
         self.delegate?.buttonLoading(isLoading: false)
     }

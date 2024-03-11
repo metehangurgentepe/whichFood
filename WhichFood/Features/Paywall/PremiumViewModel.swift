@@ -84,7 +84,6 @@ class PremiumViewModel: PremiumViewModelProtocol{
                         Task{
                             try await UserManager.shared.makeUserPremium(subscribeType: package.identifier)
                             self.delegate?.handleViewModelOutput(.userBecamePremium)
-                            //                        self.delegate?.handleViewModelOutput(.userIsPremium(true))
                         }
                     }
                 }

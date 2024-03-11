@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 
 protocol DetailRecipeVCDelegate: AnyObject{
@@ -21,74 +22,122 @@ class DetailRecipeVC: UIViewController {
         slider.selectedSegmentTintColor =  Colors.accent.color
         return slider
     }()
+    
     private lazy var image = UIImage(named: "food")
+    
     private lazy var imageView = UIImageView()
+    
     private lazy var cookTimeLabel = UILabel()
+    
     private lazy var recipeLabel : UILabel = {
         let label = UILabel()
-        guard let customFont = UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize) else {
-            fatalError("""
-                Failed to load the "CustomFont-Light" font.
-                Make sure the font file is included in the project and the font name is spelled correctly.
-                """
-            )
-        }
-        label.font = UIFontMetrics.default.scaledFont(for: customFont).withSize(15)
+        let customFont = Fonts.openSans
+        label.font = UIFontMetrics.default.scaledFont(for: customFont!).withSize(15)
         label.adjustsFontForContentSizeCategory = true
         return label
     }()
+    
     private lazy var ingredientsLabel : UILabel = {
         let label = UILabel()
-        guard let customFont = UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize) else {
-            fatalError("""
-                Failed to load the "CustomFont-Light" font.
-                Make sure the font file is included in the project and the font name is spelled correctly.
-                """
-            )
-        }
-        label.font = UIFontMetrics.default.scaledFont(for: customFont).withSize(15)
+        let customFont = Fonts.openSans
+        label.font = UIFontMetrics.default.scaledFont(for: customFont!).withSize(15)
         label.adjustsFontForContentSizeCategory = true
         return label
     }()
+    
     private lazy var foodNameLabel = UILabel()
     private lazy var scrollView = UIScrollView()
     private lazy var errorAlert = UIAlertAction()
+    private lazy var favButton = UIBarButtonItem(image: SFSymbols.favorites, style: .plain, target: self, action: #selector(addFav))
     
     var viewModel : DetailRecipeViewModelProtocol?
+    var recipe: Recipe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        design()
-        segmentedControl.selectedSegmentIndex = 0
         viewModel?.delegate = self
         viewModel?.load()
+        
+        design()
     }
     
+    
     func design() {
-        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backButton
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        setupScrollView()
+        configureViewController()
+       
         recipeLabel.isHidden = true
-        setupRecipeLabel()
-        setupSegmentedControl()
+       
         setupPhoto()
+        setupSegmentedControl()
+        setupScrollView()
+        setupRecipeLabel()
         setupIngredientLabel()
         setupFoodName()
         setupCookTimeLabel()
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         updateColorsWhenTraitColor()
+        configureFavButton()
+        
     }
+    
+    func configureFavButton() {
+        PersistenceManager.isSaved(favorite: self.recipe!) { result in
+            switch result {
+            case .success(let success):
+                if success {
+                    self.favButton.image = SFSymbols.selectedFavorites
+                    self.favButton.action = #selector(self.removeFav)
+                } else {
+                    self.favButton.image = SFSymbols.favorites
+                    self.favButton.action = #selector(self.addFav)
+                }
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    @objc func addFav() {
+        PersistenceManager.updateWith(favorite: self.recipe!, actionType: .add) { error in
+//            self.presentAlertOnMainThread(title: LocaleKeys.Error.alert.rawValue.locale(),
+//                                     message: error?.localizedDescription ?? "",
+//                                     buttonTitle: LocaleKeys.Error.okButton.rawValue.locale())
+        }
+        configureFavButton()
+    }
+    
+    @objc func removeFav() {
+        PersistenceManager.updateWith(favorite: self.recipe!, actionType: .remove) { error in
+//            self.presentAlertOnMainThread(title: LocaleKeys.Error.alert.rawValue.locale(),
+//                                     message: error?.localizedDescription ?? "",
+//                                     buttonTitle: LocaleKeys.Error.okButton.rawValue.locale())
+        }
+        configureFavButton()
+    }
+    
     
     @objc func segmentedControlValueChanged() {
         updateLabelsVisibility()
     }
     
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         updateColorsWhenTraitColor()
     }
+    
+    
+    private func configureViewController() {
+        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backButton
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        
+        view.backgroundColor = .systemBackground
+        segmentedControl.selectedSegmentIndex = 0
+        
+        navigationItem.rightBarButtonItem = favButton
+    }
+    
     
     private func updateColorsWhenTraitColor() {
         if traitCollection.userInterfaceStyle == .dark {
@@ -101,12 +150,21 @@ class DetailRecipeVC: UIViewController {
     }
 }
 
+
 extension DetailRecipeVC: DetailRecipeVCDelegate {
     func showDetail(_ recipe: Recipe) {
-        recipeLabel.text = recipe.recipe.joined(separator: "\n")
-        ingredientsLabel.text = recipe.ingredients.joined(separator: "\n")
+        self.recipe = recipe
+        recipeLabel.text = recipe.recipe!.joined(separator: "\n")
+        ingredientsLabel.text = recipe.ingredients!.joined(separator: "\n")
         cookTimeLabel.text = recipe.cookTime
         foodNameLabel.text = recipe.name
+        
+        title = recipe.name
+        
+        if let imageURL = recipe.imageUrl {
+            let url = URL(string: imageURL)
+            imageView.kf.setImage(with: url)
+        }
     }
 }
 
@@ -116,6 +174,7 @@ extension DetailRecipeVC {
         recipeLabel.isHidden = selectedIndex != 1
         ingredientsLabel.isHidden = selectedIndex != 0
     }
+    
     
     func setupScrollView() {
         scrollView.isScrollEnabled = true
@@ -128,13 +187,14 @@ extension DetailRecipeVC {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,constant: -view.bounds.height * 0.15),
+            scrollView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor,constant: 5),
+            scrollView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,constant: 10),
-            
             scrollView.widthAnchor.constraint(equalToConstant: view.bounds.width),
             scrollView.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.35)
         ])
     }
+    
     
     func setupRecipeLabel() {
         scrollView.addSubview(recipeLabel)
@@ -151,15 +211,9 @@ extension DetailRecipeVC {
         ])
     }
     
+    
     func setupIngredientLabel() {
-        guard let customFont = UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize) else {
-            fatalError("""
-                Failed to load the "CustomFont-Light" font.
-                Make sure the font file is included in the project and the font name is spelled correctly.
-                """
-            )
-        }
-        ingredientsLabel.font = UIFontMetrics.default.scaledFont(for: customFont)
+        ingredientsLabel.font = Fonts.openSans
         ingredientsLabel.adjustsFontForContentSizeCategory = true
         
         scrollView.addSubview(ingredientsLabel)
@@ -176,25 +230,27 @@ extension DetailRecipeVC {
         ])
     }
     
+    
     func setupFoodName() {
         foodNameLabel.textColor = .black
-        foodNameLabel.textAlignment = .right // Sağa hizalı
+        foodNameLabel.textAlignment = .right 
         foodNameLabel.translatesAutoresizingMaskIntoConstraints = false
         foodNameLabel.numberOfLines = 2
         
-        foodNameLabel.font = .preferredFont(forTextStyle: .headline).withSize(20)
+        foodNameLabel.font = .boldSystemFont(ofSize: FontSize.headline)
         imageView.addSubview(foodNameLabel)
 
         NSLayoutConstraint.activate([
             foodNameLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -30),
-            foodNameLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor, constant: -10),
+            foodNameLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -5),
             foodNameLabel.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.95)
         ])
     }
     
+    
     func setupCookTimeLabel() {
         cookTimeLabel.textColor = .black
-        cookTimeLabel.textAlignment = .right // Sağa hizalı
+        cookTimeLabel.textAlignment = .right
         cookTimeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         cookTimeLabel.font = .preferredFont(forTextStyle: .subheadline).withSize(17)
@@ -203,10 +259,11 @@ extension DetailRecipeVC {
 
         NSLayoutConstraint.activate([
             cookTimeLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10),
-            cookTimeLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor, constant: -10),
+            cookTimeLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -5),
             cookTimeLabel.widthAnchor.constraint(equalToConstant: view.bounds.width)
         ])
     }
+    
     
     func setupSegmentedControl() {
         view.addSubview(segmentedControl)
@@ -214,7 +271,8 @@ extension DetailRecipeVC {
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            segmentedControl.centerYAnchor.constraint(equalTo: self.view.centerYAnchor,constant: -view.bounds.height * 0.05),
+            segmentedControl.topAnchor.constraint(equalTo: imageView.bottomAnchor,constant: 2),
+//            segmentedControl.centerYAnchor.constraint(equalTo: self.view.centerYAnchor,constant: -view.bounds.height * 0.05),
             segmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
             segmentedControl.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.9 ),
@@ -225,15 +283,19 @@ extension DetailRecipeVC {
     func setupPhoto() {
         view.addSubview(imageView)
         
-        let size = CGSize(width: view.bounds.width, height: view.bounds.height * 0.42)
-        let resizableImage = image!.resize(toSize: size)
+//        let size = CGSize(width: view.bounds.width, height: view.bounds.height * 0.42)
+//        let resizableImage = image!.resize(toSize: size)
         
-        imageView.image = resizableImage
+        imageView.image = image
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),       imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.3),
+            imageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),      
+            imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: ScreenSize.width),
+            imageView.widthAnchor.constraint(equalToConstant: ScreenSize.width)
         ])
     }
 }

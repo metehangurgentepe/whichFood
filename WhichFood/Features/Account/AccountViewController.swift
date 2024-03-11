@@ -11,7 +11,7 @@ protocol AccountViewModelDelegate: AnyObject {
     func handleViewModelOutput(_ output: AccountViewModelOutput)
 }
 
-class AccountViewController: UIViewController, AccountViewModelDelegate {
+class AccountViewController: DataLoadingVC {
     
     private lazy var tableView : UITableView = {
         let table = UITableView()
@@ -23,8 +23,8 @@ class AccountViewController: UIViewController, AccountViewModelDelegate {
     var viewModel: AccountViewModelProtocol = AccountViewModel()
     var user: User?
     var models: [AccountInfo] = []
-    let myButton = UIButton()
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -33,6 +33,7 @@ class AccountViewController: UIViewController, AccountViewModelDelegate {
         }
         configure()
     }
+    
     
     func configure(){
         view.backgroundColor = .systemBackground
@@ -44,9 +45,10 @@ class AccountViewController: UIViewController, AccountViewModelDelegate {
         setupTable()
     }
     
+    
     private func setupTable() {
-        
         view.addSubview(tableView)
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -57,17 +59,20 @@ class AccountViewController: UIViewController, AccountViewModelDelegate {
             tableView.widthAnchor.constraint(equalToConstant: view.bounds.width)
         ])
     }
+    
+    
     @objc func copyText() {
         if var user = user {
             user.id = UIPasteboard.general.string ?? "nil"
         }
-     }
+    }
+    
     
     func makeContextMenu(for indexPath: IndexPath) -> UIMenu {
         let copyAction = UIAction(title: "Copy", image: SFSymbols.copy) { _ in
             self.copyText()
         }
-
+        
         let contextMenu = UIMenu(title: "", children: [copyAction])
         return contextMenu
     }
@@ -78,51 +83,59 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
         return models.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AccountTableViewCell.identifier, for: indexPath) as! AccountTableViewCell
         let model = self.models[indexPath.row]
         cell.configure(with: model)
         return cell
     }
-//    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-//            return false
-//        }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let function = models[indexPath.row].handler
         function()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         guard indexPath.row == 0 else {
-            return nil // Return nil for rows other than 0
+            return nil
         }
-
+        
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
             return self.makeContextMenu(for: indexPath)
         })
     }
 }
 
-extension AccountViewController {
+extension AccountViewController: AccountViewModelDelegate {
     func handleViewModelOutput(_ output: AccountViewModelOutput) {
         switch output {
         case .getUser(let user):
             self.user = user
+            
         case .showError(let error):
             let alert = showAlert(title: LocaleKeys.Error.alert.rawValue.locale(), message: error.localizedDescription, buttonTitle: LocaleKeys.Error.okButton.rawValue.locale(), secondButtonTitle: LocaleKeys.Error.backButton.rawValue.locale(), completionSecondHandler:  {
                 self.dismiss(animated: true)
             })
             self.present(alert, animated: true)
+            
         case .setLoading(let isLoading):
-            if isLoading {
-                print(isLoading)
-            }
+            break
+//            if isLoading {
+//                showLoadingView()
+//            } else {
+//                dismissLoadingView()
+//            }
+            
         case .getTableViews(let models):
             self.models = models
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+            
         case .tappedRow(let index):
             guard let user = user else {
                 return
@@ -135,6 +148,7 @@ extension AccountViewController {
             if let selectedCell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) {
                 menuController.showMenu(from: selectedCell, rect: selectedCell.bounds)
             }
+            
         case .navigate(vc: let vc):
             self.present(vc, animated: true)
         }

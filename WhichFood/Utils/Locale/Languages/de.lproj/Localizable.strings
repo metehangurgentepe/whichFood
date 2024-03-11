@@ -122,12 +122,93 @@
 "ingredients_almond" = "Mandel";
 "ingredients_hazelnut" = "Haselnuss";
 "ingredients_driedApricot" = "Getrocknete Aprikose";
+"ingredients_shrimp" = "Garnelen";
+"ingredients_salmon" = "Lachs";
+"ingredients_clams" = "Muscheln";
+"ingredients_scallops" = "Jakobsmuscheln";
+"ingredients_lobster" = "Hummer";
+"ingredients_crab" = "Krebs";
+"ingredients_prawns" = "Garnelen";
+"ingredients_caviar" = "Kaviar";
+"ingredients_oysters" = "Austern";
+"ingredients_mussels" = "Muscheln";
+"ingredients_anchovies" = "Sardellen";
+"ingredients_sardines" = "Sardinen";
+"ingredients_haddock" = "Schellfisch";
+"ingredients_cod" = "Kabeljau";
+"ingredients_tuna" = "Thunfisch";
+"ingredients_trout" = "Forelle";
+"ingredients_duck" = "Ente";
+"ingredients_veal" = "Kalbfleisch";
+"ingredients_rabbit" = "Kaninchen";
+"ingredients_quail" = "Wachtel";
+"ingredients_pork" = "Schweinefleisch";
+"ingredients_bacon" = "Speck";
+"ingredients_ham" = "Schinken";
+"ingredients_cabbage" = "Kohl";
+"ingredients_broccoli" = "Brokkoli";
+"ingredients_cauliflower" = "Blumenkohl";
+"ingredients_asparagus" = "Spargel";
+"ingredients_artichoke" = "Artischocke";
+"ingredients_kale" = "Grünkohl";
+"ingredients_brussels_sprouts" = "Rosenkohl";
+"ingredients_cucumber" = "Gurke";
+"ingredients_radish" = "Radieschen";
+"ingredients_sweet_potato" = "Süßkartoffel";
+"ingredients_beetroot" = "Rote Bete";
+"ingredients_pumpkin" = "Kürbis";
+"ingredients_turnip" = "Rübe";
+"ingredients_okra" = "Okraschoten";
+"ingredients_parsnip" = "Pastinake";
+"ingredients_leek" = "Lauch";
+"ingredients_blueberry" = "Blaubeere";
+"ingredients_cranberry" = "Cranberry";
+"ingredients_watermelon" = "Wassermelone";
+"ingredients_papaya" = "Papaya";
+"ingredients_pineapple" = "Ananas";
+"ingredients_mango" = "Mango";
+"ingredients_passion_fruit" = "Passionsfrucht";
+"ingredients_date" = "Dattel";
+"ingredients_dragon_fruit" = "Drachenfrucht";
+"ingredients_persimmon" = "Persimmon";
+"ingredients_star_fruit" = "Sternfrucht";
+"ingredients_black_currant" = "Schwarze Johannisbeere";
+"ingredients_rosemary" = "Rosmarin";
+"ingredients_sage" = "Salbei";
+"ingredients_mint" = "Minze";
+"ingredients_cilantro" = "Koriander";
+"ingredients_bay_leaf" = " Lorbeerblatt";
+"ingredients_oregano" = "Oregano";
+"ingredients_tarragon" = "Estragon";
+"ingredients_chives" = "Schnittlauch";
+"ingredients_lemongrass" = "Zitronengras";
+"ingredients_marjoram" = "Majoran";
+"ingredients_coriander" = "Koriander";
+"ingredients_basil" = "Basilikum";
+"ingredients_cashew" = "Cashewnuss";
+"ingredients_macadamia" = "Macadamianuss";
+"ingredients_pecan" = "Pekannuss";
+"ingredients_peanut" = "Erdnuss";
+"ingredients_cocoa" = "Kakao";
+"ingredients_chestnut" = "Esskastanie";
+// ... (Daha önceki malzemeler)
+
 
 
 // home
 "home_recipe" = "Rezepte";
 "home_create_button" = "Rezept erstellen";
 "home_no_item" = "Keine gespeicherten Rezepte";
+"home_all" = "Alle";
+"home_meaty" = "Fleischig";
+"home_vegetarian" = "Vegetarisch";
+"home_dessert" = "Dessert";
+"take_photo" = "Machen Sie ein Foto von Ihrem geschriebenen Rezept.";
+"image_info" = "Du kannst das Foto deines geschriebenen Rezepts zu den Rezepten in der App hinzufügen.";
+"home_favorites" = "Favoriten";
+"home_search" = "Suchen";
+
+
 
 //select category
 "next_button" = "Weiter";
@@ -138,6 +219,29 @@
 // select food
 "apply_button" = "Rezept erstellen";
 "search_food" = "Zutat suchen";
+"select_filter" = "Gefilterte Zutaten";
+"select_vegetable" = "Gemüse";
+"select_meat" = "Fleisch";
+"select_dairy" = "Milchprodukte";
+"select_grain" = "Getreide";
+"select_fruit" = "Obst";
+"select_seafood" = "Meeresfrüchte";
+"select_herb" = "Kräuter";
+"select_nut" = "Nuss";
+
+// language
+"language_turkish" = "Türkisch";
+"language_english" = "Englisch";
+"language_german" = "Deutsch";
+"language_czech" = "Tschechisch";
+"language_arabic" = "Arabisch";
+"language_french" = "Französisch";
+"language_italian" = "Italienisch";
+"language_russian" = "Russisch";
+"language_iranian" = "Iranisch";
+"language_spansish" = "Spanisch";
+
+
 
 // premium
 "premium_1_title" = "Unbegrenzte Rezepte hinzufügen";
@@ -172,12 +276,30 @@
 "settings_error_message" = "Wenn Sie die Anwendung in einer anderen Sprache verwenden möchten, können Sie dies auf der nächsten Seite in den Sprachoptionen ändern.";
 "settings_close" = "Schließen";
 "settings_continue" = "Weiter";
+"settings_account_settings" = "Konto-Einstellungen";
+"settings_account" = "Konto";
+"settings_support" = "Unterstützung";
+"settings_feedback" = "Feedback geben";
+"settings_write_comment" = "Kommentar schreiben";
+"settings_share" = "Teilen";
+"settings_appearance" = "Erscheinungsbild";
+"settings_other_apps" = "Andere Apps entdecken";
+"settings_rights_privacy" = "Rechte & Datenschutz";
+"settings_terms_of_service" = "Nutzungsbedingungen";
+"settings_privacy_policy" = "Datenschutzrichtlinie";
+"settings_language_change" = "Sprache geändert";
+"settings_language_apply_change" = "Starten Sie die Anwendung neu, um die Sprache zu ändern";
+
+
 
 //show food
 "show_food_prompt1" = "Können Sie ein Rezept mit den Zutaten vorschlagen:";
 "show_food_prompt2" = "Können Sie ein Rezept mit Zutaten vorschlagen? ";
 "show_food_prompt3" = "Mahlzeiten enthalten diese Merkmale. Schreiben Sie nichts davor.";
 "show_food_prompt4" = "Liefern Sie die Daten im JSON-Format, einfach als JSON, ohne etwas davor oder danach hinzuzufügen, das JSON lautet: ";
+"show_food_prompt5" = "Wählen Sie eine Sorte, je nachdem, ob es sich um Fleisch, Gemüse oder Süßigkeiten handelt. Nur eine dieser Sorten.";
+"random_prompt" = "Gib mir ein zufälliges Rezept";
+"json_prompt" = "genau dieses JSON";
 
 
 // account
@@ -199,3 +321,13 @@
 "error_ok_button" = "OK";
 "error_back_button" = "Zurück";
 "error_api_usage" = "Sie haben das API-Nutzungslimit erreicht";
+"error_api" = "Fehler beim Abrufen von Daten";
+"invalid_endpoint" = "Ungültiger Endpunkt";
+"invalid_response" = "Ungültige Antwort";
+"error_no_data" = "Keine Daten";
+"error_serialization" = "Fehler beim Dekodieren von Daten";
+"error_unable_to_favorite" = "Es gab einen Fehler beim Hinzufügen dieses Benutzers zu den Favoriten. Bitte versuchen Sie es erneut.";
+"error_already_in_favorites" = "Bereits zu Favoriten hinzugefügt";
+"network_error" = "Es gibt ein Problem mit der Internetverbindung";
+"upload_photo_error" = "Es gab ein Problem beim Hochladen des Fotos";
+

@@ -31,35 +31,37 @@ final class AccountViewModel: AccountViewModelProtocol {
     private (set) var user : User?
     private (set) var models = [AccountInfo]()
     
-    // user service yaz
+    
     @MainActor
     func getUser(completion: @escaping () -> Void) {
         self.delegate?.handleViewModelOutput(.setLoading(true))
         Task { [weak self] in
+            guard let self = self else { return }
             do {
-                self?.user = try await UserManager.shared.getUser()
-                if let user = self?.user {
-                    self?.delegate?.handleViewModelOutput(.getUser(user))
+                self.user = try await UserManager.shared.getUser()
+                if let user = self.user {
+                    self.delegate?.handleViewModelOutput(.getUser(user))
+                    self.delegate?.handleViewModelOutput(.setLoading(false))
                     completion()
                 }
             } catch {
-                self?.delegate?.handleViewModelOutput(.showError(error))
+                self.delegate?.handleViewModelOutput(.setLoading(false))
+                self.delegate?.handleViewModelOutput(.showError(error))
             }
         }
     }
 
-    @MainActor 
+    
+    @MainActor
     func createTableView() {
-        // Call getUser with a completion handler
-        print(user?.lastPremiumDate?.description)
         getUser { [weak self] in
-            // Now the user property is populated
             self?.models.append(AccountInfo(
                 title: LocaleKeys.AccountScreen.idName.rawValue.locale(),
                 content: self?.user?.id ?? LocaleKeys.AccountScreen.id.rawValue.locale(),
                 handler: {
                     self?.delegate?.handleViewModelOutput(.tappedRow(index:0))
                 }))
+            
             self?.models.append(AccountInfo(
                 title: LocaleKeys.AccountScreen.premiumName.rawValue.locale(),
                 content: self?.user?.premiumType ?? LocaleKeys.AccountScreen.premium.rawValue.locale(),
@@ -67,18 +69,21 @@ final class AccountViewModel: AccountViewModelProtocol {
                     let premiumVC = PremiumVC()
                     self?.delegate?.handleViewModelOutput(.navigate(vc: premiumVC))
                 }))
+            
             self?.models.append(AccountInfo(
                 title: LocaleKeys.AccountScreen.dateName.rawValue.locale(),
                 content:  formatDate(self?.user?.lastPremiumDate) ?? LocaleKeys.AccountScreen.date.rawValue.locale(),
                 handler: {
                     
                 }))
+            
             self?.models.append(AccountInfo(
                 title: LocaleKeys.AccountScreen.numberOfUsageApi.rawValue.locale(),
                 content:  String(self?.user?.numberOfUsageApi ?? 0) ,
                 handler: {
                     
                 }))
+            
             self?.delegate?.handleViewModelOutput(.getTableViews(self?.models ?? []))
         }
     }

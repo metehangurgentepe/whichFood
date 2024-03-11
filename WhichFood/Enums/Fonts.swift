@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import UIKit
+
+
+enum Fonts{
+    static let openSans =  UIFont(name: "OpenSans-Regular", size: UIFont.labelFontSize)
+    static let andika =  UIFont(name: "Andika-Bold", size: UIFont.labelFontSize)
+}
