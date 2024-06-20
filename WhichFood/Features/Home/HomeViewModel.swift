@@ -6,51 +6,106 @@
 //
 
 import Foundation
+import FirebaseStorage
+import UIKit
 
-protocol HomeViewModelDelegate: AnyObject{
-    func didFinish()
-    func didFail(error: Error)
-    func isLoading()
-   // var isLoading: Bool { get set }
+
+enum RecipeListViewModelOutput: Equatable {
+    case setLoading(Bool)
+    case showRecipeList([Recipe])
+    case showError(WFError)
+    case emptyList
 }
 
-class HomeViewModel{
+protocol HomeViewModelProtocol {
+    var delegate: HomeViewModelDelegate? {get set}
+    func getRecipes()
+    func selectRecipe(at index: Int)
+    func deleteRecipe(recipe: Recipe)
+}
+
+class HomeViewModel: HomeViewModelProtocol{
     weak var delegate: HomeViewModelDelegate?
-    
     private(set) var recipes : [Recipe] = []
-    
+    private(set) var isEmptyRecipe: Bool = true
     
     @MainActor
     func getRecipes() {
+        delegate?.handleViewModelOutput(.setLoading(true))
+        
         Task{ [weak self] in
-       //     self?.delegate?.isLoading = true
-            self?.delegate?.isLoading()
+            guard let self = self else { return }
             do {
-                self?.recipes = try await SavedRecipesManager.shared.getAllRecipes()
-                self?.delegate?.didFinish()
-               // self?.delegate?.isLoading = false
+                self.recipes = try await SavedRecipesManager.shared.getAllRecipesByUser()
+                if !self.recipes.isEmpty{
+                    self.delegate?.handleViewModelOutput(.showRecipeList(recipes))
+                    self.delegate?.handleViewModelOutput(.setLoading(false))
+                } else {
+                    self.delegate?.handleViewModelOutput(.emptyList)
+                    self.delegate?.handleViewModelOutput(.setLoading(false))
+                }
             } catch{
-                self?.delegate?.didFail(error: error)
-              //  self?.delegate?.isLoading = false
+                self.delegate?.handleViewModelOutput(.showError(error as! WFError))
+                self.delegate?.handleViewModelOutput(.setLoading(false))
             }
         }
     }
     
-    func delete(id: String,index: Int) {
-        SavedRecipesManager.shared.deleteRecipe(id: id)
-        recipes.remove(at: index)
+    func deleteRecipe(recipe: Recipe) {
+        SavedRecipesManager.shared.deleteRecipeByUserID(id: recipe.id)
+        Task{
+            await self.getRecipes()
+        }
     }
     
-    func formatDate(_ dateString: String) -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-        
-        if let date = dateFormatter.date(from: dateString) {
-            dateFormatter.dateFormat = "dd MMMM yyyy"
-            dateFormatter.locale = Locale(identifier: "tr_TR") // Türkçe formatı
-            return dateFormatter.string(from: date)
-        } else {
-            return nil // Tarih çözümlenemezse nil döndürün.
+    
+    func selectRecipe(at index: Int) {
+        delegate?.navigate(to: .details(index))
+    }
+    
+    
+    func increaseApiUsage() async throws {
+        do{
+            let vc = await DiscoverFoodVC()
+            try await UserManager.shared.increaseApiUsage()
+            self.delegate?.navigate(to: .goToVC(vc))
+        } catch {
+            self.delegate?.handleViewModelOutput(.showError(error as! WFError))
+        }
+    }
+    
+    
+    func filter(word: String) {
+        switch word {
+        case Categories.homeCategoryList[0]:
+            self.delegate?.handleViewModelOutput(.showRecipeList(self.recipes))
+            
+        case Categories.homeCategoryList[1]:
+            let recipe = self.recipes.filter{ $0.type?.lowercased() == Categories.homeCategoryList[1].lowercased()}
+            self.delegate?.handleViewModelOutput(.showRecipeList(recipe))
+            
+        case Categories.homeCategoryList[2]:
+            let recipe = self.recipes.filter{ $0.type?.lowercased() == Categories.homeCategoryList[2].lowercased()}
+            self.delegate?.handleViewModelOutput(.showRecipeList(recipe))
+            
+        case Categories.homeCategoryList[3]:
+            let recipe = self.recipes.filter{ $0.type?.lowercased() == Categories.homeCategoryList[3].lowercased()}
+            self.delegate?.handleViewModelOutput(.showRecipeList(recipe))
+        default:
+            break
+        }
+    }
+}
+
+extension RecipeListViewModelOutput {
+    static func == (lhs: RecipeListViewModelOutput, rhs: RecipeListViewModelOutput) -> Bool {
+        switch (lhs, rhs) {
+        case (.setLoading(let a), .setLoading(let b)):
+            return a == b
+        case (.showRecipeList(let a), .showRecipeList(let b)):
+            return a == b
+        default:
+            return false
         }
     }
 }

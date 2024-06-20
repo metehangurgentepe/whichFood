@@ -6,6 +6,15 @@
 	<array>
 		<string>com.metehangurgentepe.WhichFood</string>
 	</array>
+	<key>FirebaseScreenReportingEnabled</key>
+	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Montserrat-VariableFont_wght.ttf</string>
+		<string>OpenSans-VariableFont_wdth,wght.ttf</string>
+		<string>OpenSans-Italic-VariableFont_wdth,wght.ttf</string>
+		<string>Andika-Bold.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

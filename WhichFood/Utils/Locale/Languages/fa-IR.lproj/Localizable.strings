@@ -1,0 +1,321 @@
+/*
+  Localizable.strings
+  WhichFood
+
+  Created by Metehan Gürgentepe on September 12, 2023.
+  
+*/
+
+"tabHome" = "عنوان اینجا";
+
+//Premium
+"premiumWeekButton" = "پریمیوم هفتگی";
+"lifetimeButton" = "پریمیوم سالانه";
+"continueButton" = "ادامه";
+
+// onboarding
+"feature_1" = "مواد اولیه موجود در خانه خود را انتخاب کنید و به اپلیکیشن اجازه دهید به شما نشان دهد چه غذاهایی می‌توانید بپزید.";
+"feature_2" = "دسته‌های غذایی را که با سلیقه شما هماهنگ هستند، انتخاب کنید و از لذت پختن بهترین غذاها لذت ببرید.";
+"feature_3" = "دستورات دلخواه خود را ذخیره کنید و هر زمان که دوست دارید بپزید.";
+"feature_1_title" = "مواد اولیه در دسترس";
+"feature_2_title" = "دسته‌های فراوان";
+"feature_3_title" = "ذخیره دستورات پخت";
+"footer" = "طراحی و کدنویسی توسط Metehan Gürgentepe";
+"more" = "بیشتر ببینید...";
+"feature_button" = "ادامه";
+"feature_welcome" = "خوش آمدید";
+
+// detail recipe
+"detail_ingredients" = "مواد اولیه";
+"detail_recipe" = "دستورات";
+"detail_success" = "با موفقیت ذخیره شد";
+"detail_save" = "ذخیره دستور پخت";
+"detail_success_title" = "موفقیت";
+"detail_ok_button" = "تایید";
+"detail_error_title" = "خطا";
+"detail_error_message" = "دستور پخت ذخیره نشد";
+"detail_try_again" = "دوباره امتحان کنید";
+"detail_error_occurred" = "خطایی رخ داده است";
+
+// food categories
+"category_healthy" = "سالم";
+"category_easy" = "آسان";
+"category_mid" = "متوسط";
+"category_hard" = "سخت";
+"category_enjoy" = "لذت بخش";
+"category_hearty" = "خوشمزه";
+"category_vegan" = "گیاه‌خوار";
+"category_vegetarian" = "گیاه‌خوار";
+"category_breakfast" = "صبحانه";
+"category_lunch" = "ناهار";
+"category_dinner" = "شام";
+"category_dessert" = "دسر";
+
+// ingredients
+"ingredients_bread" = "نان";
+"ingredients_garlic" = "سیر";
+"ingredients_parsley" = "جعفری";
+"ingredients_tomato" = "گوجه‌فرنگی";
+"ingredients_carrot" = "هویج";
+"ingredients_potato" = "سیب‌زمینی";
+"ingredients_dill" = "شوید";
+"ingredients_spring_onion" = "پیازچه";
+"ingredients_pepper" = "فلفل";
+"ingredients_zucchini" = "کدو";
+"ingredients_eggplant" = "بادمجان";
+"ingredients_rice" = "برنج";
+"ingredients_mushroom" = "قارچ";
+"ingredients_fresh_basil" = "رزماری تازه";
+"ingredients_lettuce" = "کاهو";
+"ingredients_peas" = "نخود";
+"ingredients_butter" = "کره";
+"ingredients_spinach" = "اسفناج";
+"ingredients_fresh_mint" = "نعناع تازه";
+"ingredients_celery" = "کرفس";
+"ingredients_thyme" = "آویشن";
+"ingredients_egg" = "تخم‌مرغ";
+"ingredients_ground_beef" = "گوشت چرخ‌کرده";
+"ingredients_chicken" = "مرغ";
+"ingredients_diced_beef" = "گوشت خرد شده";
+"ingredients_fish" = "ماهی";
+"ingredients_lamb" = "گوسفند";
+"ingredients_turkey" = "بوقلمون";
+"ingredients_beef" = "گوشت گاو";
+"ingredients_sausage" = "سوسیس";
+"ingredients_hotDog" = "هات‌داگ";
+"ingredients_calamari" = "کلماری";
+"ingredients_pastrami" = "پاسترما";
+"ingredients_bonito" = "بونیتو";
+"ingredients_chickenNuggets" = "ناگت مرغ";
+"ingredients_cheese" = "پنیر";
+"ingredients_yogurt" = "ماست";
+"ingredients_milk" = "شیر";
+"ingredients_cream" = "خامه";
+"ingredients_ricotta" = "ریکوتا";
+"ingredients_lemon" = "لیمو";
+"ingredients_avocado" = "آووکادو";
+"ingredients_grape" = "انگور";
+"ingredients_fig" = "انجیر";
+"ingredients_orange" = "پرتقال";
+"ingredients_blackOlive" = "زیتون سیاه";
+"ingredients_greenApple" = "سیب سبز";
+"ingredients_strawberry" = "توت فرنگی";
+"ingredients_raspberry" = "تمشک";
+"ingredients_blackberry" = "توت سیاه";
+"ingredients_mulberry" = "توت";
+"ingredients_kiwi" = "کیوی";
+"ingredients_apple" = "سیب";
+"ingredients_pomegranate" = "انار";
+"ingredients_quince" = "به";
+"ingredients_walnut" = "گردو";
+"ingredients_pineNuts" = "انگشت‌پیچ";
+"ingredients_pistachio" = "پسته";
+"ingredients_sunDriedTomato" = "گوجه‌فرنگی خشک‌شده";
+"ingredients_coconut" = "نارگیل";
+"ingredients_almond" = "بادام";
+"ingredients_hazelnut" = "فندق";
+"ingredients_driedApricot" = "میوه خشک زردآلو";
+"ingredients_shrimp" = "میگو";
+"ingredients_salmon" = "ماهی سالمون";
+"ingredients_clams" = "صدف";
+"ingredients_scallops" = "صدف دریایی";
+"ingredients_lobster" = "خرچنگ";
+"ingredients_crab" = "خرچنگ";
+"ingredients_prawns" = "میگو";
+"ingredients_caviar" = "خاویار";
+"ingredients_oysters" = "صدف دریایی";
+"ingredients_mussels" = "صدف";
+"ingredients_anchovies" = "ماهی های ماهی";
+"ingredients_sardines" = "ماهی ساردین";
+"ingredients_haddock" = "ماهی هداک";
+"ingredients_cod" = "ماهی کد";
+"ingredients_tuna" = "ماهی تن";
+"ingredients_trout" = "ماهی قزل آلا";
+"ingredients_duck" = "اردک";
+"ingredients_veal" = "گوشت گوسفند جوان";
+"ingredients_rabbit" = "خرگوش";
+"ingredients_quail" = "کبک";
+"ingredients_pork" = "گوشت خوک";
+"ingredients_bacon" = "سوسیس خوک";
+"ingredients_ham" = "پنیر هم";
+"ingredients_cabbage" = "کلم";
+"ingredients_broccoli" = "بروکلی";
+"ingredients_cauliflower" = "کلی فلاور";
+"ingredients_asparagus" = "ملخ";
+"ingredients_artichoke" = "آرتیچوک";
+"ingredients_kale" = "کل";
+"ingredients_brussels_sprouts" = "بروکسل اسپرات";
+"ingredients_cucumber" = "خیار";
+"ingredients_radish" = "تربچه";
+"ingredients_sweet_potato" = "سیب زمینی شیرین";
+"ingredients_beetroot" = "لبو";
+"ingredients_pumpkin" = "کدو";
+"ingredients_turnip" = "لفت";
+"ingredients_okra" = "بامیه";
+"ingredients_parsnip" = "ترنیپ";
+"ingredients_leek" = "پیازچه";
+"ingredients_blueberry" = "توت آبی";
+"ingredients_cranberry" = "کرنبری";
+"ingredients_watermelon" = "هندوانه";
+"ingredients_papaya" = "پاپایا";
+"ingredients_pineapple" = "آناناس";
+"ingredients_mango" = "مانگو";
+"ingredients_passion_fruit" = "میوه عشق";
+"ingredients_date" = "خرما";
+"ingredients_dragon_fruit" = "میوه اژدها";
+"ingredients_persimmon" = "خرمالو";
+"ingredients_star_fruit" = "میوه ستاره";
+"ingredients_black_currant" = "آنگور سیاه";
+"ingredients_rosemary" = "روزماری";
+"ingredients_sage" = "سیج";
+"ingredients_mint" = "نعناع";
+"ingredients_cilantro" = "گشنیز";
+"ingredients_bay_leaf" = "برگ بات";
+"ingredients_oregano" = "آورگانو";
+"ingredients_tarragon" = "تره‌گون";
+"ingredients_chives" = "پیازچه";
+"ingredients_lemongrass" = "لیموی چمپا";
+"ingredients_marjoram" = "مرزه";
+"ingredients_coriander" = "گل‌چین";
+"ingredients_basil" = "ریحان";
+"ingredients_cashew" = "کاجو";
+"ingredients_macadamia" = "مکادامیا";
+"ingredients_pecan" = "بقان";
+"ingredients_peanut" = "بادام زمینی";
+"ingredients_cocoa" = "کاکائو";
+"ingredients_chestnut" = "بلوط";
+
+
+// home
+"home_recipe" = "دستورات پخت";
+"home_create_button" = "ایجاد دستور پخت";
+"home_no_item" = "هیچ دستور پخت ذخیره‌شده‌ای نیست";
+"home_all" = "همه";
+"home_meaty" = "گوشتی";
+"home_vegetarian" = "سبزیجاتی";
+"home_dessert" = "دسر";
+"take_photo" = "نوشته‌ی خودتان را عکس بگیرید.";
+"image_info" = "نوشته‌ی خودتان را به دستور‌های آشپزی در اپلیکیشن اضافه کردن قادر خواهید بود.";
+"home_favorites" = "مورد علاقه";
+
+
+//select category
+"next_button" = "بعدی";
+"select_label" = "نوع غذا را انتخاب کنید";
+"choose_label" = "یک یا چند مورد انتخاب کنید";
+
+
+// select food
+"apply_button" = "ایجاد دستور پخت";
+"search_food" = "جستجوی مواد اولیه";
+"select_filter" = "مواد انتخاب شده";
+"select_vegetable" = "سبزیجات";
+"select_meat" = "گوشت";
+"select_dairy" = "محصولات لبنی";
+"select_grain" = "غلات";
+"select_fruit" = "میوه";
+"select_seafood" = "ماهی و مواد دریایی";
+"select_herb" = "گیاهان دارویی";
+"select_nut" = "آجیل";
+
+
+// language
+"language_turkish"   = "ترکی";
+"language_english" = "انگلیسی";
+"language_german" = "آلمانی";
+"language_czech" = "چکی";
+"language_arabic" = "عربی";
+"language_french" = "فرانسوی";
+"language_italian" = "ایتالیایی";
+"language_russian" = "روسی";
+"language_iranian" = "ایرانی";
+"language_spansish" = "اسپانیایی";
+
+
+
+// premium
+"premium_1_title" = "افزودن دستور پخت بی‌نهایت";
+"premium_1" = "افزودن و دنبال کردن دستورات پخت بدون هیچ محدودیتی.";
+"premium_2_title" = "نگران نباشید چه غذایی بپزید";
+"premium_2" = "نگران نباشید چه غذایی بپزید.";
+"premium_3_title" = "این بستگی به شما دارد";
+"premium_3" = "هر چه خواستید با موادی که دوست دارید غذا بپزید.";
+"premium_subscribed" = "شما مشترک هستید";
+"premium_subheadline" = "تبریک می‌گویم، شما با موفقیت دسترسی پریمیوم به تمام ویژگی‌های اپلیکیشن را فعال کرده‌اید، از آن لذت ببرید!";
+"premium_expiration" = "تاریخ انقضا: ";
+"premium_restore" = "آیا می‌خواهید خریدها را بازیابی کنید؟";
+
+// settings
+"settings_title" = "تنظیمات";
+"settings_user" = "شناسه کاربر:";
+"settings_premium" = "پریمیوم";
+"settings_language" = "زبان";
+"settings_dark_mode" = "حالت تاریک";
+"settings_write_me" = "به من بنویسید";
+"settings_about_app" = "درباره WhichFood";
+"settings_hello" = "سلام";
+"settings_mail_title_error" = "ارسال ایمیل پشتیبانی نمی‌شود";
+"settings_mail_message_error" = "برای ارسال ایمیل، باید یک حساب ایمیل پیکربندی کنید.";
+"settings_ok_button" = "تایید";
+"settings_select_theme" = "انتخاب تم";
+"settings_light_mode" = "حالت روشن";
+"settings_dark_mode_button" = "حالت تاریک";
+"settings_error_title" = "تغییر تنظیمات زبان";
+"settings_error_message" = "اگر می‌خواهید از اپلیکیشن به زبان دیگری استفاده کنید، می‌توانید آن را از گزینه زبان در صفحه بعد تغییر دهید.";
+"settings_close" = "بستن";
+"settings_continue" = "ادامه";
+"settings_account_settings" = "تنظیمات حساب";
+"settings_account" = "حساب";
+"settings_support" = "پشتیبانی";
+"settings_feedback" = "ارسال بازخورد";
+"settings_write_comment" = "نوشتن یک نظر";
+"settings_share" = "اشتراک گذاری";
+"settings_appearance" = "ظاهر";
+"settings_other_apps" = "کشف دیگر برنامه‌ها";
+"settings_rights_privacy" = "حقوق و حریم خصوصی";
+"settings_terms_of_service" = "شرایط خدمات";
+"settings_privacy_policy" = "سیاست حفظ حریم خصوصی";
+"settings_language_language_change" = "تغییر زبان انجام شد";
+"settings_language_language_apply_change" = "برای اعمال تغییرات زبان، برنامه را دوباره راه‌اندازی کنید";
+
+
+//show food
+"show_food_prompt1" = "آیا می‌توانید یک دستور پخت با مواد اولیه زیر پیشنهاد دهید:";
+"show_food_prompt2" = "آیا می‌توانید یک دستور پخت با این مواد اولیه پیشنهاد دهید؟ ";
+"show_food_prompt3" = "غذاها با این ویژگی‌ها. هیچ چیزی جلوی آن ننویسید.";
+"show_food_prompt4" = "اطلاعات را به فرمت JSON ارائه دهید، به عنوان ساده JSON بدون افزودن هیچ چیزی قبل یا بعد از آن، فرمت JSON به صورت زیر است: ";
+"show_food_prompt5" = "بسته به اینکه غذا گوشتی، سبزیجاتی یا شیرینی است، یک نوع را انتخاب کنید. تنها یکی از این انواع را انتخاب کنید";
+"random_prompt" = "یک دستور غذای تصادفی به من بده";
+"json_prompt" = "دقیقاً این JSON";
+
+
+// account
+"account_date" = "هیچ";
+"account_premium" = "هیچ";
+"account_id" = "هیچ";
+"account_user_id" = "شناسه کاربر";
+"account_premium_name" = "پریمیوم";
+"account_last_date" = "تاریخ انقضا";
+"account_copy" = "کپی";
+"account_title" = "حساب";
+"account_usage_api" = "تعداد دستور پخت ایجاد شده";
+
+
+// error alert
+"error_alert" = "خطا";
+"error_occurred" = "خطایی رخ داده است";
+"error_ok_button" = "تایید";
+"error_back_button" = "بازگشت";
+"error_api_usage" = "شما به محدودیت استفاده از API رسیده‌اید";
+"error_api" = "خطا در دریافت داده";
+"invalid_endpoint" = "نقطه پایان نامعتبر";
+"invalid_response" = "پاسخ نامعتبر";
+"error_no_data" = "بدون داده";
+"error_serialization" = "خطا در رمزگشایی داده";
+"error_unable_to_favorite" = "خطایی در افزودن این کاربر به لیست علاقه‌مندی رخ داده است. لطفاً دوباره تلاش کنید.";
+"error_already_in_favorites" = "از قبل به لیست علاقه‌مندی اضافه شده";
+"network_error" = "مشکلی در اتصال اینترنت وجود دارد";
+"upload_photo_error" = "مشکلی در آپلود تصویر به وجود آمد";
+
+
+//image to text

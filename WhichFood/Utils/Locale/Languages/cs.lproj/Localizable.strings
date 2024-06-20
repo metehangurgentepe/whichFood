@@ -1,0 +1,328 @@
+/*
+  Localizable.strings
+  WhichFood
+
+  Oluşturan: Metehan Gürgentepe, 12.09.2023.
+  
+*/
+
+
+"tabHome" = "Název zde";
+
+
+// Prémium
+"premiumWeekButton" = "Týdenní Prémium";
+"lifetimeButton" = "Roční Prémium";
+"continueButton" = "Pokračovat";
+
+// Úvod
+"feature_1" = "Vyberte si suroviny, které máte doma, a aplikace vám řekne, co můžete vařit.";
+"feature_2" = "Vyberte si kategorie jídel, které preferujete, a pochutnejte si na nejlepších pokrmech.";
+"feature_3" = "Uložte si recepty svých oblíbených jídel a vařte, kdykoli chcete.";
+"feature_1_title" = "Dostupné Suroviny";
+"feature_2_title" = "Mnoho Kategorií";
+"feature_3_title" = "Uložit Recepty";
+"footer" ="Vytvořil a zakódoval Metehan Gürgentepe";
+"more" = "Zobrazit více...";
+"feature_button" = "Pokračovat";
+"feature_welcome" = "Vítejte";
+
+// Podrobný Recept
+"detail_ingredients" = "Suroviny";
+"detail_recipe" = "Postup";
+"detail_success" = "Úspěšně Uloženo";
+"detail_save" = "Uložit Recept";
+"detail_success_title" = "Úspěch";
+"detail_ok_button" = "OK";
+"detail_error_title" = "Chyba";
+"detail_error_message" = "Recept nelze uložit";
+"detail_try_again" = "Zkusit znovu";
+"detail_error_occured" = "Chyba";
+
+// Kategorie jídel
+"category_healthy" = "Zdravé";
+"category_easy" = "Snadné";
+"category_mid" = "Střední";
+"category_hard" = "Náročné";
+"category_enjoy" = "Příjemné";
+"category_hearty" = "Sytné";
+"category_vegan" = "Veganské";
+"category_vegetarian" = "Vegetariánské";
+"category_breakfast" = "Snídaně";
+"category_lunch" = "Oběd";
+"category_dinner" = "Večeře";
+"category_dessert" = "Dezert";
+
+// Ingredience
+"ingredients_bread" = "Chléb";
+"ingredients_garlic" = "Česnek";
+"ingredients_parsley" = "Petržel";
+"ingredients_tomato" = "Rajče";
+"ingredients_carrot" = "Mrkev";
+"ingredients_potato" = "Brambory";
+"ingredients_dill" = "Kopřiva";
+"ingredients_spring_onion" = "Jarní Cibulka";
+"ingredients_pepper" = "Pepř";
+"ingredients_zucchini" = "Cuketa";
+"ingredients_eggplant" = "Lilek";
+"ingredients_rice" = "Rýže";
+"ingredients_mushroom" = "Houby";
+"ingredients_fresh_basil" = "Čerstvý Bazalka";
+"ingredients_lettuce" = "Salát";
+"ingredients_peas" = "Hrášek";
+"ingredients_butter" = "Máslo";
+"ingredients_spinach" = "Špenát";
+"ingredients_fresh_mint" = "Čerstvá Máta";
+"ingredients_celery" = "Celer";
+"ingredients_thyme" = "Čerstvý Tymián";
+"ingredients_egg" = "Vejce";
+"ingredients_ground_beef" = "Mleté Hovězí Maso";
+"ingredients_chicken" = "Kuře";
+"ingredients_diced_beef" = "Nakrájené Hovězí Maso";
+"ingredients_fish" = "Ryb";
+"ingredients_lamb" = "Jehněčí Maso";
+"ingredients_turkey" = "Krůta";
+"ingredients_beef" = "Hovězí Maso";
+"ingredients_sausage" = "Klobása";
+"ingredients_hotDog" = "Hot Dog";
+"ingredients_calamari" = "Kalamáry";
+"ingredients_pastrami" = "Pastrami";
+"ingredients_bonito" = "Tuňák";
+"ingredients_chickenNuggets" = "Kuřecí Nuggety";
+"ingredients_cheese" = "Sýr";
+"ingredients_yogurt" = "Jogurt";
+"ingredients_milk" = "Mléko";
+"ingredients_cream" = "Smetana";
+"ingredients_ricotta" = "Ricotta";
+"ingredients_lemon" = "Citron";
+"ingredients_avocado" = "Avokádo";
+"ingredients_grape" = "Hroznové Hrozny";
+"ingredients_fig" = "Fík";
+"ingredients_orange" = "Pomeranč";
+"ingredients_blackOlive" = "Černé Olivy";
+"ingredients_greenApple" = "Zelené Jabko";
+"ingredients_strawberry" = "Jahody";
+"ingredients_raspberry" = "Maliny";
+"ingredients_blackberry" = "Ostružiny";
+"ingredients_mulberry" = "Moruše";
+"ingredients_kiwi" = "Kiwi";
+"ingredients_apple" = "Jablko";
+"ingredients_pomegranate" = "Granátové Jabko";
+"ingredients_quince" = "Hruška";
+"ingredients_walnut" = "Vlašský Ořech";
+"ingredients_pineNuts" = "Semička Borovice";
+"ingredients_pistachio" = "Pistácie";
+"ingredients_sunDriedTomato" = "Sušený Rajče";
+"ingredients_coconut" = "Kokos";
+"ingredients_almond" = "Mandle";
+"ingredients_hazelnut" = "Lískový Ořech";
+"ingredients_driedApricot" = "Sušený Meruňka";
+"ingredients_shrimp" = "Krevety";
+"ingredients_salmon" = "Salmon";
+"ingredients_clams" = "Mušle";
+"ingredients_scallops" = "Mušle";
+"ingredients_lobster" = "Humr";
+"ingredients_crab" = "Krab";
+"ingredients_prawns" = "Krevety";
+"ingredients_caviar" = "Kaviár";
+"ingredients_oysters" = "Asters";
+"ingredients_mussels" = "Mussels";
+"ingredients_anchovies" = "Ančovičky";
+"ingredients_sardines" = "Sardinky";
+"ingredients_haddock" = "Ryba treska jednoskvrnná";
+"ingredients_cod" = "Treska";
+"ingredients_tuna" = "Tuňák";
+"ingredients_trout" = "Pstruh";
+"ingredients_duck" = "Kachna";
+"ingredients_veal" = "Telecí";
+"ingredients_rabbit" = "Králík";
+"ingredients_quail" = "Křepelka";
+"ingredients_pork" = "Vepřové maso";
+"ingredients_bacon" = "Hovězí slanina";
+"ingredients_ham" = "Šunka";
+"ingredients_cabbage" = "Zelí";
+"ingredients_broccoli" = "Brokolice";
+"ingredients_cauliflower" = "Květák";
+"ingredients_asparagus" = "Chřest";
+"ingredients_artichoke" = "Artičok";
+"ingredients_kale" = "Kapusta";
+"ingredients_brussels_sprouts" = "Růžičková kapusta";
+"ingredients_cucumber" = "Okurka";
+"ingredients_radish" = "Ředkvička";
+"ingredients_sweet_potato" = "Sladké brambory";
+"ingredients_beetroot" = "Červená řepa";
+"ingredients_pumpkin" = "Dýně";
+"ingredients_turnip" = "Tuřín";
+"ingredients_okra" = "Okra";
+"ingredients_parsnip" = "Shakshuka";
+"ingredients_leek" = "Pórek";
+"ingredients_blueberry" = "Borůvka";
+"ingredients_cranberry" = "Brusinky";
+"ingredients_watermelon" = "Watermelon";
+"ingredients_papaya" = "Papaya";
+"ingredients_pineapple" = "Ananas";
+"ingredients_mango" = "Mango";
+"ingredients_passion_fruit" = "Ovoce";
+"ingredients_date" = "Datum";
+"ingredients_dragon_fruit" = "Dračí ovoce";
+"ingredients_persimmon" = "Kaki";
+"ingredients_star_fruit" = "Hvězdné ovoce";
+"ingredients_black_currant" = "Černý rybíz";
+"ingredients_rosemary" = "Rozmarýn";
+"ingredients_sage" = "Šalvěj";
+"ingredients_mint" = "Máta";
+"ingredients_cilantro" = "Koriandr";
+"ingredients_bay_leaf" = "Bobkový list";
+"ingredients_oregano" = "Tymián";
+"ingredients_tarragon" = "estragon";
+"ingredients_chives" = "Pažitka";
+"ingredients_lemongrass" = "Citronová bylina";
+"ingredients_marjoram" = "Basil";
+"ingredients_coriander" = "Koriandr";
+"ingredients_basil" = "Rozmarýn";
+"ingredients_cashew" = "Kešu ořech";
+"ingredients_macadamia" = "Makadamový ořech";
+"ingredients_pecan" = "Vlašský ořech";
+"ingredients_peanut" = "Arašídový oříšek";
+"ingredients_cocoa" = "Kakao";
+"ingredients_chestnut" = "Kaštan";
+
+// Domů
+"home_recipe" = "Recepty";
+"home_create_button" = "Vytvořit Recept";
+"home_no_item" = "Žádný Uložený Recept";
+"home_all" = "Všechno";
+"home_meaty" = "Masitý";
+"home_vegetarian" = "Vegetariánský";
+"home_dessert" = "Dezert";
+"take_photo" = "Vyfoťte svůj napsaný recept.";
+"image_info" = "K receptům v aplikaci budete moci přidat fotografii svého napsaného receptu.";
+"home_favorites" = "Oblíbené";
+"home_search" = "Hledat";
+
+
+
+// Vyberte Kategorii
+"next_button" = "Dál";
+"select_label" = "Vyberte typ jídla";
+"choose_label" = "Vyberte jeden nebo více";
+
+//language
+"language_turkish" = "Turečtina";
+"language_english" = "English";
+"language_german" = "German";
+"language_czech" = "Czech";
+"language_arabic" = "arabský";
+"language_french" = "francouzština";
+"language_italian" = "italština";
+"language_russian" = "Russian";
+"language_iranian" = "íránský";
+"language_spansish" = "španělština";
+
+
+// Vyberte Jídlo
+"apply_button" = "Vytvořit Recept";
+"search_food" = "Hledat ingredience";
+"select_filter" = "Filtrované složky";
+"select_vegetable" = "Vegetable";
+"select_meat" = "Meat";
+"select_dairy" = "Mléčný";
+"select_grain" = "Grain";
+"select_fruit" = "Fruit";
+"select_seafood" = "Mořské plody";
+"select_herb" = "Sit";
+"select_nut" = "Hazelnut";
+
+
+// Prémiové
+"premium_1_title" = "Přidat Neomezené Recepty";
+"premium_1" = "Přidávejte a sledujte recepty bez omezení";
+"premium_2_title" = "Nemusíte se ptát, co vařit";
+"premium_2" = "Nemusíte se ptát, co vařit";
+"premium_3_title" = "Vaše Pravidla";
+"premium_3" = "Vařte, co chcete, s ingrediencemi, které máte rádi";
+"premium_subscribed" = "Jste přihlášen";
+"premium_subheadline" = "Gratulujeme, úspěšně jste aktivovali prémiový přístup ke všem funkcím aplikace, užijte si to!";
+"premium_expiration" = "Datum vypršení: ";
+"premium_restore" = "Chcete obnovit nákupy?";
+
+
+
+// Nastavení
+"settings_title" = "Nastavení";
+"settings_user" = "Uživatelské ID:";
+"settings_premium" = "Prémiové";
+"settings_language" = "Jazyk";
+"settings_dark_mode" = "Tmavý Režim";
+"settings_write_me" = "Napište mi";
+"settings_about_app" = "O Aplikaci WhichFood";
+"settings_hello" = "Ahoj";
+"settings_mail_title_error" = "Odesílání e-mailu není podporováno";
+"settings_mail_message_error" = "K odeslání e-mailu je zapotřebí nakonfigurovat váš e-mailový účet";
+"settings_ok_button" = "OK";
+"settings_select_theme" = "Vyberte Téma";
+"settings_light_mode" = "Světlý Režim";
+"settings_dark_mode_button" = "Tmavý Režim";
+"settings_error_title" = "Změnit jazyková nastavení";
+"settings_error_message" = "Pokud chcete používat aplikaci v jiném jazyce, můžete jej změnit na následující stránce v sekci s výběrem jazyka.";
+"settings_close" = "Zavřít";
+"settings_continue" = "Pokračovat";
+"settings_account_settings" = "Účetní nastavení";
+"settings_account" = "Účet";
+"settings_support" = "Podpora";
+"settings_feedback" = "Zpětná vazba";
+"settings_write_comment" = "Napsat komentář";
+"settings_share" = "Sdílet";
+"settings_appearance" = "Vzhled";
+"settings_other_apps" = "Objevte další aplikace";
+"settings_rights_privacy" = "Právní práva a ochrana osobních údajů";
+"settings_terms_of_service" = "Podmínky služby";
+"settings_privacy_policy" = "Zásady ochrany osobních údajů";
+"settings_language_change" = "Jazyk změněn";
+"settings_language_apply_change" = "Restartujte aplikaci pro změnu jazyka";
+
+
+
+// show food prompt
+
+"show_food_prompt1" = "Můžete navrhnout recept s ingrediencemi:";
+"show_food_prompt2" = "Můžete navrhnout recept s ingrediencemi? ";
+"show_food_prompt3" = "jídla obsahují tyto rysy. Napište před tím něco.";
+"show_food_prompt4" = "Poskytněte data ve formátu JSON, jednoduše jako JSON, aniž byste přidávali cokoli před nebo po, JSON je: ";
+"show_food_prompt5" = "Vyberte typ podle toho, zda se jedná o maso, zeleninu nebo sladkost. Pouze jeden z těchto typů.";
+"random_prompt" = "Dej mi náhodný recept";
+"json_prompt" = "přesně tento JSON";
+
+
+
+// účet
+"account_date" = "Žádný";
+"account_premium" = "Žádný";
+"account_id" = "Žádný";
+"account_user_id" = "ID uživatele";
+"account_premium_name" = "Prémiový";
+"account_last_date" = "Datum platnosti";
+"account_copy" = "Kopírovat";
+"account_title" = "Účet";
+
+"account_usage_api" = "Počet vytvořených receptů";
+
+
+
+
+// Chybová Zpráva
+"error_alert" = "Chyba";
+"error_occured" = "Došlo k chybě";
+"error_ok_button" = "OK";
+"error_back_button" = "Zpět";
+"error_api_usage" = "Dosáhli jste limitu využití API";
+"error_api" = "Chyba při načítání dat";
+"invalid_endpoint" = "Neplatný koncový bod";
+"invalid_response" = "Neplatná odpověď";
+"error_no_data" = "Žádná data";
+"error_serialization" = "Chyba při dekódování dat";
+"error_unable_to_favorite" = "Při přidávání tohoto uživatele do oblíbených došlo k chybě. Zkuste to prosím znovu.";
+"error_already_in_favorites" = "Již přidáno do oblíbených";
+"network_error" = "Problém s internetovým připojením";
+"upload_photo_error" = "Při nahrávání fotky došlo k chybě";
+

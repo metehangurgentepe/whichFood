@@ -1,0 +1,330 @@
+/*
+  Localizable.strings
+  WhichFood
+
+  Created by Metehan Gürgentepe on September 12, 2023.
+  
+*/
+
+
+"tabHome" = "Заголовок здесь";
+
+
+//Premium
+"premiumWeekButton" = "Еженедельная подписка";
+"lifetimeButton" = "Годовая подписка";
+"continueButton" = "Продолжить";
+
+
+// onboarding
+"feature_1" = "Выберите ингредиенты, которые у вас есть дома, и приложение покажет вам, что можно приготовить.";
+"feature_2" = "Выбирайте категории блюд, которые вам подходят, и наслаждайтесь вкуснейшими блюдами.";
+"feature_3" = "Сохраняйте инструкции по своим любимым рецептам и готовьте их в любое удобное время.";
+"feature_1_title" = "Доступные ингредиенты";
+"feature_2_title" = "Обширные категории";
+"feature_3_title" = "Сохранение рецептов";
+"footer" = "Дизайн и кодирование: Метехан Гюргентепе";
+"more" = "Подробнее...";
+"feature_button" = "Продолжить";
+"feature_welcome" = "Добро пожаловать";
+
+
+// detail recipe
+
+"detail_ingredients" = "Ингредиенты";
+"detail_recipe" = "Инструкции";
+"detail_success" = "Успешно сохранено";
+"detail_save" = "Сохранить рецепт";
+"detail_success_title" = "Успех";
+"detail_ok_button" = "OK";
+"detail_error_title" = "Ошибка";
+"detail_error_message" = "Не удалось сохранить рецепт";
+"detail_try_again" = "Попробовать снова";
+"detail_error_occurred" = "Произошла ошибка";
+
+
+// food categories
+"category_healthy" = "Здоровое";
+"category_easy" = "Легкое";
+"category_mid" = "Средней сложности";
+"category_hard" = "Трудное";
+"category_enjoy" = "Приятное";
+"category_hearty" = "Сытное";
+"category_vegan" = "Веганское";
+"category_vegetarian" = "Вегетарианское";
+"category_breakfast" = "Завтрак";
+"category_lunch" = "Обед";
+"category_dinner" = "Ужин";
+"category_dessert" = "Десерт";
+
+
+// ingredients
+"ingredients_bread" = "Хлеб";
+"ingredients_garlic" = "Чеснок";
+"ingredients_parsley" = "Петрушка";
+"ingredients_tomato" = "Помидор";
+"ingredients_carrot" = "Морковь";
+"ingredients_potato" = "Картошка";
+"ingredients_dill" = "Укроп";
+"ingredients_spring_onion" = "Лук-порей";
+"ingredients_pepper" = "Перец";
+"ingredients_zucchini" = "Кабачок";
+"ingredients_eggplant" = "Баклажан";
+"ingredients_rice" = "Рис";
+"ingredients_mushroom" = "Грибы";
+"ingredients_fresh_basil" = "Свежий базилик";
+"ingredients_lettuce" = "Салат";
+"ingredients_peas" = "Горох";
+"ingredients_butter" = "Масло";
+"ingredients_spinach" = "Шпинат";
+"ingredients_fresh_mint" = "Свежая мята";
+"ingredients_celery" = "Сельдерей";
+"ingredients_thyme" = "Тимьян";
+"ingredients_egg" = "Яйцо";
+"ingredients_ground_beef" = "Фарш говяжий";
+"ingredients_chicken" = "Курица";
+"ingredients_diced_beef" = "Говядина нарезанная";
+"ingredients_fish" = "Рыба";
+"ingredients_lamb" = "Баранина";
+"ingredients_turkey" = "Индейка";
+"ingredients_beef" = "Говядина";
+"ingredients_sausage" = "Колбаса";
+"ingredients_hotDog" = "Хот-дог";
+"ingredients_calamari" = "Кальмары";
+"ingredients_pastrami" = "Пастрами";
+"ingredients_bonito" = "Бонито";
+"ingredients_chickenNuggets" = "Куриные наггетсы";
+"ingredients_cheese" = "Сыр";
+"ingredients_yogurt" = "Йогурт";
+"ingredients_milk" = "Молоко";
+"ingredients_cream" = "Сливки";
+"ingredients_ricotta" = "Рикотта";
+"ingredients_lemon" = "Лимон";
+"ingredients_avocado" = "Авокадо";
+"ingredients_grape" = "Виноград";
+"ingredients_fig" = "Инжир";
+"ingredients_orange" = "Апельсин";
+"ingredients_blackOlive" = "Черные оливки";
+"ingredients_greenApple" = "Зеленое яблоко";
+"ingredients_strawberry" = "Клубника";
+"ingredients_raspberry" = "Малина";
+"ingredients_blackberry" = "Ежевика";
+"ingredients_mulberry" = "Шелковица";
+"ingredients_kiwi" = "Киви";
+"ingredients_apple" = "Яблоко";
+"ingredients_pomegranate" = "Гранат";
+"ingredients_quince" = "Айва";
+"ingredients_walnut" = "Грецкий орех";
+"ingredients_pineNuts" = "Кедровые орехи";
+"ingredients_pistachio" = "Фисташки";
+"ingredients_sunDriedTomato" = "Сушеный томат";
+"ingredients_coconut" = "Кокос";
+"ingredients_almond" = "Миндаль";
+"ingredients_hazelnut" = "Лесной орех";
+"ingredients_driedApricot" = "Сушеный абрикос";
+"ingredients_shrimp" = "Креветки";
+"ingredients_salmon" = "Лосось";
+"ingredients_clams" = "Мидии";
+"ingredients_scallops" = "Моллюски";
+"ingredients_lobster" = "Лобстер";
+"ingredients_crab" = "Краб";
+"ingredients_prawns" = "Креветки";
+"ingredients_caviar" = "Икра";
+"ingredients_oysters" = "Астры";
+"ingredients_mussels" = "Мидии";
+"ingredients_anchovies" = "Анчоусы";
+"ingredients_sardines" = "Сардины";
+"ingredients_haddock" = "Рыба пикша";
+"ingredients_cod" = "Треска";
+"ingredients_tuna" = "Тунец";
+"ingredients_trout" = "Форель";
+"ingredients_duck" = "Утка";
+"ingredients_veal" = "Телятина";
+"ingredients_rabbit" = "Кролик";
+"ingredients_quail" = "Перепел";
+"ingredients_pork" = "Свинина";
+"ingredients_bacon" = "Бекон из говядины";
+"ingredients_ham" = "Ветчина";
+"ingredients_cabbage" = "Капуста";
+"ingredients_broccoli" = "Брокколи";
+"ingredients_cauliflower" = "Цветная капуста";
+"ingredients_asparagus" = "Спаржа";
+"ingredients_artichoke" = "Артишок";
+"ingredients_kale" = "Капуста";
+"ingredients_brussels_sprouts" = "Брюссельская капуста";
+"ingredients_cucumber" = "Огурец";
+"ingredients_radish" = "Редис";
+"ingredients_sweet_potato" = "Сладкий картофель";
+"ingredients_beetroot" = "Свекла";
+"ingredients_pumpkin" = "Тыква";
+"ingredients_turnip" = "Репа";
+"ingredients_okra" = "Окра";
+"ingredients_parsnip" = "Шакшука";
+"ingredients_leek" = "Лук-порей";
+"ingredients_blueberry" = "Черника";
+"ingredients_cranberry" = "Клюква";
+"ingredients_watermelon" = "Арбуз";
+"ingredients_papaya" = "Папайя";
+"ingredients_pineapple" = "Ананас";
+"ingredients_mango" = "Манго";
+"ingredients_passion_fruit" = "Фрукты";
+"ingredients_date" = "Дата";
+"ingredients_dragon_fruit" = "Драконий фрукт";
+"ingredients_persimmon" = "Каки";
+"ingredients_star_fruit" = "Звездный фрукт";
+"ingredients_black_currant" = "Черная смородина";
+"ingredients_rosemary" = "Розмарин";
+"ingredients_sage" = "Шалфей";
+"ingredients_mint" = "Мята";
+"ingredients_cilantro" = "Кориандр";
+"ingredients_bay_leaf" = "лавровый лист";
+"ingredients_oregano" = "Тимьян";
+"ingredients_tarragon" = "Эстрагон";
+"ingredients_chives" = "Шнитт-лук";
+"ingredients_lemongrass" = "Лимонная трава";
+"ingredients_marjoram" = "Базилик";
+"ingredients_coriander" = "Кориандр";
+"ingredients_basil" = "Розмарин";
+"ingredients_cashew" = "Орех кешью";
+"ingredients_macadamia" = "Орех макадамия";
+"ingredients_pecan" = "Грецкий орех";
+"ingredients_peanut" = "Арахис";
+"ingredients_cocoa" = "Какао";
+"ingredients_chestnut" = "Каштан";
+
+
+
+// home
+"home_recipe" = "Рецепты";
+"home_create_button" = "Создать рецепт";
+"home_no_item" = "Нет сохраненных рецептов";
+"home_all" = "Все";
+"home_meaty" = "Мясной";
+"home_vegetarian" = "Вегетарианский";
+"home_dessert" = "Десерт";
+"take_photo" = "Сфотографируйте написанный рецепт";
+"image_info" = "Вы сможете добавить фотографию написанного рецепта к рецептам в приложении.";
+"home_favorites" = "Избранное";
+
+
+//select category
+"next_button" = "Далее";
+"select_label" = "Выберите тип пищи";
+"choose_label" = "Выберите один или несколько";
+
+
+
+// select food
+"apply_button" = "Создать рецепт";
+"search_food" = "Поиск ингредиента";
+"select_filter" = "Отфильтрованные ингредиенты";
+"select_vegetable" = "Овощ";
+"select_meat" = "Мясо";
+"select_dairy" = "Молочные продукты";
+"select_grain" = "Зерно";
+"select_fruit" = "Фрукты";
+"select_seafood" = "Морепродукты";
+"select_herb" = "Трава";
+"select_nut" = "Орех";
+
+// language
+"language_turkish" = "турецкий";
+"language_english" = "английский";
+"language_german" = "немецкий";
+"language_czech" = "чешский";
+"language_arabic" = "арабский";
+"language_french" = "французский";
+"language_italian" = "итальянский";
+"language_russian" = "русский";
+"language_iranian" = "иранский";
+"language_spansish" = "испанский";
+
+
+
+// premium
+"premium_1_title" = "Добавляйте неограниченное количество рецептов";
+"premium_1" = "Добавляйте и следите за рецептами без ограничений.";
+"premium_2_title" = "Не беспокойтесь о том, что приготовить";
+"premium_2" = "Не беспокойтесь о том, что приготовить.";
+"premium_3_title" = "Это зависит от вас";
+"premium_3" = "Готовьте то, что вам нравится, из тех ингредиентов, которые вам нравятся.";
+"premium_subscribed" = "Вы подписаны";
+"premium_subheadline" = "Поздравляю, вы успешно активировали доступ к Premium для всех функций приложения, наслаждайтесь!";
+"premium_expiration" = "Дата истечения срока: ";
+"premium_restore" = "Хотите восстановить покупки?";
+
+
+// settings
+"settings_title" = "Настройки";
+"settings_user" = "ID пользователя:";
+"settings_premium" = "Премиум";
+"settings_language" = "Язык";
+"settings_dark_mode" = "Темный режим";
+"settings_write_me" = "Напишите мне";
+"settings_about_app" = "О приложении WhichFood";
+"settings_hello" = "Привет";
+"settings_mail_title_error" = "Отправка почты не поддерживается";
+"settings_mail_message_error" = "Для отправки электронной почты необходимо настроить учетную запись электронной почты.";
+"settings_ok_button" = "OK";
+"settings_select_theme" = "Выберите тему";
+"settings_light_mode" = "Светлый режим";
+"settings_dark_mode_button" = "Темный режим";
+"settings_error_title" = "Ошибка изменения языковых настроек";
+"settings_error_message" = "Если вы хотите использовать приложение на другом языке, вы можете изменить это в следующем разделе с выбором языка.";
+"settings_close" = "Закрыть";
+"settings_continue" = "Продолжить";
+"settings_account_settings" = "Настройки учетной записи";
+"settings_account" = "Аккаунт";
+"settings_support" = "Поддержка";
+"settings_feedback" = "Отправить отзыв";
+"settings_write_comment" = "Написать комментарий";
+"settings_share" = "Поделиться";
+"settings_appearance" = "Внешний вид";
+"settings_other_apps" = "Откройте для себя другие приложения";
+"settings_rights_privacy" = "Права и конфиденциальность";
+"settings_terms_of_service" = "Условия обслуживания";
+"settings_privacy_policy" = "Политика конфиденциальности";
+"settings_language_change" = "Язык изменен";
+"settings_language_apply_change" = "Перезапустить приложение для смены языка";
+
+
+
+
+//show food prompt
+"show_food_prompt1" = "Можете ли вы предложить рецепт с ингредиентами:";
+"show_food_prompt2" = "Можете ли вы предложить рецепт с ингредиентами? ";
+"show_food_prompt3" = "блюда содержат эти особенности. Не пишите ничего перед этим.";
+"show_food_prompt4" = "Предоставьте данные в формате JSON, просто как JSON, без добавления чего-либо перед или после, JSON такой: ";
+"show_food_prompt5" = "Выберите тип в зависимости от того, мясное оно, овощное или сладкое. Только один из этих типов";
+
+
+// аккаунт
+"account_date" = "Нет";
+"account_premium" = "Нет";
+"account_id" = "Нет";
+"account_user_id" = "Идентификатор пользователя";
+"account_premium_name" = "Премиум";
+"account_last_date" = "Дата окончания срока действия";
+"account_copy" = "Копировать";
+"account_title" = "Аккаунт";
+
+"account_usage_api" = "Количество созданных рецептов";
+
+
+
+// error alert
+"error_alert" = "Ошибка";
+"error_occurred" = "Произошла ошибка";
+"error_ok_button" = "OK";
+"error_back_button" = "Назад";
+"error_api_usage" = "Вы достигли лимита использования API";
+"error_api" = "Ошибка при получении данных";
+"invalid_endpoint" = "Недопустимый конечный пункт";
+"invalid_response" = "Недопустимый ответ";
+"error_no_data" = "Нет данных";
+"error_serialization" = "Ошибка при декодировании данных";
+"error_unable_to_favorite" = "Произошла ошибка при добавлении этого пользователя в избранное. Пожалуйста, попробуйте снова.";
+"error_already_in_favorites" = "Уже добавлено в избранное";
+"network_error" = "Проблема с интернет-соединением";
+"upload_photo_error" = "Произошла проблема при загрузке фотографии";
+
