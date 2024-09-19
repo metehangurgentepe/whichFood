@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import UIKit
+
+struct Property{
+    let icon: UIImage
+    let title: String
+    let subtitle: String
+}

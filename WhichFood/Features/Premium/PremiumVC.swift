@@ -8,15 +8,6 @@
 import UIKit
 import RevenueCat
 
-struct Property{
-    let icon: UIImage
-    let title: String
-    let subtitle: String
-}
-
-protocol PremiumViewControllerDelegate : AnyObject {
-    func handleViewModelOutput(_ output: PremiumViewModelOutput)
-}
 
 class PremiumVC: DataLoadingVC {
     private lazy var tableView: UITableView = {

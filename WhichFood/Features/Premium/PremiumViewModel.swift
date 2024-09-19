@@ -9,24 +9,6 @@ import Foundation
 import RevenueCat
 
 
-enum PremiumViewModelOutput: Equatable {
-    case setLoading(Bool)
-    case getOfferings(Offering)
-    case showError(Error)
-    case getAllOfferings([Package])
-    case userIsPremium(Bool)
-    case getUserInfo(CustomerInfo)
-    case userBecamePremium
-    case showAlert
-}
-
-protocol PremiumViewModelProtocol {
-    var delegate: PremiumViewControllerDelegate? {get set}
-    func fetchPackage()
-    func purchase(package: RevenueCat.Package) async throws
-    func getCustomerInfo()
-}
-
 class PremiumViewModel: PremiumViewModelProtocol{
     
     weak var delegate: PremiumViewControllerDelegate?
