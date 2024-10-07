@@ -16,20 +16,21 @@ protocol HomeRecipeCellDelegate: AnyObject {
 class HomeRecipeCell: UICollectionViewCell {
     static let identifier = "HomeRecipeCell"
     
-    let imageView: UIImageView = {
+    var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
+        imageView.alpha = 0.6
         return imageView
     }()
     
     let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 14)
-        label.textColor = .black
-        label.lineBreakMode = .byClipping
+        label.textColor = .label
         label.textAlignment = .right
+        label.numberOfLines = 2
         return label
     }()
     
@@ -46,8 +47,6 @@ class HomeRecipeCell: UICollectionViewCell {
         button.addTarget(self, action: #selector(addFavoritesRecipe), for: .touchUpInside)
         return button
     }()
-    
-    
     
     var longPressGesture: UILongPressGestureRecognizer!
     var delegate: HomeRecipeCellDelegate?
@@ -107,12 +106,12 @@ class HomeRecipeCell: UICollectionViewCell {
             preferredStyle: .alert
         )
         
-        let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+        let confirmAction = UIAlertAction(title: LocaleKeys.Error.delete.rawValue.locale(), style: .destructive) { [weak self] _ in
             self?.delegate?.deleteRecipe(recipe: recipe)
             self?.isHighlighted = false
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: LocaleKeys.Error.cancel.rawValue.locale(), style: .cancel, handler: nil)
         
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
@@ -152,7 +151,7 @@ class HomeRecipeCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
-            nameLabel.heightAnchor.constraint(equalToConstant: 20),
+            nameLabel.heightAnchor.constraint(equalToConstant: 40),
             nameLabel.widthAnchor.constraint(equalToConstant: itemWidth - 10)
         ])
         
@@ -175,8 +174,9 @@ class HomeRecipeCell: UICollectionViewCell {
         
         if let imageUrl = recipe.imageUrl{
             let url = URL(string: imageUrl)
-            imageView.sd_setImage(with: url)
+            imageView.kf.setImage(with: url)
         }
+        
         imageView.image = Images.background
         nameLabel.text = recipe.name
         
@@ -186,8 +186,6 @@ class HomeRecipeCell: UICollectionViewCell {
     
     
     @objc func addFavoritesRecipe() {
-        checkIsSaved(recipe: recipe!)
-        
         PersistenceManager.isSaved(favorite: recipe!, completion: { result in
             switch result {
             case .success(let success):
@@ -201,6 +199,7 @@ class HomeRecipeCell: UICollectionViewCell {
                 self.delegate?.showError(error: error)
             }
         })
+        checkIsSaved(recipe: recipe!)
     }
     
     

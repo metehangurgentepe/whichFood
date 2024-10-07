@@ -328,4 +328,15 @@
 "error_already_in_favorites" = "مضاف بالفعل إلى المفضلة";
 "network_error" = "هناك مشكلة في اتصال الإنترنت";
 "upload_photo_error" = "كان هناك مشكلة في تحميل الصورة";
+"error_delete" = "حذف";
+"error_cancel" = "إلغاء";
+"error_share" = "مشاركة";
+"error_check_out" = "انتباه";
 
+// وصفة
+"recipe_name" = "اسم الوصفة";
+
+
+//تصویر به متن
+"image_info" = "شما باید از دستور غذا عکس نوشته بگیرید.";
+"take_photo" = "عکس بگیر";

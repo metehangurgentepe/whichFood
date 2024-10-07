@@ -1,10 +1,3 @@
-//
-//  SearchVC.swift
-//  WhichFood
-//
-//  Created by Metehan Gürgentepe on 6.03.2024.
-//
-
 import UIKit
 
 class SearchViewController: DataLoadingVC {
@@ -32,19 +25,18 @@ class SearchViewController: DataLoadingVC {
         configureDataSource()
     }
     
-    
     func configureViewController() {
         view.backgroundColor = .systemBackground
     }
-    
     
     func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = LocaleKeys.Home.search.rawValue.locale()
+        searchController.searchBar.tintColor = Colors.accent.color
+        searchController.searchBar.searchTextField.leftView?.tintColor = Colors.accent.color
         navigationItem.searchController = searchController
     }
-    
     
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumntFlowLayout(in: view))
@@ -54,9 +46,8 @@ class SearchViewController: DataLoadingVC {
         collectionView.register(SearchCell.self, forCellWithReuseIdentifier: SearchCell.identifier)
     }
     
-    
     func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, follower in
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, recipe in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCell.identifier, for: indexPath) as! SearchCell
             let recipe = self.recipes[indexPath.row]
             cell.set(recipe: recipe)
@@ -64,13 +55,12 @@ class SearchViewController: DataLoadingVC {
         })
     }
     
-    
     func updatedData(on recipes: [Recipe]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
         snapshot.appendSections([.main])
         snapshot.appendItems(recipes)
-        DispatchQueue.main.async{
-            self.dataSource.apply(snapshot,animatingDifferences: true)
+        DispatchQueue.main.async {
+            self.dataSource.apply(snapshot, animatingDifferences: true)
         }
     }
 }
@@ -81,11 +71,11 @@ extension SearchViewController: UICollectionViewDelegate {
     }
 }
 
-
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let filter = searchController.searchBar.text ?? ""
         if filter.isEmpty {
+            self.dismissLoadingView()
             viewModel.load()
         } else {
             viewModel.search(filter: filter)
@@ -93,34 +83,40 @@ extension SearchViewController: UISearchResultsUpdating {
     }
 }
 
-
-extension SearchViewController: SearchViewModelDelegate{
+extension SearchViewController: SearchViewModelDelegate {
     func handleOutput(_ output: SearchViewModelOutput) {
         switch output {
         case .getRecipeBySearch(let recipes):
-            DispatchQueue.main.async{ [weak self] in
+            DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 self.recipes = recipes
                 self.updatedData(on: recipes)
+                self.dismissLoadingView()
             }
             
         case .loadRecipes(let recipes):
-            DispatchQueue.main.async{ [weak self] in
+            DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 self.recipes = recipes
                 self.updatedData(on: recipes)
+                self.dismissLoadingView()
             }
             
-        case .setLoading(let bool):
-            switch bool {
-            case true:
-                customLoadingView()
-            case false:
-                dismissLoadingView()
+        case .setLoading(let isLoading):
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                if isLoading {
+                    self.customLoadingView()
+                } else {
+                    self.dismissLoadingView()
+                }
             }
             
         case .error(let error):
-            presentAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
+            DispatchQueue.main.async { [weak self] in
+                self?.dismissLoadingView() // Ensure loading view is dismissed
+                self?.presentAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
+            }
         }
     }
     

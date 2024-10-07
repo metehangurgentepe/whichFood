@@ -325,7 +325,13 @@
 "error_already_in_favorites" = "Already added favorites";
 "network_error" = "There is a problem with the internet connection";
 "upload_photo_error" = "There was a problem uploading the photo";
+"error_delete" = "Delete";
+"error_cancel" = "Cancel";
+"error_share" = "Share";
+"error_check_out" = "Check Out";
 
+// Recipe
+"recipe_name" = "Recipe Name";
 
 //image to text
 "image_info" = "You need to take a written photo of the recipe.";

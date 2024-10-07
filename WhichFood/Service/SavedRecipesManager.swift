@@ -42,7 +42,8 @@ class SavedRecipesManager{
             createdAt: createdTime,
             type: type,
             imageUrl: imageURL,
-            language: currentLanguage
+            language: currentLanguage,
+            keywords: createKeywords(recipe: name)
         )
         
         do {
@@ -53,6 +54,27 @@ class SavedRecipesManager{
         }
     }
     
+    func createKeywords(recipe: String) -> [String]{
+            var keywords: [String] = []
+            var lowercaseKeywords: [String] = []
+            var alreadyKeyed: String = ""
+            
+            for letter in recipe{
+                if keywords.isEmpty {
+                    keywords.append("\(letter)")
+                    let lower = letter.lowercased()
+                    lowercaseKeywords.append("\(lower)")
+                } else {
+                    let key = alreadyKeyed + "\(letter)"
+                    keywords.append(key)
+                    let lower = key.lowercased()
+                    lowercaseKeywords.append("\(lower)")
+                }
+                alreadyKeyed.append("\(letter)")
+            }
+            
+            return keywords + lowercaseKeywords
+    }
     
     func deleteRecipeByUserID(id:String) {
         let field = ["userId": ""]
@@ -76,8 +98,8 @@ class SavedRecipesManager{
     func getRecipes() async throws -> [Recipe] {
         do {
             let array = try await recipesCollection
-                .limit(to: 20)
-                .whereField("language", isEqualTo: currentLanguage)
+                .limit(to: 21)
+//                .whereField("language", isEqualTo: currentLanguage)
                 .getDocuments(as: Recipe.self)
                 .compactMap { $0 }
             return array
@@ -90,10 +112,8 @@ class SavedRecipesManager{
     func searchRecipe(query:String) async throws -> [Recipe] {
         do{
             return try await recipesCollection
-                .limit(to: 30)
-                .whereField("language", isEqualTo: currentLanguage)
-                .whereField("name", isGreaterThan: query)
-                .whereField("name", isLessThan: query + "z")
+                .limit(to: 10)
+                .whereField("keywords", arrayContains: query)
                 .getDocuments(as: Recipe.self)
                 .compactMap { $0 }
         } catch {
@@ -135,18 +155,21 @@ class SavedRecipesManager{
         let compressedImageData = try compressImage(imageURL: imageURL, compressionQuality: 0.4)
         
         let storage = Storage.storage()
-        
         let storageRef = storage.reference().child("foodImages/\(foodName)")
         
-        storageRef.putData(compressedImageData)
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
         
         do {
+            let _ = try await storageRef.putDataAsync(compressedImageData, metadata: metadata)
+            
             let downloadURL = try await storageRef.downloadURL()
             return downloadURL.absoluteString
         } catch {
             throw error
         }
     }
+
     
     
     func postData(input: String) async throws -> String {
@@ -195,7 +218,6 @@ class SavedRecipesManager{
             throw WFError.serializationError
         }
     }
-    
     
 }
 

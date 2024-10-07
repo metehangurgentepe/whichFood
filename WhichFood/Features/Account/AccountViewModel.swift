@@ -9,20 +9,6 @@ import Foundation
 import RevenueCat
 import FirebaseFirestore
 
-enum AccountViewModelOutput {
-    case getUser(User)
-    case showError(Error)
-    case setLoading(Bool)
-    case getTableViews([AccountInfo])
-    case tappedRow(index:Int)
-    case navigate(vc: UIViewController)
-}
-
-protocol AccountViewModelProtocol {
-    var delegate: AccountViewModelDelegate? {get set}
-    func getUser(completion: @escaping () -> Void)
-    func createTableView()
-}
 
 final class AccountViewModel: AccountViewModelProtocol {
 

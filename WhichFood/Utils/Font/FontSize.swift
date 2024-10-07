@@ -20,4 +20,6 @@ struct FontSize{
     static let caption: CGFloat = 14.0
     /// smallCaption value is 12.0
     static let smallCaption : CGFloat = 12.0
+    /// footnote value is 12.0
+    static let footnote : CGFloat = 10.0
 }

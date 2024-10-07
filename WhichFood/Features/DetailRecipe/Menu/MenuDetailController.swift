@@ -21,7 +21,7 @@ class MenuDetailController: UICollectionViewController, UICollectionViewDelegate
     
     var menuBar: UIView = {
         let v = UIView()
-        v.backgroundColor = .systemPink
+        v.backgroundColor = Colors.accent.color
         return v
     }()
     
@@ -30,7 +30,7 @@ class MenuDetailController: UICollectionViewController, UICollectionViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.backgroundColor = Colors.accent.color
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(MenuCellDetail.self, forCellWithReuseIdentifier: MenuCellDetail.identifier)
         
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
@@ -47,7 +47,7 @@ class MenuDetailController: UICollectionViewController, UICollectionViewDelegate
             make.leading.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.height.equalTo(5)
-            make.width.equalTo(ScreenSize.width / 3)
+            make.width.equalTo(ScreenSize.width / 2)
         }
     }
     
@@ -60,7 +60,7 @@ class MenuDetailController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCell", for: indexPath) as! MenuCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuDetailCell", for: indexPath) as! MenuCellDetail
         cell.label.text = menuItems[indexPath.item]
         return cell
     }
@@ -68,6 +68,6 @@ class MenuDetailController: UICollectionViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-        return .init(width: width/3, height: view.frame.height)
+        return .init(width: width/2, height: view.frame.height)
     }
 }

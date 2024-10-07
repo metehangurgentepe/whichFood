@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-protocol DetailRecipeViewModelProtocol {
-    var delegate: DetailRecipeVCDelegate? { get set }
-    func load()
-}
 
 class DetailRecipeViewModel: DetailRecipeViewModelProtocol {
     weak var delegate: DetailRecipeVCDelegate?

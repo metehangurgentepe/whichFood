@@ -316,6 +316,14 @@
 "error_already_in_favorites" = "از قبل به لیست علاقه‌مندی اضافه شده";
 "network_error" = "مشکلی در اتصال اینترنت وجود دارد";
 "upload_photo_error" = "مشکلی در آپلود تصویر به وجود آمد";
+"error_delete" = "حذف";
+"error_cancel" = "لغو";
+"error_share" = "اشتراک گذاری";
+"error_check_out" = "توجه";
+
+// دستور الطعام
+"recipe_name" = "نام دستور الطعام";
+
 
 
 //image to text

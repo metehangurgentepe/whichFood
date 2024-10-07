@@ -7,12 +7,7 @@
 
 import UIKit
 
-protocol AccountViewModelDelegate: AnyObject {
-    func handleViewModelOutput(_ output: AccountViewModelOutput)
-}
-
 class AccountViewController: DataLoadingVC {
-    
     private lazy var tableView : UITableView = {
         let table = UITableView()
         table.register(AccountTableViewCell.self, forCellReuseIdentifier: AccountTableViewCell.identifier)
@@ -117,7 +112,7 @@ extension AccountViewController: AccountViewModelDelegate {
             self.user = user
             
         case .showError(let error):
-            let alert = showAlert(title: LocaleKeys.Error.alert.rawValue.locale(), message: error.localizedDescription, buttonTitle: LocaleKeys.Error.okButton.rawValue.locale(), secondButtonTitle: LocaleKeys.Error.backButton.rawValue.locale(), completionSecondHandler:  {
+            let alert = WhichFood.showAlert(title: LocaleKeys.Error.alert.rawValue.locale(), message: error.localizedDescription, buttonTitle: LocaleKeys.Error.okButton.rawValue.locale(), secondButtonTitle: LocaleKeys.Error.backButton.rawValue.locale(), completionSecondHandler:  {
                 self.dismiss(animated: true)
             })
             self.present(alert, animated: true)

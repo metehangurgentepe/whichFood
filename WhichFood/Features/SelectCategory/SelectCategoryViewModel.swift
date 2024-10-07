@@ -7,9 +7,7 @@
 
 import Foundation
 
-protocol SelectCategoryViewModelProtocol {
-    var delegate: SelectCategoryVCDelegate? {get set}
-}
+
 
 class SelectCategoryViewModel: SelectCategoryViewModelProtocol {
     weak var delegate: SelectCategoryVCDelegate?
@@ -29,4 +27,7 @@ class SelectCategoryViewModel: SelectCategoryViewModelProtocol {
         Category(title: Categories.dinner, isSelected: false),
     ]
     
+    func selectButton(index: Int) {
+        titles[index].isSelected.toggle()
+    }
 }

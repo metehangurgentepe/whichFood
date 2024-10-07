@@ -17,13 +17,13 @@ class MenuCell: UICollectionViewCell {
         label.textColor = .gray
         label.textAlignment = .center
         label.text = "Menu Item"
-        label.textColor = .white
+        label.textColor = .label
         return label
     }()
     
     override var isSelected: Bool {
         didSet {
-            label.textColor = isSelected ? .systemPink : .white
+            label.textColor = isSelected ? Colors.accent.color : .label
         }
     }
     

@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 enum Images {
-    static let recipe = UIImage(named: "recipe")
+    static let recipe = UIImage(named: "splash_logo")
     static let check = UIImage(named: "check")
     static let exit = UIImage(named: "exit_button")
     static let infinity = UIImage(named: "infinity")
     static let fork = UIImage(named: "fork")
-    static let scribble = UIImage(named: "recipe")
+    static let scribble = UIImage(named: "splash_logo")
     static let whiteImage = UIImage(named: "white_image")
     static let background = UIImage(named: "premium_background")
     static let premium = UIImage(named: "crown.fill")
@@ -47,8 +47,10 @@ enum SFSymbols {
     static let halfStar = UIImage(systemName: "star.lefthalf.fill")
     static let lane = UIImage(systemName: "lane")
     static let settings = UIImage(systemName: "gear")
+    static let selectedSettings = UIImage(systemName: "gear.circle.fill")
     static let saveButton = UIImage(systemName: "externaldrive.badge.plus")
     static let copy = UIImage(systemName: "doc.on.doc")
     static let wandAndStars = UIImage(systemName: "wand.and.stars")
     static let deleteIcon = UIImage(systemName: "trash.fill")
+    static let share = UIImage(systemName: "square.and.arrow.up")
 }

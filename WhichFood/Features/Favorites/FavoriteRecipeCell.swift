@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class FavoriteMovieCell: UICollectionViewCell {
+class FavoriteRecipeCell: UICollectionViewCell {
     static let identifier = "FavoriteCell"
     
     let imageView: UIImageView = {
@@ -17,6 +17,8 @@ class FavoriteMovieCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
+        imageView.layer.borderWidth = 0.2
+        imageView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.2).cgColor
         return imageView
     }()
     
@@ -25,6 +27,7 @@ class FavoriteMovieCell: UICollectionViewCell {
         label.textAlignment = .left
         label.textColor = .label
         label.font = .preferredFont(forTextStyle: .headline).withSize(14)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -44,6 +47,8 @@ class FavoriteMovieCell: UICollectionViewCell {
         nameLabel.text = recipe.name
         if let url = URL(string: recipe.imageUrl ?? "") {
             imageView.sd_setImage(with: url)
+            imageView.layer.borderWidth = 0.2
+            imageView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.2).cgColor
         }
     }
     
@@ -54,7 +59,6 @@ class FavoriteMovieCell: UICollectionViewCell {
         let minimumItemSpacing: CGFloat = 10
         let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
         let itemWidth =  availableWidth / 3
-        
         
         addSubview(imageView)
         addSubview(nameLabel)
@@ -73,8 +77,8 @@ class FavoriteMovieCell: UICollectionViewCell {
             
             nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -2),
             nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            nameLabel.widthAnchor.constraint(equalToConstant: itemWidth - 5),
-            nameLabel.heightAnchor.constraint(equalToConstant: 20)
+            nameLabel.widthAnchor.constraint(equalToConstant: itemWidth),
+            nameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     

@@ -1,0 +1,323 @@
+/*
+ Localizable.strings
+ WhichFood
+ 
+ Created by Metehan Gürgentepe on September 12, 2023.
+ 
+ */
+
+
+"tabHome" = "Otsikko tähän";
+
+// Premium
+"premiumWeekButton" = "Viikkopremium";
+"lifetimeButton" = "Vuosipremium";
+"continueButton" = "Jatka";
+
+// onboarding
+"feature_1" = "Valitse ainesosat, jotka sinulla on kotona, ja sovellus näyttää, mitä voit valmistaa.";
+"feature_2" = "Valitse sinulle sopivat aterialuokat ja nauti herkullisimmista ruoista.";
+"feature_3" = "Tallenna suosikkireseptisi ja tee niitä milloin tahansa.";
+"feature_1_title" = "Saatavilla olevat ainesosat";
+"feature_2_title" = "Runsaat kategoriat";
+"feature_3_title" = "Tallenna reseptit";
+"footer" = "Suunniteltu ja koodattu Metehan Gürgentepe";
+"more" = "Näytä lisää...";
+"feature_button" = "Jatka";
+"feature_welcome" = "Tervetuloa";
+
+// detail recipe
+"detail_ingredients" = "Ainesosat";
+"detail_recipe" = "Valmistusohjeet";
+"detail_success" = "Tallennettu onnistuneesti";
+"detail_save" = "Tallenna resepti";
+"detail_success_title" = "Onnistui";
+"detail_ok_button" = "OK";
+"detail_error_title" = "Virhe";
+"detail_error_message" = "Reseptiä ei voitu tallentaa";
+"detail_try_again" = "Yritä uudelleen";
+"detail_error_occurred" = "Tapahtui virhe";
+
+// food categories
+"category_healthy" = "Terveellinen";
+"category_easy" = "Helppo";
+"category_mid" = "Keskitaso";
+"category_hard" = "Vaikea";
+"category_enjoy" = "Nautinnollinen";
+"category_hearty" = "Tukeva";
+"category_vegan" = "Vegaani";
+"category_vegetarian" = "Kasvissyöjä";
+"category_breakfast" = "Aamiainen";
+"category_lunch" = "Lounas";
+"category_dinner" = "Illallinen";
+"category_dessert" = "Jälkiruoka";
+
+// ingredients
+"ingredients_bread" = "Leipä";
+"ingredients_garlic" = "Valkosipuli";
+"ingredients_parsley" = "Persilja";
+"ingredients_tomato" = "Tomaatti";
+"ingredients_carrot" = "Porkkana";
+"ingredients_potato" = "Peruna";
+"ingredients_dill" = "Tilli";
+"ingredients_spring_onion" = "Kevätsipuli";
+"ingredients_pepper" = "Pippuri";
+"ingredients_zucchini" = "Kesäkurpitsa";
+"ingredients_eggplant" = "Munakoiso";
+"ingredients_rice" = "Riisi";
+"ingredients_mushroom" = "Sieni";
+"ingredients_fresh_basil" = "Tuore basilika";
+"ingredients_lettuce" = "Salaatti";
+"ingredients_peas" = "Herneet";
+"ingredients_butter" = "Voi";
+"ingredients_spinach" = "Pinaatti";
+"ingredients_fresh_mint" = "Tuore minttu";
+"ingredients_celery" = "Selleri";
+"ingredients_thyme" = "Timjami";
+"ingredients_egg" = "Muna";
+"ingredients_ground_beef" = "Jauheliha";
+"ingredients_chicken" = "Kana";
+"ingredients_diced_beef" = "Naudan kuutiot";
+"ingredients_fish" = "Kala";
+"ingredients_lamb" = "Lammas";
+"ingredients_turkey" = "Kalkkuna";
+"ingredients_beef" = "Naudanliha";
+"ingredients_sausage" = "Makkara";
+"ingredients_hotDog" = "Hodari";
+"ingredients_calamari" = "Kalmari";
+"ingredients_pastrami" = "Pastrami";
+"ingredients_bonito" = "Bonito";
+"ingredients_chickenNuggets" = "Kananuggetit";
+"ingredients_cheese" = "Juusto";
+"ingredients_yogurt" = "Jogurtti";
+"ingredients_milk" = "Maito";
+"ingredients_cream" = "Kerma";
+"ingredients_ricotta" = "Ricotta";
+"ingredients_lemon" = "Sitruuna";
+"ingredients_avocado" = "Avokado";
+"ingredients_grape" = "Viinirypäle";
+"ingredients_fig" = "Viikuna";
+"ingredients_orange" = "Appelsiini";
+"ingredients_blackOlive" = "Musta oliivi";
+"ingredients_greenApple" = "Vihreä omena";
+"ingredients_strawberry" = "Mansikka";
+"ingredients_raspberry" = "Vadelma";
+"ingredients_blackberry" = "Karhunvadelma";
+"ingredients_mulberry" = "Mulperipuu";
+"ingredients_kiwi" = "Kiivi";
+"ingredients_apple" = "Omena";
+"ingredients_pomegranate" = "Granaattiomena";
+"ingredients_quince" = "Kvitteni";
+"ingredients_walnut" = "Saksanpähkinä";
+"ingredients_pineNuts" = "Pinjansiemenet";
+"ingredients_pistachio" = "Pistaasi";
+"ingredients_sunDriedTomato" = "Aurinkokuivattu tomaatti";
+"ingredients_coconut" = "Kookos";
+"ingredients_almond" = "Manteli";
+"ingredients_hazelnut" = "Hasselpähkinä";
+"ingredients_driedApricot" = "Kuivattu aprikoosi";
+"ingredients_shrimp" = "Katkarapu";
+"ingredients_salmon" = "Lohi";
+"ingredients_clams" = "Simpukat";
+"ingredients_scallops" = "Kampasimpukat";
+"ingredients_lobster" = "Hummeri";
+"ingredients_crab" = "Rapu";
+"ingredients_prawns" = "Katkaravut";
+"ingredients_caviar" = "Kaviaari";
+"ingredients_oysters" = "Osterit";
+"ingredients_mussels" = "Simpukat";
+"ingredients_anchovies" = "Anjovikset";
+"ingredients_sardines" = "Sardiinit";
+"ingredients_haddock" = "Sei";
+"ingredients_cod" = "Turska";
+"ingredients_tuna" = "Tonnikala";
+"ingredients_trout" = "Taimen";
+"ingredients_duck" = "Ankka";
+"ingredients_veal" = "Vasikka";
+"ingredients_rabbit" = "Kani";
+"ingredients_quail" = "Viiriäinen";
+"ingredients_pork" = "Sianliha";
+"ingredients_bacon" = "Naudan pekoni";
+"ingredients_ham" = "Kinkku";
+"ingredients_cabbage" = "Kaali";
+"ingredients_broccoli" = "Parsakaali";
+"ingredients_cauliflower" = "Kukkakaali";
+"ingredients_asparagus" = "Parsa";
+"ingredients_artichoke" = "Latva-artisokka";
+"ingredients_kale" = "Lehtikaali";
+"ingredients_brussels_sprouts" = "Ruusukaali";
+"ingredients_cucumber" = "Kurkku";
+"ingredients_radish" = "Retiisi";
+"ingredients_sweet_potato" = "Bataatti";
+"ingredients_beetroot" = "Punajuuri";
+"ingredients_pumpkin" = "Kurpitsa";
+"ingredients_turnip" = "Nauris";
+"ingredients_okra" = "Okra";
+"ingredients_parsnip" = "Palsternakka";
+"ingredients_leek" = "Purjo";
+"ingredients_blueberry" = "Mustikka";
+"ingredients_cranberry" = "Karpalo";
+"ingredients_watermelon" = "Vesimeloni";
+"ingredients_papaya" = "Papaija";
+"ingredients_pineapple" = "Ananas";
+"ingredients_mango" = "Mango";
+"ingredients_passion_fruit" = "Passionhedelmä";
+"ingredients_date" = "Taateli";
+"ingredients_dragon_fruit" = "Lohikäärmehedelmä";
+"ingredients_persimmon" = "Kaki";
+"ingredients_star_fruit" = "Tähtihedelmä";
+"ingredients_black_currant" = "Mustaherukka";
+"ingredients_rosemary" = "Rosmariini";
+"ingredients_sage" = "Salvia";
+"ingredients_mint" = "Minttu";
+"ingredients_cilantro" = "Korianteri";
+"ingredients_bay_leaf" = "Laakerinlehti";
+"ingredients_oregano" = "Oregano";
+"ingredients_tarragon" = "Rakuuna";
+"ingredients_chives" = "Ruohosipuli";
+"ingredients_lemongrass" = "Sitruunaruoho";
+"ingredients_marjoram" = "Meirami";
+"ingredients_coriander" = "Korianteri";
+"ingredients_basil" = "Basilika";
+"ingredients_cashew" = "Cashewpähkinä";
+"ingredients_macadamia" = "Makadamia";
+"ingredients_pecan" = "Pekaanipähkinä";
+// ingredients
+"ingredients_peanut" = "Maapähkinä";
+"ingredients_cocoa" = "Kaakao";
+"ingredients_chestnut" = "Kastanja";
+
+// home
+"home_recipe" = "Reseptit";
+"home_create_button" = "Luo resepti";
+"home_no_item" = "Ei tallennettuja reseptejä";
+"home_all" = "Kaikki";
+"home_meaty" = "Lihaisa";
+"home_vegetarian" = "Kasvissyöjä";
+"home_dessert" = "Jälkiruoka";
+"take_photo" = "Ota kuva kirjoitetusta reseptistä.";
+"image_info" = "Voit lisätä kirjoitetun reseptin valokuvan sovelluksessa oleviin resepteihin.";
+"home_favorites" = "Suosikit";
+"home_search" = "Haku";
+
+// language
+"language_turkish" = "Turkki";
+"language_english" = "Englanti";
+"language_german" = "Saksa";
+"language_czech" = "Tšekki";
+"language_arabic" = "Arabia";
+"language_french" = "Ranska";
+"language_italian" = "Italia";
+"language_russian" = "Venäjä";
+"language_iranian" = "Iranilainen";
+"language_spansish" = "Espanja";
+
+// select category
+"next_button" = "Seuraava";
+"select_label" = "Valitse ruoan tyyppi";
+"choose_label" = "Valitse yksi tai useampi";
+
+// select food
+"apply_button" = "Luo resepti";
+"search_food" = "Hae ainesosaa";
+"select_filter" = "Suodatetut ainesosat";
+"select_vegetable" = "Vihannes";
+"select_meat" = "Liha";
+"select_dairy" = "Maitotuotteet";
+"select_grain" = "Vilja";
+"select_fruit" = "Hedelmä";
+"select_seafood" = "Merenelävät";
+"select_herb" = "Yrtti";
+"select_nut" = "Pähkinä";
+
+// premium
+"premium_1_title" = "Lisää rajoittamattomasti reseptejä";
+"premium_1" = "Lisää ja seuraa reseptejä ilman rajoituksia.";
+"premium_2_title" = "Ei tarvitse huolehtia siitä, mitä kokata";
+"premium_2" = "Ei tarvitse huolehtia siitä, mitä kokata.";
+"premium_3_title" = "Sinä päätät";
+"premium_3" = "Kokkaa mitä haluat, käyttämällä suosikkiainesosiasi.";
+"premium_subscribed" = "Olet tilannut";
+"premium_subheadline" = "Onnittelut, olet aktivoinut Premium-pääsyn kaikkiin sovelluksen ominaisuuksiin. Nauti!";
+"premium_expiration" = "Vanhentumispäivä: ";
+"premium_restore" = "Haluatko palauttaa ostokset?";
+
+// settings
+"settings_title" = "Asetukset";
+"settings_user" = "Käyttäjä ID:";
+"settings_premium" = "Premium";
+"settings_language" = "Kieli";
+"settings_dark_mode" = "Tumma tila";
+"settings_write_me" = "Kirjoita minulle";
+"settings_about_app" = "Tietoja WhichFoodista";
+"settings_hello" = "Hei";
+"settings_mail_title_error" = "Sähköpostin lähetys ei tuettu";
+"settings_mail_message_error" = "Sähköpostin lähettämiseksi sinun täytyy määrittää sähköpostitili.";
+"settings_ok_button" = "OK";
+"settings_select_theme" = "Valitse teema";
+"settings_light_mode" = "Vaalea tila";
+"settings_dark_mode_button" = "Tumma tila";
+"settings_error_title" = "Vaihda kieliasetukset";
+"settings_error_message" = "Jos haluat käyttää sovellusta eri kielellä, voit vaihtaa sen kielivalikosta seuraavalla sivulla.";
+"settings_close" = "Sulje";
+"settings_continue" = "Jatka";
+"settings_account_settings" = "Tilin asetukset";
+"settings_account" = "Tili";
+"settings_support" = "Tuki";
+"settings_feedback" = "Lähetä palautetta";
+"settings_write_comment" = "Kirjoita kommentti";
+"settings_share" = "Jaa";
+"settings_appearance" = "Ulkoasu";
+"settings_other_apps" = "Tutustu muihin sovelluksiin";
+"settings_rights_privacy" = "Oikeudet ja yksityisyys";
+"settings_terms_of_service" = "Käyttöehdot";
+"settings_privacy_policy" = "Tietosuojakäytäntö";
+"settings_language_change" = "Kieli vaihdettu";
+"settings_language_apply_change" = "Käynnistä sovellus uudelleen vaihtaaksesi kielen.";
+
+// show food
+"show_food_prompt1" = "Voitko ehdottaa reseptiä näillä ainesosilla:";
+"show_food_prompt2" = "Voitko ehdottaa reseptiä ainesosilla? ";
+"show_food_prompt3" = "ateriat sisältävät nämä ominaisuudet. Älä kirjoita mitään sen eteen.";
+"show_food_prompt4" = "Anna tiedot JSON-muodossa, pelkkä JSON, lisäämättä mitään eteen tai taakse, json on: ";
+"show_food_prompt5" = "Valitse tyyppi sen mukaan, onko kyseessä liha, vihannes tai jälkiruoka. Valitse vain yksi näistä tyypeistä.";
+"random_prompt" = "Anna minulle satunnainen resepti";
+"json_prompt" = "täsmälleen tämä JSON";
+
+// account
+"account_date" = "Ei";
+"account_premium" = "Ei";
+"account_id" = "Ei";
+"account_user_id" = "Käyttäjä ID";
+"account_premium_name" = "Premium";
+"account_last_date" = "Vanhentumispäivä";
+"account_copy" = "Kopioi";
+"account_title" = "Tili";
+"account_usage_api" = "Luotujen reseptien määrä";
+
+// error alert
+"error_alert" = "Virhe";
+"error_occurred" = "Tapahtui virhe";
+"error_ok_button" = "OK";
+"error_back_button" = "Takaisin";
+"error_api_usage" = "Olet saavuttanut API:n käytön rajan";
+"error_api" = "Tietojen haku epäonnistui";
+"invalid_endpoint" = "Virheellinen päätepiste";
+"invalid_response" = "Virheellinen vastaus";
+"error_no_data" = "Ei tietoja";
+"error_serialization" = "Tietojen purku epäonnistui";
+"error_unable_to_favorite" = "Tapahtui virhe lisättäessä suosikkeihin. Yritä uudelleen.";
+"error_already_in_favorites" = "Jo lisätty suosikkeihin";
+"network_error" = "Ongelma internet-yhteydessä";
+"upload_photo_error" = "Tapahtui virhe ladattaessa kuvaa";
+"error_delete" = "Poista";
+"error_cancel" = "Peruuta";
+"error_share" = "Jaa";
+"error_check_out" = "Tarkista";
+
+// Recipe
+"recipe_name" = "Reseptin nimi";
+
+// image to text
+"image_info" = "Sinun täytyy ottaa kuva kirjoitetusta reseptistä.";
+"take_photo" = "Ota kuva";

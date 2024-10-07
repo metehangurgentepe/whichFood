@@ -8,14 +8,7 @@
 import Foundation
 import UIKit
 
-protocol SelectFoodViewModelProtocol{
-    var delegate: SelectFoodViewDelegate? {get set}
-    
-    func chooseIngredient(ingredient: Ingredient)
-    func inSearchMode(_ searchController: UISearchController) -> Bool
-    func updateSearchController(searchBarText: String?)
-    
-}
+
 
 final class SelectFoodViewModel: SelectFoodViewModelProtocol {
     
@@ -69,11 +62,13 @@ final class SelectFoodViewModel: SelectFoodViewModelProtocol {
         Ingredient(name: LocaleKeys.Ingredient.apple.rawValue.locale(), category: .fruit, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.pomegranate.rawValue.locale(), category: .fruit, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.quince.rawValue.locale(), category: .fruit, isSelected: false),
+        
         Ingredient(name: LocaleKeys.Ingredient.walnut.rawValue.locale(), category: .nut, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.pistachio.rawValue.locale(), category: .nut, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.coconut.rawValue.locale(), category: .nut, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.almond.rawValue.locale(), category: .nut, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.hazelnut.rawValue.locale(), category: .nut, isSelected: false),
+        
         Ingredient(name: LocaleKeys.Ingredient.shrimp.rawValue.locale(), category: .seafood, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.salmon.rawValue.locale(), category: .seafood, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.clams.rawValue.locale(), category: .seafood, isSelected: false),
@@ -90,6 +85,7 @@ final class SelectFoodViewModel: SelectFoodViewModelProtocol {
         Ingredient(name: LocaleKeys.Ingredient.cod.rawValue.locale(), category: .seafood, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.tuna.rawValue.locale(), category: .seafood, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.trout.rawValue.locale(), category: .seafood, isSelected: false),
+        
         Ingredient(name: LocaleKeys.Ingredient.duck.rawValue.locale(), category: .meat, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.veal.rawValue.locale(), category: .meat, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.rabbit.rawValue.locale(), category: .meat, isSelected: false),
@@ -98,6 +94,7 @@ final class SelectFoodViewModel: SelectFoodViewModelProtocol {
         Ingredient(name: LocaleKeys.Ingredient.bacon.rawValue.locale(), category: .meat, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.ham.rawValue.locale(), category: .meat, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.sausage.rawValue.locale(), category: .meat, isSelected: false),
+        
         Ingredient(name: LocaleKeys.Ingredient.cabbage.rawValue.locale(), category: .vegetable, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.broccoli.rawValue.locale(), category: .vegetable, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.cauliflower.rawValue.locale(), category: .vegetable, isSelected: false),
@@ -112,6 +109,7 @@ final class SelectFoodViewModel: SelectFoodViewModelProtocol {
         Ingredient(name: LocaleKeys.Ingredient.pumpkin.rawValue.locale(), category: .vegetable, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.turnip.rawValue.locale(), category: .vegetable, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.okra.rawValue.locale(), category: .vegetable, isSelected: false),
+        
         Ingredient(name: LocaleKeys.Ingredient.blueberry.rawValue.locale(), category: .fruit, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.cranberry.rawValue.locale(), category: .fruit, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.watermelon.rawValue.locale(), category: .fruit, isSelected: false),
@@ -125,6 +123,7 @@ final class SelectFoodViewModel: SelectFoodViewModelProtocol {
         Ingredient(name: LocaleKeys.Ingredient.starFruit.rawValue.locale(), category: .fruit, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.pomegranate.rawValue.locale(), category: .fruit, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.blackCurrant.rawValue.locale(), category: .fruit, isSelected: false),
+        
         Ingredient(name: LocaleKeys.Ingredient.rosemary.rawValue.locale(), category: .herb, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.sage.rawValue.locale(), category: .herb, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.mint.rawValue.locale(), category: .herb, isSelected: false),
@@ -137,6 +136,7 @@ final class SelectFoodViewModel: SelectFoodViewModelProtocol {
         Ingredient(name: LocaleKeys.Ingredient.marjoram.rawValue.locale(), category: .herb, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.coriander.rawValue.locale(), category: .herb, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.basil.rawValue.locale(), category: .herb, isSelected: false),
+        
         Ingredient(name: LocaleKeys.Ingredient.walnut.rawValue.locale(), category: .nut, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.pistachio.rawValue.locale(), category: .nut, isSelected: false),
         Ingredient(name: LocaleKeys.Ingredient.cashew.rawValue.locale(), category: .nut, isSelected: false),
@@ -181,11 +181,11 @@ final class SelectFoodViewModel: SelectFoodViewModelProtocol {
     }
     
     
-    
     func increaseApiUsage() async throws {
         self.delegate?.buttonLoading(isLoading: true)
         do{
             try await UserManager.shared.increaseApiUsage()
+            self.delegate?.buttonLoading(isLoading: false)
             self.delegate?.navigate()
         } catch {
             self.delegate?.onError(error as! WFError)

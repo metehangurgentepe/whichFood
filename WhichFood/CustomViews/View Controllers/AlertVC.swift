@@ -38,6 +38,7 @@ class AlertVC: UIViewController {
         configureActionButton()
     }
     
+    
     func configureContainerView() {
         view.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +50,7 @@ class AlertVC: UIViewController {
             containerView.heightAnchor.constraint(equalToConstant: 220)
         ])
     }
+    
     
     func configureTitleLabel() {
         containerView.addSubview(titleLabel)
@@ -62,6 +64,7 @@ class AlertVC: UIViewController {
             titleLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
+    
     
     func configureMessageLabel() {
         containerView.addSubview(messageLabel)
@@ -77,6 +80,7 @@ class AlertVC: UIViewController {
         ])
     }
     
+    
     func configureActionButton() {
         containerView.addSubview(actionButton)
         actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)
@@ -89,6 +93,7 @@ class AlertVC: UIViewController {
             actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
+    
     
     @objc func dismissVC() {
         dismiss(animated: true)

@@ -330,4 +330,15 @@
 "error_already_in_favorites" = "Bereits zu Favoriten hinzugefügt";
 "network_error" = "Es gibt ein Problem mit der Internetverbindung";
 "upload_photo_error" = "Es gab ein Problem beim Hochladen des Fotos";
+"error_delete" = "Löschen";
+"error_cancel" = "Abbrechen";
+"error_share" = "Teilen";
+"error_check_out" = "Achtung";
+
+// Tarif
+"recipe_name" = "Rezeptname";
+
+//Bild zu Text
+"image_info" = "Sie müssen ein schriftliches Foto des Rezepts machen.";
+"take_photo" = "Foto machen";
 

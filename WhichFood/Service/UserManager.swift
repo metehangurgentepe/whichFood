@@ -53,7 +53,7 @@ class UserManager{
         return userId
     }
     
-    // when launching app
+    
     func createUser() async throws {
         let userId = KeychainManager.get(account: "account")
         let documentId = String(decoding:userId ?? Data(), as:UTF8.self)
@@ -118,7 +118,7 @@ class UserManager{
         do {
             let user = try await getUser()
             if let user = user{
-                if !user.isPremium && user.numberOfUsageApi <= 4{
+                if !user.isPremium && user.numberOfUsageApi <= 3{
                     try await userCollection.document(user.id).updateData(["numberOfUsageApi" : user.numberOfUsageApi + 1])
                 } else if user.isPremium {
                     try await userCollection.document(user.id).updateData(["numberOfUsageApi" : user.numberOfUsageApi + 1])

@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol ImageToTextViewModelDelegate: AnyObject{
-    func handleViewModelOutput(_ output: ImageToTextViewModeOutput)
-    func navigate(to navigationType: NavigationType)
-}
 
 class ImageToTextVC: UIViewController {
     private lazy var progressViewContainer : UIView = {

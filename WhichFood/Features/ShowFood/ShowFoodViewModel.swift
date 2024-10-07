@@ -11,32 +11,6 @@ import FirebaseFunctions
 import FirebaseStorage
 
 
-struct RecipeResponseModel: Decodable,Equatable {
-    var foodName: String
-    var ingredients : [String]
-    var recipe: [String]
-    var cookTime: String
-    var description: String
-    var type: String?
-    var imageURL: String?
-}
-
-enum ShowFoodViewModelOutput: Equatable {
-    case setLoading(Bool)
-    case showRecipe(RecipeResponseModel)
-    case showError(WFError)
-    case saveRecipe
-    case showImage(String)
-    case successSave(Bool)
-    case loadingImage(Bool)
-}
-
-protocol ShowFoodViewModelProtocol {
-    var delegate: ShowFoodViewDelegate? { get set }
-    func fetchFoodRecipe(foods: [Ingredient],category: [String])
-    func saveRecipe()
-}
-
 class ShowFoodViewModel {
     var selectedFoods = [Ingredient]()
     
@@ -70,37 +44,48 @@ class ShowFoodViewModel {
     }
     
     
-    func saveRecipe(_ recipe: RecipeResponseModel?) {
-        Task { [weak self] in
-            guard let self = self else { return }
-            self.delegate?.handleViewModelOutput(.setLoading(true))
+    func saveRecipe(_ recipe: RecipeResponseModel?) async {
+        self.delegate?.handleViewModelOutput(.setLoading(true))
+        
+        do{
+            try await postImageToFirebase(imageURL: self.imageURL ?? "")
             
-            do{
-                try await postImageToFirebase(imageURL: self.imageURL ?? "")
-                
-                let storageRef = Storage.storage().reference().child("foodImages/\(recipe!.foodName)")
-                
-                try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
-                
-                let downloadURL = try await storageRef.downloadURL()
-                if let recipe = self.recipe {
-                    try await SavedRecipesManager
-                        .shared
-                        .saveRecipe(name: recipe.foodName,
-                                    recipe: recipe.recipe,
-                                    ingredients: recipe.ingredients,
-                                    desc: recipe.description,
-                                    cookTime: recipe.cookTime,
-                                    type: recipe.type ?? "",
-                                    imageURL: downloadURL.absoluteString
-                        )
-                    self.delegate?.handleViewModelOutput(.setLoading(false))
-                    self.delegate?.handleViewModelOutput(.successSave(true))
-                }
-            } catch {
-                self.delegate?.handleViewModelOutput(.showError(error as! WFError))
+            guard let imageURL = self.imageURL else {
+                self.delegate?.handleViewModelOutput(.showError(WFError.uploadPhotoError))
                 self.delegate?.handleViewModelOutput(.setLoading(false))
+                return
             }
+            
+            let storageRef = Storage.storage().reference().child("foodImages/\(recipe!.foodName)")
+            
+            let downloadURL = try await storageRef.downloadURL()
+            if let recipe = self.recipe {
+                try await SavedRecipesManager
+                    .shared
+                    .saveRecipe(name: recipe.foodName,
+                                recipe: recipe.recipe,
+                                ingredients: recipe.ingredients,
+                                desc: recipe.description,
+                                cookTime: recipe.cookTime,
+                                type: recipe.type ?? "",
+                                imageURL: downloadURL.absoluteString
+                    )
+                self.delegate?.handleViewModelOutput(.setLoading(false))
+                self.delegate?.handleViewModelOutput(.successSave(true))
+            }
+        } catch {
+            self.delegate?.handleViewModelOutput(.showError(error as! WFError))
+            self.delegate?.handleViewModelOutput(.setLoading(false))
+        }
+        
+    }
+    
+    func postImageToFirebase(imageURL:String) async throws{
+        guard let imageURL = URL(string:imageURL) else { return }
+        do {
+            self.imageURL = try await SavedRecipesManager.shared.uploadImageToFirebase(imageURL: imageURL, foodName: self.recipe?.foodName ?? "")
+        } catch {
+            throw WFError.uploadPhotoError
         }
     }
     
@@ -118,18 +103,6 @@ class ShowFoodViewModel {
                 self.delegate?.handleViewModelOutput(.loadingImage(false))
             }
         }
-    }
-    
-    
-    func postImageToFirebase(imageURL:String) async throws{
-        guard let imageURL = URL(string:imageURL) else { return }
-        do {
-            self.imageURL = try await SavedRecipesManager.shared.uploadImageToFirebase(imageURL: imageURL, foodName: self.recipe?.foodName ?? "")
-            print(imageURL)
-        } catch {
-            throw WFError.uploadPhotoError
-        }
-        
     }
     
     
@@ -152,7 +125,7 @@ class ShowFoodViewModel {
         return nil
     }
     
-
+    
     @MainActor
     func fetchFoodRecipe(foods: [Ingredient], category: [String]) {
         Task { [weak self] in

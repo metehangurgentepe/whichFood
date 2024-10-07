@@ -12,13 +12,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>189</string>
+					<string>185</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>188</string>
+					<string>184</string>
 					<key>Timestamp</key>
-					<string>730918661.9286619</string>
+					<string>732127532.100986</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -42,7 +42,7 @@
 </string>
 				<key>trailing</key>
 				<string>        if viewModel.inSearchMode(searchField) {
-            var food = viewModel.filteredFoods[indexPath.row]
+            let food = viewModel.filteredFoods[indexPath.row]
             viewModel.filteredFoods[indexPath.row].isSelected.toggle()
 </string>
 			</dict>
@@ -59,13 +59,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>232</string>
+					<string>228</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>231</string>
+					<string>227</string>
 					<key>Timestamp</key>
-					<string>730918661.928618</string>
+					<string>732127532.101022</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -148,16 +148,12 @@
 			<dict>
 				<key>location-parameters</key>
 				<dict>
-					<key>EndingColumnNumber</key>
-					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>106</string>
-					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>91</string>
 					<key>StartingLineNumber</key>
-					<string>105</string>
+					<string>91</string>
 					<key>Timestamp</key>
-					<string>731848711.365183</string>
+					<string>732098533.707063</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -196,13 +192,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>148</string>
+					<string>338</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>147</string>
+					<string>338</string>
 					<key>Timestamp</key>
-					<string>731848680.523168</string>
+					<string>749082528.402997</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -218,17 +214,13 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>        let home = HomeViewController()
-</string>
+				<string></string>
 				<key>leading</key>
-				<string>    
-    private func backButton() {
+				<string>    }
+}
 </string>
 				<key>trailing</key>
-				<string>        self.navigationController?.popToViewController(home, animated: true)
-    }
-    
-</string>
+				<string></string>
 			</dict>
 			<key>type</key>
 			<string>bookmark</string>
@@ -241,13 +233,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>44</string>
+					<string>138</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>43</string>
+					<string>138</string>
 					<key>Timestamp</key>
-					<string>731454702.4432859</string>
+					<string>749121756.638599</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -263,17 +255,13 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>        searchController.searchBar.placeholder = LocaleKeys.Home.search.rawValue.locale()
-</string>
+				<string></string>
 				<key>leading</key>
-				<string>        let searchController = UISearchController()
-        searchController.searchResultsUpdater = self
+				<string>    }
+}
 </string>
 				<key>trailing</key>
-				<string>        navigationItem.searchController = searchController
-    }
-    
-</string>
+				<string></string>
 			</dict>
 			<key>type</key>
 			<string>bookmark</string>
@@ -286,13 +274,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>76</string>
+					<string>98</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>75</string>
+					<string>97</string>
 					<key>Timestamp</key>
-					<string>731854632.796478</string>
+					<string>732017558.603133</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -317,7 +305,7 @@
 				<key>trailing</key>
 				<string>        do {
             let array = try await recipesCollection
-                .limit(to: 20)
+                .limit(to: 21)
 </string>
 			</dict>
 			<key>title</key>
@@ -352,13 +340,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>54</string>
+					<string>55</string>
 					<key>StartingColumnNumber</key>
-					<string>77</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>53</string>
+					<string>54</string>
 					<key>Timestamp</key>
-					<string>731577670.254877</string>
+					<string>749121501.373305</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -374,12 +362,12 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>
+				<string>        let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
 </string>
 				<key>leading</key>
 				<string>        let padding: CGFloat = 20
         let minimumItemSpacing: CGFloat = 10
-        let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)</string>
+</string>
 				<key>trailing</key>
 				<string>        let itemWidth =  availableWidth / 3
         
@@ -397,13 +385,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>134</string>
+					<string>122</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>133</string>
+					<string>121</string>
 					<key>Timestamp</key>
-					<string>731854430.89086</string>
+					<string>749122469.321472</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -442,13 +430,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>55</string>
+					<string>40</string>
 					<key>StartingColumnNumber</key>
-					<string>64</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>54</string>
+					<string>39</string>
 					<key>Timestamp</key>
-					<string>731854471.969836</string>
+					<string>734860815.599268</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -464,19 +452,200 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string></string>
+				<string>        SavedRecipesManager.shared.deleteRecipeByUserID(id: recipe.id)
+</string>
 				<key>leading</key>
+				<string>    
+    func deleteRecipe(recipe: Recipe) {
+</string>
+				<key>trailing</key>
 				<string>        Task{
             await self.getRecipes()
-        }</string>
-				<key>trailing</key>
-				<string>
-    }
-    
+        }
 </string>
 			</dict>
 			<key>title</key>
 			<string>buraya tariften userID'yi çıkaralım func yazalım</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>109</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>108</string>
+					<key>Timestamp</key>
+					<string>749121397.059337</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WhichFood/CustomViews/Cells/HomeRecipeCell.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>        let confirmAction = UIAlertAction(title: LocaleKeys.Error.delete.rawValue.locale(), style: .destructive) { [weak self] _ in
+</string>
+				<key>leading</key>
+				<string>        )
+        
+</string>
+				<key>trailing</key>
+				<string>            self?.delegate?.deleteRecipe(recipe: recipe)
+            self?.isHighlighted = false
+        }
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>192</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>191</string>
+					<key>Timestamp</key>
+					<string>731956881.376053</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WhichFood/Features/SelectCategory/SelectCategoryVC.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>    }
+</string>
+				<key>leading</key>
+				<string>            verticalStackView.widthAnchor.constraint(equalToConstant: view.bounds.width - 40)
+        ])
+</string>
+				<key>trailing</key>
+				<string>    
+    func setupNextButton() {
+        view.addSubview(nextButton)
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>329</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>328</string>
+					<key>Timestamp</key>
+					<string>732019624.075574</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WhichFood/Utils/Locale/LocaleKeys.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>        case delete =   "error_delete"
+</string>
+				<key>leading</key>
+				<string>        case networkError = "network_error"
+        case uploadPhotoError = "upload_photo_error"
+</string>
+				<key>trailing</key>
+				<string>        case cancel =   "error_cancel"
+        case share =    "error_share"
+        case checkOut = "error_check_out"
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>71</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>70</string>
+					<key>Timestamp</key>
+					<string>748479077.999616</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>WhichFood/Features/Onboarding/OnboardingViewController.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>        skipButton.setTitle("Skip", for: .normal)
+</string>
+				<key>leading</key>
+				<string>        skipButton.translatesAutoresizingMaskIntoConstraints = false
+        skipButton.setTitleColor(Colors.accent.color, for: .normal)
+</string>
+				<key>trailing</key>
+				<string>        skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .primaryActionTriggered)
+        
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+</string>
+			</dict>
 			<key>type</key>
 			<string>bookmark</string>
 		</dict>

@@ -25,6 +25,7 @@ class SearchCell: UICollectionViewCell {
         label.textColor = .label
         label.font = .preferredFont(forTextStyle: .headline).withSize(12)
         label.lineBreakMode = .byTruncatingTail
+        label.numberOfLines = 0
         return label
     }()
     
@@ -72,7 +73,7 @@ class SearchCell: UICollectionViewCell {
             nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -2),
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             nameLabel.widthAnchor.constraint(equalToConstant: itemWidth),
-            nameLabel.heightAnchor.constraint(equalToConstant: 20)
+            nameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 }

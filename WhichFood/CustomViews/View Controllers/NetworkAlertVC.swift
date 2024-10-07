@@ -7,23 +7,24 @@
 
 import UIKit
 
-class NetworkAlertVC: UIViewController {
-
+class NetworkAlertVC: DataLoadingVC {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        checkInternetConnection()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func checkInternetConnection() {
+        if !NetworkMonitor.shared.isConnected {
+            showAlert()
+        }
     }
-    */
-
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "İnternet Bağlantısı Yok", message: "İnternet bağlantınızın olduğundan emin olun.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
 }

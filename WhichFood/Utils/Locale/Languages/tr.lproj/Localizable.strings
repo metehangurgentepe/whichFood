@@ -325,3 +325,15 @@
 "error_already_in_favorites" = "Zaten favorilere eklendi";
 "network_error" = "İnternet bağlantısıyla ilgili bir sorun var";
 "upload_photo_error" = "Fotoğraf yüklenirken bir sorun oluştu";
+"error_delete" = "Sil";
+"error_cancel" = "İptal";
+"error_share" = "Paylaş";
+"error_check_out" = "Dikkat";
+
+// recipe
+"recipe_name" = "Tarifin Adı";
+
+
+//image to text
+"image_info" = "Tarifin yazılı fotoğrafını çekmeniz gerekiyor.";
+"take_photo" = "Fotoğraf Çek";

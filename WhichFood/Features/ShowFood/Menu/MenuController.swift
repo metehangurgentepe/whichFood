@@ -21,7 +21,7 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     var menuBar: UIView = {
         let v = UIView()
-        v.backgroundColor = .systemPink
+        v.backgroundColor = Colors.accent.color
         return v
     }()
     
@@ -30,7 +30,7 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.backgroundColor = Colors.accent.color
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(MenuCell.self, forCellWithReuseIdentifier: MenuCell.identifier)
         
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
@@ -47,7 +47,7 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
             make.leading.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.height.equalTo(5)
-            make.width.equalTo(ScreenSize.width / 3)
+            make.width.equalTo(ScreenSize.width / 2)
         }
     }
     
@@ -68,6 +68,6 @@ class MenuController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-        return .init(width: width/3, height: view.frame.height)
+        return .init(width: width/2, height: view.frame.height)
     }
 }

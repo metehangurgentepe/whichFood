@@ -1,0 +1,340 @@
+
+/*
+ Lokalizirajuće.nizovi
+ WhichFood
+
+ Kreirao Metehan Gürgentepe 12. rujna 2023.
+
+ */
+
+
+"tabHome" = "Naslov ovdje";
+
+
+//Premija
+"premiumWeekButton" = "Tjedna premija";
+"lifetimeButton" = "Godišnja premija";
+"continueButton" = "Nastavi";
+
+
+// ukrcavanje
+"feature_1" = "Odaberite sastojke koje imate kod kuće i neka vam aplikacija pokaže što možete kuhati.";
+"feature_2" = "Odaberite kategorije obroka koje vam odgovaraju i uživajte u najukusnijim jelima.";
+"feature_3" = "Spremite svoje omiljene upute za recepte i napravite ih kad god želite.";
+"feature_1_title" = "Dostupni sastojci";
+"feature_2_title" = "Bilje kategorija";
+"feature_3_title" = "Spremi recepte";
+"footer" = "Dizajnirao i kodirao Metehan Gürgentepe";
+"more" = "Vidi više...";
+"feature_button" = "Nastavi";
+"feature_welcome" = "Dobro došli";
+
+
+// detaljan recept
+
+"detail_ingredients" = "Sastojci";
+"detail_recipe" = "Upute";
+"detail_success" = "Uspješno spremljeno";
+"detail_save" = "Spremi recept";
+"detail_success_title" = "Uspjeh";
+"detail_ok_button" = "U redu";
+"detail_error_title" = "Pogreška";
+"detail_error_message" = "Recept nije mogao biti spremljen";
+"detail_try_again" = "Pokušaj ponovno";
+"detail_error_occurred" = "Došlo je do pogreške";
+
+
+// kategorije hrane
+"category_healthy" = "Zdrav";
+"category_easy" = "Lako";
+"category_mid" = "Srednji";
+"category_hard" = "Teško";
+"category_enjoy" = "Ugodno";
+"category_hearty" = "Srčan";
+"category_vegan" = "Vegan";
+"category_vegetarian" = "Vegetarijanac";
+"category_breakfast" = "Doručak";
+"category_lunch" = "Ručak";
+"category_dinner" = "Večera";
+"category_dessert" = "Desert";
+
+
+// sastojci
+"ingredients_bread" = "Kruh";
+"ingredients_garlic" = "Češnjak";
+"ingredients_parsley" = "Peršin";
+"ingredients_tomato" = "Rajčica";
+"ingredients_carrot" = "Mrkva";
+"ingredients_potato" = "Krumpir";
+"ingredients_dill" = "Kopar";
+"ingredients_spring_onion" = "Proljetni luk";
+"ingredients_pepper" = "Papar";
+"ingredients_zucchini" = "Tikvice";
+"ingredients_eggplant" = "Patlidžan";
+"ingredients_rice" = "Riža";
+"ingredients_mushroom" = "Gljiva";
+"ingredients_fresh_basil" = "Svježi bosiljak";
+"ingredients_lettuce" = "Salata";
+"ingredients_peas" = "Grašak";
+"ingredients_butter" = "Maslac";
+"ingredients_spinach" = "Špinat";
+"ingredients_fresh_mint" = "Svježa metvica";
+"ingredients_celery" = "Celer";
+"ingredients_thyme" = "Majčina dušica";
+"ingredients_egg" = "Jaje";
+"ingredients_ground_beef" = "Mljevena junetina";
+"ingredients_chicken" = "Piletina";
+"ingredients_diced_beef" = "Govedina narezana na kocke";
+"ingredients_fish" = "Riba";
+"ingredients_lamb" = "Janjetina";
+"ingredients_turkey" = "Purica";
+"ingredients_beef" = "Govedina";
+"ingredients_sausage" = "Kobasica";
+"ingredients_hotDog" = "Hrenovka";
+"ingredients_calamari" = "Lignji";
+"ingredients_pastrami" = "Pastrami";
+"ingredients_bonito" = "Palamida";
+"ingredients_chickenNuggets" = "Pileći komadići";
+"ingredients_cheese" = "Sir";
+"ingredients_yogurt" = "Jogurt";
+"ingredients_milk" = "Mlijeko";
+"ingredients_cream" = "Krema";
+"ingredients_ricotta" = "Ricotta";
+"ingredients_lemon" = "Limun";
+"ingredients_avocado" = "Avokado";
+"ingredients_grape" = "Grožđe";
+"ingredients_fig" = "Smokva";
+"ingredients_orange" = "Naranča";
+"ingredients_blackOlive" = "Crna maslina";
+"ingredients_greenApple" = "Zelena jabuka";
+"ingredients_strawberry" = "Jagoda";
+"ingredients_raspberry" = "Malina";
+"ingredients_blackberry" = "Kupina";
+"ingredients_mulberry" = "Dud";
+"ingredients_kiwi" = "Kivi";
+"ingredients_apple" = "Jabuka";
+"ingredients_pomegranate" = "Nar";
+"ingredients_quince" = "Dunja";
+"ingredients_walnut" = "Orah";
+"ingredients_pineNuts" = "Pinolje";
+"ingredients_pistachio" = "Pistacije";
+"ingredients_sunDriedTomato" = "Osušena rajčica";
+"ingredients_coconut" = "Kokos";
+"ingredients_almond" = "Badem";
+"ingredients_hazelnut" = "lješnjak";
+"ingredients_driedApricot" = "Suhe marelice";
+"ingredients_driedApricot" = "Suhe marelice";
+"ingredients_shrimp" = "Škampi";
+"ingredients_salmon" = "Losos";
+"ingredients_clams" = "Dagnje";
+"ingredients_scallops" = "Školjke";
+"ingredients_lobster" = "Jastog";
+"ingredients_crab" = "Rakovica";
+"ingredients_prawns" = "Škampi";
+"ingredients_caviar" = "Kavijar";
+"ingredients_oysters" = "Astere";
+"ingredients_mussels" = "Dagnje";
+"ingredients_anchovies" = "Inćuni";
+"ingredients_sardines" = "Sardine";
+"ingredients_haddock" = "Riba bahnja";
+"ingredients_cod" = "Bakalar";
+"ingredients_tuna" = "Tunjevina";
+"ingredients_trout" = "Pastrva";
+"ingredients_duck" = "Patka";
+"ingredients_veal" = "Teletina";
+"ingredients_rabbit" = "Zec";
+"ingredients_quail" = "Prepelica";
+"ingredients_pork" = "Svinjetina";
+"ingredients_bacon" = "Goveđa slanina";
+"ingredients_ham" = "Šunka";
+"ingredients_cabbage" = "Kupus";
+"ingredients_broccoli" = "Brokula";
+"ingredients_cauliflower" = "Cvjetača";
+"ingredients_asparagus" = "Šparoge";
+"ingredients_artichoke" = "Artičoka";
+"ingredients_kale" = "Kupus";
+"ingredients_brussels_sprouts" = "Prokulice";
+"ingredients_cucumber" = "Krastavac";
+"ingredients_radish" = "Rotkvica";
+"sastojci_sweet_potato" = "Slatki krumpir";
+"ingredients_beetroot" = "Cikla";
+"ingredients_pumpkin" = "Bundeva";
+"ingredients_turnip" = "Repa";
+"ingredients_bamia" = "Bamija";
+"ingredients_parsnip" = "Shakshuka";
+"ingredients_leek" = "Poriluk";
+"ingredients_blueberry" = "Borovnica";
+"ingredients_cranberry" = "Brusnica";
+"ingredients_watermelon" = "Lubenica";
+"ingredients_papaya" = "Papaja";
+"ingredients_pineapple" = "Ananas";
+"ingredients_mango" = "Mango";
+"ingredients_passion_fruit" = "Voće";
+"ingredients_date" = "Datum";
+"ingredients_dragon_fruit" = "Zmajevo voće";
+"ingredients_persimmon" = "Kaki";
+"ingredients_star_fruit" = "Zvjezdano voće";
+"ingredients_black_currant" = "Crni ribiz";
+"ingredients_rosemary" = "Ruzmarin";
+"ingredients_sage" = "Kadulja";
+"ingredients_mint" = "Ment";
+"ingredients_cilantro" = "Korijander";
+"ingredients_bay_leaf" = "Lovorov list";
+"ingredients_origano" = "Majčina dušica";
+"ingredients_tarragon" = "Estragon";
+"ingredients_chives" = "vlasac";
+"ingredients_lemongrass" = "Lemon Herb";
+"ingredients_majoram" = "Bosiljak";
+"ingredients_coriander" = "Korijander";
+"ingredients_basil" = "ružmarin";
+"ingredients_cashew" = "Indijski orah";
+"ingredients_macadamia" = "Makadamija orasi";
+"ingredients_pecan" = "Orah";
+"ingredients_peanut" = "Kikiriki";
+"ingredients_cocoa" = "Kakao";
+"ingredients_chestnut" = "Kesten";
+
+
+// dom
+"home_recipe" = "Recepti";
+"home_create_button" = "Stvori recept";
+"home_no_item" = "Nema spremljenih recepata";
+"home_all" = "Sve";
+"home_meaty" = "Mesnat";
+"home_vegetarian" = "Vegetarijanac";
+"home_dessert" = "Desert";
+"take_photo" = "Fotografirajte svoj napisani recept.";
+"image_info" = "Moći ćete dodati fotografiju svog napisanog recepta receptima u aplikaciji.";
+"home_favorites" = "Omiljeni";
+"home_search" = "Traži";
+
+
+// jezik
+"language_turkish" = "turski";
+"language_english" = "engleski";
+"language_german" = "njemački";
+"language_czech" = "češki";
+"language_arabic" = "arapski";
+"language_french" = "francuski";
+"language_italian" = "talijanski";
+"language_russian" = "ruski";
+"language_iranian" = "iranski";
+"language_spansish" = "španjolski";
+
+
+//odaberi kategoriju
+"next_button" = "Dalje";
+"select_label" = "Odaberite vrstu hrane";
+"choose_label" = "Odaberite jednu ili više";
+
+
+// odaberite hranu
+"apply_button" = "Stvori recept";
+"search_food" = "Traži sastojak";
+"select_filter" = "Filtrirani sastojci";
+"select_vegetable" = "Povrće";
+"select_meat" = "Meso";
+"select_dairy" = "Mliječni proizvodi";
+"select_grain" = "Zrno";
+"select_fruit" = "Voće";
+"select_seafood" = "Plodovi mora";
+"select_herb" = "Bilja";
+"select_nut" = "Matica";
+
+
+// premium
+"premium_1_title" = "Dodaj neograničen broj recepata";
+"premium_1" = "Dodajte i slijedite recepte bez ikakvih ograničenja.";
+"premium_2_title" = "Ne brinite što ćete kuhati";
+"premium_2" = "Ne brinite što ćete kuhati.";
+"premium_3_title" = "O vama ovisi";
+"premium_3" = "Kuhajte što god želite sa sastojcima koje volite.";
+"premium_subscribed" = "Pretplaćeni ste";
+"premium_subheadline" = "Čestitamo, uspješno ste aktivirali Premium pristup svim značajkama aplikacije, uživajte!";
+"premium_expiration" = "Datum isteka: ";
+"premium_restore" = "Želite li vratiti kupnje?";
+
+
+// postavke
+"settings_title" = "Postavke";
+"settings_user" = "ID korisnika:";
+"settings_premium" = "Premium";
+"settings_language" = "Jezik";
+"settings_dark_mode" = "Tamni način rada";
+"settings_write_me" = "Piši mi";
+"settings_about_app" = "O WhichFood";
+"settings_hello" = "Zdravo";
+"settings_mail_title_error" = "Slanje e-pošte nije podržano";
+"settings_mail_message_error" = "Za slanje e-pošte morate konfigurirati račun e-pošte.";
+"settings_ok_button" = "U redu";
+"settings_select_theme" = "Odaberite temu";
+"settings_light_mode" = "Svijetli način";
+"settings_dark_mode_button" = "Tamni način rada";
+"settings_error_title" = "Promijeni postavke jezika";
+"settings_error_message" = "Ako želite koristiti aplikaciju na drugom jeziku, možete ga promijeniti u jezičnoj opciji na sljedećoj stranici.";
+"settings_close" = "Zatvori";
+"settings_continue" = "Nastavi";
+"settings_account_settings" = "Postavke računa";
+"settings_account" = "Račun";
+"settings_support" = "Podrška";
+"settings_feedback" = "Pošalji povratne informacije";
+"settings_write_comment" = "Napišite komentar";
+"settings_share" = "Dijeli";
+"settings_appearance" = "Izgled";
+"settings_other_apps" = "Otkrijte druge aplikacije";
+"settings_rights_privacy" = "Prava i privatnost";
+"settings_terms_of_service" = "Uvjeti korištenja";
+"settings_privacy_policy" = "Pravila privatnosti";
+"settings_language_change" = "Jezik promijenjen";
+"settings_language_apply_change" = "Ponovo pokrenite aplikaciju za promjenu jezika";
+
+
+//pokaži hranu
+"show_food_prompt1" = "Možete li predložiti recept sa sastojcima:";
+"show_food_prompt2" = "Možete li predložiti recept sa sastojcima? ";
+"show_food_prompt3" = "obroci sadrže ove značajke. Nemojte pisati ništa ispred.";
+"show_food_prompt4" = "Navedite podatke u JSON formatu, jednostavno kao JSON, bez dodavanja bilo čega prije ili poslije, json je: ";
+"show_food_prompt5" = "Odaberite vrstu ovisno o tome radi li se o mesu, povrću ili desertu. Samo jedan od ovih tipova.";
+"random_prompt" = "Daj mi slučajni recept";
+"json_prompt" = "točno ovaj JSON";
+
+
+// račun
+"account_date" = "Ništa";
+"account_premium" = "Ništa";
+"account_id" = "Ništa";
+"account_user_id" = "ID korisnika";
+"account_premium_name" = "Premium";
+"account_last_date" = "Datum isteka";
+"account_copy" = "Kopiraj";
+"account_title" = "Račun";
+"account_usage_api" = "Broj kreiranih recepata";
+
+
+// upozorenje o pogrešci
+"error_alert" = "Greška";
+"error_occurred" = "Došlo je do pogreške";
+"error_ok_button" = "OK";
+"error_back_button" = "Natrag";
+"error_api_usage" = "Dosegli ste ograničenje upotrebe API-ja";
+"error_api" = "Neuspješno dohvaćanje podataka";
+"invalid_endpoint" = "Nevažeća krajnja točka";
+"invalid_response" = "Nevažeći odgovor";
+"error_no_data" = "Nema podataka";
+"error_serialization" = "Dekodiranje podataka nije uspjelo";
+"error_unable_to_favorite" = "Došlo je do pogreške prilikom favoriziranja ovog korisnika. Pokušajte ponovno.";
+"error_already_in_favorites" = "Već dodani favoriti";
+"network_error" = "Postoji problem s internetskom vezom";
+"upload_photo_error" = "Došlo je do problema prilikom učitavanja fotografije";
+"error_delete" = "Izbriši";
+"error_cancel" = "Odustani";
+"error_share" = "Dijeli";
+"error_check_out" = "Odjava";
+
+// Recept
+"recipe_name" = "Naziv recepta";
+
+
+//slika u tekst
+"image_info" = "Morate snimiti pisanu fotografiju recepta.";
+"take_photo" = "Snimi fotografiju";

@@ -16,10 +16,10 @@ class PremiumViewModel: PremiumViewModelProtocol{
     
     func fetchOfferings() {
         if let package = self.offering?.availablePackages {
-            print(package)
             self.delegate?.handleViewModelOutput(.getAllOfferings(package))
         }
     }
+    
     
     func getCustomerInfo() {
         Purchases.shared.getCustomerInfo {[weak self] info, error in
@@ -27,7 +27,6 @@ class PremiumViewModel: PremiumViewModelProtocol{
                 self?.delegate?.handleViewModelOutput(.showError(error))
             }
             
-            /// info is not nil
             if let info = info {
                 if !info.activeSubscriptions.isEmpty {
                     self?.delegate?.handleViewModelOutput(.userIsPremium(true))
@@ -38,6 +37,7 @@ class PremiumViewModel: PremiumViewModelProtocol{
             }
         }
     }
+    
     
     func fetchPackage(){
         Task { [weak self] in
@@ -54,6 +54,7 @@ class PremiumViewModel: PremiumViewModelProtocol{
             self?.delegate?.handleViewModelOutput(.setLoading(false))
         }
     }
+    
     
     func purchase(package:  RevenueCat.Package) async throws{
         DispatchQueue.main.async{

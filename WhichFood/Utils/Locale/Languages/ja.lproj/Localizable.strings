@@ -1,0 +1,323 @@
+/*
+ Localizable.strings
+ WhichFood
+ 
+ Created by Metehan Gürgentepe on September 12, 2023.
+ 
+ */
+
+
+"tabHome" = "タイトルをここに入力";
+
+//Premium
+"premiumWeekButton" = "週次プレミアム";
+"lifetimeButton" = "年間プレミアム";
+"continueButton" = "続行";
+
+// オンボーディング
+"feature_1" = "自宅にある食材を選択すると、アプリが調理できるものを表示します。";
+"feature_2" = "自分に合った食事のカテゴリを選択し、最もおいしい料理をお楽しみください。";
+"feature_3" = "お気に入りのレシピの手順を保存して、いつでも好きなときに作ることができます。";
+"feature_1_title" = "利用可能な食材";
+"feature_2_title" = "豊富なカテゴリ";
+"feature_3_title" = "レシピを保存";
+"footer" = "Metehan Gürgentepe によるデザインとコーディング";
+"more" = "詳細を表示...";
+"feature_button" = "続行";
+"feature_welcome" = "ようこそ";
+
+// レシピの詳細
+
+"detail_ingredients" = "材料";
+"detail_recipe" = "手順";
+"detail_success" = "正常に保存されました";
+"detail_save" = "レシピを保存";
+"detail_success_title" = "成功";
+"detail_ok_button" = "OK";
+"detail_error_title" = "エラー";
+"detail_error_message" = "レシピを保存できませんでした";
+"detail_try_again" = "もう一度お試しください";
+"detail_error_occurred" = "エラーが発生しました";
+
+// 食品カテゴリ
+"category_healthy" = "ヘルシー";
+"category_easy" = "簡単";
+"category_mid" = "中級";
+"category_hard" = "難しい";
+"category_enjoy" = "楽しい";
+"category_hearty" = "ボリュームたっぷり";
+"category_vegan" = "ビーガン";
+"category_vegetarian" = "ベジタリアン";
+"category_breakfast" = "朝食";
+"category_lunch" = "ランチ";
+"category_dinner" = "ディナー";
+"category_dessert" = "デザート";
+
+// 材料
+"ingredients_bread" = "パン";
+"ingredients_garlic" = "ニンニク";
+"ingredients_parsley" = "パセリ";
+"ingredients_tomato" = "トマト";
+"ingredients_carrot" = "ニンジン";
+"ingredients_potato" = "ジャガイモ";
+"ingredients_dill" = "ディル";
+"ingredients_spring_onion" = "ネギ";
+"ingredients_pepper" = "コショウ";
+"ingredients_zucchini" = "ズッキーニ";
+"ingredients_eggplant" = "ナス";
+"ingredients_rice" = "米";
+"ingredients_mushroom" = "キノコ";
+"ingredients_fresh_basil" = "フレッシュバジル";
+"ingredients_lettuce" = "レタス";
+"ingredients_peas" = "エンドウ豆";
+"ingredients_butter" = "バター";
+"ingredients_spinach" = "ほうれん草";
+"ingredients_fresh_mint" = "フレッシュミント";
+"ingredients_celery" = "セロリ";
+"ingredients_thyme" = "タイム";
+"ingredients_egg" = "卵";
+"ingredients_ground_beef" = "牛ひき肉";
+"ingredients_chicken" = "鶏肉";
+"ingredients_diced_beef" = "角切り牛肉";
+"ingredients_fish" = "魚";
+"ingredients_lamb" = "ラム肉";
+"ingredients_turkey" = "七面鳥";
+"ingredients_beef" = "牛肉";
+"ingredients_sausage" = "ソーセージ";
+"ingredients_hotDog" = "ホットドッグ";
+"ingredients_calamari" = "イカ";
+"ingredients_pastrami" = "パストラミ";
+"ingredients_bonito" = "カツオ";
+"ingredients_chickenNuggets" = "チキンナゲット";
+"ingredients_cheese" = "チーズ";
+"ingredients_yogurt" = "ヨーグルト";
+"ingredients_milk" = "牛乳";
+"ingredients_cream" = "クリーム";
+"ingredients_ricotta" = "リコッタ";
+"ingredients_lemon" = "レモン";
+"ingredients_avocado" = "アボカド";
+"ingredients_grape" = "ブドウ";
+"ingredients_fig" = "イチジク";
+"ingredients_orange" = "オレンジ"; "ingredients_blackOlive" = "ブラックオリーブ";
+"ingredients_greenApple" = "青リンゴ";
+"ingredients_strawberry" = "イチゴ";
+"ingredients_raspberry" = "ラズベリー";
+"ingredients_blackberry" = "ブラックベリー";
+"ingredients_mulberry" = "桑";
+"ingredients_kiwi" = "キウイ";
+"ingredients_apple" = "リンゴ";
+"ingredients_pomegranate" = "ザクロ";
+"ingredients_quince" = "マルメロ";
+"ingredients_walnut" = "クルミ";
+"ingredients_pineNuts" = "松の実";
+"ingredients_pistachio" = "ピスタチオ"; "ingredients_sunDriedTomato" = "天日干しトマト";
+"ingredients_coconut" = "ココナッツ";
+"ingredients_almond" = "アーモンド";
+"ingredients_hazelnut" = "ヘーゼルナッツ";
+"ingredients_driedApricot" = "ドライアプリコット";
+"ingredients_driedApricot" = "ドライアプリコット";
+"ingredients_shrimp" = "エビ";
+"ingredients_salmon" = "サーモン";
+"ingredients_clams" = "ムール貝";
+"ingredients_scallops" = "ハマグリ";
+"ingredients_lobster" = "ロブスター";
+"ingredients_crab" = "カニ";
+"ingredients_prawns" = "エビ";
+"ingredients_caviar" = "キャビア";
+"ingredients_oysters" = "アスター";
+"ingredients_mussels" = "ムール貝";
+"ingredients_anchovies" = "アンチョビ";
+"ingredients_sardines" = "イワシ";
+"ingredients_haddock" = "ハドック";
+"ingredients_cod" = "タラ";
+"ingredients_tuna" = "マグロ";
+"ingredients_trout" = "マス";
+"ingredients_duck" = "アヒル";
+"ingredients_veal" = "子牛肉";
+"ingredients_rabbit" = "ウサギ";
+"ingredients_quail" = "ウズラ";
+"ingredients_pork" = "豚肉";
+"ingredients_bacon" = "ビーフベーコン";
+"ingredients_ham" = "ハム";
+"ingredients_cabbage" = "キャベツ";
+"ingredients_broccoli" = "ブロッコリー";
+"ingredients_cauliflower" = "カリフラワー";
+"ingredients_asparagus" = "アスパラガス";
+"ingredients_artichoke" = "アーティチョーク";
+"ingredients_kale" = "キャベツ";
+"ingredients_brussels_sprouts" = "芽キャベツ";
+"ingredients_cucumber" = "キュウリ";
+"ingredients_radish" = "ラディッシュ";
+"ingredients_sweet_potato" = "サツマイモ";
+"ingredients_beetroot" = "ビートルート";
+"ingredients_pumpkin" = "カボチャ";
+"ingredients_turnip" = "カブ";
+"ingredients_okra" = "オクラ";
+"ingredients_parsnip" = "シャクシュカ";
+"ingredients_leek" = "ネギ";
+"ingredients_blueberry" = "ブルーベリー";
+"ingredients_cranberry" = "クランベリー";
+"ingredients_watermelon" = "スイカ";
+"ingredients_papaya" = "パパイヤ";
+"ingredients_pineapple" = "パイナップル";
+"ingredients_mango" = "マンゴー";
+"ingredients_passion_fruit" = "フルーツ";
+"ingredients_date" = "デーツ";
+"ingredients_dragon_fruit" = "ドラゴンフルーツ";
+"ingredients_persimmon" = "柿";
+"ingredients_star_fruit" = "スターフルーツ";
+"ingredients_black_currant" = "ブラックカラント";
+"ingredients_rosemary" = "ローズマリー";
+"ingredients_sage" = "セージ";
+"ingredients_mint" = "ミント";
+"ingredients_cilantro" = "コリアンダー";
+"ingredients_bay_leaf" = "ベイリーフ";
+"ingredients_oregano" = "タイム";
+"ingredients_tarragon" = "タラゴン";
+"ingredients_chives" = "チャイブ";
+"ingredients_lemongrass" = "レモンハーブ";
+"ingredients_marjoram" = "バジル";
+"ingredients_coriander" = "コリアンダー";
+"ingredients_basil" = "ローズマリー";
+"ingredients_cashew" = "カシューナッツ";
+"ingredients_macadamia" = "マカダミアナッツ";
+"ingredients_pecan" = "クルミ";
+"ingredients_peanut" = "ピーナッツ";
+"ingredients_cocoa" = "ココア";
+"ingredients_chestnut" = "栗";
+
+// ホーム
+"home_recipe" = "レシピ";
+"home_create_button" = "レシピを作成";
+"home_no_item" = "保存したレシピはありません";
+"home_all" = "すべて";
+"home_meaty" = "肉料理";
+"home_vegetarian" = "ベジタリアン";
+"home_dessert" = "デザート";
+"take_photo" = "書いたレシピの写真を撮ります。";
+"image_info" = "書いたレシピの写真をアプリのレシピに追加できます。";
+"home_favorites" = "お気に入り";
+"home_search" = "検索";
+
+// language
+"language_turkish" = "トルコ語";
+"language_english" = "英語";
+"language_german" = "ドイツ語";
+"language_czech" = "チェコ語";
+"language_arabic" = "アラビア語";
+"language_french" = "フランス語";
+"language_italian" = "イタリア語";
+"language_russian" = "ロシア語";
+"language_iranian" = "イラン語";
+"language_spansish" = "スペイン語";
+
+// カテゴリを選択
+"next_button" = "次へ";
+"select_label" = "食品の種類を選択";
+"choose_label" = "1 つ以上の項目を選択";
+
+// 食品を選択
+"apply_button" = "レシピを作成";
+"search_food" = "材料を検索";
+"select_filter" = "フィルタリングされた材料";
+"select_vegetable" = "野菜";
+"select_meat" = "肉";
+"select_dairy" = "乳製品";
+"select_grain" = "穀物";
+"select_fruit" = "果物";
+"select_seafood" = "シーフード";
+"select_herb" = "ハーブ";
+"select_nut" = "ナッツ";
+
+// プレミアム
+"premium_1_title" = "無制限のレシピを追加";
+"premium_1" = "制限なくレシピを追加してフォローしてください。";
+"premium_2_title" = "何を調理するか心配する必要はありません";
+"premium_2" = "何を調理するか心配する必要はありません。";
+"premium_3_title" = "それはあなた次第です";
+"premium_3" = "好きな食材で好きなものを調理してください。";
+"premium_subscribed" = "登録しました";
+"premium_subheadline" = "おめでとうございます。アプリケーションのすべての機能へのプレミアムアクセスが正常に有効化されました。お楽しみください！";
+"premium_expiration" = "有効期限: ";
+"premium_restore" = "購入を復元しますか？";
+
+// 設定
+"settings_title" = "設定";
+"settings_user" = "ユーザーID:";
+"settings_premium" = "プレミアム";
+"settings_language" = "言語";
+"settings_dark_mode" = "ダークモード";
+"settings_write_me" = "私にメッセージを送ってください";
+"settings_about_app" = "WhichFoodについて";
+"settings_hello" = "こんにちは";
+"settings_mail_title_error" = "メール送信はサポートされていません";
+"settings_mail_message_error" = "メールを送信するには、メールアカウントを設定する必要があります。";
+"settings_ok_button" = "OK";
+"settings_select_theme" = "テーマを選択";
+"settings_light_mode" = "ライトモード";
+"settings_dark_mode_button" = "ダークモード";
+"settings_error_title" = "言語設定を変更";
+"settings_error_message" = "アプリケーションを別の言語で使用したい場合は、次のページの言語オプションから変更できます。";
+"settings_close" = "閉じる";
+"settings_continue" = "続行";
+"settings_account_settings" = "アカウント設定";
+"settings_account" = "アカウント";
+"settings_support" = "サポート";
+"settings_feedback" = "フィードバックを送信";
+"settings_write_comment" = "コメントを書く";
+"settings_share" = "共有";
+"settings_appearance" = "外観";
+"settings_other_apps" = "他のアプリケーションを見つける";
+"settings_rights_privacy" = "権利とプライバシー";
+"settings_terms_of_service" = "利用規約";
+"settings_privacy_policy" = "プライバシー ポリシー";
+"settings_language_change" = "言語が変更されました";
+"settings_language_apply_change" = "言語を変更するには、アプリケーションを再起動してください";
+
+// 食品を表示
+"show_food_prompt1" = "材料を使ったレシピを提案できますか:";
+"show_food_prompt2" = "材料を使ったレシピを提案できますか? ";
+"show_food_prompt3" = "食事にはこれらの機能が含まれています。その前に何も書かないでください。";
+"show_food_prompt4" = "JSON 形式でデータを提供します。前後に何も追加せずに、単に JSON として、json は次のとおりです: ";
+"show_food_prompt5" = "肉、野菜、デザートのいずれであるかに応じてタイプを選択しますこれらのタイプ。";
+"random_prompt" = "ランダムなレシピをください";
+"json_prompt" = "まさにこの JSON";
+
+// アカウント
+"account_date" = "なし";
+"account_premium" = "なし";
+"account_id" = "なし";
+"account_user_id" = "ユーザー ID";
+"account_premium_name" = "プレミアム";
+"account_last_date" = "有効期限";
+"account_copy" = "コピー";
+"account_title" = "アカウント";
+"account_usage_api" = "作成されたレシピの数";
+
+// エラー アラート
+"error_alert" = "エラー";
+"error_occurred" = "エラーが発生しました";
+"error_ok_button" = "OK";
+"error_back_button" = "戻る";
+"error_api_usage" = "API 使用制限に達しました";
+"error_api" = "データを取得できませんでした";
+"invalid_endpoint" = "無効なエンドポイントです";
+"invalid_response" = "無効な応答です";
+"error_no_data" = "データがありません";
+"error_serialization" = "データのデコードに失敗しました";
+"error_unable_to_favorite" = "このユーザーをお気に入りに追加する際にエラーが発生しました。もう一度お試しください。";
+"error_already_in_favorites" = "お気に入りがすでに追加されています";
+"network_error" = "インターネット接続に問題があります";
+"upload_photo_error" = "写真のアップロード中に問題が発生しました";
+"error_delete" = "削除";
+"error_cancel" = "キャンセル";
+"error_share" = "共有";
+"error_check_out" = "チェックアウト";
+
+// レシピ
+"recipe_name" = "レシピ名";
+
+//image to text
+"image_info" = "レシピの文字写真を撮影する必要があります。";
+"take_photo" = "写真を撮る";
+

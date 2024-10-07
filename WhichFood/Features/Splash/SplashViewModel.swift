@@ -50,7 +50,6 @@ class SplashViewModel: SplashViewModelProtocol {
     }
     
     func getKeychain() async -> String? {
-        _ = await OnboardingVC()
         let home = await MainTabBarController()
 
         if let data = KeychainManager.get(account: "account") {
@@ -58,6 +57,7 @@ class SplashViewModel: SplashViewModelProtocol {
 
             await MainActor.run {
                 self.delegate?.navigate(vc: home)
+//                self.delegate?.navigateToOnboarding()
             }
             return id
         } else {

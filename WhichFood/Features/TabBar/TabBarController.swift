@@ -20,17 +20,36 @@ struct SettingsViewWrapper: UIViewControllerRepresentable {
 
 
 class MainTabBarController: UITabBarController {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let premiumVC = PremiumVC()
+        premiumVC.modalPresentationStyle = .overFullScreen
+        present(premiumVC, animated: true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupTabs()
         navigationItem.hidesBackButton = true
+        tabBar.tintColor = Colors.primary.color
+        
+        tabBar.isTranslucent = true
+        tabBar.barStyle = .default
+        
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = tabBar.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tabBar.insertSubview(blurEffectView, at: 0)
         
         NSLayoutConstraint.activate([
             view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
-        
     }
     
     
@@ -54,13 +73,25 @@ class MainTabBarController: UITabBarController {
         self.setViewControllers([home, favorites, search, settings], animated: true)
     }
     
-    
     private func createNav(with title: String, and image: UIImage?, vc: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: vc)
         
         nav.tabBarItem.title = title
         nav.tabBarItem.image = image
         nav.navigationBar.prefersLargeTitles = false
+        
+        switch title {
+        case LocaleKeys.Home.recipe.rawValue.locale():
+            nav.tabBarItem.selectedImage = SFSymbols.selectedHome?.withRenderingMode(.alwaysTemplate)
+        case LocaleKeys.Home.search.rawValue.locale():
+            nav.tabBarItem.selectedImage = SFSymbols.selectedSearch?.withRenderingMode(.alwaysTemplate)
+        case LocaleKeys.Home.favorites.rawValue.locale():
+            nav.tabBarItem.selectedImage = SFSymbols.selectedFavorites?.withRenderingMode(.alwaysTemplate)
+        case LocaleKeys.Settings.title.rawValue.locale():
+            nav.tabBarItem.selectedImage = SFSymbols.selectedSettings?.withRenderingMode(.alwaysTemplate)
+        default:
+            nav.tabBarItem.selectedImage = image?.withRenderingMode(.alwaysTemplate)
+        }
         
         return nav
     }

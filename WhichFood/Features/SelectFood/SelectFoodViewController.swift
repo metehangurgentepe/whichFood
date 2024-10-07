@@ -7,12 +7,6 @@
 
 import UIKit
 
-protocol SelectFoodViewDelegate: AnyObject {
-    func onIngredientsUpdated()
-    func onError(_ error: WFError)
-    func buttonLoading(isLoading: Bool)
-    func navigate()
-}
 
 class SelectFoodViewController: UIViewController {
     private lazy var tableView = UITableView()
@@ -72,6 +66,8 @@ class SelectFoodViewController: UIViewController {
         }
     }
 }
+
+
 // MARK: Self Design Functions
 extension SelectFoodViewController {
     func updateCheckbox(_ isSelected: Bool) -> UIImage{
@@ -188,7 +184,7 @@ extension SelectFoodViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if viewModel.inSearchMode(searchField) {
-            var food = viewModel.filteredFoods[indexPath.row]
+            let food = viewModel.filteredFoods[indexPath.row]
             viewModel.filteredFoods[indexPath.row].isSelected.toggle()
             
             if var array = viewModel.categorizedIngredients[food.category.rawValue] {
@@ -243,13 +239,18 @@ extension SelectFoodViewController: SelectFoodViewDelegate {
             DispatchQueue.main.async{
                 self.loadingIndicator.isHidden = false
                 self.loadingIndicator.startAnimating()
+                self.button.setTitle("", for: .normal)
                 self.button.setTitle("", for: .highlighted)
+                self.button.isEnabled = false
+                self.button.backgroundColor = .systemGray
             }
         } else {
             DispatchQueue.main.async{
                 self.loadingIndicator.stopAnimating()
                 self.loadingIndicator.isHidden = true
                 self.button.setTitle(LocaleKeys.SelectFood.applyButton.rawValue.locale(), for: .normal)
+                self.button.isEnabled = true
+                self.button.backgroundColor = Colors.primary.color
             }
         }
     }
@@ -268,7 +269,7 @@ extension SelectFoodViewController: SelectFoodViewDelegate {
                         let vc = PremiumVC()
                         self.present(vc, animated: true )
                     },completionSecondHandler: {
-                        self.dismiss(animated: true)
+                        self.navigationController?.popToRootViewController(animated: true)
                     }
                 )
             default:

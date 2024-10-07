@@ -20,6 +20,7 @@ struct Recipe: Codable, Equatable, Hashable{
     var type: String?
     var imageUrl: String?
     var language: String?
+    var keywords: [String]?
     
     init(
             id: String,
@@ -32,7 +33,8 @@ struct Recipe: Codable, Equatable, Hashable{
             createdAt: Timestamp,
             type: String? = nil,
             imageUrl: String? = nil,
-            language: String? = nil
+            language: String? = nil,
+            keywords: [String] = []
         ) {
             self.id = id
             self.name = name
@@ -45,5 +47,6 @@ struct Recipe: Codable, Equatable, Hashable{
             self.type = type
             self.imageUrl = imageUrl
             self.language = language
+            self.keywords = keywords
         }
 }

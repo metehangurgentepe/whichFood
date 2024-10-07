@@ -8,11 +8,7 @@
 import UIKit
 import Kingfisher
 
-protocol ShowFoodViewDelegate: AnyObject {
-    func handleViewModelOutput(_ output: ShowFoodViewModelOutput)
-}
-
-class ShowFoodVC: DataLoadingVC {
+class ShowFoodVC: DataLoadingVC, UICollectionViewDelegateFlowLayout, MenuControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     var selectedFoods : [Ingredient] = []
     var selectedCategory : [String] = []
     private lazy var image = UIImage(named: "recipe_background")
@@ -52,45 +48,11 @@ class ShowFoodVC: DataLoadingVC {
         return label
     }()
     
+    var collectionView: UICollectionView!
+    
     private lazy var alertAction = UIAlertAction(title: LocaleKeys.DetailRecipe.savedSuccess.rawValue.locale(), style: .default)
     
     private var refreshButton = UIBarButtonItem()
-    
-    private lazy var segmentedControl : UISegmentedControl = {
-        let slider = UISegmentedControl()
-        slider.insertSegment(withTitle: LocaleKeys.DetailRecipe.ingredients.rawValue.locale(), at: 0, animated: true)
-        slider.insertSegment(withTitle: LocaleKeys.DetailRecipe.recipe.rawValue.locale(), at: 1, animated: true)
-        slider.backgroundColor = Colors.secondAccent.color
-        slider.selectedSegmentTintColor =  Colors.accent.color
-        return slider
-    }()
-    
-    private lazy var recipeLabel: UILabel = {
-        let label = UILabel()
-        let customFont = Fonts.openSans
-        label.font = UIFontMetrics.default.scaledFont(for: customFont!).withSize(15)
-        label.adjustsFontForContentSizeCategory = true
-        label.numberOfLines = 30
-        return label
-    }()
-    
-    private lazy var ingredientsLabel : UILabel = {
-        let label = UILabel()
-        let customFont = Fonts.openSans
-        label.font = UIFontMetrics.default.scaledFont(for: customFont!).withSize(15)
-        label.adjustsFontForContentSizeCategory = true
-        label.numberOfLines = 30
-        return label
-    }()
-    
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.isScrollEnabled = true
-        scrollView.alwaysBounceVertical = true
-        scrollView.showsVerticalScrollIndicator = true
-        scrollView.showsHorizontalScrollIndicator = true
-        return scrollView
-    }()
     
     private lazy var indicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
@@ -98,6 +60,8 @@ class ShowFoodVC: DataLoadingVC {
         indicator.color = Colors.primary.color
         return indicator
     }()
+    
+    let menuController = MenuController(collectionViewLayout: UICollectionViewFlowLayout())
     
     private let viewModel = ShowFoodViewModel()
     var recipe: RecipeResponseModel?
@@ -107,14 +71,8 @@ class ShowFoodVC: DataLoadingVC {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         design()
-        segmentedControl.selectedSegmentIndex = 0
         viewModel.delegate = self
         viewModel.fetchFoodRecipe(foods: selectedFoods, category: selectedCategory)
-    }
-    
-    
-    @objc func segmentedControlValueChanged() {
-        updateLabelsVisibility()
     }
     
     
@@ -122,39 +80,106 @@ class ShowFoodVC: DataLoadingVC {
         viewModel.fetchFoodRecipe(foods: selectedFoods, category: selectedCategory)
     }
     
-    
     func design() {
-        setupScrollView()
-        recipeLabel.isHidden = true
-        setupRecipeLabel()
-        setupSegmentedControl()
         setupPhoto()
-        setupIngredientLabel()
         setupFoodName()
         setupCookTimeLabel()
         setupSaveButton()
+        setupMenuController()
+        setupCollectionView()
+        setupLayout()
         setupRefreshButton()
         setupIndicator()
-        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
+    }
+    
+    func setupCollectionView() {
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        view.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .systemBackground
+        
+        self.collectionView.register(IngredientCell.self, forCellWithReuseIdentifier: IngredientCell.identifier)
+        self.collectionView.register(RecipeShowFoodCell.self, forCellWithReuseIdentifier: RecipeShowFoodCell.identifier)
+        
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+            layout.minimumLineSpacing = 0
+        }
+        
+        collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    func setupMenuController() {
+        menuController.delegate = self
+        
+        menuController.collectionView.selectItem(at: [0,0], animated: true, scrollPosition: .centeredHorizontally)
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let x = targetContentOffset.pointee.x
+        let item = x / view.frame.width
+        let indexPath = IndexPath(item: Int(item), section: 0)
+        menuController.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+        menuController.collectionView.allowsMultipleSelection = false
+    }
+    
+    func didTapMenuItem(indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
     
     @objc func saveRecipe() {
-        viewModel.saveRecipe(recipe!)
+        Task{
+            guard let recipe else { return }
+            await viewModel.saveRecipe(recipe)
+        }
     }
-    
     
     private func backButton() {
         let home = HomeViewController()
         self.navigationController?.popToViewController(home, animated: true)
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let x = scrollView.contentOffset.x
+        let offset = x / 2
+        menuController.menuBar.transform = CGAffineTransform(translationX: offset, y: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IngredientCell.identifier, for: indexPath) as! IngredientCell
+            if let recipe = recipe {
+                cell.configure(recipe: recipe)
+            }
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeShowFoodCell.identifier, for: indexPath) as! RecipeShowFoodCell
+            if let recipe = recipe {
+                cell.configure(recipe: recipe)
+            }
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: collectionView.frame.height)
+    }
 }
 // MARK: ShowFood delegate
 extension ShowFoodVC: ShowFoodViewDelegate{
     func handleViewModelOutput(_ output: ShowFoodViewModelOutput) {
         DispatchQueue.main.async{ [weak self ] in
             guard let self = self else { return }
+            
             switch output {
             case .setLoading(let isLoading):
                 DispatchQueue.main.async {
@@ -169,8 +194,7 @@ extension ShowFoodVC: ShowFoodViewDelegate{
                 self.recipe = recipe
                 cookTimeLabel.text = recipe.cookTime
                 foodNameLabel.text = recipe.foodName
-                ingredientsLabel.text = recipe.ingredients.joined(separator: "\n")
-                recipeLabel.text = recipe.recipe.joined(separator: "\n")
+                collectionView.reloadData()
                 
             case .showError(let error):
                 presentAlertOnMainThread(
@@ -179,7 +203,9 @@ extension ShowFoodVC: ShowFoodViewDelegate{
                     buttonTitle: LocaleKeys.Error.okButton.rawValue.locale())
                 
             case .saveRecipe:
-                viewModel.saveRecipe(recipe)
+                Task{
+                    await self.viewModel.saveRecipe(self.recipe)
+                }
                 
             case .showImage(let url):
                 let imageURL = URL(string: url)
@@ -197,14 +223,15 @@ extension ShowFoodVC: ShowFoodViewDelegate{
                 
             case .successSave(let success):
                 if success{
-                    let alert = showAlert(title: LocaleKeys.DetailRecipe.success.rawValue.locale(),
-                                          message: LocaleKeys.DetailRecipe.savedSuccess.rawValue.locale(),
-                                          buttonTitle: LocaleKeys.DetailRecipe.okButton.rawValue.locale(), secondButtonTitle: nil, completionHandler:  {
+                    let alert = WhichFood.showAlert(title: LocaleKeys.DetailRecipe.success.rawValue.locale(),
+                                                    message: LocaleKeys.DetailRecipe.savedSuccess.rawValue.locale(),
+                                                    buttonTitle: LocaleKeys.DetailRecipe.okButton.rawValue.locale(), secondButtonTitle: nil, completionHandler:  {
                         self.navigationController?.popToRootViewController(animated: true)
                     })
                     self.present(alert, animated: true)
                     alertAction.isEnabled = true
                 }
+                
             case .loadingImage(let isLoading):
                 if isLoading{
                     indicator.startAnimating()
@@ -224,29 +251,30 @@ extension ShowFoodVC {
         super.traitCollectionDidChange(previousTraitCollection)
     }
     
+    func setupLayout() {
+        let menuView = menuController.view!
+        
+        view.addSubview(menuView)
+        view.addSubview(collectionView)
+        
+        menuView.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(40)
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(menuView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(saveButton.snp.top)
+        }
+    }
+    
     func setupRefreshButton() {
-        refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshButtonTapped))
+        let image = UIImage(named: "refresh")?.withRenderingMode(.alwaysTemplate).withTintColor(Colors.accent.color)
+        
+        refreshButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(refreshButtonTapped))
         navigationItem.rightBarButtonItem = refreshButton
-    }
-    
-    func updateLabelsVisibility() {
-        let selectedIndex = segmentedControl.selectedSegmentIndex
-        
-        recipeLabel.isHidden = selectedIndex != 1
-        ingredientsLabel.isHidden = selectedIndex != 0
-    }
-    
-    func setupScrollView() {
-        view.addSubview(scrollView)
-        
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,constant: -view.bounds.height * 0.15),
-            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor,constant: 10),
-            scrollView.widthAnchor.constraint(equalToConstant: view.bounds.width),
-            scrollView.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.35)
-        ])
     }
     
     func setupSaveButton() {
@@ -255,7 +283,7 @@ extension ShowFoodVC {
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            saveButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,constant: -view.bounds.height * 0.05),
+            saveButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -view.bounds.height * 0.05),
             saveButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             saveButton.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.8),
             saveButton.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.07)
@@ -282,48 +310,6 @@ extension ShowFoodVC {
         ])
     }
     
-    func setupSegmentedControl() {
-        view.addSubview(segmentedControl)
-        
-        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            segmentedControl.centerYAnchor.constraint(equalTo: self.view.centerYAnchor,constant: -view.bounds.height * 0.05),
-            segmentedControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            
-            segmentedControl.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.9),
-            segmentedControl.heightAnchor.constraint(equalToConstant: view.bounds.width * 0.1)
-        ])
-    }
-    
-    func setupRecipeLabel() {
-        scrollView.addSubview(recipeLabel)
-        
-        recipeLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            recipeLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
-            recipeLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            recipeLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
-            recipeLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
-            recipeLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -10)
-        ])
-    }
-    
-    func setupIngredientLabel() {
-        scrollView.addSubview(ingredientsLabel)
-        
-        ingredientsLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            ingredientsLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
-            ingredientsLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            ingredientsLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
-            ingredientsLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
-            ingredientsLabel.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -10)
-        ])
-    }
-    
     func setupPhoto() {
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -331,7 +317,6 @@ extension ShowFoodVC {
         let size = CGSize(width: view.bounds.width, height: view.bounds.height * 0.42)
         let resizableImage = image!.resize(toSize: size)
         imageView.image = resizableImage
-        
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),

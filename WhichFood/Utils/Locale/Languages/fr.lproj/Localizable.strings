@@ -310,3 +310,14 @@
 "error_already_in_favorites" = "Déjà ajouté aux favoris";
 "network_error" = "Problème de connexion internet";
 "upload_photo_error" = "Un problème est survenu lors du téléchargement de de la photo";
+"error_delete" = "Supprimer";
+"error_cancel" = "Annuler";
+"error_share" = "Partager";
+"error_check_out" = "Attention";
+
+// Recette
+"recipe_name" = "Nom de la recette";
+
+//image en texte
+"image_info" = "Vous devez prendre une photo écrite de la recette.";
+"take_photo" = "Prendre une photo";

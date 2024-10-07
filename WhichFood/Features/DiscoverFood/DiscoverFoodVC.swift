@@ -10,10 +10,6 @@ import GoogleGenerativeAI
 import SDWebImage
 import Kingfisher
 
-protocol DiscoverFoodViewDelegate: AnyObject {
-    func handleViewModelOutput(_ output: DiscoverFoodViewModelOutput)
-}
-
 
 class DiscoverFoodVC: DataLoadingVC {
     let label: UILabel = {
@@ -336,7 +332,7 @@ extension DiscoverFoodVC: DiscoverFoodViewDelegate {
                     imageView.isHidden = false
                 }
             case .successSave:
-                let alert = showAlert(title: LocaleKeys.DetailRecipe.success.rawValue.locale(),
+                let alert = WhichFood.showAlert(title: LocaleKeys.DetailRecipe.success.rawValue.locale(),
                                       message: LocaleKeys.DetailRecipe.savedSuccess.rawValue.locale(),
                                       buttonTitle: LocaleKeys.DetailRecipe.okButton.rawValue.locale(), secondButtonTitle: nil, completionHandler:  {
                     self.navigationController?.popToRootViewController(animated: true)

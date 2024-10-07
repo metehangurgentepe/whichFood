@@ -32,8 +32,6 @@ class KeychainManager {
         guard status == errSecSuccess else {
             throw KeychainError.unknown(status)
         }
-        
-        print("saved")
     }
     
     static func get(account: String) -> Data? {
@@ -48,11 +46,7 @@ class KeychainManager {
         var result: AnyObject?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
         
-        print("Read Status: \(status)")
-        
-        
         return result as? Data
-        
     }
 }
 enum KeychainError: Error {

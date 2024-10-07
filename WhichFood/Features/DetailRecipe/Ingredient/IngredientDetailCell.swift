@@ -9,25 +9,42 @@ import UIKit
 
 class IngredientDetailCell: UICollectionViewCell {
     static let identifier = "IngredientDetailCell"
+    let recipeLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .label
+        label.numberOfLines = 0
+        label.textAlignment = .left
+        return label
+    }()
     
-    let textView: UITextView = {
-        let textView = UITextView()
-        textView.font = .systemFont(ofSize: 14)
-        textView.textColor = .label
-        textView.isEditable = false
-        return textView
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = true
+        return scrollView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .systemBackground
-        contentView.addSubview(textView)
+        
+        contentView.addSubview(scrollView)
+        
+        scrollView.addSubview(recipeLabel)
+        
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(8)
+        }
+        
+        recipeLabel.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview().inset(8)
+            make.width.equalTo(scrollView.frameLayoutGuide.snp.width).offset(-16) 
+        }
     }
     
     override func layoutSubviews() {
-        textView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        contentView.layoutIfNeeded()
+        scrollView.contentSize = recipeLabel.intrinsicContentSize
     }
     
     required init?(coder: NSCoder) {
@@ -35,7 +52,12 @@ class IngredientDetailCell: UICollectionViewCell {
     }
     
     func configure(recipe: Recipe) {
-        textView.text = recipe.recipe?.joined(separator: "\n")
-        contentView.layoutIfNeeded()
+        recipeLabel.text = recipe.ingredients?.joined(separator: "\n")
+        
+        let contentSize = recipeLabel.sizeThatFits(CGSize(width: scrollView.frame.width, height: .greatestFiniteMagnitude))
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: contentSize.height + 10)
+        
+        recipeLabel.setNeedsLayout()
+        recipeLabel.layoutIfNeeded()
     }
 }

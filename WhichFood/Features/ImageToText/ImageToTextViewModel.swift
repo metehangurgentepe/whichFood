@@ -10,16 +10,7 @@ import UIKit
 import FirebaseStorage
 
 
-enum ImageToTextViewModeOutput: Equatable {
-    case setLoading(Bool)
-    case showRecipe(RecipeResponseModel)
-    case showError(Error)
-    case saved
-}
 
-protocol ImageToTextViewModelProtocol {
-    var delegate: ImageToTextViewModelDelegate? {get set}
-}
 
 class ImageToTextViewModel: ImageToTextViewModelProtocol{
     var delegate: ImageToTextViewModelDelegate?

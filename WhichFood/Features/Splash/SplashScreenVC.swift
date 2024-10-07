@@ -7,6 +7,7 @@
 
 import UIKit
 import RevenueCat
+import SDWebImage
 
 protocol SplashViewDelegate: AnyObject {
     func showError(_ error: Error)
@@ -23,10 +24,11 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
         return label
     }()
     private lazy var icon: UIImageView = {
-        let image = Images.recipe
+        let image = Images.recipe?.resize(toSize: .init(width: 300, height: 300))
         let view = UIImageView(image: image)
         return view
     }()
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "WhichFood"
@@ -41,7 +43,7 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
     }()
     
     var viewModel: SplashViewModelProtocol! = SplashViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -53,6 +55,7 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
         self.view.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
     }
     
+    
     func configure() {
         view.backgroundColor = .systemBackground
         setupErrorLabel()
@@ -60,13 +63,14 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
         setupTitleLabel()
     }
     
+    
     func setupTitleLabel() {
         let letters = Array("WhichFood")
         var letterLabels: [UILabel] = []
         let fixedSpacing: CGFloat = 13.0
-
+        
         var totalWidth: CGFloat = 0.0
-
+        
         for (index, letter) in letters.enumerated() {
             let label = UILabel()
             label.text = String(letter)
@@ -80,21 +84,21 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
             
             label.translatesAutoresizingMaskIntoConstraints = false
             letterLabels.append(label)
-
+            
             let letterWidth = label.intrinsicContentSize.width
             totalWidth += letterWidth
-
+            
             if index < letters.count - 1 {
                 totalWidth += fixedSpacing
             }
         }
-
+        
         let initialOffset: CGFloat = (view.bounds.width - totalWidth + fixedSpacing) / 2
-
+        
         
         for (index, letterLabel) in letterLabels.enumerated() {
             view.addSubview(letterLabel)
-
+            
             NSLayoutConstraint.activate([
                 letterLabel.leadingAnchor.constraint(
                     equalTo: (index == 0) ? view.leadingAnchor : letterLabels[index - 1].trailingAnchor,
@@ -102,11 +106,11 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
                 ),
                 letterLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 150),
             ])
-
+            
             letterLabel.transform = CGAffineTransform(translationX: 0, y: -20)
-
+            
             let delay = Double(index) * 0.1
-
+            
             UIView.animate(withDuration: 0.5, delay: delay, options: .curveEaseInOut, animations: {
                 letterLabel.transform = .identity
             }, completion: { _ in
@@ -116,19 +120,24 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
     
     
     func setupPhoto() {
-        let size = CGSize(width: 300, height: 300)
-        icon.image = Images.recipe!.resize(toSize: size)
-        view.addSubview(icon)
-        
-        icon.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            icon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            icon.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: -30),
-        ])
-        rotatePhoto()
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            if let imagePath = Bundle.main.path(forResource: "splash_logo", ofType: "png") {
+                icon.image = UIImage(contentsOfFile: imagePath)!.resize(toSize: .init(width: 200, height: 200))
+            }
+
+            view.addSubview(icon)
+            self.icon.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                self.icon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                self.icon.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -30),
+            ])
+            
+            self.rotatePhoto()
+        }
     }
-    
     
     func rotatePhoto() {
         let rotationTransform = CGAffineTransform(rotationAngle: .pi)
@@ -136,7 +145,7 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
         UIView.animate(withDuration: 2.0, animations: {
             self.icon.transform = rotationTransform
         }) { (completed) in
-
+            self.icon.transform = .identity
         }
     }
     
@@ -155,37 +164,30 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
         ])
     }
     
+    
     func showError(_ error: Error){
         self.errorLabel.isHidden = false
         self.errorLabel.text = error.localizedDescription
     }
     
+    
     func navigateToOnboarding() {
-        let vc = OnboardingVC()
+        let vc = OnboardingViewController()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.navigationController?.pushViewController(vc, animated: true)
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.navigationController?.viewControllers.remove(at: 0)
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
     }
     
-    func navigate(vc: UIViewController){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-               vc.modalPresentationStyle = .fullScreen
-               self.present(vc, animated: true)
+    
+    func navigate(vc: UIViewController) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            guard let self = self else { return }
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.navigationController?.viewControllers.remove(at: 0)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
+            self?.navigationController?.viewControllers.remove(at: 0)
         }
-    }
-}
-
-
-public extension UIColor {
-    var isLight: Bool {
-        var white: CGFloat = 0
-        getWhite(&white, alpha: nil)
-        return white > 0.5
     }
 }

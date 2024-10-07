@@ -321,3 +321,15 @@
 "error_already_in_favorites" = "Già aggiunto ai preferiti";
 "network_error" = "Problema con la connessione internet";
 "upload_photo_error" = "Si è verificato un problema durante il caricamento della foto";
+"error_delete" = "Elimina";
+"error_cancel" = "Annulla";
+"error_share" = "Condividi";
+"error_check_out" = "Attenzione";
+
+// Ricetta
+"recipe_name" = "Nome della ricetta";
+
+
+//immagine in testo
+"image_info" = "Devi scattare una foto scritta della ricetta.";
+"take_photo" = "Scatta una foto";

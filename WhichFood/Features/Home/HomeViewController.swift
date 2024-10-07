@@ -7,20 +7,11 @@
 
 import UIKit
 import SkeletonView
+import FirebaseFirestoreSwift
+import FirebaseFirestore
 
-protocol HomeViewModelDelegate: AnyObject{
-    func handleViewModelOutput(_ output: RecipeListViewModelOutput)
-    func navigate(to navigationType: NavigationType)
-}
-
-enum NavigationType {
-    case details(Int)
-    case goToVC(UIViewController)
-    case present(UIViewController)
-}
 
 class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
-    
     enum Section {
         case main
     }
@@ -48,19 +39,16 @@ class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
     var recipeCollectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Recipe>!
     
-    
     lazy var viewModel = HomeViewModel()
     var delegate : HomeViewModelProtocol!
     var recipes = [Recipe]()
     let categories = Categories.homeCategoryList
-    var counter = 0
     var categoryIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         viewModel.delegate = self
-        
         recipeCollectionView.delegate = self
         configureDataSource()
     }
@@ -76,7 +64,7 @@ class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
     
     
     @objc func showCameraAlert() {
-        let alert = showAlert(title: LocaleKeys.Home.takePhoto.rawValue.locale(),
+        let alert = WhichFood.showAlert(title: LocaleKeys.Home.takePhoto.rawValue.locale(),
                               message: LocaleKeys.Home.showAlert.rawValue.locale(),
                               buttonTitle: LocaleKeys.Error.backButton.rawValue.locale(),
                               secondButtonTitle: LocaleKeys.Error.okButton.rawValue.locale(),
@@ -152,6 +140,13 @@ class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
     }
     
     
+    @objc func navigateToDiscoverScreen() {
+        Task{
+            try await viewModel.increaseApiUsage()
+        }
+    }
+    
+    
     @objc func didTapButton() {
         UIView.animate(withDuration: 0.1, animations: {
             self.nextButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -162,7 +157,7 @@ class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
                 self.nextButton.alpha = 1
             }
         }
-        let vc = SelectCategoryVC()
+        let vc = SelectCategoryViewController()
         vc.hidesBottomBarWhenPushed = true
         viewModel.delegate?.navigate(to: .goToVC(vc))
     }
@@ -182,13 +177,15 @@ extension HomeViewController: UIImagePickerControllerDelegate & UINavigationCont
 extension HomeViewController {
     func configureCollectionView() {
         recipeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UIHelper.createTwoColumntFlowLayout(in: view))
+        
         view.addSubview(recipeCollectionView)
         recipeCollectionView.backgroundColor = .systemBackground
         recipeCollectionView.register(HomeRecipeCell.self, forCellWithReuseIdentifier: HomeRecipeCell.identifier)
         
         recipeCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            recipeCollectionView.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor, constant: -2),
+            recipeCollectionView.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor, constant: 5),
             recipeCollectionView.bottomAnchor.constraint(equalTo: nextButton.topAnchor),
             recipeCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             recipeCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -209,16 +206,17 @@ extension HomeViewController {
         ])
     }
     
+    
     private func setupCategoryButtons() {
         view.addSubview(categoryCollectionView)
         
         categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            categoryCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            categoryCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 4),
             categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 20),
             categoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 0),
-            categoryCollectionView.heightAnchor.constraint(equalToConstant: 60)
+            categoryCollectionView.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
     
@@ -227,13 +225,6 @@ extension HomeViewController {
         let image = SFSymbols.wandAndStars!.withRenderingMode(.alwaysOriginal).withTintColor(.gray)
         let discoverButton = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(navigateToDiscoverScreen))
         navigationItem.leftBarButtonItem = discoverButton
-    }
-    
-    
-    @objc func navigateToDiscoverScreen() {
-        Task{
-            try await viewModel.increaseApiUsage()
-        }
     }
     
     
@@ -270,7 +261,7 @@ extension HomeViewController {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
@@ -285,23 +276,36 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 40)
+        switch collectionView {
+        case categoryCollectionView:
+            let text = categories[indexPath.row]
+            let cellWidth = text.size(withAttributes:[.font: UIFont.systemFont(ofSize:12)]).width + 25
+            return CGSize(width: cellWidth, height: 30.0)
+            
+        case recipeCollectionView:
+            return UIHelper.createTwoColumntFlowLayout(in: view).itemSize
+            
+        default:
+            return CGSize()
+        }
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case recipeCollectionView:
-            viewModel.delegate?.navigate(to: .details(indexPath.row))
+            viewModel.delegate?.navigate(to: .details(indexPath.item))
             
         case categoryCollectionView:
             categoryIndexPath = indexPath
             let category = categories[indexPath.item]
             viewModel.filter(word: category)
+            
         default:
             break
         }
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
@@ -311,12 +315,29 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func makeContextMenu(for indexPath: IndexPath) -> UIMenu {
-        let deleteAction = UIAction(title: "Delete", image: SFSymbols.deleteIcon) { _ in
+        let deleteAction = UIAction(title: LocaleKeys.Error.delete.rawValue.locale(), image: SFSymbols.deleteIcon) { _ in
             self.viewModel.deleteRecipe(recipe: self.recipes[indexPath.row])
             self.updatedData(on: self.recipes)
         }
         
-        let contextMenu = UIMenu(title: "", children: [deleteAction])
+        
+        let shareAction = UIAction(title: LocaleKeys.Error.share.rawValue.locale(), image: SFSymbols.share) {[weak self] _ in
+            guard let self = self else { return }
+            
+            let recipe = self.recipes[indexPath.row]
+            
+            let text = viewModel.createText(recipe: recipe)
+            
+            let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+            
+            if let popoverController = activityViewController.popoverPresentationController {
+                popoverController.sourceView = self.view
+                popoverController.sourceRect = self.view.bounds
+            }
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+        
+        let contextMenu = UIMenu(title: "", children: [deleteAction,shareAction])
         return contextMenu
     }
 }

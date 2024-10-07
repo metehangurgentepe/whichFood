@@ -1,20 +1,26 @@
-//
-//  DataLoadingVC.swift
-//  WhichFood
-//
-//  Created by Metehan Gürgentepe on 27.02.2024.
-//
-
 import Foundation
 import UIKit
 import SDWebImage
 
 class DataLoadingVC: UIViewController {
     var containerView: UIView!
+    var alertIsShown = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    func showAlert(title: String, message: String, buttonTitle: String, secondButtonTitle: String) -> UIAlertController {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: buttonTitle, style: .default) { _ in
+            self.alertIsShown = false
+        }
+        let cancelAction = UIAlertAction(title: secondButtonTitle, style: .cancel) { _ in
+            self.alertIsShown = false
+        }
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        return alertController
     }
     
     func showLoadingView() {
@@ -70,14 +76,13 @@ class DataLoadingVC: UIViewController {
     func dismissLoadingView() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.25, animations: {
-                self.containerView.alpha = 0
+                self.containerView?.alpha = 0
             }) { _ in
-                self.containerView.removeFromSuperview()
+                self.containerView?.removeFromSuperview()
                 self.containerView = nil
             }
         }
     }
-    
     
     func showEmptyStateView(with message: String, in view: UIView) {
         let emptyStateView = EmptyStateView(message: message)
@@ -85,6 +90,13 @@ class DataLoadingVC: UIViewController {
         view.addSubview(emptyStateView)
     }
     
+    func dismissEmptyStateView(in view: UIView) {
+        for subview in view.subviews {
+            if let emptyStateView = subview as? EmptyStateView {
+                emptyStateView.removeFromSuperview()
+            }
+        }
+    }
     
     func hideEmptyStateView(in view: UIView) {
         for subview in view.subviews {

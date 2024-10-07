@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 
 class SearchViewModel: SearchViewModelProtocol{
@@ -14,10 +17,13 @@ class SearchViewModel: SearchViewModelProtocol{
     func load() {
         Task{
             do{
+                self.delegate?.handleOutput(.setLoading(true))
                 let recipes = try await SavedRecipesManager.shared.getRecipes()
                 self.delegate?.handleOutput(.loadRecipes(recipes))
+                self.delegate?.handleOutput(.setLoading(false))
             } catch {
                 self.delegate?.handleOutput(.error(WFError.apiError))
+                self.delegate?.handleOutput(.setLoading(false))
             }
         }
     }

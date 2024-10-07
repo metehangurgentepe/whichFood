@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct RecipeResponseModel: Decodable,Equatable {
+    var foodName: String
+    var ingredients : [String]
+    var recipe: [String]
+    var cookTime: String
+    var description: String
+    var type: String?
+    var imageURL: String?
+}

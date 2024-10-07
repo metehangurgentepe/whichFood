@@ -269,7 +269,6 @@ struct LocaleKeys {
         case copy = "account_copy"
         case title = "account_title"
         case numberOfUsageApi = "account_usage_api"
-        
     }
     enum ImageToText: String {
         case info = "image_info"
@@ -288,6 +287,11 @@ struct LocaleKeys {
         case search  = "home_search"
         case deleteRecipe = "home_delete_recipe"
         case sureDelete = "home_sure_deleted"
+    }
+    enum Recipe: String {
+        case name = "recipe_name"
+        case instructions = "detail_ingredients"
+        case ingredients = "detail_recipe"
     }
     enum SelectCategory: String{
         case nextButton = "next_button"
@@ -322,6 +326,10 @@ struct LocaleKeys {
         case alreadyInFavorites = "error_already_in_favorites"
         case networkError = "network_error"
         case uploadPhotoError = "upload_photo_error"
+        case delete =   "error_delete"
+        case cancel =   "error_cancel"
+        case share =    "error_share"
+        case checkOut = "error_check_out"
     }
 }
 

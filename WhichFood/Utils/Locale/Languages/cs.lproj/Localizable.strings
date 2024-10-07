@@ -325,4 +325,14 @@
 "error_already_in_favorites" = "Již přidáno do oblíbených";
 "network_error" = "Problém s internetovým připojením";
 "upload_photo_error" = "Při nahrávání fotky došlo k chybě";
+"error_delete" = "Smazat";
+"error_cancel" = "Zrušit";
+"error_share" = "Sdílet";
+"error_check_out" = "Pozor";
 
+// Recept
+"recipe_name" = "Název receptu";
+
+//obrázek na text
+"image_info" = "Musíte vyfotit recept.";
+"take_photo" = "Vyfotit";

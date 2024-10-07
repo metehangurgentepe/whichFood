@@ -29,9 +29,6 @@ public func showAlert(title: String, message: String, buttonTitle: String, secon
 }
 
 
-
-
-
 public func formatDate(_ timestamp: Timestamp?) -> String? {
     guard let timestamp = timestamp else {
         return nil

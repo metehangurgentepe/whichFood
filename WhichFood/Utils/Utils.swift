@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 class Utils{
     static let jsonDecoder: JSONDecoder = {
         let jsonDecoder = JSONDecoder()

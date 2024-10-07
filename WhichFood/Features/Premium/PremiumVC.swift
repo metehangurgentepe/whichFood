@@ -51,7 +51,7 @@ class PremiumVC: DataLoadingVC {
         let label = UILabel()
         label.textColor = .white
         label.textAlignment = .right
-        label.font = .preferredFont(forTextStyle: .callout).withSize(14) // İstenilen yazı tipi ve boyutunu ayarlayın
+        label.font = .preferredFont(forTextStyle: .callout).withSize(14)
         label.isHidden = true
         return label
     }()
@@ -141,9 +141,9 @@ class PremiumVC: DataLoadingVC {
     
     private lazy var premiumPhoto: UIImageView = {
         let imageView = UIImageView()
-        let size = CGSize(width: view.bounds.height * 0.4, height: view.bounds.width * 0.4)
-        imageView.image = UIImage(resource: .recipe)
-        //            .resize(toSize: size)
+        if let imagePath = Bundle.main.path(forResource: "splash_logo", ofType: "png") {
+            imageView.image = UIImage(contentsOfFile: imagePath)
+        }
         return imageView
     }()
     
@@ -190,7 +190,6 @@ class PremiumVC: DataLoadingVC {
     var isSelected: Bool = false
     var offering : Offering?
     var viewModel = PremiumViewModel()
-    
     var packages = [Package]()
     
     override func viewDidLoad() {
@@ -268,7 +267,6 @@ class PremiumVC: DataLoadingVC {
             self.annualButton.backgroundColor =  UIColor(white: 1.2, alpha: 0.5)
             self.setupIcon(button: self.weekButton, hidden: false)
         } completion: { _ in
-//            self.setupIcon(button: self.annualButton, hidden: true)
         }
     }
     
@@ -286,7 +284,6 @@ class PremiumVC: DataLoadingVC {
             self.weekButton.backgroundColor =  UIColor(white: 1.2, alpha: 0.5)
             self.setupIcon(button: self.annualButton, hidden: false)
         } completion: { _ in
-//            self.setupIcon(button: self.weekButton, hidden: true)
         }
     }
     
@@ -512,6 +509,8 @@ extension PremiumVC {
     private func setupContinueButton() {
         continueButton.addTarget(self, action: #selector(didTapSubscribe), for: .touchUpInside)
         
+        continueButton.setTitleColor(.gray, for: .disabled)
+        
         continueButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -521,8 +520,6 @@ extension PremiumVC {
             continueButton.heightAnchor.constraint(equalToConstant: 50),
             continueButton.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.85),
         ])
-        
-       
     }
     
     
@@ -666,13 +663,15 @@ extension PremiumVC: PremiumViewControllerDelegate {
                 switch isLoading {
                 case true:
                     self.customLoadingView()
+                    self.continueButton.isEnabled = false
                     
                 case false:
                     self.dismissLoadingView()
+                    self.continueButton.isEnabled = true
                 }
                 
             case .showAlert:
-                let alert = showAlert(
+                let alert = WhichFood.showAlert(
                     title: LocaleKeys.Premium.restore.rawValue.locale(),
                     message: "",
                     buttonTitle: LocaleKeys.Settings.okButton.rawValue.locale(),
@@ -683,9 +682,9 @@ extension PremiumVC: PremiumViewControllerDelegate {
                 self.present(alert, animated:true)
                 
             case .showError(let error):
-                let alert = showAlert(title: LocaleKeys.Error.alert.rawValue.locale(),
+                let alert = self.showAlert(title: LocaleKeys.Error.alert.rawValue.locale(),
                                       message: error.localizedDescription,
-                                      buttonTitle: LocaleKeys.Error.okButton.rawValue.locale(), secondButtonTitle: nil)
+                                      buttonTitle: LocaleKeys.Error.okButton.rawValue.locale(), secondButtonTitle: "")
                 self.present(alert, animated:true)
                 
             case .getUserInfo(let info):

@@ -9,21 +9,6 @@ import Foundation
 import FirebaseStorage
 import UIKit
 
-
-enum RecipeListViewModelOutput: Equatable {
-    case setLoading(Bool)
-    case showRecipeList([Recipe])
-    case showError(WFError)
-    case emptyList
-}
-
-protocol HomeViewModelProtocol {
-    var delegate: HomeViewModelDelegate? {get set}
-    func getRecipes()
-    func selectRecipe(at index: Int)
-    func deleteRecipe(recipe: Recipe)
-}
-
 class HomeViewModel: HomeViewModelProtocol{
     weak var delegate: HomeViewModelDelegate?
     private(set) var recipes : [Recipe] = []
@@ -56,6 +41,24 @@ class HomeViewModel: HomeViewModelProtocol{
         Task{
             await self.getRecipes()
         }
+    }
+    
+    
+    func createText(recipe: Recipe) -> String {
+        let name = recipe.name
+        
+        let instructions = recipe.recipe?.joined(separator: "\n")
+        
+        let ingredients = recipe.ingredients?.joined(separator: "\n")
+        
+        var text = "\(LocaleKeys.Recipe.name.rawValue.locale()): \(name)\n\n"
+        if let instructions = instructions {
+            text += "\(LocaleKeys.Recipe.name.rawValue.locale()): \n\(instructions)\n\n"
+        }
+        if let ingredients = ingredients {
+            text += "\(LocaleKeys.Recipe.name.rawValue.locale()): \n\(ingredients)"
+        }
+        return text
     }
     
     

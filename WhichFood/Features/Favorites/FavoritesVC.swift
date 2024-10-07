@@ -47,13 +47,13 @@ class FavoriteViewController: DataLoadingVC {
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
-        collectionView.register(FavoriteMovieCell.self, forCellWithReuseIdentifier: FavoriteMovieCell.identifier)
+        collectionView.register(FavoriteRecipeCell.self, forCellWithReuseIdentifier: FavoriteRecipeCell.identifier)
     }
     
     
     func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, recipe in
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteMovieCell.identifier, for: indexPath) as! FavoriteMovieCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteRecipeCell.identifier, for: indexPath) as! FavoriteRecipeCell
             cell.set(recipe: recipe)
             return cell
         })
@@ -66,6 +66,12 @@ class FavoriteViewController: DataLoadingVC {
         snapshot.appendItems(recipes)
         DispatchQueue.main.async{
             self.dataSource.apply(snapshot,animatingDifferences: true)
+        }
+        
+        if recipes.isEmpty {
+            self.showEmptyStateView(with: LocaleKeys.Home.noItem.rawValue.locale(), in: self.collectionView)
+        } else {
+            self.dismissEmptyStateView(in: self.collectionView)
         }
     }
 }
@@ -99,8 +105,10 @@ extension FavoriteViewController: FavoriteViewModelDelegate {
     func handleOutput(_ output: FavoriteViewModelOutput) {
         switch output {
         case .favoriteList(let recipes):
-            self.recipes = recipes
-            updatedData(on: self.recipes)
+            DispatchQueue.main.async{
+                self.recipes = recipes
+                self.updatedData(on: self.recipes)
+            }
             
         case .error(let error):
             presentAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
@@ -112,8 +120,14 @@ extension FavoriteViewController: FavoriteViewModelDelegate {
             show(viewController, sender: nil)
             
         case .showEmptyView:
-            DispatchQueue.main.async{
-                self.showEmptyStateView(with: LocaleKeys.Home.noItem.rawValue.locale(), in: self.collectionView)
+            if self.recipes.isEmpty{
+                DispatchQueue.main.async{
+                    self.showEmptyStateView(with: LocaleKeys.Home.noItem.rawValue.locale(), in: self.collectionView)
+                }
+            } else {
+                DispatchQueue.main.async{
+                    self.dismissEmptyStateView(in: self.collectionView)
+                }
             }
         }
     }
