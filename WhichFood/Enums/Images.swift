@@ -26,6 +26,10 @@ enum Images {
     static let selectedCheck = UIImage(named: "checkmark.square.fill")
     static let unselectedCheck = UIImage(named: "rectangle")
     static let recipeBackground = UIImage(named: "recipe_background")
+    static let home =  UIImage(named: "home")
+    static let search =  UIImage(named: "search")
+    static let settings =  UIImage(named: "settings")
+    static let fav =  UIImage(named: "heart")
 }
 
 

@@ -6,9 +6,7 @@
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 import FirebaseFirestore
-import FirebaseFunctions
 import Alamofire
 import FirebaseStorage
 
@@ -25,7 +23,15 @@ class SavedRecipesManager{
         try await recipesCollection.document(id).getDocument(as: Recipe.self)
     }
     
-    func saveRecipe(name:String, recipe:[String], ingredients:[String], desc:String, cookTime: String, type: String, imageURL: String) async throws {
+    // SavedRecipesManager sınıfında saveRecipe fonksiyonu güncellemesi
+    func saveRecipe(name: String, recipe: [String], ingredients: [String], desc: String,
+                    cookTime: String, type: String, imageURL: String,
+                    prepTime: String? = nil, totalTime: String? = nil,
+                    difficulty: String? = nil, servings: String? = nil,
+                    cuisine: String? = nil, tags: [String]? = nil,
+                    cal: CalorieInfo? = nil, nutritionalInfo: NutritionalInfo? = nil,
+                    allergens: [String]? = nil, tips: [String]? = nil) async throws {
+        
         let id = UUID()
         let createdTime = Timestamp()
         let userId = KeychainManager.get(account: "account")
@@ -38,18 +44,28 @@ class SavedRecipesManager{
             ingredients: ingredients,
             description: desc,
             cookTime: cookTime,
-            userId: String(decoding:userId ?? Data(), as:UTF8.self),
+            userId: String(decoding: userId ?? Data(), as: UTF8.self),
             createdAt: createdTime,
             type: type,
             imageUrl: imageURL,
             language: currentLanguage,
-            keywords: createKeywords(recipe: name)
+            keywords: createKeywords(recipe: name),
+            prepTime: prepTime,
+            totalTime: totalTime,
+            difficulty: difficulty,
+            servings: servings,
+            cuisine: cuisine,
+            tags: tags,
+            cal: cal,
+            nutritionalInfo: nutritionalInfo,
+            allergens: allergens,
+            tips: tips
         )
         
         do {
             let encodedRecipe = try Firestore.Encoder().encode(recipeModel)
             try await recipesCollection.document(id.uuidString).setData(encodedRecipe)
-        } catch{
+        } catch {
             throw error
         }
     }
@@ -169,8 +185,6 @@ class SavedRecipesManager{
             throw error
         }
     }
-
-    
     
     func postData(input: String) async throws -> String {
         guard let url = URL(string: "\(baseURL)/openAIChatCompletion") else { throw WFError.invalidEndpoint }
@@ -218,7 +232,17 @@ class SavedRecipesManager{
             throw WFError.serializationError
         }
     }
-    
+
+    func getRecipesByLanguage(languageCode: String) async throws -> [Recipe] {
+        // Query recipes by language from Firestore
+        let query = recipesCollection
+            .whereField("language", isEqualTo: languageCode)
+            .order(by: "createdAt", descending: true)
+            .limit(to: 50)
+
+        return try await query.getDocuments(as: Recipe.self)
+    }
+
 }
 
 

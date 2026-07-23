@@ -9,9 +9,11 @@ import UIKit
 
 class AccountViewController: DataLoadingVC {
     private lazy var tableView : UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .insetGrouped)
         table.register(AccountTableViewCell.self, forCellReuseIdentifier: AccountTableViewCell.identifier)
-        table.rowHeight = 70
+        table.backgroundColor = .systemGroupedBackground
+        table.separatorStyle = .none
+        table.showsVerticalScrollIndicator = false
         return table
     }()
     
@@ -31,27 +33,25 @@ class AccountViewController: DataLoadingVC {
     
     
     func configure(){
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGroupedBackground
         title = LocaleKeys.AccountScreen.title.rawValue.locale()
-        
+
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 50
         setupTable()
     }
     
     
     private func setupTable() {
         view.addSubview(tableView)
-        
+
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            
-            tableView.heightAnchor.constraint(equalToConstant: view.bounds.height),
-            tableView.widthAnchor.constraint(equalToConstant: view.bounds.width)
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     

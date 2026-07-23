@@ -17,12 +17,16 @@
 
 
 // onboarding
-"feature_1" = "Select the ingredients you have at home, and let the app show you what you can cook.";
-"feature_2" = "Choose meal categories that suit you, and enjoy the most delicious dishes.";
-"feature_3" = "Save your favorite recipe instructions and make them anytime you like.";
-"feature_1_title" = "Available Ingredients";
-"feature_2_title" = "Abundant Categories";
+"feature_1_title" = "Select Your Ingredients";
+"feature_1_subtitle" = "Choose the ingredients you have at home and let the app show you what you can cook with AI assistance.";
+"feature_2_title" = "Rich Categories";
+"feature_2_subtitle" = "Explore recipes that suit your taste from breakfast to dinner, with various categories for every meal.";
 "feature_3_title" = "Save Recipes";
+"feature_3_subtitle" = "Save your favorite recipe instructions and make them anytime you like with AI assistance.";
+"feature_4_title" = "Healthy Recipes";
+"feature_4_subtitle" = "Start a healthy life with nutritious and balanced recipes. Discover high-nutritional value meal suggestions with seasonal ingredients.";
+"lets_get_started" = "Let's Get Started";
+
 "footer" = "Designed and coded by Metehan Gürgentepe";
 "more" = "See more...";
 "feature_button" = "Continue";
@@ -252,6 +256,7 @@
 "premium_subheadline" = "Congratulations, you have successfully activated Premium access to all the features of the application, enjoy it!";
 "premium_expiration" = "Expiration Date: ";
 "premium_restore" = "Do you want to restore purchases?";
+"premium_off" = "OFF"; 
 
 
 // settings
@@ -338,3 +343,99 @@
 "image_info" = "You need to take a written photo of the recipe.";
 "take_photo" = "Take Photo";
 
+
+// ENGLISH (UK)
+"paywall_title" = "AI-powered personalised recipes with WhichFood";
+"paywall_invest" = "Open the doors to smart cooking";
+"paywall_whats_inside" = "What's inside?";
+"paywall_subscribe_now" = "Subscribe now";
+"paywall_restore_purchases" = "Restore purchases";
+"paywall_error_title" = "Error";
+"paywall_ok" = "OK";
+
+"feature_ai_recipe_title" = "AI Recipe Generation";
+"feature_ai_recipe_desc" = "Create personalised recipes based on your ingredients and preferences";
+"feature_customization_title" = "Advanced Recipe Customisation";
+"feature_customization_desc" = "Customise recipes according to dietary restrictions, cooking time and difficulty level";
+"feature_collections_title" = "Recipe Collections";
+"feature_collections_desc" = "Create and organise personal recipe collections and meal plans";
+"feature_shopping_title" = "Smart Shopping Lists";
+"feature_shopping_desc" = "Generate automatic shopping lists with exact quantities from your selected recipes";
+"feature_premium_title" = "Premium Features";
+"feature_premium_desc" = "Ad-free experience, offline access and nutritional analysis";
+
+"plan_yearly" = "Yearly";
+"plan_weekly" = "Weekly";
+"plan_most_popular" = "Most popular";
+"plan_best_offer" = "Best offer";
+"plan_subscribe_terms" = "Subscribe today for %@ %@. Cancel anytime.";
+"plan_per_year" = "per year";
+"plan_per_week" = "per week";
+"plan_weekly" = "Weekly";
+"plan_yearly" = "Yearly";
+"plan_monthly" = "Monthly";
+
+"onboarding.page1.title" = "Welcome to WhichFood";
+"onboarding.page1.description" = "Discover delicious recipes tailored to your ingredients and preferences";
+"onboarding.page2.title" = "Scan Your Ingredients";
+"onboarding.page2.description" = "Simply scan what you have and get personalised recipe suggestions";
+"onboarding.page3.title" = "Get Timely Reminders";
+"onboarding.page3.description" = "Never miss a meal with our helpful notifications";
+"onboarding.button.next" = "Next";
+"onboarding.notification.title" = "Meal Time! 🍽️";
+"onboarding.notification.body" = "Not sure what to cook today? We have suggestions for you!";
+
+
+"next" = "Next";
+"get_started" = "Get Started";
+"skip" = "Skip";
+"cooking_skills_title" = "How would you describe\nyour cooking skills? 💪";
+"cooking_skill_1" = "Still learning the basics 😅";
+"cooking_skill_2" = "Can handle simple recipes 😊";
+"cooking_skill_3" = "Able to create decent meals 😎";
+"cooking_skill_4" = "Potential MasterChef contestant 👨‍🍳";
+"kitchen_tools_title" = "Let's talk tools! What kind\nof equipment do you have\nin your kitchen? 🥣";
+"kitchen_tools_subtitle" = "Select as many as you like... I assume you\nalready have the essential kitchen tools 😄";
+"tool_oven" = "Oven";
+"tool_blender" = "Blender";
+"tool_microwave" = "Microwave";
+"tool_food_processor" = "Food Processor";
+"tool_air_fryer" = "Air Fryer";
+"tool_rolling_pin" = "Rolling Pin";
+"tool_grater" = "Grater";
+"tool_slow_cooker" = "Slow Cooker";
+"tool_blowtorch" = "Blowtorch";
+"dietary_restrictions_title" = "Are there any dietary\nrestrictions I should know\nabout? 🧐";
+"dietary_restrictions_subtitle" = "Select as many as you like...";
+"diet_vegetarian" = "🥦 Vegetarian";
+"diet_vegan" = "🌱 Vegan";
+"diet_pescatarian" = "🐟 Pescatarian";
+"diet_dairy_free" = "🥛 Dairy Free";
+"diet_gluten_free" = "🍞 Gluten Free";
+"diet_halal" = "🐑 Halal";
+"diet_kosher" = "🐓 Kosher";
+"diet_nut_allergy" = "🥜 Nut allergy";
+"diet_no_restrictions" = "👍 I enjoy everything";
+"notification_title" = "When would you like to\nreceive meal suggestions? 🔔";
+"notification_subtitle" = "We'll send you delicious recipe ideas\nthat match your preferences";
+"people_count_title" = "How many people do you\nusually cook for? 👤";
+
+"Calories"  = "Calories";
+"Carbs" = "Carbs";
+"Protein" = "Protein";
+"Fat" = "Fat";
+"Ingredients" = "Ingredients";
+"Instructions" = "Instructions";
+"analyzing_preferences" = "Analyzing your preferences";
+"customizing_recipes" = "Customizing recipes";
+"optimizing_recommendations" = "Optimizing recommendations";
+"finalizing_personalization" = "Finalizing personalization";
+"personalizing_experience" = "Personalizing Your Experience";
+"chef's_tip" = "Chef's Tip";
+"servings" = "servings";
+
+"appearance_title" = "Appearance";
+"appearance_system" = "System";
+"appearance_light" = "Light";
+"appearance_dark" = "Dark";
+"cancel" = "Cancel";

@@ -6,7 +6,7 @@
 //
 import Foundation
 
-enum WFError: Error {
+enum WFError: LocalizedError {
     case apiError
     case invalidEndpoint
     case noData
@@ -17,8 +17,14 @@ enum WFError: Error {
     case networkError
     case uploadPhotoError
     case apiUsageError
-    
-    var localizedDescription: String{
+
+    var localizedDescription: String { message }
+
+    // Conforming to LocalizedError is what makes `error.localizedDescription`
+    // (and SwiftUI alerts) show this text instead of "WhichFood.WFError error N".
+    var errorDescription: String? { message }
+
+    private var message: String {
         switch self {
         case .apiError: return LocaleKeys.Error.apiError.rawValue.locale()
         case .invalidEndpoint: return LocaleKeys.Error.invalidEndpoint.rawValue.locale()
@@ -32,7 +38,8 @@ enum WFError: Error {
         case .apiUsageError: return LocaleKeys.Error.apiUsageError.rawValue.locale()
         }
     }
+
     var errorUserInfo: [String : Any] {
-        [NSLocalizedDescriptionKey: localizedDescription]
+        [NSLocalizedDescriptionKey: message]
     }
 }

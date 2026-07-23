@@ -21,12 +21,16 @@
 "continueButton" = "Continuar";
 
 // Introducción
-"feature_1" = "Selecciona los ingredientes que tienes en casa y deja que la aplicación te muestre lo que puedes cocinar.";
-"feature_2" = "Elige categorías de comidas que te gusten y disfruta de los platos más deliciosos.";
-"feature_3" = "Guarda las instrucciones de tus recetas favoritas y prepáralas cuando quieras.";
-"feature_1_title" = "Ingredientes Disponibles";
-"feature_2_title" = "Abundantes Categorías";
+"feature_1_title" = "Selecciona tus Ingredientes";
+"feature_1_subtitle" = "Elige los ingredientes que tienes en casa y deja que la app te muestre qué puedes cocinar con ayuda de la IA.";
+"feature_2_title" = "Categorías Abundantes";
+"feature_2_subtitle" = "Explora recetas que se adaptan a tu gusto desde el desayuno hasta la cena, con diversas categorías para cada comida.";
 "feature_3_title" = "Guardar Recetas";
+"feature_3_subtitle" = "Guarda tus recetas favoritas y prepáralas cuando quieras con la ayuda de la IA.";
+"feature_4_title" = "Recetas Saludables";
+"feature_4_subtitle" = "Comienza una vida saludable con recetas nutritivas y equilibradas. Descubre platos con ingredientes de temporada.";
+"lets_get_started" = "Empecemos";
+
 "footer" = "Diseñado y codificado por Metehan Gürgentepe";
 "more" = "Ver más...";
 "feature_button" = "Continuar";
@@ -251,6 +255,7 @@
 "premium_subheadline" = "¡Felicidades, has activado con éxito el acceso Premium a todas las funciones de la aplicación, ¡disfrútalo!";
 "premium_expiration" = "Fecha de vencimiento: ";
 "premium_restore" = "¿Quieres restaurar las compras?";
+"premium_off" = "OFF"; 
 
 
 // show food prompts
@@ -336,3 +341,98 @@
 
 // Receta
 "recipe_name" = "Nombre de la receta";
+
+// SPANISH (UK)
+"paywall_title" = "Recetas personalizadas con IA en WhichFood";
+"paywall_invest" = "Abre las puertas a la cocina inteligente";
+"paywall_whats_inside" = "¿Qué hay dentro?";
+"paywall_subscribe_now" = "Suscríbete ahora";
+"paywall_restore_purchases" = "Restaurar compras";
+"paywall_error_title" = "Error";
+"paywall_ok" = "Vale";
+
+"feature_ai_recipe_title" = "Generación de Recetas con IA";
+"feature_ai_recipe_desc" = "Crea recetas personalizadas basadas en tus ingredientes y preferencias";
+"feature_customization_title" = "Personalización Avanzada de Recetas";
+"feature_customization_desc" = "Personaliza recetas según restricciones dietéticas, tiempo de cocción y nivel de dificultad";
+"feature_collections_title" = "Colecciones de Recetas";
+"feature_collections_desc" = "Crea y organiza colecciones personales de recetas y planes de comida";
+"feature_shopping_title" = "Listas de Compra Inteligentes";
+"feature_shopping_desc" = "Genera listas de compra automáticas con cantidades exactas de tus recetas seleccionadas";
+"feature_premium_title" = "Funciones Premium";
+"feature_premium_desc" = "Experiencia sin anuncios, acceso sin conexión y análisis nutricional";
+
+"plan_yearly" = "Anual";
+"plan_weekly" = "Semanal";
+"plan_most_popular" = "Más popular";
+"plan_best_offer" = "Mejor oferta";
+"plan_subscribe_terms" = "Suscríbete hoy por %@ %@. Cancela cuando quieras.";
+"plan_per_year" = "al año";
+"plan_per_week" = "a la semana";
+"plan_weekly" = "Semanal";
+"plan_yearly" = "Anual";
+"plan_monthly" = "Mensual";
+
+"onboarding.page1.title" = "Bienvenido a WhichFood";
+"onboarding.page1.description" = "Descubre deliciosas recetas adaptadas a tus ingredientes y preferencias";
+"onboarding.page2.title" = "Escanea tus Ingredientes";
+"onboarding.page2.description" = "Simplemente escanea lo que tienes y obtén sugerencias de recetas personalizadas";
+"onboarding.page3.title" = "Recibe Recordatorios Oportunos";
+"onboarding.page3.description" = "Nunca te pierdas una comida con nuestras útiles notificaciones";
+"onboarding.button.next" = "Siguiente";
+"onboarding.notification.title" = "¡Hora de Comer! 🍽️";
+"onboarding.notification.body" = "¿No sabes qué cocinar hoy? ¡Tenemos sugerencias para ti!";
+
+"next" = "Siguiente";
+"get_started" = "Comenzar";
+"skip" = "Omitir";
+"cooking_skills_title" = "¿Cómo describirías\ntus habilidades culinarias? 💪";
+"cooking_skill_1" = "Todavía aprendiendo lo básico 😅";
+"cooking_skill_2" = "Puedo manejar recetas sencillas 😊";
+"cooking_skill_3" = "Capaz de crear comidas decentes 😎";
+"cooking_skill_4" = "Potencial concursante de MasterChef 👨‍🍳";
+"kitchen_tools_title" = "¡Hablemos de herramientas! ¿Qué tipo\nde equipo tienes\nen tu cocina? 🥣";
+"kitchen_tools_subtitle" = "Selecciona todos los que quieras... Asumo que ya\ntienes los utensilios básicos de cocina 😄";
+"tool_oven" = "Horno";
+"tool_blender" = "Licuadora";
+"tool_microwave" = "Microondas";
+"tool_food_processor" = "Procesador de Alimentos";
+"tool_air_fryer" = "Freidora de Aire";
+"tool_rolling_pin" = "Rodillo";
+"tool_grater" = "Rallador";
+"tool_slow_cooker" = "Olla de Cocción Lenta";
+"tool_blowtorch" = "Soplete";
+"dietary_restrictions_title" = "¿Hay alguna restricción\ndietética que deba saber? 🧐";
+"dietary_restrictions_subtitle" = "Selecciona todos los que quieras...";
+"diet_vegetarian" = "🥦 Vegetariano";
+"diet_vegan" = "🌱 Vegano";
+"diet_pescatarian" = "🐟 Pescetariano";
+"diet_dairy_free" = "🥛 Sin Lácteos";
+"diet_gluten_free" = "🍞 Sin Gluten";
+"diet_halal" = "🐑 Halal";
+"diet_kosher" = "🐓 Kosher";
+"diet_nut_allergy" = "🥜 Alergia a los frutos secos";
+"diet_no_restrictions" = "👍 Disfruto de todo";
+"notification_title" = "¿Cuándo te gustaría\nrecibir sugerencias de comidas? 🔔";
+"notification_subtitle" = "Te enviaremos ideas de recetas deliciosas\nque coincidan con tus preferencias";
+"people_count_title" = "¿Para cuántas personas\nsueles cocinar? 👤";
+
+"Calories" = "Calories";
+"Carbs" = "Carbs";
+"Protein" = "Protein";
+"Fat" = "Fat";
+"Ingredients" = "Ingredients";
+"Instructions" = "Instructions";
+"analyzing_preferences" = "Analyzing your preferences";
+"customizing_recipes" = "Customizing recipes";
+"optimizing_recommendations" = "Optimizing recommendations";
+"finalizing_personalization" = "Finalizing personalization";
+"personalizing_experience" = "Personalizing Your Experience";
+"Nutrition" = "Nutrition";
+"servings" = "porciones";
+
+"appearance_title" = "Apariencia";
+"appearance_system" = "Sistema";
+"appearance_light" = "Claro";
+"appearance_dark" = "Oscuro";
+"cancel" = "Cancelar";

@@ -19,11 +19,11 @@ enum PersistenceManager {
         static let favorites = "favorites"
     }
     
-    static func isSaved(favorite: Recipe, completion: @escaping (Result<Bool,WFError>) -> Void) {
+    static func isSaved(recipe: RecipeResponseModel, completion: @escaping (Result<Bool,WFError>) -> Void) {
         retrieveFavorites { result in
             switch result {
             case .success(let favorites):
-                guard !favorites.contains(favorite) else {
+                guard !favorites.contains(recipe) else {
                     completion(.success(true))
                     return
                 }
@@ -35,7 +35,7 @@ enum PersistenceManager {
     }
     
     
-    static func updateWith(favorite: Recipe, actionType: PersistenceActionType, completion: @escaping (WFError?) -> Void) {
+    static func updateWith(favorite: RecipeResponseModel, actionType: PersistenceActionType, completion: @escaping (WFError?) -> Void) {
         retrieveFavorites { result in
             switch result {
             case .success(var favorites):
@@ -49,7 +49,7 @@ enum PersistenceManager {
                     
                     favorites.append(favorite)
                 case .remove:
-                    favorites.removeAll { $0.id == favorite.id }
+                    favorites.removeAll { $0.recipe == favorite.recipe }
                 }
                 
                completion(save(favorites: favorites))
@@ -62,7 +62,7 @@ enum PersistenceManager {
     }
     
     
-    static func retrieveFavorites(completion: @escaping (Result<[Recipe],WFError>) -> Void) {
+    static func retrieveFavorites(completion: @escaping (Result<[RecipeResponseModel],WFError>) -> Void) {
         guard let favoritesData = defaults.object(forKey: Keys.favorites) as? Data else {
             completion(.success([]))
             return
@@ -70,7 +70,7 @@ enum PersistenceManager {
         
         do {
             let decoder = JSONDecoder()
-            let favorites = try decoder.decode([Recipe].self, from: favoritesData)
+            let favorites = try decoder.decode([RecipeResponseModel].self, from: favoritesData)
             completion(.success(favorites))
         } catch {
             completion(.failure(.unableToFavorite))
@@ -78,7 +78,7 @@ enum PersistenceManager {
     }
     
     
-    static func save(favorites: [Recipe]) -> WFError? {
+    static func save(favorites: [RecipeResponseModel]) -> WFError? {
         do {
             let encoder = JSONEncoder()
             let encodedFavorites = try encoder.encode(favorites)

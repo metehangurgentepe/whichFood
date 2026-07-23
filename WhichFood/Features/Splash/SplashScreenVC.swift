@@ -8,21 +8,15 @@
 import UIKit
 import RevenueCat
 import SDWebImage
+import SwiftUI
 
 protocol SplashViewDelegate: AnyObject {
-    func showError(_ error: Error)
     func navigate(vc: UIViewController)
     func navigateToOnboarding()
+    func navigateToMainTabBar(isPremium: Bool, vendorID: String)
 }
 
-class SplashScreenVC: UIViewController, SplashViewDelegate {
-    private lazy var errorLabel : UILabel = {
-        let label = UILabel()
-        label.textColor = .red
-        label.isHidden = true
-        label.font = .preferredFont(forTextStyle: .largeTitle)
-        return label
-    }()
+class SplashScreenVC: UIViewController {
     private lazy var icon: UIImageView = {
         let image = Images.recipe?.resize(toSize: .init(width: 300, height: 300))
         let view = UIImageView(image: image)
@@ -46,6 +40,8 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPhoto()
+        
         viewModel.delegate = self
         Task{
             await viewModel.getKeychain()
@@ -58,8 +54,6 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
     
     func configure() {
         view.backgroundColor = .systemBackground
-        setupErrorLabel()
-        setupPhoto()
         setupTitleLabel()
     }
     
@@ -111,9 +105,10 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
             
             let delay = Double(index) * 0.1
             
-            UIView.animate(withDuration: 0.5, delay: delay, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: 2, delay: delay, options: .curveEaseInOut, animations: {
                 letterLabel.transform = .identity
             }, completion: { _ in
+                
             })
         }
     }
@@ -134,60 +129,52 @@ class SplashScreenVC: UIViewController, SplashViewDelegate {
                 self.icon.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 self.icon.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -30),
             ])
-            
-            self.rotatePhoto()
         }
     }
-    
-    func rotatePhoto() {
-        let rotationTransform = CGAffineTransform(rotationAngle: .pi)
-        
-        UIView.animate(withDuration: 2.0, animations: {
-            self.icon.transform = rotationTransform
-        }) { (completed) in
-            self.icon.transform = .identity
-        }
-    }
-    
-    
-    func setupErrorLabel() {
-        view.addSubview(errorLabel)
-        
-        errorLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            errorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
-            errorLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 100),
-            errorLabel.widthAnchor.constraint(equalToConstant: 200),
-        ])
-    }
-    
-    
-    func showError(_ error: Error){
-        self.errorLabel.isHidden = false
-        self.errorLabel.text = error.localizedDescription
-    }
-    
+}
+
+extension SplashScreenVC: SplashViewDelegate {
     
     func navigateToOnboarding() {
-        let vc = OnboardingViewController()
+        let onboardingView = OnboardingView { [weak self] in
+            Task { [weak self] in
+                let isPremium = await self?.viewModel.checkPremiumStatus() ?? false
+                await MainActor.run {
+                    self?.navigateToMainTabBar(isPremium: isPremium, vendorID: "")
+                }
+            }
+        }
+
+        let hostingController = UIHostingController(rootView: onboardingView)
+        hostingController.modalPresentationStyle = .fullScreen
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.navigationController?.pushViewController(vc, animated: true)
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.present(hostingController, animated: true)
         }
     }
     
     
     func navigate(vc: UIViewController) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            guard let self = self else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
-            self?.navigationController?.viewControllers.remove(at: 0)
-        }
+    }
+    
+    func navigateToMainTabBar(isPremium: Bool, vendorID: String) {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first else { return }
+
+        let rootController = WFMainTabBarController(isPremium: isPremium)
+
+        UIView.transition(with: window,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: {
+            window.rootViewController = rootController
+        }, completion: { _ in
+            // Apply the saved light/dark preference to the new root window
+            WFAppearanceManager.apply()
+        })
     }
 }

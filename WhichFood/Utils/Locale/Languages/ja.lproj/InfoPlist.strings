@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  WhichFood
+
+  Created by Metehan Gürgentepe on 13.01.2025.
+  
+*/
+NSUserNotificationsUsageDescription = "最適なタイミングで食事の提案を送信するために通知の許可が必要です。";

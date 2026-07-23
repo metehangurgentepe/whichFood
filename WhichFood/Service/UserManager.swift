@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 import FirebaseFirestore
 import RevenueCat
 
@@ -53,22 +52,42 @@ class UserManager{
         return userId
     }
     
+    func updateUser(user: User) async throws {
+        do {
+            let data = try Firestore.Encoder().encode(user)
+            try await userCollection.document(user.id).updateData(data)
+        } catch {
+            print("Error updating user: \(error)")
+            throw error
+        }
+    }
+    
     
     func createUser() async throws {
         let userId = KeychainManager.get(account: "account")
         let documentId = String(decoding:userId ?? Data(), as:UTF8.self)
+
+        // Check initial premium status from RevenueCat
+        var initialPremiumStatus = false
+        do {
+            let customerInfo = try await Purchases.shared.customerInfo()
+            initialPremiumStatus = customerInfo.entitlements.all["pro"]?.isActive == true
+        } catch {
+            print("Failed to check initial premium status: \(error)")
+        }
+
         let user = User(
             fcmToken: "",
             id: documentId,
-            isPremium: false,
+            isPremium: initialPremiumStatus,
             numberOfUsageApi: 0,
             successNumberOfUsageApi: 0,
-            lastPremiumDate: nil,
-            premiumType: ""
+            lastPremiumDate: initialPremiumStatus ? Timestamp() : nil,
+            premiumType: initialPremiumStatus ? "pro" : "",
+            premiumUpdatedAt: Timestamp()
         )
         let data = try Firestore.Encoder().encode(user)
         try await userCollection.document(documentId).setData(data)
-       
     }
     
     // make premium user
@@ -114,21 +133,34 @@ class UserManager{
         try await userCollection.document(documentId).updateData(data)
     }
     
-    func increaseApiUsage() async throws{
-        do {
-            let user = try await getUser()
-            if let user = user{
-                if !user.isPremium && user.numberOfUsageApi <= 3{
-                    try await userCollection.document(user.id).updateData(["numberOfUsageApi" : user.numberOfUsageApi + 1])
-                } else if user.isPremium {
-                    try await userCollection.document(user.id).updateData(["numberOfUsageApi" : user.numberOfUsageApi + 1])
-                } else {
-                    throw WFError.apiUsageError
-                }
-            }
-        } catch {
-           throw WFError.apiUsageError
+    #if DEBUG
+    /// When on, generation bypasses the free-tier limit and the Firestore
+    /// bookkeeping entirely — handy on the simulator where the user document
+    /// read can fail (e.g. App Check). Toggled from Settings.
+    static var debugForcePremium = UserDefaults.standard.bool(forKey: "wf.debugForcePremium") {
+        didSet { UserDefaults.standard.set(debugForcePremium, forKey: "wf.debugForcePremium") }
+    }
+    #endif
+
+    func increaseApiUsage() async throws {
+        #if DEBUG
+        if Self.debugForcePremium { return }
+        #endif
+
+        // Let the real error propagate. Previously every failure (missing user
+        // doc, Firestore/network error, hit limit) collapsed into a single
+        // opaque apiUsageError, which is why "Couldn't create a recipe" was
+        // impossible to diagnose.
+        let user = try await getUser()
+        guard let user else { throw WFError.apiUsageError }
+
+        // Free tier is capped; premium is unlimited.
+        guard user.isPremium || user.numberOfUsageApi < 3 else {
+            throw WFError.apiUsageError
         }
+        try await userCollection.document(user.id).updateData([
+            "numberOfUsageApi": user.numberOfUsageApi + 1
+        ])
     }
     
     func deleteUser(completion: @escaping (Error?) -> Void) {
@@ -136,6 +168,43 @@ class UserManager{
         let documentId = String(decoding:userId ?? Data(), as:UTF8.self)
             userCollection.document(documentId).delete { error in
                 completion(error)
+        }
+    }
+
+    // MARK: - RevenueCat Integration
+
+    func checkPremiumStatus() async throws -> Bool {
+        do {
+            let customerInfo = try await Purchases.shared.customerInfo()
+            let isPremium = customerInfo.entitlements.all["pro"]?.isActive == true
+
+            // Sync premium status to Firebase
+            try await syncPremiumStatusToFirebase(isPremium: isPremium)
+
+            return isPremium
+        } catch {
+            throw WFError.apiError
+        }
+    }
+
+    private func syncPremiumStatusToFirebase(isPremium: Bool) async throws {
+        let userId = KeychainManager.get(account: "account")
+        guard let userId = userId else {
+            throw WFError.noData
+        }
+
+        let documentId = String(decoding: userId, as: UTF8.self)
+        let userRef = userCollection.document(documentId)
+
+        do {
+            try await userRef.updateData([
+                "isPremium": isPremium,
+                "lastPremiumDate": Timestamp()
+            ])
+            print("✅ Premium status synced to Firebase: \(isPremium)")
+        } catch {
+            print("❌ Failed to sync premium status to Firebase: \(error)")
+            throw WFError.invalidResponse
         }
     }
 }

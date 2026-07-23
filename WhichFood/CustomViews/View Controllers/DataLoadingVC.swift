@@ -1,4 +1,5 @@
 import Foundation
+import Lottie
 import UIKit
 import SDWebImage
 
@@ -48,13 +49,14 @@ class DataLoadingVC: UIViewController {
     }
     
     func customLoadingView() {
-        let imageView = SDAnimatedImageView()
-        let animatedImage = SDAnimatedImage(named: "loading.gif")
-        imageView.image = animatedImage
+        let animationView = LottieAnimationView()
+        // Assuming your Lottie JSON file is named "loading"
+        animationView.animation = LottieAnimation.named("loading")
+        animationView.loopMode = .loop
         
         containerView = UIView(frame: view.bounds)
         view.addSubview(containerView)
-        containerView.addSubview(imageView)
+        containerView.addSubview(animationView)
         
         containerView.backgroundColor = .systemBackground
         containerView.alpha = 0
@@ -63,14 +65,45 @@ class DataLoadingVC: UIViewController {
             self.containerView.alpha = 0.8
         }
         
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            imageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 80),
-            imageView.widthAnchor.constraint(equalToConstant: 80),
+            animationView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            animationView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            animationView.heightAnchor.constraint(equalToConstant: 150),
+            animationView.widthAnchor.constraint(equalToConstant: 150)
         ])
+        
+        animationView.play()
+    }
+    
+    func detailCustomLoadingView() {
+        let animationView = LottieAnimationView()
+        // Assuming your Lottie JSON file is named "loading"
+        animationView.animation = LottieAnimation.named("feature_2")
+        animationView.loopMode = .loop
+        
+        containerView = UIView(frame: view.bounds)
+        view.addSubview(containerView)
+        containerView.addSubview(animationView)
+        
+        containerView.backgroundColor = .systemBackground
+        containerView.alpha = 0
+        
+        UIView.animate(withDuration: 0.25) {
+            self.containerView.alpha = 0.8
+        }
+        
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            animationView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            animationView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            animationView.heightAnchor.constraint(equalToConstant: 150),
+            animationView.widthAnchor.constraint(equalToConstant: 150)
+        ])
+        
+        animationView.play()
     }
     
     func dismissLoadingView() {
@@ -86,6 +119,12 @@ class DataLoadingVC: UIViewController {
     
     func showEmptyStateView(with message: String, in view: UIView) {
         let emptyStateView = EmptyStateView(message: message)
+        emptyStateView.frame = view.bounds
+        view.addSubview(emptyStateView)
+    }
+
+    func showEmptyStateView(with title: String, subtitle: String, in view: UIView) {
+        let emptyStateView = EmptyStateView(title: title, subtitle: subtitle)
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
     }

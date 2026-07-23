@@ -15,20 +15,30 @@ class SelectCategoryViewController: UIViewController, SelectCategoryVCDelegate {
         button.setTitle(LocaleKeys.SelectCategory.nextButton.rawValue.locale(), for: .normal)
         button.backgroundColor = Colors.primary.color
         button.layer.cornerRadius = 12
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+
+        // Add shadow for depth
+        button.layer.shadowColor = Colors.primary.color.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        button.layer.shadowRadius = 12
+        button.layer.shadowOpacity = 0.3
+
         return button
     }()
     
     private lazy var selectLabel : UILabel = {
         let label = UILabel()
         label.text = LocaleKeys.SelectCategory.selectLabel.rawValue.locale()
-        label.font = .preferredFont(forTextStyle: .headline)
+        label.font = .systemFont(ofSize: 32, weight: .bold)
+        label.textColor = .label
         return label
     }()
-    
+
     private lazy var chooseLabel : UILabel = {
         let label = UILabel()
         label.text = LocaleKeys.SelectCategory.chooseOneOrMore.rawValue.locale()
-        label.font = .preferredFont(forTextStyle: .subheadline)
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.textColor = .secondaryLabel
         return label
     }()
     let labelStack = UIStackView()
@@ -64,25 +74,47 @@ class SelectCategoryViewController: UIViewController, SelectCategoryVCDelegate {
         view.addSubview(nextButton)
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
-        
+
+        // Add touch feedback
+        nextButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
+        nextButton.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside, .touchCancel])
+
         NSLayoutConstraint.activate([
-            nextButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,constant: -view.bounds.height * 0.05),
+            nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             nextButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            
-            nextButton.heightAnchor.constraint(equalToConstant: 50),
-            nextButton.widthAnchor.constraint(equalToConstant: self.view.bounds.width * 0.8)
+            nextButton.heightAnchor.constraint(equalToConstant: 56),
+            nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
+    }
+
+    @objc func buttonTouchDown() {
+        UIView.animate(withDuration: 0.1) {
+            self.nextButton.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }
+    }
+
+    @objc func buttonTouchUp() {
+        UIView.animate(withDuration: 0.1) {
+            self.nextButton.transform = CGAffineTransform.identity
+        }
     }
     
     
     func setupProgressView() {
         view.addSubview(progressView)
-        progressView.progressTintColor = .blue
+
+        // Modern progress view styling
+        progressView.progressTintColor = Colors.primary.color
+        progressView.trackTintColor = Colors.primary.color.withAlphaComponent(0.2)
+        progressView.layer.cornerRadius = 6
+        progressView.clipsToBounds = true
+
         progressView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 0),
+            progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             progressView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            progressView.heightAnchor.constraint(equalToConstant: 10),
+            progressView.heightAnchor.constraint(equalToConstant: 12),
             progressView.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.9)
         ])
     }
@@ -101,37 +133,42 @@ class SelectCategoryViewController: UIViewController, SelectCategoryVCDelegate {
     
     func setupLabels() {
         view.addSubview(labelStack)
-        
+
         labelStack.axis = .vertical
         labelStack.addArrangedSubview(selectLabel)
         labelStack.addArrangedSubview(chooseLabel)
-        
-        labelStack.spacing = 10
-        
+        labelStack.spacing = 8
+        labelStack.alignment = .leading
+
         labelStack.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
-            labelStack.topAnchor.constraint(equalTo: progressView.bottomAnchor,constant: 20),
-            labelStack.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: view.bounds.width * 0.04 + 5)
+            labelStack.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 32),
+            labelStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            labelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
     }
     
     
     func setupCollectionView() {
         let layout = CollectionViewFlowLayout()
-        
+        layout.minimumInteritemSpacing = 12
+        layout.minimumLineSpacing = 16
+
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.identifier)
         collectionView.allowsMultipleSelection = true
-        
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: labelStack.bottomAnchor, constant: 20),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.bounds.width * 0.04),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -view.bounds.width * 0.04),
-            collectionView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -10)
+            collectionView.topAnchor.constraint(equalTo: labelStack.bottomAnchor, constant: 24),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            collectionView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -20)
         ])
     }
     
@@ -150,14 +187,17 @@ extension SelectCategoryViewController: UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Add haptic feedback
+        let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+        impactFeedback.impactOccurred()
+
         viewModel.selectButton(index: indexPath.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let text = viewModel.titles[indexPath.row].title
-        let cellWidth = text.size(withAttributes:[.font: UIFont.systemFont(ofSize:17)]).width + 35
-        return CGSize(width: cellWidth, height: 40.0)
+        let cellWidth = text.size(withAttributes:[.font: UIFont.systemFont(ofSize: 16, weight: .medium)]).width + 40
+        return CGSize(width: cellWidth, height: 44.0)
     }
     
     

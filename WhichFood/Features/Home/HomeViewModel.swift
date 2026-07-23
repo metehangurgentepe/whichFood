@@ -69,9 +69,8 @@ class HomeViewModel: HomeViewModelProtocol{
     
     func increaseApiUsage() async throws {
         do{
-            let vc = await DiscoverFoodVC()
             try await UserManager.shared.increaseApiUsage()
-            self.delegate?.navigate(to: .goToVC(vc))
+            self.delegate?.handleViewModelOutput(.prepareRandomRecipe)
         } catch {
             self.delegate?.handleViewModelOutput(.showError(error as! WFError))
         }
@@ -80,19 +79,19 @@ class HomeViewModel: HomeViewModelProtocol{
     
     func filter(word: String) {
         switch word {
-        case Categories.homeCategoryList[0]:
+        case Categories.homeCategoryList[0]: // "All"
             self.delegate?.handleViewModelOutput(.showRecipeList(self.recipes))
-            
-        case Categories.homeCategoryList[1]:
-            let recipe = self.recipes.filter{ $0.type?.lowercased() == Categories.homeCategoryList[1].lowercased()}
+
+        case Categories.homeCategoryList[1]: // "Meaty" -> search for "meat"
+            let recipe = self.recipes.filter{ $0.type?.lowercased() == "meat"}
             self.delegate?.handleViewModelOutput(.showRecipeList(recipe))
-            
-        case Categories.homeCategoryList[2]:
-            let recipe = self.recipes.filter{ $0.type?.lowercased() == Categories.homeCategoryList[2].lowercased()}
+
+        case Categories.homeCategoryList[2]: // "Vegetarian" -> search for "vegetable"
+            let recipe = self.recipes.filter{ $0.type?.lowercased() == "vegetable"}
             self.delegate?.handleViewModelOutput(.showRecipeList(recipe))
-            
-        case Categories.homeCategoryList[3]:
-            let recipe = self.recipes.filter{ $0.type?.lowercased() == Categories.homeCategoryList[3].lowercased()}
+
+        case Categories.homeCategoryList[3]: // "Dessert" -> search for "dessert"
+            let recipe = self.recipes.filter{ $0.type?.lowercased() == "dessert"}
             self.delegate?.handleViewModelOutput(.showRecipeList(recipe))
         default:
             break

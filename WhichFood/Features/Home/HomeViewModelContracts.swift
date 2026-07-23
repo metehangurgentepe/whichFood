@@ -24,6 +24,7 @@ enum RecipeListViewModelOutput: Equatable {
     case showRecipeList([Recipe])
     case showError(WFError)
     case emptyList
+    case prepareRandomRecipe
 }
 
 protocol HomeViewModelProtocol {

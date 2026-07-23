@@ -15,11 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.setMinimumBackgroundFetchInterval(TimeInterval(60*15))
-        FirebaseApp.configure()
-        Purchases.configure(with: Configuration.Builder(withAPIKey: Constants.RevenueCat.apiKey.rawValue)
-            .with(usesStoreKit2IfAvailable: true)
-            .build())
+        Purchases.configure(withAPIKey: "appl_HHkSCFFiKhyInFriiivjyCTgdvX")
         Purchases.shared.delegate = self
+        FirebaseApp.configure()
         return true
     }
     // MARK: UISceneSession Lifecycle

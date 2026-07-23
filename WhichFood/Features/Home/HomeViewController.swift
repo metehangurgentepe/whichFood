@@ -7,22 +7,156 @@
 
 import UIKit
 import SkeletonView
-import FirebaseFirestoreSwift
 import FirebaseFirestore
+import SwiftUI
+import RevenueCat
+import SDWebImage
 
 
-class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
+class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate{
+    
     enum Section {
         case main
     }
     
     private lazy var nextButton: UIButton = {
         let button = UIButton()
+        let plusConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .heavy)
+        let plusImage = UIImage(systemName: "plus", withConfiguration: plusConfig)?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        button.setImage(plusImage, for: .normal)
         button.backgroundColor = Colors.primary.color
         button.setTitle(NSLocalizedString(LocaleKeys.Home.button.rawValue, comment:"button"), for: .normal)
-        button.layer.cornerRadius = 12
+        button.layer.cornerRadius = 22
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return button
+    }()
+
+    private lazy var photoRecipeCard: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        view.layer.cornerRadius = 16
+        view.layer.shadowColor = UIColor.label.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowRadius = 8
+        view.isUserInteractionEnabled = true
+
+        // Add tap gesture with highlight effect
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(photoRecipeCardTapped))
+        tapGesture.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapGesture)
+
+        // Add long press for visual feedback
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(cardPressed(_:)))
+        longPress.minimumPressDuration = 0.3
+        view.addGestureRecognizer(longPress)
+
+        return view
+    }()
+
+    private lazy var photoRecipeImageView: UIView = {
+        let containerView = UIView()
+        containerView.backgroundColor = .systemBlue.withAlphaComponent(0.1)
+        containerView.layer.cornerRadius = 12
+
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.image = UIImage(systemName: "camera.fill")
+        imageView.tintColor = .systemBlue
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        containerView.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            imageView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
+            imageView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5)
+        ])
+
+        return containerView
+    }()
+
+    private lazy var photoRecipeButton: UILabel = {
+        let label = UILabel()
+        label.text = LocaleKeys.Home.photoRecipeTitle.rawValue.locale()
+        label.textColor = .systemBlue
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.numberOfLines = 0
+        return label
+    }()
+
+    private lazy var photoRecipeLabel: UILabel = {
+        let label = UILabel()
+        label.text = LocaleKeys.Home.photoRecipeDesc.rawValue.locale()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .secondaryLabel
+        label.numberOfLines = 2
+        return label
+    }()
+
+    private lazy var generateImageCard: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        view.layer.cornerRadius = 16
+        view.layer.shadowColor = UIColor.label.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowRadius = 8
+        view.isUserInteractionEnabled = true
+
+        // Add tap gesture with highlight effect
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(generateImageCardTapped))
+        tapGesture.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapGesture)
+
+        // Add long press for visual feedback
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(cardPressed(_:)))
+        longPress.minimumPressDuration = 0.3
+        view.addGestureRecognizer(longPress)
+
+        return view
+    }()
+
+    private lazy var generateImageImageView: UIView = {
+        let containerView = UIView()
+        containerView.backgroundColor = .systemOrange.withAlphaComponent(0.1)
+        containerView.layer.cornerRadius = 12
+
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.image = UIImage(systemName: "list.bullet.rectangle")
+        imageView.tintColor = .systemOrange
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        containerView.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            imageView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
+            imageView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5)
+        ])
+
+        return containerView
+    }()
+
+    private lazy var generateImageButton: UILabel = {
+        let label = UILabel()
+        label.text = LocaleKeys.Home.ingredientRecipeTitle.rawValue.locale()
+        label.textColor = .systemOrange
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.numberOfLines = 0
+        return label
+    }()
+
+    private lazy var generateImageLabel: UILabel = {
+        let label = UILabel()
+        label.text = LocaleKeys.Home.ingredientRecipeDesc.rawValue.locale()
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .secondaryLabel
+        label.numberOfLines = 2
+        return label
     }()
     
     private lazy var categoryCollectionView: UICollectionView = {
@@ -40,10 +174,15 @@ class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
     var dataSource: UICollectionViewDiffableDataSource<Section, Recipe>!
     
     lazy var viewModel = HomeViewModel()
-    var delegate : HomeViewModelProtocol!
+    weak var delegate : HomeViewModelDelegate?
     var recipes = [Recipe]()
     let categories = Categories.homeCategoryList
     var categoryIndexPath: IndexPath?
+
+    // Constraint'leri tutmak için
+    var photoCardTopConstraint: NSLayoutConstraint!
+    var generateCardTopConstraint: NSLayoutConstraint!
+    var categoryCollectionViewTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,16 +195,61 @@ class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        viewModel.getRecipes()
+        removeNavigationBarSeparator()
         if categoryIndexPath != nil {
             categoryCollectionView.deselectItem(at: categoryIndexPath!, animated: true)
         }
+        viewModel.getRecipes()
     }
     
-    
+    private func showPhotoSourceBottomSheet() {
+        print("🔵 showPhotoSourceBottomSheet called!")
+
+        let alert = UIAlertController(title: LocaleKeys.Home.photoSourceTitle.rawValue.locale(),
+                                     message: nil,
+                                     preferredStyle: .actionSheet)
+
+        // Kamera seçeneği
+        let cameraAction = UIAlertAction(title: LocaleKeys.Home.photoSourceCamera.rawValue.locale(),
+                                        style: .default) { _ in
+            print("📷 Camera action selected!")
+            self.goToCamera()
+        }
+        cameraAction.setValue(UIImage(systemName: "camera.fill"), forKey: "image")
+
+        // Galeri seçeneği
+        let galleryAction = UIAlertAction(title: LocaleKeys.Home.photoSourceGallery.rawValue.locale(),
+                                         style: .default) { _ in
+            print("📸 Gallery action selected!")
+            self.goToPhotoLibrary()
+        }
+        galleryAction.setValue(UIImage(systemName: "photo.on.rectangle"), forKey: "image")
+
+        // İptal seçeneği
+        let cancelAction = UIAlertAction(title: LocaleKeys.Home.photoSourceCancel.rawValue.locale(),
+                                        style: .cancel)
+
+        alert.addAction(cameraAction)
+        alert.addAction(galleryAction)
+        alert.addAction(cancelAction)
+
+        // iPad için popover ayarları
+        if let popover = alert.popoverPresentationController {
+            popover.sourceView = view
+            popover.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+            popover.permittedArrowDirections = []
+        }
+
+        present(alert, animated: true)
+    }
+
+    @objc func showPhotoSourceSelection() {
+        showPhotoSourceBottomSheet()
+    }
+
     @objc func showCameraAlert() {
-        let alert = WhichFood.showAlert(title: LocaleKeys.Home.takePhoto.rawValue.locale(),
-                              message: LocaleKeys.Home.showAlert.rawValue.locale(),
+        let alert = WhichFood.showAlert(title: LocaleKeys.Home.cameraAlertTitle.rawValue.locale(),
+                              message: LocaleKeys.Home.cameraAlertMessage.rawValue.locale(),
                               buttonTitle: LocaleKeys.Error.backButton.rawValue.locale(),
                               secondButtonTitle: LocaleKeys.Error.okButton.rawValue.locale(),
                               completionHandler: {
@@ -88,14 +272,6 @@ class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
     }
     
     
-    func deleteRecipe(recipe: Recipe) {
-        viewModel.deleteRecipe(recipe: recipe)
-    }
-    
-    
-    func showError(error: Error) {
-        self.delegate.delegate?.handleViewModelOutput(.showError(error as! WFError))
-    }
     
     
     func updatedData(on recipes: [Recipe]) {
@@ -114,12 +290,139 @@ class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
         imagePicker.sourceType = .camera
         viewModel.delegate?.navigate(to: .present(imagePicker))
     }
+
+    private func goToPhotoLibrary() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true)
+    }
     
     
     @objc func goToPremium() {
-        let vc = PremiumVC()
-        viewModel.delegate?.navigate(to: .present(vc))
+        let subscriptionView = PremiumVC()
+        subscriptionView.modalPresentationStyle = .fullScreen
+        present(subscriptionView, animated: true)
     }
+
+    @objc func photoRecipeCardTapped() {
+        print("🟢 Photo recipe card tapped!")
+
+        // Add haptic feedback
+        let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
+        impactFeedback.impactOccurred()
+
+        showPhotoSourceBottomSheet()
+    }
+
+    @objc func generateImageCardTapped() {
+        print("🟠 Generate image card tapped!")
+
+        // Add haptic feedback
+        let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
+        impactFeedback.impactOccurred()
+
+        // Malzeme seçimi ekranına git (create new recipe float butonuna tıklayınca olan)
+        let vc = SelectCategoryViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    // Keep old methods for backward compatibility if needed elsewhere
+    @objc func photoRecipeButtonTapped() {
+        photoRecipeCardTapped()
+    }
+
+    @objc func generateImageButtonTapped() {
+        generateImageCardTapped()
+    }
+
+    @objc func cardPressed(_ gesture: UILongPressGestureRecognizer) {
+        guard let view = gesture.view else { return }
+
+        print("🔥 Card pressed gesture triggered - state: \(gesture.state.rawValue)")
+
+        switch gesture.state {
+        case .began:
+            print("🔥 Card press began")
+            UIView.animate(withDuration: 0.1) {
+                view.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                view.alpha = 0.8
+            }
+        case .ended, .cancelled:
+            print("🔥 Card press ended/cancelled")
+            UIView.animate(withDuration: 0.1) {
+                view.transform = CGAffineTransform.identity
+                view.alpha = 1.0
+            }
+        default:
+            break
+        }
+    }
+
+    private func showRecipeContent() {
+        recipeCollectionView.isHidden = false
+        categoryCollectionView.isHidden = false
+        nextButton.isHidden = false
+        // Tarif varsa fotoğraf kartlarını gizle
+        photoRecipeCard.isHidden = true
+        generateImageCard.isHidden = true
+
+        // Category collection view'i en üste taşı
+        categoryCollectionViewTopConstraint.isActive = false
+        categoryCollectionViewTopConstraint = categoryCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16)
+        categoryCollectionViewTopConstraint.isActive = true
+
+        view.layoutIfNeeded()
+    }
+
+    private func hideRecipeContent() {
+        recipeCollectionView.isHidden = true
+        categoryCollectionView.isHidden = true
+        nextButton.isHidden = true
+        // Tarif yoksa fotoğraf kartlarını göster ve ortala
+        photoRecipeCard.isHidden = false
+        generateImageCard.isHidden = false
+
+        // Category collection view'i kartların altına geri al
+        categoryCollectionViewTopConstraint.isActive = false
+        categoryCollectionViewTopConstraint = categoryCollectionView.topAnchor.constraint(equalTo: generateImageCard.bottomAnchor, constant: 16)
+        categoryCollectionViewTopConstraint.isActive = true
+
+        centerPhotoCards()
+    }
+
+    private func centerPhotoCards() {
+        // Mevcut constraint'leri deaktive et
+        photoCardTopConstraint.isActive = false
+        generateCardTopConstraint.isActive = false
+
+        // Yeni constraint'leri oluştur (merkezi konumlandırma)
+        let centerY = view.safeAreaLayoutGuide.centerYAnchor
+        photoCardTopConstraint = photoRecipeCard.centerYAnchor.constraint(equalTo: centerY, constant: -60)
+        generateCardTopConstraint = generateImageCard.centerYAnchor.constraint(equalTo: centerY, constant: 60)
+
+        photoCardTopConstraint.isActive = true
+        generateCardTopConstraint.isActive = true
+
+        view.layoutIfNeeded()
+    }
+
+    private func resetPhotoCardsToTop() {
+        // Mevcut constraint'leri deaktive et
+        photoCardTopConstraint.isActive = false
+        generateCardTopConstraint.isActive = false
+
+        // Orijinal constraint'leri geri yükle
+        photoCardTopConstraint = photoRecipeCard.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16)
+        generateCardTopConstraint = generateImageCard.topAnchor.constraint(equalTo: photoRecipeCard.bottomAnchor, constant: 16)
+
+        photoCardTopConstraint.isActive = true
+        generateCardTopConstraint.isActive = true
+
+        view.layoutIfNeeded()
+    }
+
     
     
     private func configure() {
@@ -131,12 +434,34 @@ class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
         categoryCollectionView.dataSource = self
         
         navigationItem.hidesBackButton = true
+        removeNavigationBarSeparator()
         
         connfigureDiscoverRecipeBarButton()
         settingsButton()
+        setupPhotoRecipeCard()
+        setupGenerateImageCard()
         setupCategoryButtons()
-        setUpButton()
         configureCollectionView()
+        setUpButton()
+    }
+    
+    private func removeNavigationBarSeparator() {
+        if #available(iOS 15.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.shadowColor = .clear
+            appearance.shadowImage = UIImage()
+            
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+        } else {
+            navigationController?.navigationBar.shadowImage = UIImage()
+            navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        }
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.toolbar.setShadowImage(UIImage(), forToolbarPosition: .any)
     }
     
     
@@ -165,10 +490,12 @@ class HomeViewController: DataLoadingVC, HomeRecipeCellDelegate {
 
 extension HomeViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if info[UIImagePickerController.InfoKey.originalImage] is UIImage {
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             let vc = ImageToTextVC()
-            self.navigationController?.pushViewController(vc, animated: true)
-            picker.dismiss(animated: true, completion: nil)
+            vc.takenImage = selectedImage
+            picker.dismiss(animated: true) {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }
@@ -181,12 +508,16 @@ extension HomeViewController {
         view.addSubview(recipeCollectionView)
         recipeCollectionView.backgroundColor = .systemBackground
         recipeCollectionView.register(HomeRecipeCell.self, forCellWithReuseIdentifier: HomeRecipeCell.identifier)
+        recipeCollectionView.prefetchDataSource = self
+        recipeCollectionView.isPrefetchingEnabled = true
+
+
         
         recipeCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             recipeCollectionView.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor, constant: 5),
-            recipeCollectionView.bottomAnchor.constraint(equalTo: nextButton.topAnchor),
+            recipeCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             recipeCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             recipeCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
@@ -199,21 +530,102 @@ extension HomeViewController {
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            nextButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
-            nextButton.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.05),
-            nextButton.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.85)
+            nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            nextButton.heightAnchor.constraint(equalToConstant: 44),
+            nextButton.widthAnchor.constraint(equalToConstant: view.bounds.width * 0.4),
+            nextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12)
         ])
     }
     
     
+    private func setupPhotoRecipeCard() {
+        view.addSubview(photoRecipeCard)
+        photoRecipeCard.addSubview(photoRecipeImageView)
+        photoRecipeCard.addSubview(photoRecipeButton)
+        photoRecipeCard.addSubview(photoRecipeLabel)
+
+        photoRecipeCard.translatesAutoresizingMaskIntoConstraints = false
+        photoRecipeImageView.translatesAutoresizingMaskIntoConstraints = false
+        photoRecipeButton.translatesAutoresizingMaskIntoConstraints = false
+        photoRecipeLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        // Initial constraint'i sakla
+        photoCardTopConstraint = photoRecipeCard.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16)
+
+        NSLayoutConstraint.activate([
+            // Card constraints
+            photoCardTopConstraint,
+            photoRecipeCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            photoRecipeCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            photoRecipeCard.heightAnchor.constraint(equalToConstant: 100),
+
+            // ImageView constraints
+            photoRecipeImageView.leadingAnchor.constraint(equalTo: photoRecipeCard.leadingAnchor, constant: 16),
+            photoRecipeImageView.centerYAnchor.constraint(equalTo: photoRecipeCard.centerYAnchor),
+            photoRecipeImageView.widthAnchor.constraint(equalToConstant: 60),
+            photoRecipeImageView.heightAnchor.constraint(equalToConstant: 60),
+
+            // Button constraints
+            photoRecipeButton.topAnchor.constraint(equalTo: photoRecipeCard.topAnchor, constant: 20),
+            photoRecipeButton.leadingAnchor.constraint(equalTo: photoRecipeImageView.trailingAnchor, constant: 16),
+            photoRecipeButton.trailingAnchor.constraint(equalTo: photoRecipeCard.trailingAnchor, constant: -16),
+
+            // Label constraints
+            photoRecipeLabel.topAnchor.constraint(equalTo: photoRecipeButton.bottomAnchor, constant: 4),
+            photoRecipeLabel.leadingAnchor.constraint(equalTo: photoRecipeImageView.trailingAnchor, constant: 16),
+            photoRecipeLabel.trailingAnchor.constraint(equalTo: photoRecipeCard.trailingAnchor, constant: -16),
+        ])
+    }
+
+    private func setupGenerateImageCard() {
+        view.addSubview(generateImageCard)
+        generateImageCard.addSubview(generateImageImageView)
+        generateImageCard.addSubview(generateImageButton)
+        generateImageCard.addSubview(generateImageLabel)
+
+        generateImageCard.translatesAutoresizingMaskIntoConstraints = false
+        generateImageImageView.translatesAutoresizingMaskIntoConstraints = false
+        generateImageButton.translatesAutoresizingMaskIntoConstraints = false
+        generateImageLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        // Initial constraint'i sakla
+        generateCardTopConstraint = generateImageCard.topAnchor.constraint(equalTo: photoRecipeCard.bottomAnchor, constant: 16)
+
+        NSLayoutConstraint.activate([
+            // Card constraints
+            generateCardTopConstraint,
+            generateImageCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            generateImageCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            generateImageCard.heightAnchor.constraint(equalToConstant: 100),
+
+            // ImageView constraints
+            generateImageImageView.leadingAnchor.constraint(equalTo: generateImageCard.leadingAnchor, constant: 16),
+            generateImageImageView.centerYAnchor.constraint(equalTo: generateImageCard.centerYAnchor),
+            generateImageImageView.widthAnchor.constraint(equalToConstant: 60),
+            generateImageImageView.heightAnchor.constraint(equalToConstant: 60),
+
+            // Button constraints
+            generateImageButton.topAnchor.constraint(equalTo: generateImageCard.topAnchor, constant: 20),
+            generateImageButton.leadingAnchor.constraint(equalTo: generateImageImageView.trailingAnchor, constant: 16),
+            generateImageButton.trailingAnchor.constraint(equalTo: generateImageCard.trailingAnchor, constant: -16),
+
+            // Label constraints
+            generateImageLabel.topAnchor.constraint(equalTo: generateImageButton.bottomAnchor, constant: 4),
+            generateImageLabel.leadingAnchor.constraint(equalTo: generateImageImageView.trailingAnchor, constant: 16),
+            generateImageLabel.trailingAnchor.constraint(equalTo: generateImageCard.trailingAnchor, constant: -16),
+        ])
+    }
+
     private func setupCategoryButtons() {
         view.addSubview(categoryCollectionView)
-        
+
         categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        
+
+        // Initial constraint'i sakla - empty state için kartların altında olacak
+        categoryCollectionViewTopConstraint = categoryCollectionView.topAnchor.constraint(equalTo: generateImageCard.bottomAnchor, constant: 16)
+
         NSLayoutConstraint.activate([
-            categoryCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 4),
+            categoryCollectionViewTopConstraint,
             categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 20),
             categoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 0),
             categoryCollectionView.heightAnchor.constraint(equalToConstant: 30)
@@ -222,37 +634,30 @@ extension HomeViewController {
     
     
     private func connfigureDiscoverRecipeBarButton() {
-        let image = SFSymbols.wandAndStars!.withRenderingMode(.alwaysOriginal).withTintColor(.gray)
+        let image = SFSymbols.wandAndStars!.withRenderingMode(.alwaysTemplate).withTintColor(.gray)
         let discoverButton = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(navigateToDiscoverScreen))
+        discoverButton.tintColor = UIColor(Color.primary)
         navigationItem.leftBarButtonItem = discoverButton
     }
     
     
     private func settingsButton() {
-        let circularView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        circularView.layer.cornerRadius = 15
-        circularView.backgroundColor = UIColor.orange
-        
-        let cameraImageView = UIImageView(image: Images.camera)
-        cameraImageView.contentMode = .scaleAspectFit
-        cameraImageView.tintColor = UIColor.white
-        
-        let centeredFrame = CGRect(
-            x: (circularView.bounds.width - circularView.bounds.width * 0.65) / 2,
-            y: (circularView.bounds.height - circularView.bounds.height * 0.65) / 2,
-            width: circularView.bounds.width * 0.65,
-            height: circularView.bounds.height * 0.65
+        let cameraButton = UIBarButtonItem(
+            image: UIImage(systemName: "camera.fill"),
+            style: .done,
+            target: self,
+            action: #selector(showPhotoSourceSelection)
         )
-        cameraImageView.frame = centeredFrame
         
-        circularView.addSubview(cameraImageView)
+        cameraButton.tintColor = UIColor.orange
         
-        let cameraButton = UIBarButtonItem(customView: circularView)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showCameraAlert))
-        circularView.addGestureRecognizer(tapGesture)
-        
-        let premiumButton = UIBarButtonItem(image: Images.premium?.withTintColor(Colors.crownColor.color, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(goToPremium))
+        let premiumButton = UIBarButtonItem(
+            image: UIImage(named: "chef-hat-fill"),
+            style: .done,
+            target: self,
+            action: #selector(goToPremium)
+        )
+        premiumButton.tintColor = UIColor(Color.primary)
         
         navigationItem.rightBarButtonItems = [
             cameraButton,
@@ -349,10 +754,10 @@ extension HomeViewController: HomeViewModelDelegate {
             guard let self = self else { return }
             switch navigationType {
             case .details(let index):
-                let recipe = recipes[index]
-                let viewModel = DetailRecipeViewModel(recipe: recipe)
-                let viewController = DetailRecipeBuilder.make(with: viewModel)
-                show(viewController, sender: nil)
+                let vc = ShowFoodVC()
+                vc.mode = .detail
+                vc.recipe = self.viewModel.recipes[index].toRecipeResponseModel()
+                self.navigationController?.pushViewController(vc, animated: true)
                 
             case .goToVC(let vc):
                 self.navigationController?.pushViewController(vc, animated: true)
@@ -379,9 +784,11 @@ extension HomeViewController: HomeViewModelDelegate {
                 self.recipes = recipes
                 updatedData(on: self.recipes)
                 hideEmptyStateView(in: recipeCollectionView)
-                
+                showRecipeContent()
+
             case.emptyList:
-                showEmptyStateView(with: LocaleKeys.Home.noItem.rawValue.locale(), in: recipeCollectionView)
+                hideRecipeContent()
+                // Empty state'te collection view yerine sadece kartlar gözükecek
                 
             case .showError(let error):
                 presentAlertOnMainThread(
@@ -389,12 +796,86 @@ extension HomeViewController: HomeViewModelDelegate {
                     message: error.localizedDescription,
                     buttonTitle: LocaleKeys.Error.okButton.rawValue.locale()
                 )
+            case .prepareRandomRecipe:
+                let showFoodVC = ShowFoodVC()
+                showFoodVC.mode = .random
+                self.navigationController?.pushViewController(showFoodVC, animated: true)
             }
         }
     }
 }
 
 
+extension Recipe {
+    func toRecipeResponseModel() -> RecipeResponseModel {
+        return RecipeResponseModel(
+            foodName: self.name,
+            ingredients: self.ingredients ?? [],
+            recipe: self.recipe ?? [],
+            cookTime: self.cookTime ?? Date().description,
+            prepTime: self.prepTime,
+            totalTime: self.totalTime,
+            difficulty: self.difficulty,
+            servings: self.servings,
+            description: self.description ?? "",
+            type: self.type,
+            cuisine: self.cuisine,
+            allergens: self.allergens,
+            tags: self.tags,
+            cal: self.cal,
+            nutritionalInfo: self.nutritionalInfo,
+            tips: self.tips,
+            imageURL: self.imageUrl
+        )
+    }
+}
 
+extension HomeViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        // Görüntüleri önceden yüklemek için görüntü URL'lerini al
+        let urls = indexPaths.compactMap { indexPath -> URL? in
+            guard indexPath.item < recipes.count else { return nil }
+            guard let urlString = recipes[indexPath.item].imageUrl else { return nil }
+            return URL(string: urlString)
+        }
+        
+        // SDWebImage prefetch
+        SDWebImagePrefetcher.shared.prefetchURLs(urls)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        // Görüntü ön yüklemeyi iptal et
+        let urls = indexPaths.compactMap { indexPath -> URL? in
+            guard indexPath.item < recipes.count else { return nil }
+            guard let urlString = recipes[indexPath.item].imageUrl else { return nil }
+            return URL(string: urlString)
+        }
+        
+        SDWebImagePrefetcher.shared.cancelPrefetching()
+    }
+}
 
+// MARK: - HomeRecipeCellDelegate
+extension HomeViewController {
+    func deleteRecipe(recipe: Recipe) {
+        viewModel.deleteRecipe(recipe: recipe)
+    }
 
+    func showError(error: Error) {
+        presentAlertOnMainThread(
+            title: LocaleKeys.Error.alert.rawValue.locale(),
+            message: error.localizedDescription,
+            buttonTitle: LocaleKeys.Error.okButton.rawValue.locale()
+        )
+    }
+
+    func favoriteStatusChanged(recipe: Recipe) {
+        // Find the cell for this recipe and refresh it
+        if let index = recipes.firstIndex(where: { $0.id == recipe.id }) {
+            let indexPath = IndexPath(item: index, section: 0)
+            if let cell = recipeCollectionView.cellForItem(at: indexPath) as? HomeRecipeCell {
+                cell.checkIsSaved(recipe: recipe)
+            }
+        }
+    }
+}

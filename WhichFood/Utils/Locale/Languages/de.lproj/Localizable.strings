@@ -17,12 +17,16 @@
 
 
 // onboarding
-"feature_1" = "Wählen Sie die Zutaten aus, die Sie zu Hause haben, und lassen Sie sich vom Programm zeigen, was Sie kochen können.";
-"feature_2" = "Wählen Sie Mahlkategorien aus, die Ihnen gefallen, und genießen Sie die köstlichsten Gerichte.";
-"feature_3" = "Speichern Sie Ihre Lieblingsrezeptanweisungen und machen Sie sie jederzeit nach.";
-"feature_1_title" = "Verfügbare Zutaten";
-"feature_2_title" = "Reichlich Kategorien";
-"feature_3_title" = "Rezepte speichern";
+"feature_1_title" = "Wählen Sie Ihre Zutaten";
+"feature_1_subtitle" = "Wählen Sie die Zutaten, die Sie zu Hause haben, und lassen Sie sich von der KI zeigen, was Sie kochen können.";
+"feature_2_title" = "Vielfältige Kategorien";
+"feature_2_subtitle" = "Entdecken Sie Rezepte für jeden Geschmack, vom Frühstück bis zum Abendessen, in verschiedenen Kategorien.";
+"feature_3_title" = "Rezepte Speichern";
+"feature_3_subtitle" = "Speichern Sie Ihre Lieblingsrezepte und kochen Sie sie mit KI-Unterstützung wann immer Sie möchten.";
+"feature_4_title" = "Gesunde Rezepte";
+"feature_4_subtitle" = "Starten Sie ein gesundes Leben mit nahrhaften und ausgewogenen Rezepten. Entdecken Sie Gerichte mit saisonalen Zutaten.";
+"lets_get_started" = "Lass uns Anfangen";
+
 "footer" = "Entworfen und programmiert von Metehan Gürgentepe";
 "more" = "Mehr sehen...";
 "feature_button" = "Weiter";
@@ -199,6 +203,14 @@
 "home_recipe" = "Rezepte";
 "home_create_button" = "Rezept erstellen";
 "home_no_item" = "Keine gespeicherten Rezepte";
+"home_empty_title" = "Ihre Rezeptsammlung ist leer";
+"home_empty_subtitle" = "Verwenden Sie die obigen Optionen, um neue Rezepte zu erstellen";
+"home_photo_recipe_title" = "Rezept aus Foto erstellen";
+"home_photo_recipe_desc" = "Machen Sie ein Foto von Essen und erstellen Sie ein Rezept mit KI";
+"home_ingredient_recipe_title" = "Rezept aus Zutaten erstellen";
+"home_ingredient_recipe_desc" = "Wählen Sie Zutaten aus Ihrem Zuhause aus, um Rezepte zu erstellen";
+"camera_alert_title" = "Essens-Foto aufnehmen";
+"camera_alert_message" = "Wir erstellen automatisch ein Rezept mit KI, indem wir ein Foto von Essen aufnehmen. Möchten Sie fortfahren?";
 "home_all" = "Alle";
 "home_meaty" = "Fleischig";
 "home_vegetarian" = "Vegetarisch";
@@ -254,6 +266,7 @@
 "premium_subheadline" = "Herzlichen Glückwunsch, Sie haben den Premium-Zugriff auf alle Funktionen der Anwendung erfolgreich aktiviert, genießen Sie es!";
 "premium_expiration" = "Ablaufdatum: ";
 "premium_restore" = "Möchten Sie Käufe wiederherstellen?";
+"premium_off" = "RABATT";
 
 
 
@@ -342,3 +355,122 @@
 "image_info" = "Sie müssen ein schriftliches Foto des Rezepts machen.";
 "take_photo" = "Foto machen";
 
+
+
+// Premium/Paywall
+"paywall_title" = "Entdecken Sie kreative Rezepterlebnisse mit WhichFood";
+"paywall_invest" = "Starten Sie heute Ihre innovative kulinarische Reise";
+"paywall_whats_inside" = "Was ist enthalten?";
+"paywall_subscribe_now" = "Jetzt abonnieren";
+"paywall_restore_purchases" = "Käufe wiederherstellen";
+"paywall_error_title" = "Fehler";
+"paywall_ok" = "OK";
+"paywall_ai_recipe_title" = "KI-Rezeptgenerierung";
+"paywall_ai_recipe_desc" = "Erstellen Sie unbegrenzt personalisierte Rezepte basierend auf Ihren Zutaten";
+"paywall_photo_recipe_title" = "Foto-Rezept-Analyse";
+"paywall_photo_recipe_desc" = "Machen Sie ein Foto von Essen und erhalten Sie sofort ein detailliertes Rezept";
+"paywall_choose_plan" = "Wählen Sie Ihren Plan";
+
+// Premium Features
+"feature_ai_recipe_title" = "KI-Rezeptgenerierung";
+"feature_ai_recipe_desc" = "Erstellen Sie unbegrenzt personalisierte Rezepte basierend auf Ihren Zutaten und Vorlieben";
+"feature_customization_title" = "Erweiterte Rezeptanpassung";
+"feature_customization_desc" = "Passen Sie Rezepte an Ernährungseinschränkungen, Kochzeit und Schwierigkeitsgrad an";
+"feature_collections_title" = "Rezeptsammlungen";
+"feature_collections_desc" = "Erstellen und organisieren Sie unbegrenzt persönliche Rezeptsammlungen und Essenspläne";
+"feature_shopping_title" = "Intelligente Einkaufslisten";
+"feature_shopping_desc" = "Generieren Sie automatische Einkaufslisten mit genauen Mengen aus Ihren ausgewählten Rezepten";
+"feature_premium_title" = "Premium-Funktionen";
+"feature_premium_desc" = "Werbefreie Erfahrung, Offline-Zugriff und Nährwertanalyse";
+
+// Subscription Plans
+"plan_yearly" = "Jährlich";
+"plan_weekly" = "Wöchentlich";
+"plan_most_popular" = "Am beliebtesten";
+"plan_best_offer" = "Bestes Angebot";
+"plan_subscribe_terms" = "Abonnieren Sie heute für %@ %@. Jederzeit kündbar.";
+"plan_per_year" = "pro Jahr";
+"plan_per_week" = "pro Woche";
+"plan_weekly" = "Wöchentlich";
+"plan_yearly" = "Jährlich";
+"plan_monthly" = "Monatlich";
+
+// Onboarding
+"onboarding.page1.title" = "Willkommen bei WhichFood";
+"onboarding.page1.description" = "Entdecke köstliche Rezepte, die auf deine Zutaten und Vorlieben abgestimmt sind";
+"onboarding.page2.title" = "Scanne deine Zutaten";
+"onboarding.page2.description" = "Scanne einfach, was du hast, und erhalte personalisierte Rezeptvorschläge";
+"onboarding.page3.title" = "Erhalte rechtzeitige Erinnerungen";
+"onboarding.page3.description" = "Verpasse keine Mahlzeit mit unseren hilfreichen Benachrichtigungen";
+"onboarding.button.next" = "Weiter";
+"onboarding.notification.title" = "Essenszeit! 🍽️";
+"onboarding.notification.body" = "Unsicher, was du heute kochen sollst? Wir haben Vorschläge für dich!";
+
+"onboarding.page1.title" = "Willkommen bei WhichFood";
+"onboarding.page1.description" = "Entdecke köstliche Rezepte, die auf deine Zutaten und Vorlieben zugeschnitten sind";
+"onboarding.page2.title" = "Scanne deine Zutaten";
+"onboarding.page2.description" = "Scanne einfach, was du hast, und erhalte personalisierte Rezeptvorschläge";
+"onboarding.page3.title" = "Erhalte rechtzeitige Erinnerungen";
+"onboarding.page3.description" = "Verpasse nie wieder eine Mahlzeit mit unseren hilfreichen Benachrichtigungen";
+"onboarding.button.next" = "Weiter";
+"onboarding.notification.title" = "Essenszeit! 🍽️";
+"onboarding.notification.body" = "Unsicher, was du heute kochen sollst? Wir haben Vorschläge für dich!";
+
+
+
+"next" = "Weiter";
+"get_started" = "Loslegen";
+"skip" = "Überspringen";
+"cooking_skills_title" = "Wie würdest du deine\nKochfähigkeiten beschreiben? 💪";
+"cooking_skill_1" = "Lerne noch die Grundlagen 😅";
+"cooking_skill_2" = "Kann einfache Rezepte zubereiten 😊";
+"cooking_skill_3" = "Kann anständige Mahlzeiten kreieren 😎";
+"cooking_skill_4" = "Potenzieller MasterChef-Teilnehmer 👨‍🍳";
+"kitchen_tools_title" = "Lass uns über Küchengeräte sprechen! Welche\nAusstattung hast du in deiner Küche? 🥣";
+"kitchen_tools_subtitle" = "Wähle so viele wie du möchtest... Ich gehe davon aus, dass du\nbereits die wesentlichen Küchenutensilien hast 😄";
+"tool_oven" = "Backofen";
+"tool_blender" = "Mixer";
+"tool_microwave" = "Mikrowelle";
+"tool_food_processor" = "Küchenmaschine";
+"tool_air_fryer" = "Heißluftfritteuse";
+"tool_rolling_pin" = "Nudelholz";
+"tool_grater" = "Reibe";
+"tool_slow_cooker" = "Schongarer";
+"tool_blowtorch" = "Küchenbrenner";
+"dietary_restrictions_title" = "Gibt es Ernährungseinschränkungen,\ndie ich wissen sollte? 🧐";
+"dietary_restrictions_subtitle" = "Wähle so viele wie du möchtest...";
+"diet_vegetarian" = "🥦 Vegetarisch";
+"diet_vegan" = "🌱 Vegan";
+"diet_pescatarian" = "🐟 Pescetarisch";
+"diet_dairy_free" = "🥛 Laktosefrei";
+"diet_gluten_free" = "🍞 Glutenfrei";
+"diet_halal" = "🐑 Halal";
+"diet_kosher" = "🐓 Koscher";
+"diet_nut_allergy" = "🥜 Nussallergie";
+"diet_no_restrictions" = "👍 Ich genieße alles";
+"notification_title" = "Wann möchtest du\nMahlzeitenvorschläge erhalten? 🔔";
+"notification_subtitle" = "Wir senden dir köstliche Rezeptideen,\ndie zu deinen Vorlieben passen";
+"people_count_title" = "Für wie viele Personen\nkochst du normalerweise? 👤";
+
+"Calories" = "Kalorien";
+"Carbs" = "Kohlenhydrate";
+"Protein" = "Eiweiß";
+"Fat" = "Fett";
+"Ingredients" = "Zutaten";
+"Instructions" = "Anweisungen";
+"analyzing_preferences" = "Ihre Präferenzen werden analysiert";
+"customizing_recipes" = "Rezepte werden angepasst";
+"optimizing_recommendations" = "Empfehlungen werden optimiert";
+"finalizing_personalization" = "Personalisierung wird abgeschlossen";
+"personalizing_experience" = "Ihr Erlebnis wird personalisiert";
+"Nutrition" = "Ernährung";
+"chefs_tip" = "Tipp des Küchenchefs";
+"plan_discount_percent" = "%d%% Rabatt";
+"plan_best_value" = "Bester Wert";
+"servings" = "Portionen";
+
+"appearance_title" = "Darstellung";
+"appearance_system" = "System";
+"appearance_light" = "Hell";
+"appearance_dark" = "Dunkel";
+"cancel" = "Abbrechen";

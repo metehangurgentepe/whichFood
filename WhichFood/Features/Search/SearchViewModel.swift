@@ -7,7 +7,6 @@
 
 import Foundation
 import Firebase
-import FirebaseFirestoreSwift
 import FirebaseFirestore
 
 
@@ -41,6 +40,20 @@ class SearchViewModel: SearchViewModelProtocol{
                 self.delegate?.handleOutput(.getRecipeBySearch(filteredRecipes))
             } catch {
                 self.delegate?.handleOutput(.error(WFError.invalidResponse))
+            }
+        }
+    }
+
+    func loadRecipesByLanguage(_ languageCode: String) {
+        Task{
+            do{
+                self.delegate?.handleOutput(.setLoading(true))
+                let recipes = try await SavedRecipesManager.shared.getRecipesByLanguage(languageCode: languageCode)
+                self.delegate?.handleOutput(.loadRecipes(recipes))
+                self.delegate?.handleOutput(.setLoading(false))
+            } catch {
+                // If language-specific loading fails, load all recipes
+                self.load()
             }
         }
     }

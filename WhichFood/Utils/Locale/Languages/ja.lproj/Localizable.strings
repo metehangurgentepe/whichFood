@@ -15,12 +15,16 @@
 "continueButton" = "続行";
 
 // オンボーディング
-"feature_1" = "自宅にある食材を選択すると、アプリが調理できるものを表示します。";
-"feature_2" = "自分に合った食事のカテゴリを選択し、最もおいしい料理をお楽しみください。";
-"feature_3" = "お気に入りのレシピの手順を保存して、いつでも好きなときに作ることができます。";
-"feature_1_title" = "利用可能な食材";
-"feature_2_title" = "豊富なカテゴリ";
+"feature_1_title" = "材料を選択";
+"feature_1_subtitle" = "家にある材料を選択すると、AIのサポートで調理可能なレシピをご紹介します。";
+"feature_2_title" = "豊富なカテゴリー";
+"feature_2_subtitle" = "朝食から夕食まで、あらゆる食事に対応したカテゴリーから、お好みのレシピを見つけましょう。";
 "feature_3_title" = "レシピを保存";
+"feature_3_subtitle" = "お気に入りのレシピを保存し、AIのサポートでいつでも調理できます。";
+"feature_4_title" = "ヘルシーレシピ";
+"feature_4_subtitle" = "栄養バランスの取れたレシピで健康的な生活を始めましょう。旬の食材を使用したお料理を発見できます。";
+"lets_get_started" = "始めましょう";
+
 "footer" = "Metehan Gürgentepe によるデザインとコーディング";
 "more" = "詳細を表示...";
 "feature_button" = "続行";
@@ -240,6 +244,7 @@
 "premium_subheadline" = "おめでとうございます。アプリケーションのすべての機能へのプレミアムアクセスが正常に有効化されました。お楽しみください！";
 "premium_expiration" = "有効期限: ";
 "premium_restore" = "購入を復元しますか？";
+"premium_off" = "割引";
 
 // 設定
 "settings_title" = "設定";
@@ -321,3 +326,100 @@
 "image_info" = "レシピの文字写真を撮影する必要があります。";
 "take_photo" = "写真を撮る";
 
+
+// JAPANESE (日本語)
+"paywall_title" = "WhichFoodでAIパーソナライズレシピを";
+"paywall_invest" = "スマートな料理の世界へようこそ";
+"paywall_whats_inside" = "含まれる機能は？";
+"paywall_subscribe_now" = "今すぐ登録";
+"paywall_restore_purchases" = "購入を復元";
+"paywall_error_title" = "エラー";
+"paywall_ok" = "OK";
+
+"feature_ai_recipe_title" = "AIレシピ生成";
+"feature_ai_recipe_desc" = "あなたの材料と好みに基づいてパーソナライズされたレシピを作成";
+"feature_customization_title" = "高度なレシピカスタマイズ";
+"feature_customization_desc" = "食事制限、調理時間、難易度に応じてレシピをカスタマイズ";
+"feature_collections_title" = "レシピコレクション";
+"feature_collections_desc" = "個人のレシピコレクションと食事プランを作成・整理";
+"feature_shopping_title" = "スマートショッピングリスト";
+"feature_shopping_desc" = "選択したレシピから正確な量で自動的な買い物リストを生成";
+"feature_premium_title" = "プレミアム機能";
+"feature_premium_desc" = "広告なし体験、オフラインアクセス、栄養分析";
+
+"plan_yearly" = "年間";
+"plan_weekly" = "週間";
+"plan_most_popular" = "人気";
+"plan_best_offer" = "ベストオファー";
+"plan_subscribe_terms" = "今日登録して%@ %@をお支払いください。いつでもキャンセル可能。";
+"plan_per_year" = "年あたり";
+"plan_per_week" = "週あたり";
+"plan_weekly" = "週間";
+"plan_yearly" = "年間";
+"plan_monthly" = "月間";
+
+
+"onboarding.page1.title" = "WhichFoodへようこそ";
+"onboarding.page1.description" = "あなたの食材と好みに合わせた美味しいレシピを見つけましょう";
+"onboarding.page2.title" = "食材をスキャン";
+"onboarding.page2.description" = "お手持ちの食材をスキャンするだけで、パーソナライズされたレシピの提案を受け取れます";
+"onboarding.page3.title" = "タイムリーなリマインダー";
+"onboarding.page3.description" = "便利な通知で食事を逃すことはありません";
+"onboarding.button.next" = "次へ";
+"onboarding.notification.title" = "食事の時間です！🍽️";
+"onboarding.notification.body" = "今日は何を作るか迷っていますか？提案があります！";
+
+"next" = "次へ";
+"get_started" = "始める";
+"skip" = "スキップ";
+"cooking_skills_title" = "あなたの料理スキルを\nどのように表現しますか？ 💪";
+"cooking_skill_1" = "まだ基本を学んでいます 😅";
+"cooking_skill_2" = "簡単なレシピなら作れます 😊";
+"cooking_skill_3" = "まともな料理を作れます 😎";
+"cooking_skill_4" = "マスターシェフ候補生 👨‍🍳";
+"kitchen_tools_title" = "道具について話しましょう！\nキッチンにどんな機器がありますか？ 🥣";
+"kitchen_tools_subtitle" = "好きなだけ選んでください... 基本的な\nキッチンツールはすでにあると想定しています 😄";
+"tool_oven" = "オーブン";
+"tool_blender" = "ブレンダー";
+"tool_microwave" = "電子レンジ";
+"tool_food_processor" = "フードプロセッサー";
+"tool_air_fryer" = "エアフライヤー";
+"tool_rolling_pin" = "めん棒";
+"tool_grater" = "おろし金";
+"tool_slow_cooker" = "スロークッカー";
+"tool_blowtorch" = "調理用トーチ";
+"dietary_restrictions_title" = "知っておくべき食事制限は\nありますか？ 🧐";
+"dietary_restrictions_subtitle" = "好きなだけ選んでください...";
+"diet_vegetarian" = "🥦 ベジタリアン";
+"diet_vegan" = "🌱 ビーガン";
+"diet_pescatarian" = "🐟 ペスカタリアン";
+"diet_dairy_free" = "🥛 乳製品不使用";
+"diet_gluten_free" = "🍞 グルテンフリー";
+"diet_halal" = "🐑 ハラール";
+"diet_kosher" = "🐓 コーシャ";
+"diet_nut_allergy" = "🥜 ナッツアレルギー";
+"diet_no_restrictions" = "👍 何でも楽しみます";
+"notification_title" = "いつ食事の提案を\n受け取りたいですか？ 🔔";
+"notification_subtitle" = "あなたの好みに合った美味しい\nレシピのアイデアをお送りします";
+"people_count_title" = "通常、何人分の料理を\n作りますか？ 👤";
+
+"Calories" = "カロリー";
+"Carbs" = "炭水化物";
+"Protein" = "タンパク質";
+"Fat" = "脂肪";
+"Ingredients" = "材料";
+"Instructions" = "手順";
+"analyzing_preferences" = "お好みを分析中";
+"customizing_recipes" = "レシピをカスタマイズ中";
+"optimizing_recommendations" = "おすすめを最適化中";
+"finalizing_personalization" = "パーソナライズを完了中";
+"personalizing_experience" = "あなたの体験をパーソナライズ中";
+"Nutrition" = "栄養";
+"chefs_tip" = "シェフのコツ";
+"servings" = "人前";
+
+"appearance_title" = "外観";
+"appearance_system" = "システム";
+"appearance_light" = "ライト";
+"appearance_dark" = "ダーク";
+"cancel" = "キャンセル";

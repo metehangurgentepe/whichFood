@@ -17,12 +17,19 @@
 
 
 // التعريف
-"feature_1" = "حدد المكونات المتوفرة لديك في المنزل، ودع التطبيق يظهر لك ما يمكنك طهيه.";
-"feature_2" = "اختر فئات الوجبات التي تناسبك واستمتع بألذ الأطعمة.";
-"feature_3" = "احفظ تعليمات الطهي المفضلة لديك وقم بتحضيرها في أي وقت تحب.";
-"feature_1_title" = "المكونات المتاحة";
+"feature_1_title" = "اختر المكونات";
+"feature_1_subtitle" = "اختر المكونات المتوفرة لديك في المنزل ودع التطبيق يريك ما يمكنك طهيه بمساعدة الذكاء الاصطناعي.";
+
 "feature_2_title" = "فئات متنوعة";
+"feature_2_subtitle" = "اكتشف وصفات تناسب ذوقك من الإفطار إلى العشاء، مع فئات متنوعة لكل وجبة.";
+
 "feature_3_title" = "حفظ الوصفات";
+"feature_3_subtitle" = "احفظ وصفاتك المفضلة واطبخها في أي وقت تريد بمساعدة الذكاء الاصطناعي.";
+
+"feature_4_title" = "وصفات صحية";
+"feature_4_subtitle" = "ابدأ حياة صحية مع وصفات مغذية ومتوازنة. اكتشف أطباقًا بمكونات موسمية.";
+"lets_get_started" = "هيا نبدأ";
+
 "footer" = "تم التصميم والبرمجة بواسطة متيحان غورغنتيبي";
 "more" = "رؤية المزيد...";
 "feature_button" = "متابعة";
@@ -240,6 +247,7 @@
 "premium_subheadline" = "تهانينا، لقد قمت بتنشيط الوصول إلى جميع ميزات التطبيق بنجاح، استمتع بها!";
 "premium_expiration" = "تاريخ الانتهاء: ";
 "premium_restore" = "هل ترغب في استعادة المشتريات؟";
+"premium_off" = "خَصْم";  
 
 // language
 "language_turkish" = "التركية";
@@ -340,3 +348,98 @@
 //تصویر به متن
 "image_info" = "شما باید از دستور غذا عکس نوشته بگیرید.";
 "take_photo" = "عکس بگیر";
+
+
+"paywall_title" = "وصفات مخصصة بالذكاء الاصطناعي مع WhichFood";
+"paywall_invest" = "افتح أبواب الطهي الذكي";
+"paywall_whats_inside" = "ما بالداخل؟";
+"paywall_subscribe_now" = "اشترك الآن";
+"paywall_restore_purchases" = "استعادة المشتريات";
+"paywall_error_title" = "خطأ";
+"paywall_ok" = "موافق";
+
+"feature_ai_recipe_title" = "توليد الوصفات بالذكاء الاصطناعي";
+"feature_ai_recipe_desc" = "إنشاء وصفات مخصصة بناءً على مكوناتك وتفضيلاتك";
+"feature_customization_title" = "تخصيص متقدم للوصفات";
+"feature_customization_desc" = "تخصيص الوصفات حسب القيود الغذائية ووقت الطهي ومستوى الصعوبة";
+"feature_collections_title" = "مجموعات الوصفات";
+"feature_collections_desc" = "إنشاء وتنظيم مجموعات شخصية من الوصفات وخطط الوجبات";
+"feature_shopping_title" = "قوائم تسوق ذكية";
+"feature_shopping_desc" = "إنشاء قوائم تسوق تلقائية بكميات دقيقة من وصفاتك المختارة";
+"feature_premium_title" = "المميزات المتقدمة";
+"feature_premium_desc" = "تجربة خالية من الإعلانات، وصول دون اتصال بالإنترنت، وتحليل التغذية";
+
+"plan_yearly" = "سنوي";
+"plan_weekly" = "أسبوعي";
+"plan_most_popular" = "الأكثر شعبية";
+"plan_best_offer" = "أفضل عرض";
+"plan_subscribe_terms" = "اشترك اليوم بـ %@ %@. يمكنك الإلغاء في أي وقت.";
+"plan_per_year" = "في السنة";
+"plan_per_week" = "في الأسبوع";
+"plan_monthly" = "شهري";
+"plan_yearly" = "سنوي";
+
+"onboarding.page1.title" = "مرحباً بك في WhichFood";
+"onboarding.page1.description" = "اكتشف وصفات لذيذة مخصصة لمكوناتك وتفضيلاتك";
+"onboarding.page2.title" = "مسح المكونات الخاصة بك";
+"onboarding.page2.description" = "ما عليك سوى مسح ما لديك والحصول على اقتراحات الوصفات المخصصة";
+"onboarding.page3.title" = "احصل على تذكيرات في الوقت المناسب";
+"onboarding.page3.description" = "لا تفوت أي وجبة مع إشعاراتنا المفيدة";
+"onboarding.button.next" = "التالي";
+"onboarding.notification.title" = "وقت الوجبة! 🍽️";
+"onboarding.notification.body" = "غير متأكد مما تطبخه اليوم؟ لدينا اقتراحات لك!";
+
+"next" = "التالي";
+"get_started" = "ابدأ";
+"skip" = "تخطي";
+"cooking_skills_title" = "كيف تصف مهاراتك\nفي الطبخ؟ 💪";
+"cooking_skill_1" = "ما زلت أتعلم الأساسيات 😅";
+"cooking_skill_2" = "يمكنني التعامل مع الوصفات البسيطة 😊";
+"cooking_skill_3" = "قادر على إعداد وجبات جيدة 😎";
+"cooking_skill_4" = "مرشح محتمل لبرنامج ماستر شيف 👨‍🍳";
+"kitchen_tools_title" = "دعنا نتحدث عن الأدوات! ما نوع\nالمعدات التي لديك في مطبخك؟ 🥣";
+"kitchen_tools_subtitle" = "اختر ما تريد... أفترض أنك\nتمتلك بالفعل أدوات المطبخ الأساسية 😄";
+"tool_oven" = "فرن";
+"tool_blender" = "خلاط";
+"tool_microwave" = "ميكروويف";
+"tool_food_processor" = "محضر طعام";
+"tool_air_fryer" = "مقلاة هوائية";
+"tool_rolling_pin" = "شوبك";
+"tool_grater" = "مبشرة";
+"tool_slow_cooker" = "طباخ بطيء";
+"tool_blowtorch" = "مشعل طهي";
+"dietary_restrictions_title" = "هل هناك أي قيود غذائية\nيجب أن أعرفها؟ 🧐";
+"dietary_restrictions_subtitle" = "اختر ما تريد...";
+"diet_vegetarian" = "🥦 نباتي";
+"diet_vegan" = "🌱 نباتي صرف";
+"diet_pescatarian" = "🐟 يأكل السمك فقط";
+"diet_dairy_free" = "🥛 خالٍ من منتجات الألبان";
+"diet_gluten_free" = "🍞 خالٍ من الغلوتين";
+"diet_halal" = "🐑 حلال";
+"diet_kosher" = "🐓 كوشر";
+"diet_nut_allergy" = "🥜 حساسية من المكسرات";
+"diet_no_restrictions" = "👍 أستمتع بكل شيء";
+"notification_title" = "متى ترغب في تلقي\nاقتراحات الوجبات؟ 🔔";
+"notification_subtitle" = "سنرسل لك أفكار وصفات لذيذة\nتتناسب مع تفضيلاتك";
+"people_count_title" = "لكم شخص تطبخ\nعادةً؟ 👤";
+
+"Calories" = "السعرات الحرارية";
+"Carbs" = "الكربوهيدرات";
+"Protein" = "البروتين";
+"Fat" = "الدهون";
+"Ingredients" = "المكونات";
+"Instructions" = "التعليمات";
+"analyzing_preferences" = "تحليل تفضيلاتك";
+"customizing_recipes" = "تخصيص الوصفات";
+"optimizing_recommendations" = "تحسين التوصيات";
+"finalizing_personalization" = "الانتهاء من التخصيص";
+"personalizing_experience" = "تخصيص تجربتك";
+"Nutrition" = "التغذية";
+"chefs_tip" = "نصيحة الشيف";
+"servings" = "حصص";
+
+"appearance_title" = "المظهر";
+"appearance_system" = "النظام";
+"appearance_light" = "فاتح";
+"appearance_dark" = "داكن";
+"cancel" = "إلغاء";

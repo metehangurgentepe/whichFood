@@ -7,63 +7,87 @@
 
 import Foundation
 import UIKit
+import Lottie
 
 class EmptyStateView: UIView {
-    let messageLabel = TitleLabel(textAlignment: .center, fontSize: 28)
-    let logoImageView = UIImageView()
-    
+    let titleLabel = TitleLabel(textAlignment: .center, fontSize: 24)
+    let subtitleLabel = UILabel()
+    let animationView = LottieAnimationView()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    convenience init(title: String, subtitle: String) {
+        self.init(frame: .zero)
+        titleLabel.text = title
+        subtitleLabel.text = subtitle
+    }
+
     convenience init(message: String) {
         self.init(frame: .zero)
-        messageLabel.text = message
+        titleLabel.text = message
+        subtitleLabel.isHidden = true
     }
-    
+
     private func configure() {
-        configureMessageLabel()
-        configureLogoImageView()
+        backgroundColor = .systemBackground
+        configureAnimationView()
+        configureTitleLabel()
+        configureSubtitleLabel()
     }
-    
-    
-    private func configureLogoImageView() {
-        addSubview(logoImageView)
-        
-        logoImageView.alpha = 0.3
-//        logoImageView.image = Images.recipe
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let logoBottomConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 100 : 40
-        let logoImageViewBottomConstraints = logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: logoBottomConstant)
-        logoImageViewBottomConstraints.isActive = true
-        
+
+    private func configureAnimationView() {
+        addSubview(animationView)
+
+        animationView.animation = LottieAnimation.named("feature_1")
+        animationView.loopMode = .loop
+        animationView.contentMode = .scaleAspectFit
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
-            logoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
-            logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 200),
+            animationView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            animationView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80),
+            animationView.widthAnchor.constraint(equalToConstant: 120),
+            animationView.heightAnchor.constraint(equalToConstant: 120)
+        ])
+
+        animationView.play()
+    }
+
+    private func configureTitleLabel() {
+        addSubview(titleLabel)
+
+        titleLabel.numberOfLines = 2
+        titleLabel.textColor = .label
+        titleLabel.font = .systemFont(ofSize: 22, weight: .semibold)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 24),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
         ])
     }
-    
-    private func configureMessageLabel() {
-        addSubview(messageLabel)
-        
-        messageLabel.numberOfLines = 3
-        messageLabel.textColor = .secondaryLabel
-        
-        let labelCenterYConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -60 : -150
-        let messageLabelConstraints = messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: labelCenterYConstant)
-        messageLabelConstraints.isActive = true
-        
+
+    private func configureSubtitleLabel() {
+        addSubview(subtitleLabel)
+
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.textColor = .secondaryLabel
+        subtitleLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
-            messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
-            messageLabel.heightAnchor.constraint(equalToConstant: 200),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
         ])
     }
 }

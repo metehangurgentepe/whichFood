@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+    var isIpad: Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
     var topmostViewController: UIViewController {
         if let presented = self.presentedViewController {
             return presented.topmostViewController

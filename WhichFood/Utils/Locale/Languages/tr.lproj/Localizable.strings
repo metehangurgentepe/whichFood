@@ -15,12 +15,20 @@
 "continueButton" = "Devam";
 
 // onboarding
-"feature_1" = "Evinizde olan malzemeleri seçin uygulama sizin için ne yemek yapabileceğini göstersin.";
-"feature_2" = "Size uygun yemek kategorilerini seçin, en lezzetli yemekleri siz yiyin.";
-"feature_3" = "Beğendiğiniz yemek tariflerini kaydedin istediğiniz zaman yapın.";
-"feature_1_title" = "Uygun malzemeler";
-"feature_2_title" = "Bol kategori";
-"feature_3_title" = "Tarifleri kaydedin";
+// Ekran 1
+"feature_1_title" = "Malzemelerinizi Seçin";
+"feature_1_subtitle" = "Mutfağınızda bulunan malzemeleri seçin, yapay zeka destekli önerilerimizle neler pişirebileceğinizi görün.";
+
+"feature_2_title" = "Zengin Kategoriler";
+"feature_2_subtitle" = "Kahvaltıdan akşam yemeğine, damak tadınıza uygun tarifleri zengin kategorilerimizle keşfedin.";
+
+"feature_3_title" = "Tarifleri Kaydedin";
+"feature_3_subtitle" = "Favori tariflerinizi kaydedin ve yapay zeka desteğiyle istediğiniz zaman hazırlayın.";
+
+"feature_4_title" = "Sağlıklı Tarifler";
+"feature_4_subtitle" = "Besleyici ve dengeli tariflerle sağlıklı yaşama adım atın. Mevsiminde malzemelerle hazırlayabileceğiniz besin değeri yüksek yemek önerileri keşfedin.";
+"lets_get_started" = "Hadi Başlayalım";
+
 "footer" ="Metehan Gürgentepe tarafından tasarlanıp kodlanmıştır";
 "more" = "daha fazlasını gör...";
 "feature_button" = "Devam";
@@ -194,7 +202,19 @@
 // home
 "home_recipe" = "Tarifler";
 "home_create_button" = "Tarif oluştur";
-"home_no_item" = "Kayıtlı tarif bulunmuyor";
+"home_no_item" = "Henüz kayıtlı tarif yok";
+"home_empty_title" = "Tarif koleksiyonunuz boş";
+"home_empty_subtitle" = "Yeni tarifler oluşturmak için yukarıdaki seçenekleri kullanın";
+"home_photo_recipe_title" = "Fotoğraftan Tarif Oluştur";
+"home_photo_recipe_desc" = "Yemek fotoğrafı çekip AI ile tarif oluşturun";
+"home_ingredient_recipe_title" = "Malzemelerden Tarif Oluştur";
+"home_ingredient_recipe_desc" = "Evinizdeki malzemeleri seçerek tarif oluşturun";
+"camera_alert_title" = "Yemek Fotoğrafı Çek";
+"camera_alert_message" = "Yemek fotoğrafı çekerek AI ile otomatik tarif oluşturacağız. Devam etmek istiyor musunuz?";
+"photo_source_title" = "Fotoğraf Kaynağını Seç";
+"photo_source_camera" = "Kamera";
+"photo_source_gallery" = "Galeri";
+"photo_source_cancel" = "İptal";
 "home_all" = "Hepsi";
 "home_meaty" = "Etli";
 "home_vegetarian" = "Vejetaryen";
@@ -250,6 +270,7 @@
 "premium_subheadline" = "Tebrikler, tüm uygulama özelliklerine Premium erişimini başarıyla etkinleştirdiniz, keyfini çıkarın!";
 "premium_expiration" = "Son Kullanma Tarihi: ";
 "premium_restore" = "Satın alımları geri yüklemek istiyor musunuz?";
+"premium_off" = "İNDİRİM"; 
 
 
 // settings
@@ -337,3 +358,123 @@
 //image to text
 "image_info" = "Tarifin yazılı fotoğrafını çekmeniz gerekiyor.";
 "take_photo" = "Fotoğraf Çek";
+
+// Premium/Paywall
+"paywall_title" = "WhichFood ile yaratıcı tarif deneyiminin kilidini açın";
+"paywall_invest" = "Yenilikçi mutfak yolculuğunuza bugün başlayın";
+"paywall_whats_inside" = "Neler var?";
+"paywall_subscribe_now" = "Şimdi abone ol";
+"paywall_restore_purchases" = "Satın alımları geri yükle";
+"paywall_error_title" = "Hata";
+"paywall_ok" = "Tamam";
+
+// Premium Features
+"feature_ai_recipe_title" = "Yapay Zeka ile Tarif Oluşturma";
+"feature_ai_recipe_desc" = "Malzemelerinize ve tercihlerinize göre sınırsız kişiselleştirilmiş tarifler oluşturun";
+"feature_customization_title" = "Gelişmiş Tarif Özelleştirme";
+"feature_customization_desc" = "Tarifleri diyet kısıtlamalarına, pişirme süresine ve zorluk seviyesine göre özelleştirin";
+"feature_collections_title" = "Tarif Koleksiyonları";
+"feature_collections_desc" = "Sınırsız kişisel tarif koleksiyonları ve yemek planları oluşturun ve düzenleyin";
+"feature_shopping_title" = "Akıllı Alışveriş Listeleri";
+"feature_shopping_desc" = "Seçtiğiniz tariflerden tam miktarlarla otomatik alışveriş listeleri oluşturun";
+"feature_premium_title" = "Premium Özellikler";
+"feature_premium_desc" = "Reklamsız deneyim, çevrimdışı erişim ve besin analizi";
+
+// Subscription Plans
+"plan_yearly" = "Yıllık";
+"plan_weekly" = "Haftalık";
+"plan_most_popular" = "En popüler";
+"plan_best_offer" = "En iyi teklif";
+"plan_subscribe_terms" = "Bugün abone olun ve %@ %@ ödersiniz. İstediğiniz zaman iptal edin.";
+"plan_per_year" = "yıllık";
+"plan_per_week" = "haftalık";
+"plan_monthly" = "Aylık";
+"plan_yearly" = "Yıllık";
+
+
+"onboarding.page1.title" = "WhichFood'a Hoş Geldiniz";
+"onboarding.page1.description" = "Malzemelerinize ve tercihlerinize göre özel lezzetli tarifler keşfedin";
+"onboarding.page2.title" = "Malzemelerinizi Tarayın";
+"onboarding.page2.description" = "Elinizde olanları basitçe tarayın ve size özel tarif önerileri alın";
+"onboarding.page3.title" = "Zamanında Hatırlatmalar Alın";
+"onboarding.page3.description" = "Faydalı bildirimlerimizle hiçbir öğünü kaçırmayın";
+"onboarding.button.next" = "İleri";
+"onboarding.notification.title" = "Yemek Vakti! 🍽️";
+"onboarding.notification.body" = "Bugün ne pişireceğinizden emin değil misiniz? Sizin için önerilerimiz var!";
+
+
+"next" = "İleri";
+"get_started" = "Başla";
+"skip" = "Atla";
+"cooking_skills_title" = "Yemek yapma becerilerini\nnasıl tanımlarsın? 💪";
+"cooking_skill_1" = "Hala temelleri öğreniyorum 😅";
+"cooking_skill_2" = "Basit tarifleri yapabiliyorum 😊";
+"cooking_skill_3" = "İyi yemekler hazırlayabiliyorum 😎";
+"cooking_skill_4" = "Potansiyel MasterChef yarışmacısı 👨‍🍳";
+"kitchen_tools_title" = "Gelelim mutfak aletlerine! Mutfağında\nhangi ekipmanlar var? 🥣";
+"kitchen_tools_subtitle" = "İstediğin kadar seçebilirsin... Temel mutfak\naletlerine zaten sahip olduğunu varsayıyorum 😄";
+"tool_oven" = "Fırın";
+"tool_blender" = "Blender";
+"tool_microwave" = "Mikrodalga";
+"tool_food_processor" = "Mutfak Robotu";
+"tool_air_fryer" = "Airfryer";
+"tool_rolling_pin" = "Oklava";
+"tool_grater" = "Rende";
+"tool_slow_cooker" = "Yavaş Pişirici";
+"tool_blowtorch" = "Pürmüz";
+"dietary_restrictions_title" = "Bilmem gereken diyet\nkısıtlamaların var mı? 🧐";
+"dietary_restrictions_subtitle" = "İstediğin kadar seçebilirsin...";
+"diet_vegetarian" = "🥦 Vejetaryen";
+"diet_vegan" = "🌱 Vegan";
+"diet_pescatarian" = "🐟 Pesketaryen";
+"diet_dairy_free" = "🥛 Süt Ürünleri İçermez";
+"diet_gluten_free" = "🍞 Glutensiz";
+"diet_halal" = "🐑 Helal";
+"diet_kosher" = "🐓 Koşer";
+"diet_nut_allergy" = "🥜 Kuruyemiş alerjisi";
+"diet_no_restrictions" = "👍 Her şeyi severim";
+"notification_title" = "Yemek önerilerini ne zaman\nalmak istersin? 🔔";
+"notification_subtitle" = "Tercihlerine uygun lezzetli\ntarif fikirleri göndereceğiz";
+"people_count_title" = "Genellikle kaç kişi için\nyemek yapıyorsun? 👤";
+
+"Calories" = "Kaloriler";
+"Carbs" = "Karbonhidratlar";
+"Protein" = "Protein";
+"Fat" = "Yağ";
+"Ingredients" = "Malzemeler";
+"Instructions" = "Talimatlar";
+"analyzing_preferences" = "Tercihleriniz analiz ediliyor";
+"customizing_recipes" = "Tarifler özelleştiriliyor";
+"optimizing_recommendations" = "Öneriler optimize ediliyor";
+"finalizing_personalization" = "Kişiselleştirme tamamlanıyor";
+"personalizing_experience" = "Deneyiminiz kişiselleştiriliyor";
+"Nutrition" = "Beslenme";
+"chefs_tip" = "Şefin önerisi";
+
+// Select Food Screen
+"selected_ingredients" = "Seçili Malzemeler";
+"no_ingredients_selected" = "Henüz malzeme seçilmedi";
+"close_button" = "Kapat";
+"ingredients_selected_count" = "%d malzeme seçildi";
+
+// Paywall Screen
+"paywall_title" = "WhichFood Premium";
+"paywall_whats_inside" = "Neler Dahil";
+"paywall_subscribe_now" = "Şimdi Abone Ol";
+"paywall_restore_purchases" = "Satın Alımları Geri Yükle";
+"paywall_error_title" = "Hata";
+"paywall_ok" = "Tamam";
+"paywall_ai_recipe_title" = "AI Tarif Üretimi";
+"paywall_ai_recipe_desc" = "Gelişmiş yapay zeka teknolojisi ile özel tarifler oluşturun";
+"paywall_photo_recipe_title" = "Fotoğraf Tarif Analizi";
+"paywall_photo_recipe_desc" = "Yemek fotoğraflarını anında detaylı tariflere dönüştürün";
+"paywall_choose_plan" = "Planınızı Seçin";
+"plan_discount_percent" = "%%%d indirim";
+"plan_best_value" = "En iyi değer";
+"servings" = "kişilik";
+
+"appearance_title" = "Görünüm";
+"appearance_system" = "Sistem";
+"appearance_light" = "Açık";
+"appearance_dark" = "Koyu";
+"cancel" = "İptal";

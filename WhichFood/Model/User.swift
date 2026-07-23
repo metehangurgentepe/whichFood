@@ -16,4 +16,5 @@ struct User: Codable{
     var successNumberOfUsageApi: Int
     var lastPremiumDate: Timestamp?
     var premiumType: String
+    var premiumUpdatedAt: Timestamp?
 }

@@ -15,12 +15,15 @@
 "continueButton" = "Jatka";
 
 // onboarding
-"feature_1" = "Valitse ainesosat, jotka sinulla on kotona, ja sovellus näyttää, mitä voit valmistaa.";
-"feature_2" = "Valitse sinulle sopivat aterialuokat ja nauti herkullisimmista ruoista.";
-"feature_3" = "Tallenna suosikkireseptisi ja tee niitä milloin tahansa.";
-"feature_1_title" = "Saatavilla olevat ainesosat";
-"feature_2_title" = "Runsaat kategoriat";
-"feature_3_title" = "Tallenna reseptit";
+"feature_1_title" = "Valitse Ainesosat";
+"feature_1_subtitle" = "Valitse kotona olevat ainesosat ja anna sovelluksen näyttää, mitä voit tekoälyn avulla valmistaa.";
+"feature_2_title" = "Monipuoliset Kategoriat";
+"feature_2_subtitle" = "Tutki makuusi sopivia reseptejä aamiaisesta illalliseen, eri kategorioita joka aterialle.";
+"feature_3_title" = "Tallenna Reseptit";
+"feature_3_subtitle" = "Tallenna suosikkireseptisi ja valmista niitä milloin tahansa tekoälyn avustuksella.";
+"feature_4_title" = "Terveelliset Reseptit";
+"feature_4_subtitle" = "Aloita terveellinen elämä ravitsevilla ja tasapainoisilla resepteillä. Löydä ruokia kauden raaka-aineista.";
+"lets_get_started" = "Aloitetaan";
 "footer" = "Suunniteltu ja koodattu Metehan Gürgentepe";
 "more" = "Näytä lisää...";
 "feature_button" = "Jatka";
@@ -241,6 +244,7 @@
 "premium_subheadline" = "Onnittelut, olet aktivoinut Premium-pääsyn kaikkiin sovelluksen ominaisuuksiin. Nauti!";
 "premium_expiration" = "Vanhentumispäivä: ";
 "premium_restore" = "Haluatko palauttaa ostokset?";
+"premium_off" = "ALENNUS";
 
 // settings
 "settings_title" = "Asetukset";
@@ -321,3 +325,100 @@
 // image to text
 "image_info" = "Sinun täytyy ottaa kuva kirjoitetusta reseptistä.";
 "take_photo" = "Ota kuva";
+
+// FINNISH (SUOMI)
+"paywall_title" = "Tekoälypohjaiset personoidut reseptit WhichFoodilla";
+"paywall_invest" = "Avaa ovet älykkääseen ruoanlaittoon";
+"paywall_whats_inside" = "Mitä sisältää?";
+"paywall_subscribe_now" = "Tilaa nyt";
+"paywall_restore_purchases" = "Palauta ostokset";
+"paywall_error_title" = "Virhe";
+"paywall_ok" = "OK";
+
+"feature_ai_recipe_title" = "Tekoälypohjainen Reseptien Luonti";
+"feature_ai_recipe_desc" = "Luo personoituja reseptejä ainesosien ja mieltymystesi mukaan";
+"feature_customization_title" = "Edistynyt Reseptien Muokkaus";
+"feature_customization_desc" = "Mukauta reseptejä ruokavaliorajoitusten, valmistusajan ja vaikeustason mukaan";
+"feature_collections_title" = "Reseptikokoelmat";
+"feature_collections_desc" = "Luo ja järjestä henkilökohtaisia reseptikokoelmia ja ateriasuunnitelmia";
+"feature_shopping_title" = "Älykkäät Ostoslistat";
+"feature_shopping_desc" = "Luo automaattisia ostoslistoja tarkkoilla määrillä valituista resepteistä";
+"feature_premium_title" = "Premium-ominaisuudet";
+"feature_premium_desc" = "Mainokseton kokemus, offline-käyttö ja ravintosisältöanalyysi";
+
+"plan_yearly" = "Vuosittain";
+"plan_weekly" = "Viikoittain";
+"plan_most_popular" = "Suosituin";
+"plan_best_offer" = "Paras tarjous";
+"plan_subscribe_terms" = "Tilaa tänään hintaan %@ %@. Peruuta milloin tahansa.";
+"plan_per_year" = "vuodessa";
+"plan_per_week" = "viikossa";
+"plan_weekly" = "Viikoittain";
+"plan_yearly" = "Vuosittain";
+"plan_monthly" = "Kuukausittain";
+
+
+"onboarding.page1.title" = "Tervetuloa WhichFoodiin";
+"onboarding.page1.description" = "Löydä herkullisia reseptejä, jotka on räätälöity ainesosillesi ja mieltymyksillesi";
+"onboarding.page2.title" = "Skannaa ainesosasi";
+"onboarding.page2.description" = "Skannaa yksinkertaisesti mitä sinulla on ja saat henkilökohtaisia reseptiehdotuksia";
+"onboarding.page3.title" = "Saa ajoitettuja muistutuksia";
+"onboarding.page3.description" = "Älä koskaan unohda ateriaa hyödyllisten ilmoitustemme ansiosta";
+"onboarding.button.next" = "Seuraava";
+"onboarding.notification.title" = "Ruoka-aika! 🍽️";
+"onboarding.notification.body" = "Etkö ole varma mitä tänään laittaisit? Meillä on ehdotuksia sinulle!";
+
+"next" = "Seuraava";
+"get_started" = "Aloita";
+"skip" = "Ohita";
+"cooking_skills_title" = "Miten kuvailisit\nruoanlaittotaitojasi? 💪";
+"cooking_skill_1" = "Opettelen vielä perusteita 😅";
+"cooking_skill_2" = "Pärjään yksinkertaisilla resepteillä 😊";
+"cooking_skill_3" = "Osaan tehdä kelvollisia aterioita 😎";
+"cooking_skill_4" = "Potentiaalinen MasterChef-kilpailija 👨‍🍳";
+"kitchen_tools_title" = "Puhutaanpa välineistä! Millaisia\nkeittiövälineitä sinulla on? 🥣";
+"kitchen_tools_subtitle" = "Valitse niin monta kuin haluat... Oletan, että sinulla\non jo välttämättömät keittiövälineet 😄";
+"tool_oven" = "Uuni";
+"tool_blender" = "Tehosekoitin";
+"tool_microwave" = "Mikroaaltouuni";
+"tool_food_processor" = "Monitoimikone";
+"tool_air_fryer" = "Ilmafriteeraaja";
+"tool_rolling_pin" = "Kaulin";
+"tool_grater" = "Raastin";
+"tool_slow_cooker" = "Haudutuspata";
+"tool_blowtorch" = "Keittiöpoltin";
+"dietary_restrictions_title" = "Onko ruokavaliorajoituksia,\njoista minun pitäisi tietää? 🧐";
+"dietary_restrictions_subtitle" = "Valitse niin monta kuin haluat...";
+"diet_vegetarian" = "🥦 Kasvisruokavalio";
+"diet_vegan" = "🌱 Vegaani";
+"diet_pescatarian" = "🐟 Pescovegetaristi";
+"diet_dairy_free" = "🥛 Maidoton";
+"diet_gluten_free" = "🍞 Gluteeniton";
+"diet_halal" = "🐑 Halal";
+"diet_kosher" = "🐓 Kosher";
+"diet_nut_allergy" = "🥜 Pähkinäallergia";
+"diet_no_restrictions" = "👍 Nautin kaikesta";
+"notification_title" = "Milloin haluaisit saada\nateriasuosituksia? 🔔";
+"notification_subtitle" = "Lähetämme sinulle herkullisia resepti-ideoita,\njotka vastaavat mieltymyksiäsi";
+"people_count_title" = "Kuinka monelle henkilölle\nyleensä laitat ruokaa? 👤";
+
+"Calories" = "Kalorit";
+"Carbs" = "Hiilihydraatit";
+"Protein" = "Proteiini";
+"Fat" = "Rasva";
+"Ingredients" = "Ainesosat";
+"Instructions" = "Ohjeet";
+"analyzing_preferences" = "Mieltymystesi analysointi";
+"customizing_recipes" = "Reseptien mukauttaminen";
+"optimizing_recommendations" = "Suositusten optimointi";
+"finalizing_personalization" = "Personoinnin viimeistely";
+"personalizing_experience" = "Kokemuksesi personointi";
+"Nutrition" = "Ravitsemus";
+"chefs_tip" = "Kokin vinkki";
+"servings" = "annosta";
+
+"appearance_title" = "Ulkoasu";
+"appearance_system" = "Järjestelmä";
+"appearance_light" = "Vaalea";
+"appearance_dark" = "Tumma";
+"cancel" = "Peruuta";

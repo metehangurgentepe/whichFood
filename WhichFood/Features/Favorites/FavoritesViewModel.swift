@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class FavoriteViewModel: FavoriteViewModelProtocol {
     var delegate: FavoriteViewModelDelegate?
@@ -17,7 +18,7 @@ class FavoriteViewModel: FavoriteViewModelProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let favorites):
-                self.recipes = favorites
+                self.recipes = favorites.map({$0.toRecipe()})
                 self.delegate?.handleOutput(.favoriteList(recipes))
                 if recipes.isEmpty{
                     self.delegate?.handleOutput(.showEmptyView)
@@ -31,5 +32,24 @@ class FavoriteViewModel: FavoriteViewModelProtocol {
     
     func selectRecipe(id:Int) {
         self.delegate?.handleOutput(.selectMovie(id))
+    }
+}
+
+extension RecipeResponseModel {
+    func toRecipe() -> Recipe {
+        return Recipe(
+            id: UUID().uuidString,
+            name: self.foodName,
+            recipe: self.recipe,
+            ingredients: self.ingredients,
+            description: self.description,
+            cookTime: self.cookTime,
+            userId: "",
+            createdAt: Timestamp(date: Date()),
+            type: self.type,
+            imageUrl: self.imageURL,
+            language: Bundle.main.preferredLocalizations.first,
+            keywords: []
+        )
     }
 }

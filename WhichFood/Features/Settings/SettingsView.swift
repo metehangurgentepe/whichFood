@@ -11,9 +11,15 @@ import MessageUI
 
 struct UIKitDestinationView: UIViewControllerRepresentable {
     var view: UIViewController!
+    var needsNavigation: Bool = false
+    
     func makeUIViewController(context: Context) -> UIViewController {
-        let navigationViewController = UINavigationController(rootViewController: view)
-        return navigationViewController
+        if needsNavigation {
+            let navigationViewController = UINavigationController(rootViewController: view)
+            return navigationViewController
+        } else {
+            return view
+        }
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
@@ -61,7 +67,7 @@ struct SettingsView: View {
                         }
                     })
                     .sheet(isPresented: $isAccountVCPresented, content: {
-                        UIKitDestinationView(view: AccountViewController())
+                        UIKitDestinationView(view: AccountViewController(), needsNavigation: true)
                     })
                     
                     Menu {
@@ -223,6 +229,7 @@ struct SettingsView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
         }
+        .navigationViewStyle(.stack)
     }
     
     

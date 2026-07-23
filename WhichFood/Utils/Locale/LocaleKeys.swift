@@ -29,6 +29,23 @@ struct LocaleKeys {
         case subscribedSubheadline = "premium_subheadline"
         case latestExpirationDate = "premium_expiration"
         case restore = "premium_restore"
+        case off = "premium_off"
+    }
+
+    enum Paywall: String {
+        case title = "paywall_title"
+        case whatsInside = "paywall_whats_inside"
+        case subscribeNow = "paywall_subscribe_now"
+        case restorePurchases = "paywall_restore_purchases"
+        case errorTitle = "paywall_error_title"
+        case ok = "paywall_ok"
+        case aiRecipeTitle = "paywall_ai_recipe_title"
+        case aiRecipeDesc = "paywall_ai_recipe_desc"
+        case photoRecipeTitle = "paywall_photo_recipe_title"
+        case photoRecipeDesc = "paywall_photo_recipe_desc"
+        case choosePlan = "paywall_choose_plan"
+        case discountPercent = "plan_discount_percent"
+        case bestValue = "plan_best_value"
     }
     enum ShowFood: String{
         case prompt1 = "show_food_prompt1"
@@ -277,6 +294,18 @@ struct LocaleKeys {
         case recipe = "home_recipe"
         case button = "home_create_button"
         case noItem = "home_no_item"
+        case emptyTitle = "home_empty_title"
+        case emptySubtitle = "home_empty_subtitle"
+        case photoRecipeTitle = "home_photo_recipe_title"
+        case photoRecipeDesc = "home_photo_recipe_desc"
+        case ingredientRecipeTitle = "home_ingredient_recipe_title"
+        case ingredientRecipeDesc = "home_ingredient_recipe_desc"
+        case cameraAlertTitle = "camera_alert_title"
+        case cameraAlertMessage = "camera_alert_message"
+        case photoSourceTitle = "photo_source_title"
+        case photoSourceCamera = "photo_source_camera"
+        case photoSourceGallery = "photo_source_gallery"
+        case photoSourceCancel = "photo_source_cancel"
         case showAlert = "image_info"
         case takePhoto = "take_photo"
         case all = "home_all"
@@ -310,6 +339,10 @@ struct LocaleKeys {
         case seafood = "select_seafood"
         case herb = "select_herb"
         case nut = "select_nut"
+        case selectedIngredients = "selected_ingredients"
+        case noIngredientsSelected = "no_ingredients_selected"
+        case closeButton = "close_button"
+        case ingredientsSelectedCount = "ingredients_selected_count"
     }
     enum Error: String {
         case alert = "error_alert"

@@ -40,7 +40,7 @@ class SelectFoodCell: UITableViewCell {
             foodName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             foodName.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             foodName.heightAnchor.constraint(equalToConstant: 30),
-            foodName.widthAnchor.constraint(equalToConstant: 120)
+            foodName.trailingAnchor.constraint(equalTo: checkboxImageView.leadingAnchor, constant: -8)
         ])
     }
     
@@ -48,9 +48,24 @@ class SelectFoodCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-   
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
+        // Clear default selection background
+        self.selectionStyle = .none
+    }
+
+    func updateCheckbox(isSelected: Bool, animated: Bool = true) {
+        let newImage = isSelected ? Images.selectedCheck : Images.unselectedCheck
+
+        if animated {
+            UIView.transition(with: checkboxImageView, duration: 0.2, options: .transitionCrossDissolve) {
+                self.checkboxImageView.image = newImage
+            }
+        } else {
+            checkboxImageView.image = newImage
+        }
+
+        isSelectedCell = isSelected
     }
 }

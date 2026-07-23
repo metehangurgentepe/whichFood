@@ -16,12 +16,16 @@
 "continueButton" = "Pokračovat";
 
 // Úvod
-"feature_1" = "Vyberte si suroviny, které máte doma, a aplikace vám řekne, co můžete vařit.";
-"feature_2" = "Vyberte si kategorie jídel, které preferujete, a pochutnejte si na nejlepších pokrmech.";
-"feature_3" = "Uložte si recepty svých oblíbených jídel a vařte, kdykoli chcete.";
-"feature_1_title" = "Dostupné Suroviny";
-"feature_2_title" = "Mnoho Kategorií";
+"feature_1_title" = "Vyberte své Ingredience";
+"feature_1_subtitle" = "Vyberte suroviny, které máte doma, a nechte aplikaci ukázat, co můžete vařit s pomocí umělé inteligence.";
+"feature_2_title" = "Bohaté Kategorie";
+"feature_2_subtitle" = "Prozkoumejte recepty, které vyhovují vaší chuti od snídaně po večeři, s různými kategoriemi pro každé jídlo.";
 "feature_3_title" = "Uložit Recepty";
+"feature_3_subtitle" = "Uložte si své oblíbené recepty a připravujte je kdykoli s pomocí umělé inteligence.";
+"feature_4_title" = "Zdravé Recepty";
+"feature_4_subtitle" = "Začněte zdravý život s výživnými a vyváženými recepty. Objevte pokrmy se sezónními surovinami.";
+"lets_get_started" = "Začněme";
+
 "footer" ="Vytvořil a zakódoval Metehan Gürgentepe";
 "more" = "Zobrazit více...";
 "feature_button" = "Pokračovat";
@@ -245,6 +249,7 @@
 "premium_subheadline" = "Gratulujeme, úspěšně jste aktivovali prémiový přístup ke všem funkcím aplikace, užijte si to!";
 "premium_expiration" = "Datum vypršení: ";
 "premium_restore" = "Chcete obnovit nákupy?";
+"premium_off" = "SLEVA"; 
 
 
 
@@ -336,3 +341,103 @@
 //obrázek na text
 "image_info" = "Musíte vyfotit recept.";
 "take_photo" = "Vyfotit";
+
+
+// Premium/Paywall
+"paywall_title" = "Odemkněte kreativní kulinářské zážitky s WhichFood";
+"paywall_invest" = "Začněte svou inovativní kulinářskou cestu ještě dnes";
+"paywall_whats_inside" = "Co obsahuje?";
+"paywall_subscribe_now" = "Předplaťte si nyní";
+"paywall_restore_purchases" = "Obnovit nákupy";
+"paywall_error_title" = "Chyba";
+"paywall_ok" = "OK";
+// Premium Features
+"feature_ai_recipe_title" = "Generování receptů pomocí AI";
+"feature_ai_recipe_desc" = "Vytvářejte neomezené množství personalizovaných receptů podle vašich ingrediencí a preferencí";
+"feature_customization_title" = "Pokročilé přizpůsobení receptů";
+"feature_customization_desc" = "Přizpůsobte si recepty podle dietních omezení, doby vaření a úrovně obtížnosti";
+"feature_collections_title" = "Kolekce receptů";
+"feature_collections_desc" = "Vytvářejte a organizujte neomezené osobní kolekce receptů a jídelníčky";
+"feature_shopping_title" = "Chytré nákupní seznamy";
+"feature_shopping_desc" = "Generujte automatické nákupní seznamy s přesnými množstvími z vybraných receptů";
+"feature_premium_title" = "Premium funkce";
+"feature_premium_desc" = "Prostředí bez reklam, offline přístup a nutriční analýza";
+// Subscription Plans
+"plan_yearly" = "Ročně";
+"plan_weekly" = "Týdně";
+"plan_most_popular" = "Nejoblíbenější";
+"plan_best_offer" = "Nejlepší nabídka";
+"plan_subscribe_terms" = "Předplaťte si dnes za %@ %@. Zrušit můžete kdykoliv.";
+"plan_per_year" = "za rok";
+"plan_per_week" = "za týden";
+"plan_weekly" = "Týdně";
+"plan_yearly" = "Ročně";
+"plan_monthly" = "Měsíčně";
+
+
+"onboarding.page1.title" = "Vítejte ve WhichFood";
+"onboarding.page1.description" = "Objevte chutné recepty přizpůsobené vašim ingrediencím a preferencím";
+"onboarding.page2.title" = "Naskenujte své ingredience";
+"onboarding.page2.description" = "Jednoduše naskenujte, co máte, a získejte personalizované návrhy receptů";
+"onboarding.page3.title" = "Získejte včasné připomínky";
+"onboarding.page3.description" = "Nikdy nezmeškejte jídlo díky našim užitečným oznámením";
+"onboarding.button.next" = "Další";
+"onboarding.notification.title" = "Čas na jídlo! 🍽️";
+"onboarding.notification.body" = "Nevíte, co dnes uvařit? Máme pro vás návrhy!";
+
+
+"next" = "Další";
+"get_started" = "Začít";
+"skip" = "Přeskočit";
+"cooking_skills_title" = "Jak bys popsal/a své\nkuchařské dovednosti? 💪";
+"cooking_skill_1" = "Stále se učím základy 😅";
+"cooking_skill_2" = "Zvládám jednoduché recepty 😊";
+"cooking_skill_3" = "Dokážu vytvořit slušná jídla 😎";
+"cooking_skill_4" = "Potenciální soutěžící MasterChef 👨‍🍳";
+"kitchen_tools_title" = "Pojďme mluvit o náčiní! Jaké\nvybavení máš v kuchyni? 🥣";
+"kitchen_tools_subtitle" = "Vyber si, kolik chceš... Předpokládám, že\nuž máš základní kuchyňské náčiní 😄";
+"tool_oven" = "Trouba";
+"tool_blender" = "Mixér";
+"tool_microwave" = "Mikrovlnná trouba";
+"tool_food_processor" = "Kuchyňský robot";
+"tool_air_fryer" = "Horkovzdušná fritéza";
+"tool_rolling_pin" = "Váleček";
+"tool_grater" = "Struhadlo";
+"tool_slow_cooker" = "Pomalý hrnec";
+"tool_blowtorch" = "Kuchyňský hořák";
+"dietary_restrictions_title" = "Existují nějaká dietní\nomezení, která bych měl/a znát? 🧐";
+"dietary_restrictions_subtitle" = "Vyber si, kolik chceš...";
+"diet_vegetarian" = "🥦 Vegetariánská";
+"diet_vegan" = "🌱 Veganská";
+"diet_pescatarian" = "🐟 Pescetariánská";
+"diet_dairy_free" = "🥛 Bez mléčných výrobků";
+"diet_gluten_free" = "🍞 Bezlepková";
+"diet_halal" = "🐑 Halal";
+"diet_kosher" = "🐓 Košer";
+"diet_nut_allergy" = "🥜 Alergie na ořechy";
+"diet_no_restrictions" = "👍 Jím vše";
+"notification_title" = "Kdy bys chtěl/a dostávat\nnávrhy jídel? 🔔";
+"notification_subtitle" = "Pošleme ti chutné nápady na recepty,\nkteré odpovídají tvým preferencím";
+"people_count_title" = "Pro kolik lidí obvykle\nvaříš? 👤";
+
+
+"Calories" = "Kalorie";
+"Carbs" = "Sacharidy";
+"Protein" = "Bílkoviny";
+"Fat" = "Tuky";
+"Ingredients" = "Ingredience";
+"Instructions" = "Pokyny";
+"analyzing_preferences" = "Analyzování vašich preferencí";
+"customizing_recipes" = "Přizpůsobování receptů";
+"optimizing_recommendations" = "Optimalizace doporučení";
+"finalizing_personalization" = "Dokončování personalizace";
+"personalizing_experience" = "Personalizace vašeho zážitku";
+"Nutrition" = "Výživa";
+"chefs_tip" = "Tip šéfkuchaře";
+"servings" = "porce";
+
+"appearance_title" = "Vzhled";
+"appearance_system" = "Systém";
+"appearance_light" = "Světlý";
+"appearance_dark" = "Tmavý";
+"cancel" = "Zrušit";

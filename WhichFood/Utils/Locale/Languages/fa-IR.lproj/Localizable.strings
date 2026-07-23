@@ -14,12 +14,16 @@
 "continueButton" = "ادامه";
 
 // onboarding
-"feature_1" = "مواد اولیه موجود در خانه خود را انتخاب کنید و به اپلیکیشن اجازه دهید به شما نشان دهد چه غذاهایی می‌توانید بپزید.";
-"feature_2" = "دسته‌های غذایی را که با سلیقه شما هماهنگ هستند، انتخاب کنید و از لذت پختن بهترین غذاها لذت ببرید.";
-"feature_3" = "دستورات دلخواه خود را ذخیره کنید و هر زمان که دوست دارید بپزید.";
-"feature_1_title" = "مواد اولیه در دسترس";
-"feature_2_title" = "دسته‌های فراوان";
-"feature_3_title" = "ذخیره دستورات پخت";
+"feature_1_title" = "مواد لازم را انتخاب کنید";
+"feature_1_subtitle" = "مواد غذایی موجود در خانه را انتخاب کنید و با کمک هوش مصنوعی ببینید چه غذاهایی می‌توانید درست کنید.";
+"feature_2_title" = "دسته‌بندی‌های متنوع";
+"feature_2_subtitle" = "از صبحانه تا شام، دستور پخت‌های متناسب با ذائقه خود را در دسته‌بندی‌های مختلف کشف کنید.";
+"feature_3_title" = "ذخیره دستور پخت‌ها";
+"feature_3_subtitle" = "دستور پخت‌های مورد علاقه خود را ذخیره کنید و هر زمان که خواستید با کمک هوش مصنوعی آنها را تهیه کنید.";
+"feature_4_title" = "دستور پخت‌های سالم";
+"feature_4_subtitle" = "با دستور پخت‌های مغذی و متعادل، زندگی سالمی را شروع کنید. غذاهایی با مواد فصلی را کشف کنید.";
+"lets_get_started" = "شروع کنیم";
+
 "footer" = "طراحی و کدنویسی توسط Metehan Gürgentepe";
 "more" = "بیشتر ببینید...";
 "feature_button" = "ادامه";
@@ -244,6 +248,7 @@
 "premium_subheadline" = "تبریک می‌گویم، شما با موفقیت دسترسی پریمیوم به تمام ویژگی‌های اپلیکیشن را فعال کرده‌اید، از آن لذت ببرید!";
 "premium_expiration" = "تاریخ انقضا: ";
 "premium_restore" = "آیا می‌خواهید خریدها را بازیابی کنید؟";
+"premium_off" = "تَخْفِیف";
 
 // settings
 "settings_title" = "تنظیمات";
@@ -327,3 +332,99 @@
 
 
 //image to text
+
+// PERSIAN (FARSI)
+"paywall_title" = "دستور العمل‌های شخصی‌سازی شده با هوش مصنوعی در WhichFood";
+"paywall_invest" = "درهای آشپزی هوشمند را باز کنید";
+"paywall_whats_inside" = "چه چیزی در داخل است؟";
+"paywall_subscribe_now" = "همین حالا مشترک شوید";
+"paywall_restore_purchases" = "بازیابی خریدها";
+"paywall_error_title" = "خطا";
+"paywall_ok" = "تایید";
+
+"feature_ai_recipe_title" = "تولید دستور پخت با هوش مصنوعی";
+"feature_ai_recipe_desc" = "دستور العمل‌های شخصی‌سازی شده بر اساس مواد و ترجیحات شما ایجاد کنید";
+"feature_customization_title" = "شخصی‌سازی پیشرفته دستور پخت";
+"feature_customization_desc" = "دستور العمل‌ها را بر اساس محدودیت‌های غذایی، زمان پخت و سطح دشواری تنظیم کنید";
+"feature_collections_title" = "مجموعه دستور پخت‌ها";
+"feature_collections_desc" = "مجموعه‌های شخصی دستور پخت و برنامه‌های غذایی را ایجاد و سازماندهی کنید";
+"feature_shopping_title" = "لیست‌های خرید هوشمند";
+"feature_shopping_desc" = "لیست‌های خرید خودکار با مقادیر دقیق از دستور پخت‌های انتخابی شما ایجاد کنید";
+"feature_premium_title" = "ویژگی‌های پیشرفته";
+"feature_premium_desc" = "تجربه بدون تبلیغات، دسترسی آفلاین و تجزیه و تحلیل تغذیه";
+
+"plan_yearly" = "سالانه";
+"plan_weekly" = "هفتگی";
+"plan_most_popular" = "محبوب‌ترین";
+"plan_best_offer" = "بهترین پیشنهاد";
+"plan_subscribe_terms" = "امروز مشترک شوید و %@ %@ پرداخت کنید. هر زمان که خواستید لغو کنید.";
+"plan_per_year" = "در سال";
+"plan_per_week" = "در هفته";
+"plan_weekly" = "هفتگی";
+"plan_yearly" = "سالانه";
+"plan_monthly" = "ماهانه";
+
+"onboarding.page1.title" = "به WhichFood خوش آمدید";
+"onboarding.page1.description" = "دستور پخت‌های خوشمزه متناسب با مواد و سلیقه‌تان را کشف کنید";
+"onboarding.page2.title" = "مواد غذایی خود را اسکن کنید";
+"onboarding.page2.description" = "به سادگی آنچه دارید را اسکن کنید و پیشنهادهای شخصی‌سازی شده دریافت کنید";
+"onboarding.page3.title" = "یادآوری‌های به موقع دریافت کنید";
+"onboarding.page3.description" = "با اعلان‌های مفید ما هیچ وعده غذایی را از دست ندهید";
+"onboarding.button.next" = "بعدی";
+"onboarding.notification.title" = "وقت غذاست! 🍽️";
+"onboarding.notification.body" = "مطمئن نیستید امروز چه بپزید؟ ما پیشنهاداتی برای شما داریم!";
+
+"next" = "بعدی";
+"get_started" = "شروع کنید";
+"skip" = "رد کردن";
+"cooking_skills_title" = "مهارت‌های آشپزی خود را\nچگونه توصیف می‌کنید؟ 💪";
+"cooking_skill_1" = "هنوز در حال یادگیری اصول اولیه هستم 😅";
+"cooking_skill_2" = "می‌توانم دستورهای ساده را اجرا کنم 😊";
+"cooking_skill_3" = "قادر به تهیه غذاهای مناسب هستم 😎";
+"cooking_skill_4" = "شرکت‌کننده بالقوه مسابقه مسترشف 👨‍🍳";
+"kitchen_tools_title" = "بیایید درباره ابزارها صحبت کنیم! چه نوع\nتجهیزاتی در آشپزخانه خود دارید؟ 🥣";
+"kitchen_tools_subtitle" = "هر چند مورد که می‌خواهید انتخاب کنید... فرض می‌کنم که\nشما از قبل ابزارهای ضروری آشپزخانه را دارید 😄";
+"tool_oven" = "فر";
+"tool_blender" = "مخلوط‌کن";
+"tool_microwave" = "مایکروویو";
+"tool_food_processor" = "غذاساز";
+"tool_air_fryer" = "سرخ‌کن هوا";
+"tool_rolling_pin" = "وردنه";
+"tool_grater" = "رنده";
+"tool_slow_cooker" = "آرام‌پز";
+"tool_blowtorch" = "چراغ آشپزی";
+"dietary_restrictions_title" = "آیا محدودیت‌های غذایی خاصی\nوجود دارد که باید بدانم؟ 🧐";
+"dietary_restrictions_subtitle" = "هر چند مورد که می‌خواهید انتخاب کنید...";
+"diet_vegetarian" = "🥦 گیاهخوار";
+"diet_vegan" = "🌱 وگان";
+"diet_pescatarian" = "🐟 پسکاتارین (گیاهخوار ماهی‌خوار)";
+"diet_dairy_free" = "🥛 بدون لبنیات";
+"diet_gluten_free" = "🍞 بدون گلوتن";
+"diet_halal" = "🐑 حلال";
+"diet_kosher" = "🐓 کوشر";
+"diet_nut_allergy" = "🥜 آلرژی به آجیل";
+"diet_no_restrictions" = "👍 از همه چیز لذت می‌برم";
+"notification_title" = "چه زمانی می‌خواهید\nپیشنهادات غذایی دریافت کنید؟ 🔔";
+"notification_subtitle" = "ما ایده‌های دستور پخت خوشمزه‌ای که\nمطابق با ترجیحات شما باشد ارسال خواهیم کرد";
+"people_count_title" = "معمولاً برای چند نفر\nآشپزی می‌کنید؟ 👤";
+
+"Calories" = "کالری";
+"Carbs" = "کربوهیدرات";
+"Protein" = "پروتئین";
+"Fat" = "چربی";
+"Ingredients" = "مواد لازم";
+"Instructions" = "دستورالعمل‌ها";
+"analyzing_preferences" = "تحلیل ترجیحات شما";
+"customizing_recipes" = "سفارشی‌سازی دستور غذاها";
+"optimizing_recommendations" = "بهینه‌سازی پیشنهادات";
+"finalizing_personalization" = "نهایی‌سازی شخصی‌سازی";
+"personalizing_experience" = "شخصی‌سازی تجربه شما";
+"Nutrition" = "تغذیه";
+"chefs_tip" = "نکته سرآشپز";
+"servings" = "وعده";
+
+"appearance_title" = "ظاهر";
+"appearance_system" = "سیستم";
+"appearance_light" = "روشن";
+"appearance_dark" = "تیره";
+"cancel" = "لغو";

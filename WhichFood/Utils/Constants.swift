@@ -26,23 +26,38 @@ struct Constants {
         case apiKey = "appl_HHkSCFFiKhyInFriiivjyCTgdvX"
         case entitlementID = "pro"
     }
-    
+
     enum ImageToText: String {
         case link = "https://text-in-images-recognition.p.rapidapi.com/prod"
     }
-    
-    enum GeminiApiKey: String {
-        case apiKey = "AIzaSyBoOyyTtptKdWjLz2EPC7tUkvt8WoGZXjU"
-    }
-    
+
     enum Api: String {
         case baseURL = "https://europe-west3-whichfood-983f1.cloudfunctions.net"
         case postData = "openAIChatCompletion"
         case generateImage = "https://europe-west3-whichfood-983f1.cloudfunctions.net/generateImage"
     }
+
+    static let onboardingPages: [OnboardingPage] = [
+        OnboardingPage(
+            image: "feature_1",
+            titleKey: "onboarding.page1.title",
+            descriptionKey: "onboarding.page1.description",
+            buttonTitleKey: "onboarding.button.next"
+        ),
+        OnboardingPage(
+            image: "feature_2",
+            titleKey: "onboarding.page2.title",
+            descriptionKey: "onboarding.page2.description",
+            buttonTitleKey: "onboarding.button.next"
+        ),
+        OnboardingPage(
+            image: "clock",
+            titleKey: "onboarding.page3.title",
+            descriptionKey: "onboarding.page3.description",
+            buttonTitleKey: "onboarding.button.next"
+        )
+    ]
 }
-
-
 
 
 

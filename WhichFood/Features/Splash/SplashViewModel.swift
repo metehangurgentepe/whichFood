@@ -9,6 +9,7 @@ import Foundation
 import RevenueCat
 import FirebaseAuth
 
+// NOTE: Ensure SplashViewDelegate defines: func navigateToMainTabBar(isPremium: Bool, vendorID: String)
 
 protocol SplashViewModelProtocol {
     var delegate: SplashViewDelegate? {get set}
@@ -16,6 +17,7 @@ protocol SplashViewModelProtocol {
     func getKeychain() async -> String?
     func saveKeychain() throws
     func signIn()
+    func checkPremiumStatus() async -> Bool
 }
 
 class SplashViewModel: SplashViewModelProtocol {
@@ -32,7 +34,7 @@ class SplashViewModel: SplashViewModelProtocol {
         do {
             try await UserManager.shared.createUser()
         } catch {
-            self.delegate?.showError(error)
+//            self.delegate?.showError(error)
         }
     }
     
@@ -42,34 +44,35 @@ class SplashViewModel: SplashViewModelProtocol {
         } catch {
             switch error {
             case KeychainError.duplicateEntry:
-                self.delegate?.showError(KeychainError.duplicateEntry)
+//                self.delegate?.showError(KeychainError.duplicateEntry)
+                break
             default:
-                self.delegate?.showError(error)
+//                self.delegate?.showError(error)
+                break
             }
         }
     }
     
     func getKeychain() async -> String? {
-        let home = await MainTabBarController()
 
         if let data = KeychainManager.get(account: "account") {
             let id = String(decoding: data, as: UTF8.self)
+            let isPremium = await checkPremiumStatus()
 
             await MainActor.run {
-                self.delegate?.navigate(vc: home)
-//                self.delegate?.navigateToOnboarding()
+                self.delegate?.navigateToMainTabBar(isPremium: isPremium, vendorID: id)
             }
             return id
         } else {
             do {
                 try self.saveKeychain()
                 try await createUser()
-                
+
                 await MainActor.run {
                     self.delegate?.navigateToOnboarding()
                 }
             } catch {
-                self.delegate?.showError(error)
+//                self.delegate?.showError(error)
             }
         }
         return nil
@@ -98,7 +101,23 @@ class SplashViewModel: SplashViewModelProtocol {
             }
             
         } catch {
-            self.delegate?.showError(error)
+//            self.delegate?.showError(error)
+        }
+    }
+
+    func checkPremiumStatus() async -> Bool {
+        do {
+            let customerInfo = try await Purchases.shared.customerInfo()
+            let isPremium = customerInfo.entitlements.all["pro"]?.isActive == true
+
+            print("🔍 SplashView Premium Check:")
+            print("💎 Pro Entitlement Active: \(isPremium)")
+
+            return isPremium
+        } catch {
+            print("❌ Error checking premium status in SplashView: \(error)")
+            return false
         }
     }
 }
+

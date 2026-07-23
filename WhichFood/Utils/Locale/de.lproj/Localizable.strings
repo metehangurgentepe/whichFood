@@ -170,3 +170,33 @@
 "error_occured" = "Hata oluştu";
 "error_ok_button" = "Tamam";
 "error_back_button" = "Geri";
+
+// Premium/Paywall
+"paywall_title" = "WhichFood ile tam öğrenme deneyiminin kilidini açın";
+"paywall_whats_inside" = "Neler var?";
+"paywall_invest" = "Tasarım kariyerinize bugün yatırım yapın";
+"paywall_subscribe_now" = "Şimdi abone ol";
+"paywall_restore_purchases" = "Satın alımları geri yükle";
+"paywall_error_title" = "Hata";
+"paywall_ok" = "Tamam";
+
+// Premium Features
+"feature_ai_recipe_title" = "Yapay Zeka ile Tarif Oluşturma";
+"feature_ai_recipe_desc" = "Malzemelerinize ve tercihlerinize göre sınırsız kişiselleştirilmiş tarifler oluşturun";
+"feature_customization_title" = "Gelişmiş Tarif Özelleştirme";
+"feature_customization_desc" = "Tarifleri diyet kısıtlamalarına, pişirme süresine ve zorluk seviyesine göre özelleştirin";
+"feature_collections_title" = "Tarif Koleksiyonları";
+"feature_collections_desc" = "Sınırsız kişisel tarif koleksiyonları ve yemek planları oluşturun ve düzenleyin";
+"feature_shopping_title" = "Akıllı Alışveriş Listeleri";
+"feature_shopping_desc" = "Seçtiğiniz tariflerden tam miktarlarla otomatik alışveriş listeleri oluşturun";
+"feature_premium_title" = "Premium Özellikler";
+"feature_premium_desc" = "Reklamsız deneyim, çevrimdışı erişim ve besin analizi";
+
+// Subscription Plans
+"plan_yearly" = "Yıllık";
+"plan_weekly" = "Haftalık";
+"plan_most_popular" = "En popüler";
+"plan_best_offer" = "En iyi teklif";
+"plan_subscribe_terms" = "Bugün abone olun ve %@ %@ ödersiniz. İstediğiniz zaman iptal edin.";
+"plan_per_year" = "yıllık";
+"plan_per_week" = "haftalık";

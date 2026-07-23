@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  WhichFood
+
+  Created by Metehan Gürgentepe on 13.01.2025.
+  
+*/
+
+NSUserNotificationsUsageDescription = "Nous avons besoin d'une autorisation de notification pour vous envoyer des suggestions de repas au moment qui vous convient le mieux.";

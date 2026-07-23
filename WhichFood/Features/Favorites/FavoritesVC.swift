@@ -88,10 +88,10 @@ extension FavoriteViewController: FavoriteViewModelDelegate {
         func navigate(to navigationType: NavigationType) {
             switch navigationType {
             case .details(let index):
-                let recipe = recipes[index]
-                let viewModel = DetailRecipeViewModel(recipe: recipe)
-                let viewController = DetailRecipeBuilder.make(with: viewModel)
-                show(viewController, sender: nil)
+                let vc = ShowFoodVC()
+                vc.mode = .detail
+                vc.recipe = self.viewModel.recipes[index].toRecipeResponseModel()
+                self.navigationController?.pushViewController(vc, animated: true)
                 
             case .goToVC(_):
                 break
@@ -113,11 +113,11 @@ extension FavoriteViewController: FavoriteViewModelDelegate {
         case .error(let error):
             presentAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
             
-        case .selectMovie(let id):
-            let recipe = recipes[id]
-            let viewModel = DetailRecipeViewModel(recipe: recipe)
-            let viewController = DetailRecipeBuilder.make(with: viewModel)
-            show(viewController, sender: nil)
+        case .selectMovie(let index):
+            let vc = ShowFoodVC()
+            vc.mode = .detail
+            vc.recipe = self.viewModel.recipes[index].toRecipeResponseModel()
+            self.navigationController?.pushViewController(vc, animated: true)
             
         case .showEmptyView:
             if self.recipes.isEmpty{

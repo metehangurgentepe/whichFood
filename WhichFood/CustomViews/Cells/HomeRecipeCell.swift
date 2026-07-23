@@ -8,9 +8,20 @@
 import UIKit
 import SDWebImage
 
+class PassThroughView: UIView {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let hitView = super.hitTest(point, with: event)
+        if hitView == self {
+            return nil
+        }
+        return hitView
+    }
+}
+
 protocol HomeRecipeCellDelegate: AnyObject {
     func deleteRecipe(recipe: Recipe)
     func showError(error: Error)
+    func favoriteStatusChanged(recipe: Recipe)
 }
 
 class HomeRecipeCell: UICollectionViewCell {
@@ -21,39 +32,53 @@ class HomeRecipeCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
-        imageView.alpha = 0.6
+        imageView.alpha = 1.0
         return imageView
     }()
     
     let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 14)
-        label.textColor = .label
+        label.textColor = .white
         label.textAlignment = .right
         label.numberOfLines = 2
         return label
     }()
     
     let container: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 15
+        let view = PassThroughView()
+        view.layer.cornerRadius = 20
         view.clipsToBounds = true
         return view
     }()
     
     var favButton: UIButton = {
         let button = UIButton()
+        if #available(iOS 26.0, *) {
+            button.configuration = .glass()
+        }
         button.addTarget(self, action: #selector(addFavoritesRecipe), for: .touchUpInside)
+        button.isUserInteractionEnabled = true
         return button
     }()
-    
+
+    // Bottom gradient for text readability
+    private let bottomGradientLayer: CAGradientLayer = {
+        let layer = CAGradientLayer()
+        let topColor = UIColor.clear.cgColor
+        let bottomColor = UIColor.black.withAlphaComponent(0.7).cgColor
+        layer.colors = [topColor, bottomColor]
+        layer.locations = [0.0, 1.0]
+        return layer
+    }()
+
+
     var longPressGesture: UILongPressGestureRecognizer!
     var delegate: HomeRecipeCellDelegate?
     var recipe: Recipe?
     
-    let favImage = SFSymbols.favorites?.withTintColor(Colors.primary.color).withRenderingMode(.alwaysOriginal)
-    let selectedFavImage = SFSymbols.selectedFavorites?.withTintColor(Colors.primary.color).withRenderingMode(.alwaysOriginal)
+    let favImage = SFSymbols.favorites?.withTintColor(Colors.primary.color).withRenderingMode(.alwaysOriginal).withConfiguration(UIImage.SymbolConfiguration(pointSize: 16, weight: .medium))
+    let selectedFavImage = SFSymbols.selectedFavorites?.withTintColor(Colors.primary.color).withRenderingMode(.alwaysOriginal).withConfiguration(UIImage.SymbolConfiguration(pointSize: 16, weight: .medium))
     
     override var isHighlighted: Bool {
         didSet {
@@ -72,6 +97,20 @@ class HomeRecipeCell: UICollectionViewCell {
         setupLongPressGesture()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        bottomGradientLayer.frame = imageView.bounds
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        // Cancel any pending image download
+        imageView.sd_cancelCurrentImageLoad()
+        
+        // Önemli: Temel bir placeholder görüntüsünü koruyun
+        imageView.image = Images.background
+    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -133,6 +172,16 @@ class HomeRecipeCell: UICollectionViewCell {
         addSubview(nameLabel)
         addSubview(container)
         container.addSubview(favButton)
+
+        // Fallback background for iOS < 15 (when glass configuration is not available)
+        if #unavailable(iOS 26.0) {
+            container.backgroundColor = .white
+        }
+
+        // Add bottom gradient for text readability
+        imageView.layer.addSublayer(bottomGradientLayer)
+        
+        
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -156,37 +205,59 @@ class HomeRecipeCell: UICollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 5),
-            container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-            container.heightAnchor.constraint(equalToConstant: 30),
-            container.widthAnchor.constraint(equalToConstant: 30)
+            container.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 8),
+            container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            container.heightAnchor.constraint(equalToConstant: 40),
+            container.widthAnchor.constraint(equalToConstant: 40)
         ])
         
         NSLayoutConstraint.activate([
             favButton.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            favButton.centerYAnchor.constraint(equalTo: container.centerYAnchor)
+            favButton.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            favButton.widthAnchor.constraint(equalToConstant: 32),
+            favButton.heightAnchor.constraint(equalToConstant: 32)
         ])
     }
-    
-    
+
+
+
     func configure(recipe: Recipe) {
         self.recipe = recipe
-        
-        if let imageUrl = recipe.imageUrl{
-            let url = URL(string: imageUrl)
-            imageView.kf.setImage(with: url)
-        }
-        
-        imageView.image = Images.background
         nameLabel.text = recipe.name
         
+        // Reset image state
+        imageView.image = Images.background
+        
+        // Sadece URL varsa görüntü yükleme işlemi yap
+        if let imageUrl = recipe.imageUrl, let url = URL(string: imageUrl) {
+            // Önemli: kf.setImage yerine sd_setImage kullan (SDWebImage)
+            imageView.sd_setImage(
+                with: url,
+                placeholderImage: Images.background,
+                options: [.highPriority, .retryFailed],
+                completed: { [weak self] (image, error, cacheType, url) in
+                    guard let self = self else { return }
+                    
+                    if let error = error {
+                        print("Image loading error: \(error.localizedDescription)")
+                        self.imageView.image = Images.background
+                    }
+                }
+            )
+        }
+        
         checkIsSaved(recipe: recipe)
-        setupSubviews()
     }
     
     
     @objc func addFavoritesRecipe() {
-        PersistenceManager.isSaved(favorite: recipe!, completion: { result in
+        guard let recipe else { return }
+
+        // Add haptic feedback
+        let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+        impactFeedback.impactOccurred()
+
+        PersistenceManager.isSaved(recipe: recipe.toRecipeResponseModel(), completion: { result in
             switch result {
             case .success(let success):
                 if success {
@@ -194,46 +265,65 @@ class HomeRecipeCell: UICollectionViewCell {
                 } else {
                     self.addFav()
                 }
-                
+
             case .failure(let error):
                 self.delegate?.showError(error: error)
             }
         })
-        checkIsSaved(recipe: recipe!)
     }
     
     
     func addFav() {
-        PersistenceManager.updateWith(favorite: recipe!, actionType: .add) { error in
+        guard let recipe else { return }
+        PersistenceManager.updateWith(favorite: recipe.toRecipeResponseModel(), actionType: .add) { error in
             if let error = error {
                 self.delegate?.showError(error: error as WFError)
+            } else {
+                DispatchQueue.main.async {
+                    self.delegate?.favoriteStatusChanged(recipe: recipe)
+                }
             }
         }
     }
     
     
     func removeFav() {
-        PersistenceManager.updateWith(favorite: recipe!, actionType: .remove) { error in
+        guard let recipe else { return }
+        PersistenceManager.updateWith(favorite: recipe.toRecipeResponseModel(), actionType: .remove) { error in
             if let error = error {
                 self.delegate?.showError(error: error as WFError)
+            } else {
+                DispatchQueue.main.async {
+                    self.delegate?.favoriteStatusChanged(recipe: recipe)
+                }
             }
         }
     }
     
     
     func checkIsSaved(recipe: Recipe) {
-        PersistenceManager.isSaved(favorite: recipe, completion: {[weak self] result in
+        PersistenceManager.isSaved(recipe: recipe.toRecipeResponseModel(), completion: {[weak self] result in
             guard let self = self else { return }
-            switch result {
-            case .success(let success):
-                if success {
-                    self.favButton.setImage(self.selectedFavImage, for: .normal)
-                } else {
-                    self.favButton.setImage(self.favImage, for: .normal)
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let success):
+                    if #available(iOS 26.0, *), self.favButton.configuration != nil {
+                        // For glass configuration, update the image through configuration
+                        var config = self.favButton.configuration ?? .glass()
+                        config.image = success ? self.selectedFavImage : self.favImage
+                        self.favButton.configuration = config
+                    } else {
+                        // For regular button, set image directly
+                        if success {
+                            self.favButton.setImage(self.selectedFavImage, for: .normal)
+                        } else {
+                            self.favButton.setImage(self.favImage, for: .normal)
+                        }
+                    }
+
+                case .failure(let error):
+                    self.delegate?.showError(error: error as WFError)
                 }
-                
-            case .failure(let error):
-                self.delegate?.showError(error: error as WFError)
             }
         })
     }

@@ -1,4 +1,3 @@
-
 /*
  Lokalizirajuće.nizovi
  WhichFood
@@ -18,16 +17,21 @@
 
 
 // ukrcavanje
-"feature_1" = "Odaberite sastojke koje imate kod kuće i neka vam aplikacija pokaže što možete kuhati.";
-"feature_2" = "Odaberite kategorije obroka koje vam odgovaraju i uživajte u najukusnijim jelima.";
-"feature_3" = "Spremite svoje omiljene upute za recepte i napravite ih kad god želite.";
-"feature_1_title" = "Dostupni sastojci";
-"feature_2_title" = "Bilje kategorija";
-"feature_3_title" = "Spremi recepte";
+// HRVATSKI
+"feature_1_title" = "Odaberite Sastojke";
+"feature_1_subtitle" = "Odaberite sastojke koje imate kod kuće i dopustite aplikaciji da vam pokaže što možete kuhati uz pomoć umjetne inteligencije.";
+"feature_2_title" = "Bogate Kategorije";
+"feature_2_subtitle" = "Istražite recepte koji odgovaraju vašem ukusu od doručka do večere, s različitim kategorijama za svaki obrok.";
+"feature_3_title" = "Spremite Recepte";
+"feature_3_subtitle" = "Spremite svoje omiljene recepte i pripremite ih kad god poželite uz pomoć umjetne inteligencije.";
+"feature_4_title" = "Zdravi Recepti";
+"feature_4_subtitle" = "Započnite zdrav život uz hranjive i uravnotežene recepte. Otkrijte jela sa sezonskim sastojcima.";
 "footer" = "Dizajnirao i kodirao Metehan Gürgentepe";
 "more" = "Vidi više...";
 "feature_button" = "Nastavi";
 "feature_welcome" = "Dobro došli";
+"lets_get_started" = "Započnimo";
+
 
 
 // detaljan recept
@@ -253,6 +257,7 @@
 "premium_subheadline" = "Čestitamo, uspješno ste aktivirali Premium pristup svim značajkama aplikacije, uživajte!";
 "premium_expiration" = "Datum isteka: ";
 "premium_restore" = "Želite li vratiti kupnje?";
+"premium_off" = "POPUST"; 
 
 
 // postavke
@@ -338,3 +343,99 @@
 //slika u tekst
 "image_info" = "Morate snimiti pisanu fotografiju recepta.";
 "take_photo" = "Snimi fotografiju";
+
+// CROATIAN (HRVATSKI)
+"paywall_title" = "AI personalizirani recepti s WhichFood";
+"paywall_invest" = "Otvorite vrata pametnom kuhanju";
+"paywall_whats_inside" = "Što je unutra?";
+"paywall_subscribe_now" = "Pretplatite se sada";
+"paywall_restore_purchases" = "Obnovi kupnje";
+"paywall_error_title" = "Greška";
+"paywall_ok" = "U redu";
+
+"feature_ai_recipe_title" = "AI Generiranje Recepata";
+"feature_ai_recipe_desc" = "Kreirajte personalizirane recepte prema vašim sastojcima i preferencijama";
+"feature_customization_title" = "Napredno Prilagođavanje Recepata";
+"feature_customization_desc" = "Prilagodite recepte prema prehrambenim ograničenjima, vremenu kuhanja i razini težine";
+"feature_collections_title" = "Kolekcije Recepata";
+"feature_collections_desc" = "Kreirajte i organizirajte osobne kolekcije recepata i planove obroka";
+"feature_shopping_title" = "Pametne Liste za Kupovinu";
+"feature_shopping_desc" = "Generirajte automatske liste za kupovinu s točnim količinama iz odabranih recepata";
+"feature_premium_title" = "Premium Značajke";
+"feature_premium_desc" = "Iskustvo bez oglasa, pristup izvan mreže i nutritivna analiza";
+
+"plan_yearly" = "Godišnje";
+"plan_weekly" = "Tjedno";
+"plan_most_popular" = "Najpopularnije";
+"plan_best_offer" = "Najbolja ponuda";
+"plan_subscribe_terms" = "Pretplatite se danas za %@ %@. Otkažite bilo kada.";
+"plan_per_year" = "godišnje";
+"plan_per_week" = "tjedno";
+"plan_weekly" = "Tjedno";
+"plan_yearly" = "Godišnje";
+"plan_monthly" = "Mjesečno";
+
+"onboarding.page1.title" = "Dobrodošli u WhichFood";
+"onboarding.page1.description" = "Otkrijte ukusne recepte prilagođene vašim sastojcima i preferencijama";
+"onboarding.page2.title" = "Skenirajte svoje sastojke";
+"onboarding.page2.description" = "Jednostavno skenirajte što imate i dobijte personalizirane prijedloge recepata";
+"onboarding.page3.title" = "Dobivajte pravovremene podsjetnike";
+"onboarding.page3.description" = "Nikada ne propustite obrok uz naše korisne obavijesti";
+"onboarding.button.next" = "Dalje";
+"onboarding.notification.title" = "Vrijeme je za obrok! 🍽️";
+"onboarding.notification.body" = "Niste sigurni što danas kuhati? Imamo prijedloge za vas!";
+
+"next" = "Dalje";
+"get_started" = "Započni";
+"skip" = "Preskoči";
+"cooking_skills_title" = "Kako bi opisao/la svoje\nkuharske vještine? 💪";
+"cooking_skill_1" = "Još uvijek učim osnove 😅";
+"cooking_skill_2" = "Mogu pripremiti jednostavne recepte 😊";
+"cooking_skill_3" = "Sposoban/na napraviti pristojne obroke 😎";
+"cooking_skill_4" = "Potencijalni natjecatelj MasterChefa 👨‍🍳";
+"kitchen_tools_title" = "Razgovarajmo o priboru! Kakvu\nopremu imaš u svojoj kuhinji? 🥣";
+"kitchen_tools_subtitle" = "Odaberi koliko god želiš... Pretpostavljam da\nveć imaš osnovni kuhinjski pribor 😄";
+"tool_oven" = "Pećnica";
+"tool_blender" = "Blender";
+"tool_microwave" = "Mikrovalna";
+"tool_food_processor" = "Procesor hrane";
+"tool_air_fryer" = "Friteza na vrući zrak";
+"tool_rolling_pin" = "Valjak za tijesto";
+"tool_grater" = "Ribež";
+"tool_slow_cooker" = "Spori kuhač";
+"tool_blowtorch" = "Kuhinjski plamenik";
+"dietary_restrictions_title" = "Postoje li prehrambena\nograničenja koja bih trebao/la znati? 🧐";
+"dietary_restrictions_subtitle" = "Odaberi koliko god želiš...";
+"diet_vegetarian" = "🥦 Vegetarijanac";
+"diet_vegan" = "🌱 Vegan";
+"diet_pescatarian" = "🐟 Pesceterijanac";
+"diet_dairy_free" = "🥛 Bez mliječnih proizvoda";
+"diet_gluten_free" = "🍞 Bez glutena";
+"diet_halal" = "🐑 Halal";
+"diet_kosher" = "🐓 Košer";
+"diet_nut_allergy" = "🥜 Alergija na orašaste plodove";
+"diet_no_restrictions" = "👍 Uživam u svemu";
+"notification_title" = "Kada bi želio/željela primati\nprijedloge za obroke? 🔔";
+"notification_subtitle" = "Poslat ćemo ti ukusne ideje za recepte\nkoje odgovaraju tvojim preferencijama";
+"people_count_title" = "Za koliko osoba\nobično kuhaš? 👤";
+
+"Calories" = "Kalorije";
+"Carbs" = "Ugljikohidrati";
+"Protein" = "Proteini";
+"Fat" = "Masti";
+"Ingredients" = "Sastojci";
+"Instructions" = "Upute";
+"analyzing_preferences" = "Analiziranje vaših preferencija";
+"customizing_recipes" = "Prilagođavanje recepata";
+"optimizing_recommendations" = "Optimiziranje preporuka";
+"finalizing_personalization" = "Dovršavanje personalizacije";
+"personalizing_experience" = "Personaliziranje vašeg iskustva";
+"Nutrition" = "Prehrana";
+"chefs_tip" = "Savjet kuhara";
+"servings" = "porcije";
+
+"appearance_title" = "Izgled";
+"appearance_system" = "Sustav";
+"appearance_light" = "Svijetlo";
+"appearance_dark" = "Tamno";
+"cancel" = "Odustani";

@@ -29,6 +29,31 @@ class SelectFoodViewController: UIViewController {
     var categories : [String] = []
     lazy var viewModel = SelectFoodViewModel()
     
+    private lazy var categoryCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 10
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.identifier)
+        collectionView.contentInset = .init(top: 0, left: 10, bottom: 0, right: 0)
+        return collectionView
+    }()
+    
+    private lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .systemMaterial)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        return blurEffectView
+    }()
+    
+    private var categoryCollectionViewHeightConstraint: NSLayoutConstraint?
+    private let categoryCollectionViewHeight: CGFloat = 50
+    private var prevScrollDirection: CGFloat = 0
+    private var selectedCategoryIndexPath: IndexPath?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -37,19 +62,61 @@ class SelectFoodViewController: UIViewController {
         configure()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupNavBar()
+    }
+    
     
     private func configure() {
         view.backgroundColor = .systemBackground
         navigationItem.largeTitleDisplayMode = .never
         
+        view.addSubview(blurEffectView)
         view.addSubview(tableView)
         view.addSubview(button)
-        
+        view.addSubview(categoryCollectionView)
+    
+        setupCategoryCollectionView()
         setupTableView()
         setupButton()
         setupSearchField()
     }
     
+    private func setupNavBar() {
+        navigationController?.navigationBar.tintColor = .label
+
+        // Add right navigation button for selected items
+        let selectedItemsButton = UIBarButtonItem(
+            image: UIImage(systemName: "list.clipboard"),
+            style: .plain,
+            target: self,
+            action: #selector(showSelectedItems)
+        )
+        navigationItem.rightBarButtonItem = selectedItemsButton
+    }
+    
+    private func setupCategoryCollectionView() {
+        categoryCollectionViewHeightConstraint = categoryCollectionView.heightAnchor.constraint(equalToConstant: categoryCollectionViewHeight)
+        
+        categoryCollectionView.dataSource = self
+        categoryCollectionView.delegate = self
+        
+        categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            blurEffectView.topAnchor.constraint(equalTo: view.topAnchor),
+            blurEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            blurEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            blurEffectView.bottomAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor),
+            
+            categoryCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            categoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            categoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            categoryCollectionViewHeightConstraint!,
+        ])
+    }
     
     @objc func didTapButton(_ sender: UIButton) {
         UIView.animate(withDuration: 0.1, animations: {
@@ -64,6 +131,95 @@ class SelectFoodViewController: UIViewController {
         Task{
             try await viewModel.increaseApiUsage()
         }
+    }
+
+    @objc private func showSelectedItems() {
+        presentSelectedItemsBottomSheet()
+    }
+
+    private func presentSelectedItemsBottomSheet() {
+        let alertController = UIAlertController(title: LocaleKeys.SelectFood.selectedIngredients.rawValue.locale(), message: nil, preferredStyle: .actionSheet)
+
+        if viewModel.selectedFoods.isEmpty {
+            alertController.message = LocaleKeys.SelectFood.noIngredientsSelected.rawValue.locale()
+        } else {
+            alertController.message = String(format: LocaleKeys.SelectFood.ingredientsSelectedCount.rawValue.locale(), viewModel.selectedFoods.count)
+
+            for (index, ingredient) in viewModel.selectedFoods.enumerated() {
+                let action = UIAlertAction(title: "❌ \(ingredient.name)", style: .destructive) { [weak self] _ in
+                    self?.viewModel.toggleIngredientSelection(ingredient)
+                    self?.updateVisibleCells()
+                }
+                alertController.addAction(action)
+            }
+        }
+
+        let cancelAction = UIAlertAction(title: LocaleKeys.SelectFood.closeButton.rawValue.locale(), style: .cancel)
+        alertController.addAction(cancelAction)
+
+        if let popover = alertController.popoverPresentationController {
+            popover.barButtonItem = navigationItem.rightBarButtonItem
+        }
+
+        present(alertController, animated: true)
+    }
+
+    private func updateVisibleCells() {
+        DispatchQueue.main.async {
+            for indexPath in self.tableView.indexPathsForVisibleRows ?? [] {
+                if let cell = self.tableView.cellForRow(at: indexPath) as? SelectFoodCell {
+                    let ingredient: Ingredient
+                    if self.viewModel.inSearchMode(self.searchField) {
+                        ingredient = self.viewModel.filteredFoods[indexPath.row]
+                    } else {
+                        let categories = Array(self.viewModel.categorizedIngredients.keys)
+                        let category = categories[indexPath.section]
+                        ingredient = self.viewModel.categorizedIngredients[category]![indexPath.row]
+                    }
+                    cell.updateCheckbox(isSelected: self.viewModel.isIngredientSelected(ingredient), animated: true)
+                }
+            }
+        }
+    }
+    
+    func header(title: String) -> UIView {
+        let header = UIView()
+        header.backgroundColor = .clear
+        
+        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
+        vibrancyView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let label = UILabel()
+        label.text = title
+        label.font = .preferredFont(forTextStyle: .headline).withSize(20)
+        label.textColor = .label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        header.addSubview(blurView)
+        blurView.contentView.addSubview(vibrancyView)
+        vibrancyView.contentView.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            blurView.topAnchor.constraint(equalTo: header.topAnchor),
+            blurView.leadingAnchor.constraint(equalTo: header.leadingAnchor),
+            blurView.trailingAnchor.constraint(equalTo: header.trailingAnchor),
+            blurView.bottomAnchor.constraint(equalTo: header.bottomAnchor),
+            
+            vibrancyView.topAnchor.constraint(equalTo: blurView.topAnchor),
+            vibrancyView.leadingAnchor.constraint(equalTo: blurView.leadingAnchor),
+            vibrancyView.trailingAnchor.constraint(equalTo: blurView.trailingAnchor),
+            vibrancyView.bottomAnchor.constraint(equalTo: blurView.bottomAnchor),
+            
+            label.leadingAnchor.constraint(equalTo: vibrancyView.leadingAnchor, constant: 16),
+            label.centerYAnchor.constraint(equalTo: vibrancyView.centerYAnchor)
+        ])
+        
+        return header
     }
 }
 
@@ -83,6 +239,8 @@ extension SelectFoodViewController {
         searchField.obscuresBackgroundDuringPresentation = false
         searchField.hidesNavigationBarDuringPresentation = false
         searchField.searchBar.placeholder = LocaleKeys.SelectFood.searchFood.rawValue.locale()
+        searchField.searchBar.searchTextField.leftView?.tintColor = Colors.accent.color
+        searchField.searchBar.tintColor = Colors.accent.color
         
         self.navigationItem.searchController = searchField
         self.definesPresentationContext = false
@@ -97,7 +255,7 @@ extension SelectFoodViewController {
         tableView.tableHeaderView = nil
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: self.categoryCollectionView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             
             tableView.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.72),
@@ -117,7 +275,8 @@ extension SelectFoodViewController {
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
             button.heightAnchor.constraint(equalToConstant: 50),
-            button.widthAnchor.constraint(equalToConstant: self.view.bounds.width * 0.8)
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 20),
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
         
         NSLayoutConstraint.activate([
@@ -126,6 +285,27 @@ extension SelectFoodViewController {
         ])
         
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+    }
+}
+
+extension SelectFoodViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollViewY = scrollView.contentOffset.y
+        let scrollSizeHeight = scrollView.contentSize.height
+        let scrollFrameHeight = scrollView.frame.height
+        let scrollHeight = scrollSizeHeight - scrollFrameHeight
+        
+        if prevScrollDirection > scrollViewY && prevScrollDirection < scrollHeight {
+            UIView.animate(withDuration: 0.3) {
+                self.button.alpha = 1
+            }
+        } else if prevScrollDirection < scrollViewY && scrollViewY > 0 {
+            UIView.animate(withDuration: 0.3) {
+                self.button.alpha = 0.3
+            }
+        }
+        
+        prevScrollDirection = scrollView.contentOffset.y
     }
 }
 
@@ -164,59 +344,136 @@ extension SelectFoodViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SelectFoodCell
         
+        let ingredient: Ingredient
         if viewModel.inSearchMode(searchField) {
-            let food = viewModel.filteredFoods[indexPath.row]
-            cell.configure(with: food)
+            ingredient = viewModel.filteredFoods[indexPath.row]
         } else {
             let categories = Array(viewModel.categorizedIngredients.keys)
-            
             let category = categories[indexPath.section]
-            
-            if let foods = viewModel.categorizedIngredients[category] {
-                let food = foods[indexPath.row]
-                cell.configure(with: food)
-            }
+            ingredient = viewModel.categorizedIngredients[category]![indexPath.row]
         }
+        
+        cell.configure(with: ingredient)
+        cell.updateCheckbox(isSelected: viewModel.isIngredientSelected(ingredient), animated: false)
         
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedIngredient: Ingredient
+
         if viewModel.inSearchMode(searchField) {
-            let food = viewModel.filteredFoods[indexPath.row]
-            viewModel.filteredFoods[indexPath.row].isSelected.toggle()
-            
-            if var array = viewModel.categorizedIngredients[food.category.rawValue] {
-                if let index = array.firstIndex(where: { $0.name == food.name }) {
-                    array[index].isSelected.toggle()
-                }
-                viewModel.categorizedIngredients.updateValue(array, forKey: food.category.rawValue)
-            }
-            
-            viewModel.chooseIngredient(ingredient: food)
-            
-            viewModel.delegate?.onIngredientsUpdated()
+            selectedIngredient = viewModel.filteredFoods[indexPath.row]
         } else {
             let categories = Array(viewModel.categorizedIngredients.keys)
             let category = categories[indexPath.section]
-            
-            guard var foods = viewModel.categorizedIngredients[category] else {
-                return
-            }
-            
-            foods[indexPath.row].isSelected.toggle()
-            viewModel.chooseIngredient(ingredient: foods[indexPath.row])
-            viewModel.categorizedIngredients[category] = foods
-            
-            viewModel.delegate?.onIngredientsUpdated()
+            guard let foods = viewModel.categorizedIngredients[category] else { return }
+            selectedIngredient = foods[indexPath.row]
+        }
+
+        viewModel.toggleIngredientSelection(selectedIngredient)
+
+        // Only reload the specific cell instead of entire table
+        if let cell = tableView.cellForRow(at: indexPath) as? SelectFoodCell {
+            cell.updateCheckbox(isSelected: viewModel.isIngredientSelected(selectedIngredient), animated: true)
+        }
+
+        // Still call delegate for other potential updates
+        viewModel.delegate?.onIngredientsUpdated()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if viewModel.inSearchMode(searchField) {
+            let title = LocaleKeys.SelectFood.filter.rawValue.locale()
+            return header(title: title)
+        } else {
+            let categories = Array(viewModel.categorizedIngredients.keys)
+            let category = categories[section].locale()
+            return header(title: category)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+}
+
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
+extension SelectFoodViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.categorizedIngredients.keys.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
+        let categories = Array(viewModel.categorizedIngredients.keys)
+        cell.configure(title: categories[indexPath.item])
+        
+        if indexPath == selectedCategoryIndexPath {
+            cell.label.layer.borderWidth = 0
+            cell.label.backgroundColor = Colors.accent.color
+            cell.label.textColor = .white
+        } else {
+            cell.label.layer.borderWidth = 0
+            cell.label.layer.borderColor = Colors.accent.color.cgColor
+            cell.label.backgroundColor = .clear
+            cell.label.textColor = Colors.accent.color
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let previousSelectedIndexPath = selectedCategoryIndexPath,
+           let previousCell = collectionView.cellForItem(at: previousSelectedIndexPath) as? CategoryCell {
+            previousCell.label.layer.borderWidth = 1
+            previousCell.label.layer.borderColor = Colors.accent.color.cgColor
+            previousCell.label.backgroundColor = .clear
+            previousCell.label.textColor = Colors.accent.color
+        }
+        
+        selectedCategoryIndexPath = indexPath
+        if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCell {
+            cell.label.layer.borderWidth = 0
+            cell.label.backgroundColor = Colors.accent.color
+            cell.label.textColor = .white
+        }
+        
+        let categories = Array(viewModel.categorizedIngredients.keys).sorted()
+        let selectedCategory = categories[indexPath.item]
+        
+        if let sectionIndex = viewModel.categorizedIngredients.keys.sorted().firstIndex(of: selectedCategory) {
+            let tableViewIndexPath = IndexPath(row: 0, section: sectionIndex)
+            tableView.scrollToRow(at: tableViewIndexPath, at: .top, animated: true)
+        }
+        
+        collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let categories = Array(viewModel.categorizedIngredients.keys)
+        let text = categories[indexPath.item]
+        let cellWidth = text.size(withAttributes:[.font: UIFont.systemFont(ofSize:12)]).width + 50
+        return CGSize(width: cellWidth, height: 30.0)
+    }
+    
+    private func toggleCategoryCollectionView(show: Bool) {
+        UIView.animate(withDuration: 0.3) {
+            self.categoryCollectionViewHeightConstraint?.constant = show ? self.categoryCollectionViewHeight : 0
+            self.view.layoutIfNeeded()
         }
     }
 }
 
+
 extension SelectFoodViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        self.viewModel.updateSearchController(searchBarText: searchController.searchBar.text)
+        let searchText = searchController.searchBar.text ?? ""
+        
+        self.viewModel.updateSearchController(searchBarText: searchText)
+        
+        toggleCategoryCollectionView(show: searchText.isEmpty)
     }
 }
 
@@ -286,8 +543,18 @@ extension SelectFoodViewController: SelectFoodViewDelegate {
     
     func onIngredientsUpdated() {
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            // Only reload data when in search mode, otherwise use updateVisibleCells
+            if self.viewModel.inSearchMode(self.searchField) {
+                self.tableView.reloadData()
+            } else {
+                self.updateVisibleCells()
+            }
+
+            if let searchText = self.searchField.searchBar.text, searchText.isEmpty {
+                self.toggleCategoryCollectionView(show: true)
+            }
         }
     }
 }
+
 

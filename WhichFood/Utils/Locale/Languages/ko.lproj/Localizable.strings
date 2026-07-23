@@ -1,0 +1,442 @@
+/*
+ Localizable.strings
+ WhichFood
+ 
+ Created by Metehan Gürgentepe on September 12, 2023.
+ 
+ */
+
+
+"tabHome" = "여기에 제목";
+
+
+//Premium
+"premiumWeekButton" = "주간 프리미엄";
+"lifetimeButton" = "연간 프리미엄";
+"continueButton" = "계속하기";
+
+
+// onboarding;
+"feature_1_title" = "재료 선택하기";
+"feature_1_subtitle" = "집에 있는 재료를 선택하면 AI 도움으로 무엇을 요리할 수 있는지 보여드립니다.";
+
+"feature_2_title" = "다양한 카테고리";
+"feature_2_subtitle" = "아침부터 저녁까지 모든 식사에 적합한 다양한 카테고리의 레시피를 탐색해보세요.";
+
+"feature_3_title" = "레시피 저장";
+"feature_3_subtitle" = "좋아하는 레시피 지침을 저장하고 AI 도움으로 언제든지 요리할 수 있습니다.";
+
+"feature_4_title" = "건강한 레시피";
+"feature_4_subtitle" = "영양가 있고 균형 잡힌 레시피로 건강한 삶을 시작하세요. 제철 재료로 영양가 높은, 식사 제안을 발견해보세요.";
+"lets_get_started" = "시작하기";
+"footer" = "Metehan Gürgentepe이 디자인하고 코딩했습니다";
+"more" = "더 보기...";
+"feature_button" = "계속하기";
+"feature_welcome" = "환영합니다";
+
+
+// detail recipe
+
+"detail_ingredients" = "재료";
+"detail_recipe" = "조리 방법";
+"detail_success" = "성공적으로 저장됨";
+"detail_save" = "레시피 저장";
+"detail_success_title" = "성공";
+"detail_ok_button" = "확인";
+"detail_error_title" = "오류";
+"detail_error_message" = "레시피를 저장할 수 없습니다";
+"detail_try_again" = "다시 시도";
+"detail_error_occurred" = "오류가 발생했습니다";
+
+
+// food categories
+"category_healthy" = "건강한";
+"category_easy" = "쉬운";
+"category_mid" = "중급";
+"category_hard" = "어려운";
+"category_enjoy" = "맛있는";
+"category_hearty" = "든든한";
+"category_vegan" = "비건";
+"category_vegetarian" = "채식주의자";
+"category_breakfast" = "아침";
+"category_lunch" = "점심";
+"category_dinner" = "저녁";
+"category_dessert" = "디저트";
+
+
+// ingredients
+"ingredients_bread" = "빵";
+"ingredients_garlic" = "마늘";
+"ingredients_parsley" = "파슬리";
+"ingredients_tomato" = "토마토";
+"ingredients_carrot" = "당근";
+"ingredients_potato" = "감자";
+"ingredients_dill" = "딜";
+"ingredients_spring_onion" = "파";
+"ingredients_pepper" = "후추";
+"ingredients_zucchini" = "호박";
+"ingredients_eggplant" = "가지";
+"ingredients_rice" = "쌀";
+"ingredients_mushroom" = "버섯";
+"ingredients_fresh_basil" = "신선한 바질";
+"ingredients_lettuce" = "상추";
+"ingredients_peas" = "완두콩";
+"ingredients_butter" = "버터";
+"ingredients_spinach" = "시금치";
+"ingredients_fresh_mint" = "신선한 민트";
+"ingredients_celery" = "셀러리";
+"ingredients_thyme" = "타임";
+"ingredients_egg" = "계란";
+"ingredients_ground_beef" = "다진 쇠고기";
+"ingredients_chicken" = "닭고기";
+"ingredients_diced_beef" = "깍두기 쇠고기";
+"ingredients_fish" = "생선";
+"ingredients_lamb" = "양고기";
+"ingredients_turkey" = "칠면조";
+"ingredients_beef" = "쇠고기";
+"ingredients_sausage" = "소시지";
+"ingredients_hotDog" = "핫도그";
+"ingredients_calamari" = "오징어";
+"ingredients_pastrami" = "파스트라미";
+"ingredients_bonito" = "가다랑어";
+"ingredients_chickenNuggets" = "치킨 너겟";
+"ingredients_cheese" = "치즈";
+"ingredients_yogurt" = "요거트";
+"ingredients_milk" = "우유";
+"ingredients_cream" = "크림";
+"ingredients_ricotta" = "리코타";
+"ingredients_lemon" = "레몬";
+"ingredients_avocado" = "아보카도";
+"ingredients_grape" = "포도";
+"ingredients_fig" = "무화과";
+"ingredients_orange" = "오렌지";
+"ingredients_blackOlive" = "블랙 올리브";
+"ingredients_greenApple" = "청사과";
+"ingredients_strawberry" = "딸기";
+"ingredients_raspberry" = "라즈베리";
+"ingredients_blackberry" = "블랙베리";
+"ingredients_mulberry" = "오디";
+"ingredients_kiwi" = "키위";
+"ingredients_apple" = "사과";
+"ingredients_pomegranate" = "석류";
+"ingredients_quince" = "모과";
+"ingredients_walnut" = "호두";
+"ingredients_pineNuts" = "잣";
+"ingredients_pistachio" = "피스타치오";
+"ingredients_sunDriedTomato" = "말린 토마토";
+"ingredients_coconut" = "코코넛";
+"ingredients_almond" = "아몬드";
+"ingredients_hazelnut" = "헤이즐넛";
+"ingredients_driedApricot" = "말린 살구";
+"ingredients_shrimp" = "새우";
+"ingredients_salmon" = "연어";
+"ingredients_clams" = "홍합";
+"ingredients_scallops" = "조개";
+"ingredients_lobster" = "랍스터";
+"ingredients_crab" = "게";
+"ingredients_prawns" = "새우";
+"ingredients_caviar" = "캐비아";
+"ingredients_oysters" = "아스터";
+"ingredients_mussels" = "홍합";
+"ingredients_anchovies" = "멸치";
+"ingredients_sardines" = "정어리";
+"ingredients_haddock" = "대구류";
+"ingredients_cod" = "대구";
+"ingredients_tuna" = "참치";
+"ingredients_trout" = "송어";
+"ingredients_duck" = "오리";
+"ingredients_veal" = "송아지 고기";
+"ingredients_rabbit" = "토끼 고기";
+"ingredients_quail" = "메추라기";
+"ingredients_pork" = "돼지고기";
+"ingredients_bacon" = "쇠고기 베이컨";
+"ingredients_ham" = "햄";
+"ingredients_cabbage" = "양배추";
+"ingredients_broccoli" = "브로콜리";
+"ingredients_cauliflower" = "콜리플라워";
+"ingredients_asparagus" = "아스파라거스";
+"ingredients_artichoke" = "아티초크";
+"ingredients_kale" = "양배추";
+"ingredients_brussels_sprouts" = "방울양배추";
+"ingredients_cucumber" = "오이";
+"ingredients_radish" = "무";
+"ingredients_sweet_potato" = "고구마";
+"ingredients_beetroot" = "비트";
+"ingredients_pumpkin" = "호박";
+"ingredients_turnip" = "순무";
+"ingredients_okra" = "오크라";
+"ingredients_parsnip" = "샥슈카";
+"ingredients_leek" = "리크";
+"ingredients_blueberry" = "블루베리";
+"ingredients_cranberry" = "크랜베리";
+"ingredients_watermelon" = "수박";
+"ingredients_papaya" = "파파야";
+"ingredients_pineapple" = "파인애플";
+"ingredients_mango" = "망고";
+"ingredients_passion_fruit" = "과일";
+"ingredients_date" = "대추";
+"ingredients_dragon_fruit" = "용과";
+"ingredients_persimmon" = "감";
+"ingredients_star_fruit" = "스타 프루트";
+"ingredients_black_currant" = "블랙커런트";
+"ingredients_rosemary" = "로즈마리";
+"ingredients_sage" = "세이지";
+"ingredients_mint" = "민트";
+"ingredients_cilantro" = "고수";
+"ingredients_bay_leaf" = "월계수 잎";
+"ingredients_oregano" = "타임";
+"ingredients_tarragon" = "타라곤";
+"ingredients_chives" = "차이브";
+"ingredients_lemongrass" = "레몬 허브";
+"ingredients_marjoram" = "바질";
+"ingredients_coriander" = "고수";
+"ingredients_basil" = "로즈마리";
+"ingredients_cashew" = "캐슈넛";
+"ingredients_macadamia" = "마카다미아 너트";
+"ingredients_pecan" = "호두";
+"ingredients_peanut" = "땅콩";
+"ingredients_cocoa" = "코코아";
+"ingredients_chestnut" = "밤";
+
+
+// home
+"home_recipe" = "레시피";
+"home_create_button" = "레시피 만들기";
+"home_no_item" = "저장된 레시피 없음";
+"home_all" = "전체";
+"home_meaty" = "육류";
+"home_vegetarian" = "채식";
+"home_dessert" = "디저트";
+"take_photo" = "작성한 레시피 사진을 찍으세요.";
+"image_info" = "앱에 작성한 레시피 사진을 추가할 수 있습니다.";
+"home_favorites" = "즐겨찾기";
+"home_search" = "검색";
+
+
+// language
+"language_turkish"   = "터키어";
+"language_english" = "영어";
+"language_german" = "독일어";
+"language_czech" = "체코어";
+"language_arabic" = "아랍어";
+"language_french" = "프랑스어";
+"language_italian" = "이탈리아어";
+"language_russian" = "러시아어";
+"language_iranian" = "이란어";
+"language_spansish" = "스페인어";
+
+
+//select category
+"next_button" = "다음";
+"select_label" = "음식 유형 선택";
+"choose_label" = "하나 이상 선택하세요";
+
+
+// select food
+"apply_button" = "레시피 만들기";
+"search_food" = "재료 검색";
+"select_filter" = "필터링된 재료";
+"select_vegetable" = "채소";
+"select_meat" = "육류";
+"select_dairy" = "유제품";
+"select_grain" = "곡물";
+"select_fruit" = "과일";
+"select_seafood" = "해산물";
+"select_herb" = "허브";
+"select_nut" = "견과류";
+
+
+// premium
+"premium_1_title" = "무제한 레시피 추가";
+"premium_1" = "제한 없이 레시피를 추가하고 따라하세요.";
+"premium_2_title" = "무엇을 요리할지 걱정하지 마세요";
+"premium_2" = "무엇을 요리할지 걱정하지 마세요.";
+"premium_3_title" = "당신에게 달려있습니다";
+"premium_3" = "원하는 재료로 원하는 것을 요리하세요.";
+"premium_subscribed" = "구독 중입니다";
+"premium_subheadline" = "축하합니다, 앱의 모든 기능에 대한 프리미엄 액세스를 성공적으로 활성화했습니다. 즐기세요!";
+"premium_expiration" = "만료일: ";
+"premium_restore" = "구매를 복원하시겠습니까?";
+"premium_off" = "할인";
+
+
+// settings
+"settings_title" = "설정";
+"settings_user" = "사용자 ID:";
+"settings_premium" = "프리미엄";
+"settings_language" = "언어";
+"settings_dark_mode" = "다크 모드";
+"settings_write_me" = "메세지 보내기";
+"settings_about_app" = "WhichFood 소개";
+"settings_hello" = "안녕하세요";
+"settings_mail_title_error" = "이메일 전송이 지원되지 않습니다";
+"settings_mail_message_error" = "이메일을 보내려면 이메일 계정을 구성해야 합니다.";
+"settings_ok_button" = "확인";
+"settings_select_theme" = "테마 선택";
+"settings_light_mode" = "라이트 모드";
+"settings_dark_mode_button" = "다크 모드";
+"settings_error_title" = "언어 설정 변경";
+"settings_error_message" = "다른 언어로 앱을 사용하려면 다음 페이지의 언어 옵션에서 변경할 수 있습니다.";
+"settings_close" = "닫기";
+"settings_continue" = "계속하기";
+"settings_account_settings" = "계정 설정";
+"settings_account" = "계정";
+"settings_support" = "지원";
+"settings_feedback" = "피드백 보내기";
+"settings_write_comment" = "댓글 쓰기";
+"settings_share" = "공유하기";
+"settings_appearance" = "외관";
+"settings_other_apps" = "다른 앱 알아보기";
+"settings_rights_privacy" = "권리 및 개인정보";
+"settings_terms_of_service" = "이용 약관";
+"settings_privacy_policy" = "개인정보 보호정책";
+"settings_language_change" = "언어가 변경되었습니다";
+"settings_language_apply_change" = "언어를 변경하려면 앱을 다시 시작하세요";
+
+
+//show food
+"show_food_prompt1" = "다음 재료로 레시피를 제안해 주시겠어요:";
+"show_food_prompt2" = "재료로 레시피를 제안해 주시겠어요? ";
+"show_food_prompt3" = "식사에는 이러한 특징이 포함됩니다. 앞에 아무것도 쓰지 마세요.";
+"show_food_prompt4" = "JSON 형식으로 데이터를 제공하세요, 단순히 JSON으로, 앞뒤에 아무것도 추가하지 말고, json은: ";
+"show_food_prompt5" = "육류, 채소 또는 디저트인지에 따라 유형을 선택하세요. 이 유형 중 하나만 선택하세요.";
+"random_prompt" = "랜덤 레시피 주세요";
+"json_prompt" = "정확히 이 JSON";
+
+
+// account
+"account_date" = "없음";
+"account_premium" = "없음";
+"account_id" = "없음";
+"account_user_id" = "사용자 ID";
+"account_premium_name" = "프리미엄";
+"account_last_date" = "만료일";
+"account_copy" = "복사";
+"account_title" = "계정";
+"account_usage_api" = "생성된 레시피 수";
+
+
+// error alert
+"error_alert" = "오류";
+"error_occurred" = "오류가 발생했습니다";
+"error_ok_button" = "확인";
+"error_back_button" = "뒤로가기";
+"error_api_usage" = "API 사용 한도에 도달했습니다";
+"error_api" = "데이터를 가져오지 못했습니다";
+"invalid_endpoint" = "잘못된 엔드포인트";
+"invalid_response" = "잘못된 응답";
+"error_no_data" = "데이터 없음";
+"error_serialization" = "데이터 디코딩 실패";
+"error_unable_to_favorite" = "이 사용자를 즐겨찾기하는 데 오류가 있었습니다. 다시 시도해 주세요.";
+"error_already_in_favorites" = "이미 즐겨찾기에 추가됨";
+"network_error" = "인터넷 연결에 문제가 있습니다";
+"upload_photo_error" = "사진 업로드에 문제가 있었습니다";
+"error_delete" = "삭제";
+"error_cancel" = "취소";
+"error_share" = "공유";
+"error_check_out" = "확인하기";
+
+// Recipe
+"recipe_name" = "레시피 이름";
+
+//image to text
+"image_info" = "레시피의 작성된 사진을 찍어야 합니다.";
+"take_photo" = "사진 찍기";
+
+// Premium/Paywall
+"paywall_title" = "WhichFood로 창의적인 레시피 경험을 누리세요";
+"paywall_invest" = "오늘 혁신적인 요리 여정을 시작하세요";
+"paywall_whats_inside" = "무엇이 포함되어 있나요?";
+"paywall_subscribe_now" = "지금 구독하기";
+"paywall_restore_purchases" = "구매 복원";
+"paywall_error_title" = "오류";
+"paywall_ok" = "확인";
+// Premium Features
+"feature_ai_recipe_title" = "AI 레시피 생성";
+"feature_ai_recipe_desc" = "재료와 취향에 맞는 무제한 맞춤형 레시피 생성";
+"feature_customization_title" = "고급 레시피 커스터마이징";
+"feature_customization_desc" = "식이 제한, 조리 시간 및 난이도에 따라 레시피 맞춤화";
+"feature_collections_title" = "레시피 컬렉션";
+"feature_collections_desc" = "무제한 개인 레시피 컬렉션 및 식사 계획 생성 및 구성";
+"feature_shopping_title" = "스마트 쇼핑 목록";
+"feature_shopping_desc" = "선택한 레시피에서 정확한 양으로 자동 쇼핑 목록 생성";
+"feature_premium_title" = "프리미엄 기능";
+"feature_premium_desc" = "광고 없는 경험, 오프라인 액세스 및 영양 분석";
+// Subscription Plans
+"plan_yearly" = "연간";
+"plan_weekly" = "주간";
+"plan_most_popular" = "가장 인기 있는";
+"plan_best_offer" = "최고의 제안";
+"plan_subscribe_terms" = "오늘 구독하고 %@ %@를 지불하세요. 언제든지 취소할 수 있습니다.";
+"plan_per_year" = "연당";
+"plan_per_week" = "주당";
+"plan_weekly" = "주간";
+"plan_yearly" = "연간";
+"plan_monthly" = "월간";
+
+// Onboarding
+"onboarding.page1.title" = "WhichFood에 오신 것을 환영합니다";
+"onboarding.page1.description" = "재료와 취향에 맞는 맛있는 레시피를 발견하세요";
+"onboarding.page2.title" = "재료 스캔하기";
+"onboarding.page2.description" = "가지고 있는 것을 스캔하여 맞춤형 레시피 제안 받기";
+"onboarding.page3.title" = "제때 알림 받기";
+"onboarding.page3.description" = "유용한 알림으로 식사를 놓치지 마세요";
+"onboarding.button.next" = "다음";
+"onboarding.notification.title" = "식사 시간! 🍽️";
+"onboarding.notification.body" = "오늘 무엇을 요리할지 확실하지 않으신가요? 제안해 드릴게요!";
+
+
+"next" = "다음";
+"get_started" = "시작하기";
+"skip" = "건너뛰기";
+"cooking_skills_title" = "요리 실력을 어떻게\n표현하시겠어요? 💪";
+"cooking_skill_1" = "아직 기초를 배우는 중 😅";
+"cooking_skill_2" = "간단한 레시피를 다룰 수 있어요 😊";
+"cooking_skill_3" = "괜찮은 식사를 만들 수 있어요 😎";
+"cooking_skill_4" = "마스터셰프 참가자가 될 수 있어요 👨‍🍳";
+"kitchen_tools_title" = "도구에 대해 이야기해 볼까요!\n어떤 장비를 주방에\n가지고 계신가요? 🥣";
+"kitchen_tools_subtitle" = "원하는 만큼 선택하세요... 이미 필수\n주방 도구는 가지고 계시다고 가정합니다 😄";
+"tool_oven" = "오븐";
+"tool_blender" = "블렌더";
+"tool_microwave" = "전자레인지";
+"tool_food_processor" = "푸드 프로세서";
+"tool_air_fryer" = "에어 프라이어";
+"tool_rolling_pin" = "밀대";
+"tool_grater" = "강판";
+"tool_slow_cooker" = "슬로우 쿠커";
+"tool_blowtorch" = "화염총";
+"dietary_restrictions_title" = "제가 알아야 할 식이\n제한이 있나요? 🧐";
+"dietary_restrictions_subtitle" = "원하는 만큼 선택하세요...";
+"diet_vegetarian" = "🥦 채식주의자";
+"diet_vegan" = "🌱 비건";
+"diet_pescatarian" = "🐟 페스코 베지테리언";
+"diet_dairy_free" = "🥛 유제품 없음";
+"diet_gluten_free" = "🍞 글루텐 없음";
+"diet_halal" = "🐑 할랄";
+"diet_kosher" = "🐓 코셔";
+"diet_nut_allergy" = "🥜 견과류 알레르기";
+"diet_no_restrictions" = "👍 모든 것을 즐깁니다";
+"notification_title" = "언제 식사 제안을\n받고 싶으신가요? 🔔";
+"notification_subtitle" = "취향에 맞는 맛있는 레시피 아이디어를\n보내드릴게요";
+"people_count_title" = "보통 몇 명을 위해\n요리하시나요? 👤";
+
+
+"Calories"  = "칼로리";
+"Carbs" = "탄수화물";
+"Protein" = "단백질";
+"Fat" = "지방";
+"Ingredients" = "재료";
+"Instructions" = "조리 방법";
+"analyzing_preferences" = "취향 분석 중";
+"customizing_recipes" = "레시피 맞춤화 중";
+"optimizing_recommendations" = "추천 최적화 중";
+"finalizing_personalization" = "개인화 마무리 중";
+"personalizing_experience" = "개인 경험 맞춤화 중";
+"Nutrition" = "영양소";
+"servings" = "인분";
+
+"appearance_title" = "화면 모드";
+"appearance_system" = "시스템";
+"appearance_light" = "라이트";
+"appearance_dark" = "다크";
+"cancel" = "취소";
