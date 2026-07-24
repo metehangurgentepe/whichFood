@@ -1,0 +1,169 @@
+/*
+  Localizable.strings
+  WhichFood
+
+  Erstellt von Metehan Gürgentepe am 12. September 2023.
+  
+*/
+
+
+"tabHome" = "Titel hier";
+
+
+// Premium
+"premiumWeekButton" = "Wöchentliche Premium";
+"lifetimeButton" = "Jährliche Premium";
+"continueButton" = "Weiter";
+
+
+// Einführung
+"feature_1" = "Wählen Sie die Zutaten aus, die Sie zu Hause haben, und lassen Sie sich zeigen, was Sie kochen können.";
+"feature_2" = "Wählen Sie die Lebensmittelkategorien aus, die zu Ihnen passen, und genießen Sie die köstlichsten Gerichte.";
+"feature_3" = "Speichern Sie die Anweisungen Ihrer Lieblingsrezepte und kochen Sie sie jederzeit nach.";
+"feature_1_title" = "Verfügbare Zutaten";
+"feature_2_title" = "Viele Kategorien";
+"feature_3_title" = "Rezepte speichern";
+"footer" = "Entwickelt und codiert von Metehan Gürgentepe";
+"more" = "Mehr anzeigen...";
+"feature_button" = "Weiter";
+"feature_welcome" = "Willkommen";
+
+
+// Detailliertes Rezept
+
+"detail_ingredients" = "Zutaten";
+"detail_recipe" = "Anleitung";
+"detail_success" = "Erfolgreich gespeichert";
+"detail_save" = "Rezept speichern";
+"detail_success_title" = "Erfolg";
+"detail_ok_button" = "OK";
+"detail_error_title" = "Fehler";
+"detail_error_message" = "Rezept konnte nicht gespeichert werden";
+"detail_try_again" = "Erneut versuchen";
+"detail_error_occurred" = "Ein Fehler ist aufgetreten";
+
+
+// Lebensmittelkategorien
+"category_healthy" = "Gesund";
+"category_easy" = "Einfach";
+"category_mid" = "Mittel";
+"category_hard" = "Schwierig";
+"category_enjoy" = "Genießen";
+"category_hearty" = "Herzhaft";
+"category_vegan" = "Vegan";
+"category_vegetarian" = "Vegetarisch";
+"category_breakfast" = "Frühstück";
+"category_lunch" = "Mittagessen";
+"category_dinner" = "Abendessen";
+"category_dessert" = "Dessert";
+
+
+// Zutaten
+"ingredients_bread" = "Brot";
+"ingredients_garlic" = "Knoblauch";
+"ingredients_parsley" = "Petersilie";
+"ingredients_tomato" = "Tomate";
+"ingredients_carrot" = "Karotte";
+"ingredients_potato" = "Kartoffel";
+"ingredients_dill" = "Dill";
+"ingredients_spring_onion" = "Frühlingszwiebel";
+"ingredients_pepper" = "Paprika";
+"ingredients_zucchini" = "Zucchini";
+"ingredients_eggplant" = "Aubergine";
+"ingredients_rice" = "Reis";
+"ingredients_mushroom" = "Pilz";
+"ingredients_fresh_basil" = "Frisches Basilikum";
+"ingredients_lettuce" = "Kopfsalat";
+"ingredients_peas" = "Erbsen";
+"ingredients_butter" = "Butter";
+"ingredients_spinach" = "Spinat";
+"ingredients_fresh_mint" = "Frische Minze";
+"ingredients_celery" = "Sellerie";
+"ingredients_thyme" = "Thymian";
+"ingredients_egg" = "Ei";
+"ingredients_ground_beef" = "Hackfleisch";
+"ingredients_chicken" = "Hähnchen";
+"ingredients_diced_beef" = "Rindfleischwürfel";
+"ingredients_fish" = "Fisch";
+"ingredients_lamb" = "Lamm";
+"ingredients_turkey" = "Truthahn";
+"ingredients_beef" = "Rindfleisch";
+"ingredients_sausage" = "Wurst";
+"ingredients_hotDog" = "Hotdog";
+"ingredients_calamari" = "Tintenfisch";
+"ingredients_pastrami" = "Pastrami";
+"ingredients_bonito" = "Bonito";
+"ingredients_chickenNuggets" = "Hähnchen-Nuggets";
+"ingredients_cheese" = "Käse";
+"ingredients_yogurt" = "Joghurt";
+"ingredients_milk" = "Milch";
+"ingredients_cream" = "Sahne";
+"ingredients_ricotta" = "Ricotta";
+"ingredients_lemon" = "Zitrone";
+"ingredients_avocado" = "Avocado";
+"ingredients_grape" = "Trauben";
+"ingredients_fig" = "Feigen";
+"ingredients_orange" = "Orange";
+"ingredients_blackOlive" = "Schwarze Olive";
+"ingredients_greenApple" = "Grüner Apfel";
+"ingredients_strawberry" = "Erdbeere";
+"ingredients_raspberry" = "Himbeere";
+"ingredients_blackberry" = "Brombeere";
+"ingredients_mulberry" = "Maulbeere";
+"ingredients_kiwi" = "Kiwi";
+"ingredients_apple" = "Apfel";
+"ingredients_pomegranate" = "Granatapfel";
+"ingredients_quince" = "Quitte";
+"ingredients_walnut" = "Walnuss";
+"ingredients_pineNuts" = "Pinienkerne";
+"ingredients_pistachio" = "Pistazien";
+"ingredients_sunDriedTomato" = "Sonnengereifte Tomate";
+"ingredients_coconut" = "Kokosnuss";
+"ingredients_almond" = "Mandel";
+"ingredients_hazelnut" = "Haselnuss";
+"ingredients_driedApricot" = "Getrocknete Aprikose";
+
+
+// Startseite
+"home_recipe" = "Rezepte";
+"home_create_button" = "Rezept erstellen";
+"home_no_item" = "Keine gespeicherten Rezepte";
+
+// Kategorie auswählen
+"next_button" = "Weiter";
+
+
+// Lebensmittel auswählen
+"apply_button" = "Rezept erstellen";
+
+// Premium
+"premium_1_title" = "Unbegrenzt Rezepte hinzufügen";
+"premium_1" = "Fügen Sie Rezepte ohne Begrenzung hinzu und verfolgen Sie sie.";
+"premium_2_title" = "Keine Sorge, was gekocht werden soll";
+"premium_2" = "Keine Sorge, was gekocht werden soll.";
+"premium_3_title" = "Es liegt an Ihnen";
+"premium_3" = "Kochen Sie, was Sie wollen, mit den Zutaten, die Sie mögen.";
+
+
+// Einstellungen
+"settings_title" = "Einstellungen";
+"settings_user" = "Benutzer-ID:";
+"settings_premium" = "Premium";
+"settings_language" = "Sprache";
+"settings_dark_mode" = "Dunkelmodus";
+"settings_write_me" = "Schreiben Sie mir";
+"settings_about_app" = "Über WhichFood";
+"settings_hello" = "Hallo";
+"settings_mail_title_error" = "E-Mail-Versand wird nicht unterstützt";
+"settings_mail_message_error" = "Um E-Mails zu versenden, müssen Sie ein E-Mail-Konto einrichten.";
+"settings_ok_button" = "OK";
+"settings_select_theme" = "Thema auswählen";
+"settings_light_mode" = "Hellmodus";
+"settings_dark_mode_button" = "Dunkelmodus";
+
+
+// Fehlermeldung
+"error_alert" = "Fehler";
+"error_occured" = "Ein Fehler ist aufgetreten";
+"error_ok_button" = "OK";
+"error_back_button" = "Zurück";

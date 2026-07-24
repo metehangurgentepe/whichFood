@@ -6,12 +6,16 @@
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 import FirebaseFirestore
+import Alamofire
+import FirebaseStorage
 
 class SavedRecipesManager{
     static let shared = SavedRecipesManager()
     private let recipesCollection = Firestore.firestore().collection("recipes")
+    private let jsonDecoder = Utils.jsonDecoder
+    private let baseURL = Constants.Api.baseURL.rawValue
+    private let currentLanguage = Bundle.main.preferredLocalizations.first ?? "Base"
     
     private init(){}
     
@@ -19,29 +23,226 @@ class SavedRecipesManager{
         try await recipesCollection.document(id).getDocument(as: Recipe.self)
     }
     
-    func saveRecipe(name:String,recipe:[String],ingredients:[String],desc:String,cookTime: String) async throws {
+    // SavedRecipesManager sınıfında saveRecipe fonksiyonu güncellemesi
+    func saveRecipe(name: String, recipe: [String], ingredients: [String], desc: String,
+                    cookTime: String, type: String, imageURL: String,
+                    prepTime: String? = nil, totalTime: String? = nil,
+                    difficulty: String? = nil, servings: String? = nil,
+                    cuisine: String? = nil, tags: [String]? = nil,
+                    cal: CalorieInfo? = nil, nutritionalInfo: NutritionalInfo? = nil,
+                    allergens: [String]? = nil, tips: [String]? = nil) async throws {
+        
         let id = UUID()
         let createdTime = Timestamp()
-        let userId = await UIDevice.current.identifierForVendor?.uuidString
-        let recipeModel = Recipe(id: id.uuidString, name: name, recipe: recipe, ingredients: ingredients, description: desc, cookTime:cookTime, userId:userId ?? "", createdAt: createdTime)
+        let userId = KeychainManager.get(account: "account")
+        let currentLanguage = Bundle.main.preferredLocalizations.first ?? "Base"
+        
+        let recipeModel = Recipe(
+            id: id.uuidString,
+            name: name,
+            recipe: recipe,
+            ingredients: ingredients,
+            description: desc,
+            cookTime: cookTime,
+            userId: String(decoding: userId ?? Data(), as: UTF8.self),
+            createdAt: createdTime,
+            type: type,
+            imageUrl: imageURL,
+            language: currentLanguage,
+            keywords: createKeywords(recipe: name),
+            prepTime: prepTime,
+            totalTime: totalTime,
+            difficulty: difficulty,
+            servings: servings,
+            cuisine: cuisine,
+            tags: tags,
+            cal: cal,
+            nutritionalInfo: nutritionalInfo,
+            allergens: allergens,
+            tips: tips
+        )
+        
         do {
             let encodedRecipe = try Firestore.Encoder().encode(recipeModel)
             try await recipesCollection.document(id.uuidString).setData(encodedRecipe)
-        } catch{
+        } catch {
             throw error
         }
     }
     
-    func deleteRecipe(id:String) {
-        recipesCollection.document(id).delete()
+    func createKeywords(recipe: String) -> [String]{
+            var keywords: [String] = []
+            var lowercaseKeywords: [String] = []
+            var alreadyKeyed: String = ""
+            
+            for letter in recipe{
+                if keywords.isEmpty {
+                    keywords.append("\(letter)")
+                    let lower = letter.lowercased()
+                    lowercaseKeywords.append("\(lower)")
+                } else {
+                    let key = alreadyKeyed + "\(letter)"
+                    keywords.append(key)
+                    let lower = key.lowercased()
+                    lowercaseKeywords.append("\(lower)")
+                }
+                alreadyKeyed.append("\(letter)")
+            }
+            
+            return keywords + lowercaseKeywords
     }
     
-    func getAllRecipes() async throws -> [Recipe] {
-        let deviceId = await UIDevice.current.identifierForVendor?.uuidString
-        return try await recipesCollection
-            .whereField("userId", isEqualTo: deviceId!)
-            .getDocuments(as: Recipe.self)
+    func deleteRecipeByUserID(id:String) {
+        let field = ["userId": ""]
+        recipesCollection.document(id).updateData(field)
     }
+    
+    
+    func getAllRecipesByUser() async throws -> [Recipe] {
+        do{
+            let userId = KeychainManager.get(account: "account")
+            let documentId = String(decoding:userId ?? Data(), as:UTF8.self)
+            return try await recipesCollection
+                .whereField("userId", isEqualTo: documentId)
+                .getDocuments(as: Recipe.self)
+        } catch {
+            throw WFError.invalidResponse
+        }
+    }
+    
+    
+    func getRecipes() async throws -> [Recipe] {
+        do {
+            let array = try await recipesCollection
+                .limit(to: 21)
+//                .whereField("language", isEqualTo: currentLanguage)
+                .getDocuments(as: Recipe.self)
+                .compactMap { $0 }
+            return array
+        } catch {
+            throw WFError.invalidEndpoint
+        }
+    }
+    
+    
+    func searchRecipe(query:String) async throws -> [Recipe] {
+        do{
+            return try await recipesCollection
+                .limit(to: 10)
+                .whereField("keywords", arrayContains: query)
+                .getDocuments(as: Recipe.self)
+                .compactMap { $0 }
+        } catch {
+            throw WFError.invalidResponse
+        }
+    }
+    
+    
+    func saveImageToFirebase(image: UIImage, foodName: String) async throws -> String {
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+            throw WFError.networkError
+        }
+        
+        let imageName = UUID().uuidString
+        
+        let storage = Storage.storage()
+        
+        let storageRef = storage.reference().child("\(foodName)/\(imageName)")
+        
+        do {
+            let metadata = storageRef.putData(imageData)
+            let downloadURL = try await storageRef.downloadURL()
+            return downloadURL.absoluteString
+        } catch {
+            throw WFError.uploadPhotoError
+        }
+    }
+    
+    
+    func compressImage(imageURL: URL, compressionQuality: CGFloat) throws -> Data {
+        guard let originalImage = UIImage(data: try Data(contentsOf: imageURL)) else {
+            throw WFError.uploadPhotoError
+        }
+        return originalImage.jpegData(compressionQuality: compressionQuality) ?? Data()
+    }
+    
+    
+    func uploadImageToFirebase(imageURL: URL, foodName: String) async throws -> String {
+        let compressedImageData = try compressImage(imageURL: imageURL, compressionQuality: 0.4)
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference().child("foodImages/\(foodName)")
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        do {
+            let _ = try await storageRef.putDataAsync(compressedImageData, metadata: metadata)
+            
+            let downloadURL = try await storageRef.downloadURL()
+            return downloadURL.absoluteString
+        } catch {
+            throw error
+        }
+    }
+    
+    func postData(input: String) async throws -> String {
+        guard let url = URL(string: "\(baseURL)/openAIChatCompletion") else { throw WFError.invalidEndpoint }
+        
+        let parameters: [String: String] = [
+            "message": input,
+        ]
+        
+        return try await self.loadURLAndDecode(url: url, params: parameters)
+    }
+    
+    
+    func generateImage(input: String) async throws -> String {
+        guard let url = URL(string:"\(baseURL)/generateImage") else {
+            throw WFError.invalidEndpoint
+        }
+        
+        let parameters: [String: String] = [
+            "message": input,
+        ]
+        
+        return try await self.loadURLAndDecode(url: url, params: parameters)
+    }
+    
+    
+    private func loadURLAndDecode<D: Decodable>(url: URL, method: String = "POST", params: [String: String]? = nil) async throws -> D {
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = method
+        
+        if let params = params {
+            urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: params)
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
+        
+        guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
+            throw WFError.invalidResponse
+        }
+        
+        do {
+            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            return try jsonDecoder.decode(D.self, from: data)
+        } catch {
+            throw WFError.serializationError
+        }
+    }
+
+    func getRecipesByLanguage(languageCode: String) async throws -> [Recipe] {
+        // Query recipes by language from Firestore
+        let query = recipesCollection
+            .whereField("language", isEqualTo: languageCode)
+            .order(by: "createdAt", descending: true)
+            .limit(to: 50)
+
+        return try await query.getDocuments(as: Recipe.self)
+    }
+
 }
 
 
@@ -49,7 +250,7 @@ extension Query {
     func getDocuments<T>(as type:T.Type) async throws -> [T] where T: Decodable {
         let snapshot = try await self.getDocuments()
         return try snapshot.documents.map { document in
-            try document.data(as: T.self)
+            return try document.data(as: T.self)
         }
     }
 }

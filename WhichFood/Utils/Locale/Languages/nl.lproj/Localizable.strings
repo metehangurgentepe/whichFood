@@ -1,0 +1,537 @@
+/*
+ Localizable.strings
+ WhichFood
+ 
+ Created by Metehan Gürgentepe on September 12, 2023.
+ 
+ */
+
+"tabHome" = "Titel hier";
+
+//Premium
+"premiumWeekButton" = "Wekelijkse premie";
+"lifetimeButton" = "Jaarlijkse premie";
+"continueButton" = "Doorgaan";
+
+// onboarding
+"feature_1_title" = "Selecteer je Ingrediënten";
+"feature_1_subtitle" = "Kies de ingrediënten die je in huis hebt en laat de app je tonen wat je kunt koken met AI-ondersteuning.";
+"feature_2_title" = "Rijke Categorieën";
+"feature_2_subtitle" = "Ontdek recepten die bij je smaak passen van ontbijt tot diner, met verschillende categorieën voor elke maaltijd.";
+"feature_3_title" = "Recepten Opslaan";
+"feature_3_subtitle" = "Bewaar je favoriete recepten en maak ze wanneer je maar wilt met AI-assistentie.";
+"feature_4_title" = "Gezonde Recepten";
+"feature_4_subtitle" = "Begin een gezond leven met voedzame en gebalanceerde recepten. Ontdek gerechten met seizoensgebonden ingrediënten.";
+"lets_get_started" = "Laten we Beginnen";
+
+"footer" = "Ontworpen en gecodeerd door Metehan Gürgentepe";
+"more" = "Bekijk meer...";
+"feature_button" = "Doorgaan";
+"feature_welcome" = "Welkom";
+
+// gedetailleerd recept
+
+"detail_ingredients" = "Ingrediënten";
+"detail_recipe" = "Instructies";
+"detail_success" = "Opgeslagen";
+"detail_save" = "Recept opslaan";
+"detail_success_title" = "Geslaagd";
+"detail_ok_button" = "OK";
+"detail_error_title" = "Fout";
+"detail_error_message" = "Recept kon niet worden opgeslagen";
+"detail_try_again" = "Opnieuw proberen";
+"detail_error_occurred" = "Er is een fout opgetreden";
+
+// voedselcategorieën
+"category_healthy" = "Gezond";
+"category_easy" = "Gemakkelijk";
+"category_mid" = "Gemiddeld";
+"category_hard" = "Moeilijk";
+"category_enjoy" = "Aangenaam";
+"category_hearty" = "Hartig";
+"category_vegan" = "Veganistisch";
+"category_vegetarian" = "Vegetarisch";
+"category_breakfast" = "Ontbijt";
+"category_lunch" = "Lunch";
+"category_dinner" = "Avondeten";
+"category_dessert" = "Dessert";
+
+// ingrediënten
+"ingredients_bread" = "Brood";
+"ingredients_garlic" = "Knoflook";
+"ingredients_parsley" = "Peterselie";
+"ingredients_tomato" = "Tomaat";
+"ingredients_carrot" = "Wortel";
+"ingredients_potato" = "Aardappel";
+"ingredients_dill" = "Dille";
+"ingredients_spring_onion" = "Bosui";
+"ingredients_pepper" = "Peper";
+"ingredients_zucchini" = "Courgette";
+"ingredients_eggplant" = "Aubergine";
+"ingredients_rice" = "Rijst";
+"ingredients_mushroom" = "Paddestoel";
+"ingredients_fresh_basil" = "Verse basilicum";
+"ingredients_lettuce" = "Sla";
+"ingredients_peas" = "Erwten";
+"ingredients_butter" = "Boter";
+"ingredients_spinach" = "Spinazie";
+"ingredients_fresh_mint" = "Verse munt";
+"ingredients_celery" = "Selderij";
+"ingredients_thyme" = "Tijm";
+"ingredients_egg" = "Ei";
+"ingredients_ground_beef" = "Rundvleesgehakt";
+"ingredients_chicken" = "Kip";
+"ingredients_diced_beef" = "Gesneden rundvlees";
+"ingredients_fish" = "Vis";
+"ingredients_lamb" = "Lam";
+"ingredients_turkey" = "Kalkoen";
+"ingredients_beef" = "Rundvlees";
+"ingredients_sausage" = "Worst";
+"ingredients_hotDog" = "Hotdog";
+"ingredients_calamari" = "Calamari";
+"ingredients_pastrami" = "Pastrami";
+"ingredients_bonito" = "Bonito";
+"ingredients_chickenNuggets" = "Kipnuggets";
+"ingredients_cheese" = "Kaas";
+"ingredients_yogurt" = "Yoghurt";
+"ingredients_milk" = "Melk";
+"ingredients_cream" = "Room";
+"ingredients_ricotta" = "Ricotta";
+"ingredients_lemon" = "Citroen";
+"ingredients_avocado" = "Avocado";
+"ingredients_grape" = "Druif";
+"ingredients_fig" = "Vijg";
+"ingredients_orange" = "Sinaasappel";
+"ingredients_blackOlive" = "Zwarte Olijf";
+"ingredients_greenApple" = "Groene Appel";
+"ingredients_strawberry" = "Aardbei";
+"ingredients_raspberry" = "Framboos";
+"ingredients_blackberry" = "Braam";
+"ingredients_mulberry" = "Moerbei";
+"ingredients_kiwi" = "Kiwi";
+"ingredients_apple" = "Appel";
+"ingredients_pomegranate" = "Granaatappel";
+"ingredients_quince" = "Kweepeer";
+"ingredients_walnut" = "Walnoot";
+"ingredients_pineNuts" = "Pijnboompitten";
+"ingredients_pistachio" = "Pistache";
+"ingredients_sunDriedTomato" = "Zongedroogde tomaat";
+"ingredients_coconut" = "Kokosnoot";
+"ingredients_almond" = "Amandel";
+"ingredients_hazelnut" = "Hazelnoot";
+"ingredients_driedApricot" = "Gedroogde abrikoos";
+"ingredients_driedApricot" = "Gedroogde abrikoos";
+"ingredients_shrimp" = "Garnalen";
+"ingredients_salmon" = "Zalm";
+"ingredients_clams" = "Mosselen";
+"ingredients_scallops" = "Mosselen";
+"ingredients_lobster" = "Kreeft";
+"ingredients_crab" = "Krab";
+"ingredients_prawns" = "Garnalen";
+"ingredients_caviar" = "Kaviaar";
+"ingredients_oysters" = "Asters";
+"ingredients_mussels" = "Mosselen";
+"ingredients_anchovies" = "Ansjovis";
+"ingredients_sardines" = "Sardines";
+"ingredients_haddock" = "Schelvis";
+"ingredients_cod" = "Kabeljauw";
+"ingredients_tuna" = "Tonijn";
+"ingredients_trout" = "Forel";
+"ingredients_duck" = "Eend";
+"ingredients_veal" = "Kalfsvlees";
+"ingredients_rabbit" = "Konijn";
+"ingredients_quail" = "Kwartel";
+"ingredients_pork" = "Varkensvlees";
+"ingredients_bacon" = "Rundvleesbacon";
+"ingredients_ham" = "Ham";
+"ingredients_cabbage" = "Kool";
+"ingredients_broccoli" = "Broccoli";
+"ingredients_cauliflower" = "Bloemkool";
+"ingredients_asparagus" = "Asperges";
+"ingredients_artichoke" = "Artisjok";
+"ingredients_kale" = "Kool";
+"ingredients_brussels_sprouts" = "Spruitjes";
+"ingredients_cucumber" = "Komkommer";
+"ingredients_radish" = "Radijs";
+"ingredients_sweet_potato" = "Zoete aardappel";
+"ingredients_beetroot" = "Rode biet";
+"ingredients_pumpkin" = "Pompoen";
+"ingredients_turnip" = "Raap";
+"ingredients_okra" = "Okra";
+"ingredients_parsnip" = "Shakshuka";
+"ingredients_leek" = "Prei";
+"ingredients_blueberry" = "Blauwe bes";
+"ingredients_cranberry" = "Cranberry";
+"ingredients_watermelon" = "Watermeloen";
+"ingredients_papaya" = "Papaja";
+"ingredients_pineapple" = "Ananas";
+"ingredients_mango" = "Mango";
+"ingredients_passion_fruit" = "Fruit";
+"ingredients_date" = "Dadel";
+"ingredients_dragon_fruit" = "Drakenfruit";
+"ingredients_persimmon" = "Kaki";
+"ingredients_star_fruit" = "Sterfruit";
+"ingredients_black_currant" = "Zwarte bes";
+"ingredients_rosemary" = "Rozemarijn";
+"ingredients_sage" = "Salie";
+"ingredients_mint" = "Munt";
+"ingredients_cilantro" = "Koriander";
+"ingredients_bay_leaf" = "Laurierblad";
+"ingredients_oregano" = "Tijm";
+"ingredients_tarragon" = "Dragon";
+"ingredients_chives" = "Bieslook";
+"ingredients_lemongrass" = "Citroenkruid";
+"ingredients_marjoram" = "Basilicum";
+"ingredients_coriander" = "Koriander";
+"ingredients_basil" = "Rozemarijn";
+"ingredients_cashew" = "Cashewnoot";
+"ingredients_macadamia" = "Macadamianoten";
+"ingredients_pecan" = "Walnoot";
+"ingredients_peanut" = "Pinda";
+"ingredients_cocoa" = "Cacao";
+"ingredients_chestnut" = "Kastanje";
+
+// home
+"home_recipe" = "Recepten";
+"home_create_button" = "Recept maken";
+"home_no_item" = "Geen opgeslagen recepten";
+"home_all" = "Alles";
+"home_meaty" = "Vlees";
+"home_vegetarian" = "Vegetarisch";
+"home_dessert" = "Dessert";
+"take_photo" = "Maak een foto van je geschreven recept.";
+"image_info" = "Je kunt de foto van je geschreven recept toevoegen aan de recepten in de app.";
+"home_favorites" = "Favorieten";
+"home_search" = "Zoeken";
+
+// language
+"language_turkish" = "Turks";
+"language_english" = "Engels";
+"language_german" = "Duits";
+"language_czech" = "Tsjechisch";
+"language_arabic" = "Arabisch";
+"language_french" = "Frans";
+"language_italian" = "Italiaans";
+"language_russian" = "Russisch";
+"language_iranian" = "Iraans";
+"language_spansish" = "Spaans";
+
+//selecteer categorie
+"next_button" = "Volgende";
+"select_label" = "Selecteer type voedsel";
+"choose_label" = "Kies een of meer";
+
+// selecteer voedsel
+"apply_button" = "Maak recept";
+"search_food" = "Zoek ingrediënt";
+"select_filter" = "Gefilterde ingrediënten";
+"select_vegetable" = "Groente";
+"select_meat" = "Vlees";
+"select_dairy" = "Zuivelproducten";
+"select_grain" = "Graan";
+"select_fruit" = "Fruit";
+"select_seafood" = "Zeevruchten";
+"select_herb" = "Kruid";
+"select_nut" = "Noot";
+
+// premium
+"premium_1_title" = "Voeg onbeperkt recepten toe";
+"premium_1" = "Voeg recepten toe en volg ze zonder beperkingen.";
+"premium_2_title" = "Maak je geen zorgen over wat je moet koken";
+"premium_2" = "Maak je geen zorgen over wat je moet koken.";
+"premium_3_title" = "Het is aan jou";
+"premium_3" = "Kook wat je wilt met de ingrediënten die je lekker vindt.";
+"premium_subscribed" = "Je bent geabonneerd";
+"premium_subheadline" = "Gefeliciteerd, je hebt met succes Premium-toegang tot alle functies van de applicatie geactiveerd, geniet ervan!";
+"premium_expiration" = "Vervaldatum: ";
+"premium_restore" = "Wil je aankopen herstellen?";
+"premium_off" = "KORTING";
+
+// instellingen
+"settings_title" = "Instellingen";
+"settings_user" = "Gebruikers-ID:";
+"settings_premium" = "Premium";
+"settings_language" = "Taal";
+"settings_dark_mode" = "Donkere modus";
+"settings_write_me" = "Schrijf naar mij";
+"settings_about_app" = "Over WhichFood";
+"settings_hello" = "Hallo";
+"settings_mail_title_error" = "E-mail verzenden niet ondersteund";
+"settings_mail_message_error" = "Om e-mails te verzenden, moet u een e-mailaccount configureren.";
+"settings_ok_button" = "OK";
+"settings_select_theme" = "Thema selecteren";
+"settings_light_mode" = "Lichte modus";
+"settings_dark_mode_button" = "Donkere modus";
+"settings_error_title" = "Taalinstellingen wijzigen";
+"settings_error_message" = "Als u de applicatie in een andere taal wilt gebruiken, kunt u dit wijzigen via de taaloptie op de volgende pagina.";
+"settings_close" = "Sluiten";
+"settings_continue" = "Doorgaan";
+"settings_account_settings" = "Accountinstellingen";
+"settings_account" = "Account";
+"settings_support" = "Ondersteuning";
+"settings_feedback" = "Feedback verzenden";
+"settings_write_comment" = "Schrijf een opmerking";
+"settings_share" = "Delen";
+"settings_appearance" = "Uiterlijk";
+"settings_other_apps" = "Andere applicaties ontdekken";
+"settings_rights_privacy" = "Rechten en privacy";
+"settings_terms_of_service" = "Gebruiksvoorwaarden";
+"settings_privacy_policy" = "Privacybeleid";
+"settings_language_change" = "Taal gewijzigd";
+"settings_language_apply_change" = "Start de applicatie opnieuw om de taal te wijzigen";
+
+//show food
+"show_food_prompt1" = "Kunt u een recept voorstellen met de ingrediënten:";
+"show_food_prompt2" = "Kunt u een recept voorstellen met ingrediënten? ";
+"show_food_prompt3" = "maaltijden bevatten deze kenmerken. Schrijf er niets voor.";
+"show_food_prompt4" = "Geef de gegevens op in JSON-formaat, gewoon als JSON, zonder er iets voor of achter te zetten, json is: ";
+"show_food_prompt5" = "Kies een type afhankelijk van of het vlees, groente of dessert is. Slechts één van deze typen.";
+"random_prompt" = "Geef me een willekeurig recept";
+"json_prompt" = "precies deze JSON";
+
+// account
+"account_date" = "Geen";
+"account_premium" = "Geen";
+"account_id" = "Geen";
+"account_user_id" = "Gebruikers-ID";
+"account_premium_name" = "Premium";
+"account_last_date" = "Vervaldatum";
+"account_copy" = "Kopiëren";
+"account_title" = "Account";
+"account_usage_api" = "Aantal aangemaakte recepten";
+
+// error alert
+"error_alert" = "Fout";
+"error_occurred" = "Er is een fout opgetreden";
+"error_ok_button" = "OK";
+"error_back_button" = "Terug";
+"error_api_usage" = "U hebt de API-gebruikslimiet bereikt";
+"error_api" = "Gegevens ophalen mislukt";
+"invalid_endpoint" = "Ongeldig eindpunt";
+"invalid_response" = "Ongeldige respons";
+"error_no_data" = "Geen gegevens";
+"error_serialization" = "Gegevens decoderen mislukt";
+"error_unable_to_favorite" = "Er is een fout opgetreden bij het favoriet maken van deze gebruiker. Probeer het opnieuw.";
+"error_already_in_favorites" = "Al favorieten toegevoegd";
+"network_error" = "Er is een probleem met de internetverbinding";
+"upload_photo_error" = "Er is een probleem met het uploaden van de foto";
+"error_delete" = "Verwijderen";
+"error_cancel" = "Annuleren";
+"error_share" = "Delen";
+"error_check_out" = "Uitchecken";
+
+// Recept
+"recipe_name" = "Receptnaam";
+
+//image naar tekst
+"image_info" = "U moet een geschreven foto van het recept maken.";
+"take_photo" = "Foto maken";
+
+// DUTCH (NEDERLANDS)
+"paywall_title" = "AI-gepersonaliseerde recepten met WhichFood";
+"paywall_invest" = "Open de deuren naar slim koken";
+"paywall_whats_inside" = "Wat zit erin?";
+"paywall_subscribe_now" = "Nu abonneren";
+"paywall_restore_purchases" = "Aankopen herstellen";
+"paywall_error_title" = "Fout";
+"paywall_ok" = "OK";
+
+"feature_ai_recipe_title" = "AI Receptgeneratie";
+"feature_ai_recipe_desc" = "Maak gepersonaliseerde recepten op basis van je ingrediënten en voorkeuren";
+"feature_customization_title" = "Geavanceerde Receptaanpassing";
+"feature_customization_desc" = "Pas recepten aan volgens dieetbeperkingen, bereidingstijd en moeilijkheidsgraad";
+"feature_collections_title" = "Receptencollecties";
+"feature_collections_desc" = "Maak en organiseer persoonlijke receptencollecties en maaltijdplannen";
+"feature_shopping_title" = "Slimme Boodschappenlijsten";
+"feature_shopping_desc" = "Genereer automatische boodschappenlijsten met exacte hoeveelheden van je geselecteerde recepten";
+"feature_premium_title" = "Premium Functies";
+"feature_premium_desc" = "Advertentievrije ervaring, offline toegang en voedingsanalyse";
+
+"plan_yearly" = "Jaarlijks";
+"plan_weekly" = "Wekelijks";
+"plan_most_popular" = "Meest populair";
+"plan_best_offer" = "Beste aanbieding";
+"plan_subscribe_terms" = "Abonneer nu voor %@ %@. Op elk moment opzegbaar.";
+"plan_per_year" = "per jaar";
+"plan_per_week" = "per week";
+"plan_weekly" = "Wekelijks";
+"plan_yearly" = "Jaarlijks";
+"plan_monthly" = "Maandelijks";
+
+"onboarding.page1.title" = "Welkom bij WhichFood";
+"onboarding.page1.description" = "Ontdek heerlijke recepten op maat van jouw ingrediënten en voorkeuren";
+"onboarding.page2.title" = "Scan je ingrediënten";
+"onboarding.page2.description" = "Scan simpelweg wat je hebt en ontvang gepersonaliseerde receptsuggesties";
+"onboarding.page3.title" = "Krijg tijdige herinneringen";
+"onboarding.page3.description" = "Mis nooit een maaltijd met onze handige meldingen";
+"onboarding.button.next" = "Volgende";
+"onboarding.notification.title" = "Etenstijd! 🍽️";
+"onboarding.notification.body" = "Weet je niet wat je vandaag wilt koken? Wij hebben suggesties voor je!";
+
+"next" = "Volgende";
+"get_started" = "Beginnen";
+"skip" = "Overslaan";
+"cooking_skills_title" = "Hoe zou je jouw\nkookvaardigheden omschrijven? 💪";
+"cooking_skill_1" = "Nog bezig met het leren van de basis 😅";
+"cooking_skill_2" = "Kan eenvoudige recepten aan 😊";
+"cooking_skill_3" = "In staat om fatsoenlijke maaltijden te bereiden 😎";
+"cooking_skill_4" = "Potentiële MasterChef-deelnemer 👨‍🍳";
+"kitchen_tools_title" = "Laten we het over keukengerei hebben! Welke\napparatuur heb je\nin je keuken? 🥣";
+"kitchen_tools_subtitle" = "Selecteer zoveel je wilt... Ik ga ervan uit dat je\nal het essentiële keukengerei hebt 😄";
+"tool_oven" = "Oven";
+"tool_blender" = "Blender";
+"tool_microwave" = "Magnetron";
+"tool_food_processor" = "Keukenmachine";
+"tool_air_fryer" = "Airfryer";
+"tool_rolling_pin" = "Deegroller";
+"tool_grater" = "Rasp";
+"tool_slow_cooker" = "Slowcooker";
+"tool_blowtorch" = "Gasbrander";
+"dietary_restrictions_title" = "Zijn er dieetbeperkingen\nwaar ik rekening mee\nmoet houden? 🧐";
+"dietary_restrictions_subtitle" = "Selecteer zoveel je wilt...";
+"diet_vegetarian" = "🥦 Vegetarisch";
+"diet_vegan" = "🌱 Veganistisch";
+"diet_pescatarian" = "🐟 Pescotarisch";
+"diet_dairy_free" = "🥛 Zuivelvrij";
+"diet_gluten_free" = "🍞 Glutenvrij";
+"diet_halal" = "🐑 Halal";
+"diet_kosher" = "🐓 Koosjer";
+"diet_nut_allergy" = "🥜 Notenallergie";
+"diet_no_restrictions" = "👍 Ik eet alles";
+"notification_title" = "Wanneer wil je\nmaaltijdsuggesties ontvangen? 🔔";
+"notification_subtitle" = "We sturen je heerlijke receptideeën\ndie bij jouw voorkeuren passen";
+"people_count_title" = "Voor hoeveel mensen\nkook je gewoonlijk? 👤";
+
+"Calories" = "Calorieën";
+"Carbs" = "Koolhydraten";
+"Protein" = "Eiwitten";
+"Fat" = "Vet";
+"Ingredients" = "Ingrediënten";
+"Instructions" = "Instructies";
+"analyzing_preferences" = "Uw voorkeuren analyseren";
+"customizing_recipes" = "Recepten aanpassen";
+"optimizing_recommendations" = "Aanbevelingen optimaliseren";
+"finalizing_personalization" = "Personalisatie afronden";
+"personalizing_experience" = "Uw ervaring personaliseren";
+"Nutrition" = "Voeding";
+"chefs_tip" = "Tip van de chef";
+"servings" = "porties";
+
+"appearance_title" = "Weergave";
+"appearance_system" = "Systeem";
+"appearance_light" = "Licht";
+"appearance_dark" = "Donker";
+"cancel" = "Annuleren";
+
+
+// Redesign UI (auto-added)
+"Home" = "Home";
+"Favorites" = "Favorieten";
+"Search" = "Zoeken";
+"Settings" = "Instellingen";
+"OK" = "OK";
+"Cancel" = "Annuleren";
+"Delete" = "Verwijderen";
+"Something went wrong" = "Er ging iets mis";
+"Add a photo" = "Foto toevoegen";
+"Snap a dish or pick one from your library." = "Maak een foto van een gerecht of kies er een uit je bibliotheek.";
+"Take a photo" = "Foto maken";
+"Use the camera" = "Camera gebruiken";
+"Choose from library" = "Kies uit bibliotheek";
+"Pick an existing photo" = "Kies een bestaande foto";
+"Recipe from a photo" = "Recept van een foto";
+"Save to my recipes" = "Opslaan in mijn recepten";
+"PREP" = "VOORBER.";
+"COOK" = "KOKEN";
+"SERVES" = "PORTIES";
+"LEVEL" = "NIVEAU";
+"Easy" = "Makkelijk";
+"Start cooking" = "Begin met koken";
+"Remix" = "Remix";
+"Pick a twist" = "Kies een variatie";
+"Make it healthier" = "Gezonder maken";
+"Make it spicier" = "Pittiger maken";
+"Make it vegetarian" = "Vegetarisch maken";
+"Make it quicker" = "Sneller maken";
+"Remixing…" = "Remixen…";
+"Let's cook something great." = "Laten we iets lekkers koken.";
+"Good morning" = "Goedemorgen";
+"Good afternoon" = "Goedemiddag";
+"Good evening" = "Goedenavond";
+"Your recipes" = "Jouw recepten";
+"%d saved" = "%d opgeslagen";
+"From Ingredients" = "Van ingrediënten";
+"Use what you already have" = "Gebruik wat je al hebt";
+"From Photo" = "Van een foto";
+"Snap a dish, get the recipe" = "Fotografeer een gerecht, krijg het recept";
+"Describe a dish… e.g. spicy lentil soup" = "Beschrijf een gerecht… bijv. pittige linzensoep";
+"Your cookbook is empty" = "Je kookboek is leeg";
+"No %@ recipes yet" = "Nog geen %@-recepten";
+"No favorites yet" = "Nog geen favorieten";
+"Tap the heart on any recipe to keep it close at hand." = "Tik op het hartje van een recept om het bij de hand te houden.";
+"Discover" = "Ontdekken";
+"Search recipes…" = "Recepten zoeken…";
+"Nothing found" = "Niets gevonden";
+"From around the web" = "Van het web";
+"Your kitchen" = "Jouw keuken";
+
+
+// Redesign UI (auto-added)
+"All" = "Alle";
+"Meaty" = "Vlees";
+"Vegetarian" = "Vegetarisch";
+"Dessert" = "Dessert";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "Recepten zoeken";
+"Try a different keyword — or create it from your ingredients instead." = "Probeer een ander trefwoord — of maak het van je ingrediënten.";
+"Create a recipe from your ingredients or a food photo to get started." = "Maak om te beginnen een recept van je ingrediënten of een foto.";
+"Try another filter or create something new." = "Probeer een ander filter of maak iets nieuws.";
+"Account" = "Account";
+"Premium" = "Premium";
+"Active" = "Actief";
+"Free" = "Gratis";
+"Recipes created" = "Gemaakte recepten";
+"Language" = "Taal";
+"Appearance" = "Weergave";
+"Send feedback" = "Feedback sturen";
+"Rate WhichFood" = "WhichFood beoordelen";
+"Share the app" = "App delen";
+"Go Premium" = "Word Premium";
+"Premium plan · Unlimited AI recipes" = "Premium-abonnement · Onbeperkt AI-recepten";
+"Free plan · %d AI recipes left" = "Gratis abonnement · %d AI-recepten over";
+"Debug: Premium" = "Debug: Premium";
+"Bypass the AI generation limit" = "AI-generatielimiet omzeilen";
+"Terms" = "Voorwaarden";
+"Privacy" = "Privacy";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "Recept kon niet worden gemaakt";
+"Try again" = "Opnieuw proberen";
+"Close" = "Sluiten";
+"What are you in the mood for?" = "Waar heb je zin in?";
+"Pick as many as you like — we'll shape the recipe around them." = "Kies er zoveel je wilt — we bouwen het recept eromheen.";
+"Choose ingredients" = "Ingrediënten kiezen";
+"No ingredients match that search." = "Geen ingrediënten komen overeen met die zoekopdracht.";
+"What's in your kitchen?" = "Wat heb je in je keuken?";
+"Search ingredients" = "Ingrediënten zoeken";
+"Your ingredients" = "Jouw ingrediënten";
+"Tap one to remove it." = "Tik erop om te verwijderen.";
+"Generate recipe" = "Recept genereren";
+"Generate" = "Genereren";
+"Ready to turn them into a recipe" = "Klaar om er een recept van te maken";
+"Review" = "Overzicht";
+"%d ingredients selected" = "%d ingrediënten geselecteerd";
+
+
+// Redesign UI (auto-added)
+"Medium" = "Gemiddeld";
+"Difficult" = "Moeilijk";
+"Healthy" = "Gezond";
+"Vegan" = "Veganistisch";
+"Breakfast" = "Ontbijt";
+"Lunch" = "Lunch";
+"Dinner" = "Diner";
+"Hearty" = "Stevig";

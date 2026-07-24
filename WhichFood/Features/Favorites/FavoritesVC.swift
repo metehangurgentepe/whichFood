@@ -1,0 +1,134 @@
+//
+//  FavoritesVC.swift
+//  WhichFood
+//
+//  Created by Metehan Gürgentepe on 6.03.2024.
+//
+
+import UIKit
+
+class FavoriteViewController: DataLoadingVC {
+    enum Section {
+        case main
+    }
+    
+    var collectionView: UICollectionView!
+    var recipes: [Recipe] = []
+    var dataSource: UICollectionViewDiffableDataSource<Section, Recipe>!
+    var filteredRecipes: [Recipe] = []
+    var viewModel = FavoriteViewModel()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.delegate = self
+        viewModel.load()
+        configureViewController()
+        configureCollectionView()
+        configureDataSource()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.load()
+    }
+    
+    
+    func configureViewController() {
+        view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = LocaleKeys.Home.favorites.rawValue.locale()
+    }
+    
+    
+    func configureCollectionView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumntFlowLayout(in: view))
+        view.addSubview(collectionView)
+        collectionView.delegate = self
+        collectionView.backgroundColor = .systemBackground
+        collectionView.register(FavoriteRecipeCell.self, forCellWithReuseIdentifier: FavoriteRecipeCell.identifier)
+    }
+    
+    
+    func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, recipe in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteRecipeCell.identifier, for: indexPath) as! FavoriteRecipeCell
+            cell.set(recipe: recipe)
+            return cell
+        })
+    }
+    
+    
+    func updatedData(on recipes: [Recipe]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(recipes)
+        DispatchQueue.main.async{
+            self.dataSource.apply(snapshot,animatingDifferences: true)
+        }
+        
+        if recipes.isEmpty {
+            self.showEmptyStateView(with: LocaleKeys.Home.noItem.rawValue.locale(), in: self.collectionView)
+        } else {
+            self.dismissEmptyStateView(in: self.collectionView)
+        }
+    }
+}
+
+extension FavoriteViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.delegate?.handleOutput(.selectMovie(indexPath.row))
+    }
+}
+
+
+extension FavoriteViewController: FavoriteViewModelDelegate {
+    func navigate(to navigationType: NavigationType) {
+        func navigate(to navigationType: NavigationType) {
+            switch navigationType {
+            case .details(let index):
+                let vc = ShowFoodVC()
+                vc.mode = .detail
+                vc.recipe = self.viewModel.recipes[index].toRecipeResponseModel()
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            case .goToVC(_):
+                break
+                
+            case .present(_):
+                break
+            }
+        }
+    }
+    
+    func handleOutput(_ output: FavoriteViewModelOutput) {
+        switch output {
+        case .favoriteList(let recipes):
+            DispatchQueue.main.async{
+                self.recipes = recipes
+                self.updatedData(on: self.recipes)
+            }
+            
+        case .error(let error):
+            presentAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
+            
+        case .selectMovie(let index):
+            let vc = ShowFoodVC()
+            vc.mode = .detail
+            vc.recipe = self.viewModel.recipes[index].toRecipeResponseModel()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        case .showEmptyView:
+            if self.recipes.isEmpty{
+                DispatchQueue.main.async{
+                    self.showEmptyStateView(with: LocaleKeys.Home.noItem.rawValue.locale(), in: self.collectionView)
+                }
+            } else {
+                DispatchQueue.main.async{
+                    self.dismissEmptyStateView(in: self.collectionView)
+                }
+            }
+        }
+    }
+}

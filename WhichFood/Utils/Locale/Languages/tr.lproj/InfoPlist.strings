@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  WhichFood
+
+  Created by Metehan Gürgentepe on 13.01.2025.
+  
+*/
+
+NSUserNotificationsUsageDescription = "Size en uygun saatte yemek önerileri göndermek için bildirim iznine ihtiyacımız var.";

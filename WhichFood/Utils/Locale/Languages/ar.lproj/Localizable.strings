@@ -1,0 +1,558 @@
+/*
+  Localizable.strings
+  WhichFood
+
+  Created by Metehan Gürgentepe on September 12, 2023.
+  
+*/
+
+
+"tabHome" = "العنوان هنا";
+
+
+//Premium
+"premiumWeekButton" = "بريميوم أسبوعي";
+"lifetimeButton" = "بريميوم سنوي";
+"continueButton" = "متابعة";
+
+
+// التعريف
+"feature_1_title" = "اختر المكونات";
+"feature_1_subtitle" = "اختر المكونات المتوفرة لديك في المنزل ودع التطبيق يريك ما يمكنك طهيه بمساعدة الذكاء الاصطناعي.";
+
+"feature_2_title" = "فئات متنوعة";
+"feature_2_subtitle" = "اكتشف وصفات تناسب ذوقك من الإفطار إلى العشاء، مع فئات متنوعة لكل وجبة.";
+
+"feature_3_title" = "حفظ الوصفات";
+"feature_3_subtitle" = "احفظ وصفاتك المفضلة واطبخها في أي وقت تريد بمساعدة الذكاء الاصطناعي.";
+
+"feature_4_title" = "وصفات صحية";
+"feature_4_subtitle" = "ابدأ حياة صحية مع وصفات مغذية ومتوازنة. اكتشف أطباقًا بمكونات موسمية.";
+"lets_get_started" = "هيا نبدأ";
+
+"footer" = "تم التصميم والبرمجة بواسطة متيحان غورغنتيبي";
+"more" = "رؤية المزيد...";
+"feature_button" = "متابعة";
+"feature_welcome" = "مرحبًا";
+
+
+// تفاصيل الوصفة
+
+"detail_ingredients" = "المكونات";
+"detail_recipe" = "التعليمات";
+"detail_success" = "تم الحفظ بنجاح";
+"detail_save" = "حفظ الوصفة";
+"detail_success_title" = "نجاح";
+"detail_ok_button" = "موافق";
+"detail_error_title" = "خطأ";
+"detail_error_message" = "تعذر حفظ الوصفة";
+"detail_try_again" = "حاول مرة أخرى";
+"detail_error_occurred" = "حدث خطأ";
+
+
+// فئات الطعام
+"category_healthy" = "صحي";
+"category_easy" = "سهل";
+"category_mid" = "متوسط";
+"category_hard" = "صعب";
+"category_enjoy" = "لذيذ";
+"category_hearty" = "لذيذ";
+"category_vegan" = "نباتي";
+"category_vegetarian" = "نباتي";
+"category_breakfast" = "إفطار";
+"category_lunch" = "غداء";
+"category_dinner" = "عشاء";
+"category_dessert" = "حلوى";
+
+
+// المكونات
+"ingredients_bread" = "خبز";
+"ingredients_garlic" = "ثوم";
+"ingredients_parsley" = "بقدونس";
+"ingredients_tomato" = "طماطم";
+"ingredients_carrot" = "جزر";
+"ingredients_potato" = "بطاطا";
+"ingredients_dill" = "شبت";
+"ingredients_spring_onion" = "بصل أخضر";
+"ingredients_pepper" = "فلفل";
+"ingredients_zucchini" = "كوسة";
+"ingredients_eggplant" = "باذنجان";
+"ingredients_rice" = "أرز";
+"ingredients_mushroom" = "فطر";
+"ingredients_fresh_basil" = "ريحان طازج";
+"ingredients_lettuce" = "خس";
+"ingredients_peas" = "بازلاء";
+"ingredients_butter" = "زبدة";
+"ingredients_spinach" = "سبانخ";
+"ingredients_fresh_mint" = "نعناع طازج";
+"ingredients_celery" = "كرفس";
+"ingredients_thyme" = "زعتر";
+"ingredients_egg" = "بيض";
+"ingredients_ground_beef" = "لحم بقر مفروم";
+"ingredients_chicken" = "دجاج";
+"ingredients_diced_beef" = "لحم بقر مقطع";
+"ingredients_fish" = "سمك";
+"ingredients_lamb" = "لحم خروف";
+"ingredients_turkey" = "ديك رومي";
+"ingredients_beef" = "لحم بقر";
+"ingredients_sausage" = "سجق";
+"ingredients_hotDog" = "هوت دوج";
+"ingredients_calamari" = "كالاماري";
+"ingredients_pastrami" = "بسترما";
+"ingredients_bonito" = "بونيتو";
+"ingredients_chickenNuggets" = "ناجت الدجاج";
+"ingredients_cheese" = "جبن";
+"ingredients_yogurt" = "لبن";
+"ingredients_milk" = "حليب";
+"ingredients_cream" = "كريم";
+"ingredients_ricotta" = "ريكوتا";
+"ingredients_lemon" = "ليمون";
+"ingredients_avocado" = "أفوكادو";
+"ingredients_grape" = "عنب";
+"ingredients_fig" = "تين";
+"ingredients_orange" = "برتقال";
+"ingredients_blackOlive" = "زيتون أسود";
+"ingredients_greenApple" = "تفاح أخضر";
+"ingredients_strawberry" = "فراولة";
+"ingredients_raspberry" = "توت أحمر";
+"ingredients_blackberry" = "توت أسود";
+"ingredients_mulberry" = "توت";
+"ingredients_kiwi" = "كيوي";
+"ingredients_apple" = "تفاح";
+"ingredients_pomegranate" = "رمان";
+"ingredients_quince" = "سفرجل";
+"ingredients_walnut" = "جوز";
+"ingredients_pineNuts" = "مكسرات الصنوبر";
+"ingredients_pistachio" = "فستق";
+"ingredients_sunDriedTomato" = "طماطم مجففة بالشمس";
+"ingredients_coconut" = "جوز الهند";
+"ingredients_almond" = "لوز";
+"ingredients_hazelnut" = "بندق";
+"ingredients_driedApricot" = "مشمش مجفف";
+"ingredients_shrimp" = "جمبري";
+"ingredients_salmon" = "سلمون";
+"ingredients_clams" = "صدف";
+"ingredients_scallops" = "حليب البحر";
+"ingredients_lobster" = "جمبري كبير";
+"ingredients_crab" = "سلطعون";
+"ingredients_prawns" = "جمبري";
+"ingredients_caviar" = "كافيار";
+"ingredients_oysters" = "محار";
+"ingredients_mussels" = "محار";
+"ingredients_anchovies" = "أنشوفة";
+"ingredients_sardines" = "سردين";
+"ingredients_haddock" = "حدوق";
+"ingredients_cod" = "سمك السلمون";
+"ingredients_tuna" = "تونة";
+"ingredients_trout" = "سمك القز";
+"ingredients_duck" = "بط";
+"ingredients_veal" = "لحم العجل";
+"ingredients_rabbit" = "أرنب";
+"ingredients_quail" = "سمان";
+"ingredients_pork" = "لحم الخنزير";
+"ingredients_bacon" = "لحم الخنزير المدخن";
+"ingredients_ham" = "لحم خنزير مدخن";
+"ingredients_cabbage" = "ملفوف";
+"ingredients_broccoli" = "بروكلي";
+"ingredients_cauliflower" = "زهرة القرنبيط";
+"ingredients_asparagus" = "أسبراغوس";
+"ingredients_artichoke" = "خرشوف";
+"ingredients_kale" = "ملفوف";
+"ingredients_brussels_sprouts" = "بروكسل البراعم";
+"ingredients_cucumber" = "خيار";
+"ingredients_radish" = "فجل";
+"ingredients_sweet_potato" = "بطاطا حلوة";
+"ingredients_beetroot" = "لبنة";
+"ingredients_pumpkin" = "يقطين";
+"ingredients_turnip" = "لفت";
+"ingredients_okra" = "بامية";
+"ingredients_parsnip" = "لفت مقدس";
+"ingredients_leek" = "كرفس";
+"ingredients_blueberry" = "توت أزرق";
+"ingredients_cranberry" = "توت عرعر";
+"ingredients_watermelon" = "بطيخ";
+"ingredients_papaya" = "بابايا";
+"ingredients_pineapple" = "أناناس";
+"ingredients_mango" = "مانجو";
+"ingredients_passion_fruit" = "فاكهة العاطفة";
+"ingredients_date" = "تمر";
+"ingredients_dragon_fruit" = "فاكهة التنين";
+"ingredients_persimmon" = "كاكي";
+"ingredients_star_fruit" = "فاكهة النجمة";
+"ingredients_black_currant" = "الكشمش الأسود";
+"ingredients_rosemary" = "إكليل الجبل";
+"ingredients_sage" = "المريمية";
+"ingredients_mint" = "نعناع";
+"ingredients_cilantro" = "الكزبرة";
+"ingredients_bay_leaf" = "ورق الغار";
+"ingredients_oregano" = "الزعتر";
+"ingredients_tarragon" = "الطرخون";
+"ingredients_chives" = "الثوم الأخضر";
+"ingredients_lemongrass" = "عشب الليمون";
+"ingredients_marjoram" = "المردقوش";
+"ingredients_coriander" = "الكزبرة";
+"ingredients_basil" = "إكليل الجبل";
+"ingredients_cashew" = "كاجو";
+"ingredients_macadamia" = "مكاديميا";
+"ingredients_pecan" = "البقان";
+"ingredients_peanut" = "فول الصويا";
+"ingredients_cocoa" = "كاكاو";
+"ingredients_chestnut" = "الكستناء";
+
+
+
+// الصفحة الرئيسية
+"home_recipe" = "الوصفات";
+"home_create_button" = "إنشاء وصفة";
+"home_no_item" = "لا توجد وصفات محفوظة";
+"home_all" = "الكل";
+"home_meaty" = "لحمي";
+"home_vegetarian" = "نباتي";
+"home_dessert" = "حلوى";
+"take_photo" = "التقط صورة لوصفتك المكتوبة.";
+"image_info" = "ستتمكن من إضافة صورة وصفتك المكتوبة إلى الوصفات في التطبيق.";
+"home_favorites" = "المفضلة";
+"home_search" = "البحث";
+
+
+
+// اختيار الفئة
+"next_button" = "التالي";
+"select_label" = "حدد نوع الطعام";
+"choose_label" = "اختر واحدة أو أكثر";
+
+// اختيار الطعام
+"apply_button" = "إنشاء وصفة";
+"search_food" = "البحث عن مكون";
+"select_filter" = "المكونات المرشحة";
+"select_vegetable" = "خضروات";
+"select_meat" = "لحم";
+"select_dairy" = "منتجات الألبان";
+"select_grain" = "حبوب";
+"select_fruit" = "فاكهة";
+"select_seafood" = "مأكولات بحرية";
+"select_herb" = "عشبة";
+"select_nut" = "جوزة";
+
+
+
+// بريميوم
+"premium_1_title" = "أضف وصفات غير محدودة";
+"premium_1" = "أضف واتبع الوصفات دون أي قيود.";
+"premium_2_title" = "لا داعي للقلق بشأن ما يجب طهيه";
+"premium_2" = "لا داعي للقلق بشأن ما يجب طهيه.";
+"premium_3_title" = "الأمر متروك لك";
+"premium_3" = "اطهى ما تريد باستخدام المكونات التي تحب.";
+"premium_subscribed" = "لقد اشتركت";
+"premium_subheadline" = "تهانينا، لقد قمت بتنشيط الوصول إلى جميع ميزات التطبيق بنجاح، استمتع بها!";
+"premium_expiration" = "تاريخ الانتهاء: ";
+"premium_restore" = "هل ترغب في استعادة المشتريات؟";
+"premium_off" = "خَصْم";  
+
+// language
+"language_turkish" = "التركية";
+"language_english" = "English";
+"language_german" = "ألماني";
+"language_czech" = "تشيكي";
+"language_arabic" = "العربية";
+"language_french" = "فرنسي";
+"language_italian" = "إيطالي";
+"language_russian" = "الروسية";
+"language_iranian" = "الإيرانية";
+"language_spansish" = "إسباني";
+
+
+// الإعدادات
+"settings_title" = "الإعدادات";
+"settings_user" = "معرف المستخدم:";
+"settings_premium" = "بريميوم";
+"settings_language" = "اللغة";
+"settings_dark_mode" = "الوضع الداكن";
+"settings_write_me" = "اكتب لي";
+"settings_about_app" = "حول WhichFood";
+"settings_hello" = "مرحبًا";
+"settings_mail_title_error" = "غير مدعوم إرسال البريد الإلكتروني";
+"settings_mail_message_error" = "لإرسال رسائل البريد الإلكتروني، يجب عليك تكوين حساب بريد إلكتروني.";
+"settings_ok_button" = "موافق";
+"settings_select_theme" = "حدد السمة";
+"settings_light_mode" = "الوضع الفاتح";
+"settings_dark_mode_button" = "الوضع الداكن";
+"settings_error_title" = "تغيير إعدادات اللغة";
+"settings_error_message" = "إذا كنت ترغب في استخدام التطبيق بلغة مختلفة، يمكنك تغييرها من خيار اللغة في الصفحة التالية.";
+"settings_close" = "إغلاق";
+"settings_continue" = "متابعة";
+"settings_account_settings" = "إعدادات الحساب";
+"settings_account" = "الحساب";
+"settings_support" = "الدعم";
+"settings_feedback" = "إرسال تعليق";
+"settings_write_comment" = "كتابة تعليق";
+"settings_share" = "مشاركة";
+"settings_appearance" = "المظهر";
+"settings_other_apps" = "اكتشف تطبيقات أخرى";
+"settings_rights_privacy" = "الحقوق والخصوصية";
+"settings_terms_of_service" = "شروط الخدمة";
+"settings_privacy_policy" = "سياسة الخصوصية";
+"settings_language_language_change" = "تم تغيير اللغة";
+"settings_language_language_apply_change" = "إعادة تشغيل التطبيق لتغيير اللغة";
+
+
+// عرض الطعام
+"show_food_prompt1" = "هل يمكنك أن تقترح وصفة باستخدام المكونات:";
+"show_food_prompt2" = "هل يمكنك أن تقترح وصفة باستخدام المكونات؟ ";
+"show_food_prompt3" = "الوجبات التي تحتوي على هذه الميزات. لا تكتب أي شيء أمامها.";
+"show_food_prompt4" = "قدم البيانات في تنسيق JSON، ببساطة كـ JSON، دون إضافة أي شيء قبل أو بعد ذلك، ال JSON هو: ";
+"show_food_prompt5" = "اختر نوعًا بناءً على ما إذا كان لحمًا أو خضارًا أو حلوًا. واحد فقط من هذه الأنواع.";
+"random_prompt" = "أعطني وصفة عشوائية";
+"json_prompt" = "هذا بالضبط JSON";
+
+
+
+// الحساب
+"account_date" = "لا شيء";
+"account_premium" = "لا شيء";
+"account_id" = "لا شيء";
+"account_user_id" = "معرف المستخدم";
+"account_premium_name" = "بريميوم";
+"account_last_date" = "تاريخ الانتهاء";
+"account_copy" = "نسخ";
+"account_title" = "الحساب";
+"account_usage_api" = "عدد الوصفات المنشأة";
+
+
+
+
+// تنبيه الخطأ
+"error_alert" = "خطأ";
+"error_occurred" = "حدث خطأ";
+"error_ok_button" = "موافق";
+"error_back_button" = "رجوع";
+"error_api_usage" = "لقد وصلت إلى حد استخدام واجهة برمجة التطبيقات";
+"error_api" = "فشل في جلب البيانات";
+"invalid_endpoint" = "نقطة نهاية غير صالحة";
+"invalid_response" = "استجابة غير صالحة";
+"error_no_data" = "لا توجد بيانات";
+"error_serialization" = "فشل في فك تشفير البيانات";
+"error_unable_to_favorite" = "حدث خطأ أثناء إضافة هذا المستخدم إلى المفضلة. يرجى المحاولة مرة أخرى.";
+"error_already_in_favorites" = "مضاف بالفعل إلى المفضلة";
+"network_error" = "هناك مشكلة في اتصال الإنترنت";
+"upload_photo_error" = "كان هناك مشكلة في تحميل الصورة";
+"error_delete" = "حذف";
+"error_cancel" = "إلغاء";
+"error_share" = "مشاركة";
+"error_check_out" = "انتباه";
+
+// وصفة
+"recipe_name" = "اسم الوصفة";
+
+
+//تصویر به متن
+"image_info" = "شما باید از دستور غذا عکس نوشته بگیرید.";
+"take_photo" = "عکس بگیر";
+
+
+"paywall_title" = "وصفات مخصصة بالذكاء الاصطناعي مع WhichFood";
+"paywall_invest" = "افتح أبواب الطهي الذكي";
+"paywall_whats_inside" = "ما بالداخل؟";
+"paywall_subscribe_now" = "اشترك الآن";
+"paywall_restore_purchases" = "استعادة المشتريات";
+"paywall_error_title" = "خطأ";
+"paywall_ok" = "موافق";
+
+"feature_ai_recipe_title" = "توليد الوصفات بالذكاء الاصطناعي";
+"feature_ai_recipe_desc" = "إنشاء وصفات مخصصة بناءً على مكوناتك وتفضيلاتك";
+"feature_customization_title" = "تخصيص متقدم للوصفات";
+"feature_customization_desc" = "تخصيص الوصفات حسب القيود الغذائية ووقت الطهي ومستوى الصعوبة";
+"feature_collections_title" = "مجموعات الوصفات";
+"feature_collections_desc" = "إنشاء وتنظيم مجموعات شخصية من الوصفات وخطط الوجبات";
+"feature_shopping_title" = "قوائم تسوق ذكية";
+"feature_shopping_desc" = "إنشاء قوائم تسوق تلقائية بكميات دقيقة من وصفاتك المختارة";
+"feature_premium_title" = "المميزات المتقدمة";
+"feature_premium_desc" = "تجربة خالية من الإعلانات، وصول دون اتصال بالإنترنت، وتحليل التغذية";
+
+"plan_yearly" = "سنوي";
+"plan_weekly" = "أسبوعي";
+"plan_most_popular" = "الأكثر شعبية";
+"plan_best_offer" = "أفضل عرض";
+"plan_subscribe_terms" = "اشترك اليوم بـ %@ %@. يمكنك الإلغاء في أي وقت.";
+"plan_per_year" = "في السنة";
+"plan_per_week" = "في الأسبوع";
+"plan_monthly" = "شهري";
+"plan_yearly" = "سنوي";
+
+"onboarding.page1.title" = "مرحباً بك في WhichFood";
+"onboarding.page1.description" = "اكتشف وصفات لذيذة مخصصة لمكوناتك وتفضيلاتك";
+"onboarding.page2.title" = "مسح المكونات الخاصة بك";
+"onboarding.page2.description" = "ما عليك سوى مسح ما لديك والحصول على اقتراحات الوصفات المخصصة";
+"onboarding.page3.title" = "احصل على تذكيرات في الوقت المناسب";
+"onboarding.page3.description" = "لا تفوت أي وجبة مع إشعاراتنا المفيدة";
+"onboarding.button.next" = "التالي";
+"onboarding.notification.title" = "وقت الوجبة! 🍽️";
+"onboarding.notification.body" = "غير متأكد مما تطبخه اليوم؟ لدينا اقتراحات لك!";
+
+"next" = "التالي";
+"get_started" = "ابدأ";
+"skip" = "تخطي";
+"cooking_skills_title" = "كيف تصف مهاراتك\nفي الطبخ؟ 💪";
+"cooking_skill_1" = "ما زلت أتعلم الأساسيات 😅";
+"cooking_skill_2" = "يمكنني التعامل مع الوصفات البسيطة 😊";
+"cooking_skill_3" = "قادر على إعداد وجبات جيدة 😎";
+"cooking_skill_4" = "مرشح محتمل لبرنامج ماستر شيف 👨‍🍳";
+"kitchen_tools_title" = "دعنا نتحدث عن الأدوات! ما نوع\nالمعدات التي لديك في مطبخك؟ 🥣";
+"kitchen_tools_subtitle" = "اختر ما تريد... أفترض أنك\nتمتلك بالفعل أدوات المطبخ الأساسية 😄";
+"tool_oven" = "فرن";
+"tool_blender" = "خلاط";
+"tool_microwave" = "ميكروويف";
+"tool_food_processor" = "محضر طعام";
+"tool_air_fryer" = "مقلاة هوائية";
+"tool_rolling_pin" = "شوبك";
+"tool_grater" = "مبشرة";
+"tool_slow_cooker" = "طباخ بطيء";
+"tool_blowtorch" = "مشعل طهي";
+"dietary_restrictions_title" = "هل هناك أي قيود غذائية\nيجب أن أعرفها؟ 🧐";
+"dietary_restrictions_subtitle" = "اختر ما تريد...";
+"diet_vegetarian" = "🥦 نباتي";
+"diet_vegan" = "🌱 نباتي صرف";
+"diet_pescatarian" = "🐟 يأكل السمك فقط";
+"diet_dairy_free" = "🥛 خالٍ من منتجات الألبان";
+"diet_gluten_free" = "🍞 خالٍ من الغلوتين";
+"diet_halal" = "🐑 حلال";
+"diet_kosher" = "🐓 كوشر";
+"diet_nut_allergy" = "🥜 حساسية من المكسرات";
+"diet_no_restrictions" = "👍 أستمتع بكل شيء";
+"notification_title" = "متى ترغب في تلقي\nاقتراحات الوجبات؟ 🔔";
+"notification_subtitle" = "سنرسل لك أفكار وصفات لذيذة\nتتناسب مع تفضيلاتك";
+"people_count_title" = "لكم شخص تطبخ\nعادةً؟ 👤";
+
+"Calories" = "السعرات الحرارية";
+"Carbs" = "الكربوهيدرات";
+"Protein" = "البروتين";
+"Fat" = "الدهون";
+"Ingredients" = "المكونات";
+"Instructions" = "التعليمات";
+"analyzing_preferences" = "تحليل تفضيلاتك";
+"customizing_recipes" = "تخصيص الوصفات";
+"optimizing_recommendations" = "تحسين التوصيات";
+"finalizing_personalization" = "الانتهاء من التخصيص";
+"personalizing_experience" = "تخصيص تجربتك";
+"Nutrition" = "التغذية";
+"chefs_tip" = "نصيحة الشيف";
+"servings" = "حصص";
+
+"appearance_title" = "المظهر";
+"appearance_system" = "النظام";
+"appearance_light" = "فاتح";
+"appearance_dark" = "داكن";
+"cancel" = "إلغاء";
+
+
+// Redesign UI (auto-added)
+"Home" = "الرئيسية";
+"Favorites" = "المفضلة";
+"Search" = "بحث";
+"Settings" = "الإعدادات";
+"OK" = "موافق";
+"Cancel" = "إلغاء";
+"Delete" = "حذف";
+"Something went wrong" = "حدث خطأ ما";
+"Add a photo" = "إضافة صورة";
+"Snap a dish or pick one from your library." = "التقط صورة لطبق أو اختر واحدة من مكتبتك.";
+"Take a photo" = "التقاط صورة";
+"Use the camera" = "استخدام الكاميرا";
+"Choose from library" = "اختيار من المكتبة";
+"Pick an existing photo" = "اختيار صورة موجودة";
+"Recipe from a photo" = "وصفة من صورة";
+"Save to my recipes" = "حفظ في وصفاتي";
+"PREP" = "التحضير";
+"COOK" = "الطهي";
+"SERVES" = "يكفي لـ";
+"LEVEL" = "المستوى";
+"Easy" = "سهل";
+"Start cooking" = "ابدأ الطهي";
+"Remix" = "إعادة مزج";
+"Pick a twist" = "اختر تعديلاً";
+"Make it healthier" = "اجعلها أكثر صحة";
+"Make it spicier" = "اجعلها أكثر حرارة";
+"Make it vegetarian" = "اجعلها نباتية";
+"Make it quicker" = "اجعلها أسرع";
+"Remixing…" = "جارٍ إعادة المزج…";
+"Let's cook something great." = "لنطبخ شيئًا رائعًا.";
+"Good morning" = "صباح الخير";
+"Good afternoon" = "مساء الخير";
+"Good evening" = "مساء الخير";
+"Your recipes" = "وصفاتك";
+"%d saved" = "%d محفوظة";
+"From Ingredients" = "من المكوّنات";
+"Use what you already have" = "استخدم ما لديك";
+"From Photo" = "من صورة";
+"Snap a dish, get the recipe" = "صوّر الطبق واحصل على الوصفة";
+"Describe a dish… e.g. spicy lentil soup" = "صف طبقًا… مثل شوربة العدس الحارة";
+"Your cookbook is empty" = "كتاب وصفاتك فارغ";
+"No %@ recipes yet" = "لا توجد وصفات %@ بعد";
+"No favorites yet" = "لا مفضلات بعد";
+"Tap the heart on any recipe to keep it close at hand." = "اضغط على القلب في أي وصفة لتبقى في متناولك.";
+"Discover" = "اكتشف";
+"Search recipes…" = "ابحث عن وصفات…";
+"Nothing found" = "لا توجد نتائج";
+"From around the web" = "من الويب";
+"Your kitchen" = "مطبخك";
+
+
+// Redesign UI (auto-added)
+"All" = "الكل";
+"Meaty" = "باللحم";
+"Vegetarian" = "نباتي";
+"Dessert" = "حلوى";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "ابحث عن وصفات";
+"Try a different keyword — or create it from your ingredients instead." = "جرّب كلمة مختلفة — أو أنشئها من مكوّناتك.";
+"Create a recipe from your ingredients or a food photo to get started." = "للبدء، أنشئ وصفة من مكوّناتك أو من صورة طعام.";
+"Try another filter or create something new." = "جرّب فلترًا آخر أو أنشئ شيئًا جديدًا.";
+"Account" = "الحساب";
+"Premium" = "بريميوم";
+"Active" = "مفعّل";
+"Free" = "مجاني";
+"Recipes created" = "الوصفات المنشأة";
+"Language" = "اللغة";
+"Appearance" = "المظهر";
+"Send feedback" = "إرسال ملاحظات";
+"Rate WhichFood" = "قيّم WhichFood";
+"Share the app" = "مشاركة التطبيق";
+"Go Premium" = "احصل على بريميوم";
+"Premium plan · Unlimited AI recipes" = "خطة بريميوم · وصفات ذكاء اصطناعي بلا حدود";
+"Free plan · %d AI recipes left" = "الخطة المجانية · بقي %d وصفة ذكاء اصطناعي";
+"Debug: Premium" = "تصحيح: بريميوم";
+"Bypass the AI generation limit" = "تجاوز حد إنشاء الذكاء الاصطناعي";
+"Terms" = "الشروط";
+"Privacy" = "الخصوصية";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "تعذّر إنشاء الوصفة";
+"Try again" = "حاول مجددًا";
+"Close" = "إغلاق";
+"What are you in the mood for?" = "ماذا تشتهي؟";
+"Pick as many as you like — we'll shape the recipe around them." = "اختر ما تشاء — سنبني الوصفة حولها.";
+"Choose ingredients" = "اختيار المكوّنات";
+"No ingredients match that search." = "لا توجد مكوّنات تطابق البحث.";
+"What's in your kitchen?" = "ماذا لديك في مطبخك؟";
+"Search ingredients" = "ابحث عن مكوّنات";
+"Your ingredients" = "مكوّناتك";
+"Tap one to remove it." = "اضغط لإزالته.";
+"Generate recipe" = "إنشاء الوصفة";
+"Generate" = "إنشاء";
+"Ready to turn them into a recipe" = "جاهزة لتتحوّل إلى وصفة";
+"Review" = "مراجعة";
+"%d ingredients selected" = "تم اختيار %d مكوّن";
+
+
+// Redesign UI (auto-added)
+"Medium" = "متوسط";
+"Difficult" = "صعب";
+"Healthy" = "صحي";
+"Vegan" = "نباتي صرف";
+"Breakfast" = "فطور";
+"Lunch" = "غداء";
+"Dinner" = "عشاء";
+"Hearty" = "مشبع";

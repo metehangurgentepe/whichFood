@@ -1,0 +1,555 @@
+/*
+ Localizable.strings
+ WhichFood
+ 
+ Created by Metehan Gürgentepe on September 12, 2023.
+ 
+ */
+/*
+ Localizable.strings (Simplified Chinese)
+ WhichFood
+ 
+ Created by Metehan Gürgentepe on September 12, 2023.
+ 
+ */
+
+"tabHome" = "标题";
+
+//Premium
+"premiumWeekButton" = "每周会员";
+"lifetimeButton" = "年度会员";
+"continueButton" = "继续";
+
+// onboarding
+"feature_1_title" = "选择食材";
+"feature_1_subtitle" = "选择您家中现有的食材，让应用程序通过人工智能为您展示可以烹饪的美食。";
+"feature_2_title" = "丰富类别";
+"feature_2_subtitle" = "从早餐到晚餐，探索各种类别中适合您口味的菜谱。";
+"feature_3_title" = "保存食谱";
+"feature_3_subtitle" = "保存您喜爱的食谱，借助人工智能随时制作美味佳肴。";
+"feature_4_title" = "健康食谱";
+"feature_4_subtitle" = "享受营养均衡的健康食谱。发现使用应季食材的美味菜品。";
+"footer" = "由 Metehan Gürgentepe 设计和编码";
+"more" = "查看更多...";
+"feature_button" = "继续";
+"feature_welcome" = "欢迎";
+"lets_get_started" = "始めましょう";
+
+
+// detail recipe
+"detail_ingredients" = "食材";
+"detail_recipe" = "烹饪步骤";
+"detail_success" = "保存成功";
+"detail_save" = "保存食谱";
+"detail_success_title" = "成功";
+"detail_ok_button" = "确定";
+"detail_error_title" = "错误";
+"detail_error_message" = "食谱无法保存";
+"detail_try_again" = "重试";
+"detail_error_occurred" = "发生错误";
+
+// food categories
+"category_healthy" = "健康";
+"category_easy" = "简单";
+"category_mid" = "中等";
+"category_hard" = "困难";
+"category_enjoy" = "美味";
+"category_hearty" = "丰盛";
+"category_vegan" = "纯素";
+"category_vegetarian" = "素食";
+"category_breakfast" = "早餐";
+"category_lunch" = "午餐";
+"category_dinner" = "晚餐";
+"category_dessert" = "甜点";
+
+// ingredients
+"ingredients_bread" = "面包";
+"ingredients_garlic" = "大蒜";
+"ingredients_parsley" = "欧芹";
+"ingredients_tomato" = "番茄";
+"ingredients_carrot" = "胡萝卜";
+"ingredients_potato" = "土豆";
+"ingredients_dill" = "莳萝";
+"ingredients_spring_onion" = "葱";
+"ingredients_pepper" = "胡椒";
+"ingredients_zucchini" = "西葫芦";
+"ingredients_eggplant" = "茄子";
+"ingredients_rice" = "大米";
+"ingredients_mushroom" = "蘑菇";
+"ingredients_fresh_basil" = "新鲜罗勒";
+"ingredients_lettuce" = "生菜";
+"ingredients_peas" = "豌豆";
+"ingredients_butter" = "黄油";
+"ingredients_spinach" = "菠菜";
+"ingredients_fresh_mint" = "新鲜薄荷";
+"ingredients_celery" = "芹菜";
+"ingredients_thyme" = "百里香";
+"ingredients_egg" = "鸡蛋";
+"ingredients_ground_beef" = "绞牛肉";
+"ingredients_chicken" = "鸡肉";
+"ingredients_diced_beef" = "牛肉丁";
+"ingredients_fish" = "鱼";
+"ingredients_lamb" = "羊肉";
+"ingredients_turkey" = "火鸡";
+"ingredients_beef" = "牛肉";
+"ingredients_sausage" = "香肠";
+"ingredients_hotDog" = "热狗";
+"ingredients_calamari" = "鱿鱼";
+"ingredients_pastrami" = "熏牛肉";
+"ingredients_bonito" = "鲣鱼";
+"ingredients_chickenNuggets" = "鸡块";
+"ingredients_cheese" = "奶酪";
+"ingredients_yogurt" = "酸奶";
+"ingredients_milk" = "牛奶";
+"ingredients_cream" = "奶油";
+"ingredients_ricotta" = "乳清奶酪";
+"ingredients_lemon" = "柠檬";
+"ingredients_avocado" = "牛油果";
+"ingredients_grape" = "葡萄";
+"ingredients_fig" = "无花果";
+"ingredients_orange" = "橙子";
+"ingredients_blackOlive" = "黑橄榄";
+"ingredients_greenApple" = "青苹果";
+"ingredients_strawberry" = "草莓";
+"ingredients_raspberry" = "树莓";
+"ingredients_blackberry" = "黑莓";
+"ingredients_mulberry" = "桑葚";
+"ingredients_kiwi" = "猕猴桃";
+"ingredients_apple" = "苹果";
+"ingredients_pomegranate" = "石榴";
+"ingredients_quince" = "榅桲";
+"ingredients_walnut" = "核桃";
+"ingredients_pineNuts" = "松子";
+"ingredients_pistachio" = "开心果";
+"ingredients_sunDriedTomato" = "晒干番茄";
+"ingredients_coconut" = "椰子";
+"ingredients_almond" = "杏仁";
+"ingredients_hazelnut" = "榛子";
+"ingredients_driedApricot" = "杏干";
+
+// seafood
+"ingredients_shrimp" = "虾";
+"ingredients_salmon" = "三文鱼";
+"ingredients_clams" = "蛤蜊";
+"ingredients_scallops" = "扇贝";
+"ingredients_lobster" = "龙虾";
+"ingredients_crab" = "螃蟹";
+"ingredients_prawns" = "对虾";
+"ingredients_caviar" = "鱼子酱";
+"ingredients_oysters" = "牡蛎";
+"ingredients_mussels" = "贻贝";
+"ingredients_anchovies" = "凤尾鱼";
+"ingredients_sardines" = "沙丁鱼";
+"ingredients_haddock" = "黑线鳕";
+"ingredients_cod" = "鳕鱼";
+"ingredients_tuna" = "金枪鱼";
+"ingredients_trout" = "鳟鱼";
+
+// meat
+"ingredients_duck" = "鸭肉";
+"ingredients_veal" = "小牛肉";
+"ingredients_rabbit" = "兔肉";
+"ingredients_quail" = "鹌鹑";
+"ingredients_pork" = "猪肉";
+"ingredients_bacon" = "培根";
+"ingredients_ham" = "火腿";
+
+// vegetables
+"ingredients_cabbage" = "卷心菜";
+"ingredients_broccoli" = "西兰花";
+"ingredients_cauliflower" = "花椰菜";
+"ingredients_asparagus" = "芦笋";
+"ingredients_artichoke" = "洋蓟";
+"ingredients_kale" = "甘蓝";
+"ingredients_brussels_sprouts" = "抱子甘蓝";
+"ingredients_cucumber" = "黄瓜";
+"ingredients_radish" = "萝卜";
+"ingredients_sweet_potato" = "红薯";
+"ingredients_beetroot" = "甜菜根";
+"ingredients_pumpkin" = "南瓜";
+"ingredients_turnip" = "萝卜";
+"ingredients_okra" = "秋葵";
+"ingredients_parsnip" = "防风草";
+"ingredients_leek" = "韭葱";
+
+// fruits
+"ingredients_blueberry" = "蓝莓";
+"ingredients_cranberry" = "蔓越莓";
+"ingredients_watermelon" = "西瓜";
+"ingredients_papaya" = "木瓜";
+"ingredients_pineapple" = "菠萝";
+"ingredients_mango" = "芒果";
+"ingredients_passion_fruit" = "百香果";
+"ingredients_date" = "枣";
+"ingredients_dragon_fruit" = "火龙果";
+"ingredients_persimmon" = "柿子";
+"ingredients_star_fruit" = "杨桃";
+"ingredients_black_currant" = "黑加仑";
+
+// herbs
+"ingredients_rosemary" = "迷迭香";
+"ingredients_sage" = "鼠尾草";
+"ingredients_mint" = "薄荷";
+"ingredients_cilantro" = "香菜";
+"ingredients_bay_leaf" = "月桂叶";
+"ingredients_oregano" = "牛至";
+"ingredients_tarragon" = "龙蒿";
+"ingredients_chives" = "细香葱";
+"ingredients_lemongrass" = "香茅";
+"ingredients_marjoram" = "马郁兰";
+"ingredients_coriander" = "香菜";
+"ingredients_basil" = "罗勒";
+
+// nuts
+"ingredients_cashew" = "腰果";
+"ingredients_macadamia" = "夏威夷果";
+"ingredients_pecan" = "山核桃";
+"ingredients_peanut" = "花生";
+"ingredients_cocoa" = "可可";
+"ingredients_chestnut" = "栗子";
+
+// home
+"home_recipe" = "食谱";
+"home_create_button" = "创建食谱";
+"home_no_item" = "没有保存的食谱";
+"home_all" = "全部";
+"home_meaty" = "肉类";
+"home_vegetarian" = "素食";
+"home_dessert" = "甜点";
+"take_photo" = "拍摄您的手写食谱";
+"image_info" = "您可以将手写食谱的照片添加到应用中的食谱中";
+"home_favorites" = "收藏";
+"home_search" = "搜索";
+
+// language
+"language_turkish" = "土耳其语";
+"language_english" = "英语";
+"language_german" = "德语";
+"language_czech" = "捷克语";
+"language_arabic" = "阿拉伯语";
+"language_french" = "法语";
+"language_italian" = "意大利语";
+"language_russian" = "俄语";
+"language_iranian" = "伊朗语";
+"language_spansish" = "西班牙语";
+
+//select category
+"next_button" = "下一步";
+"select_label" = "选择食物类型";
+"choose_label" = "选择一个或多个";
+
+// select food
+"apply_button" = "创建食谱";
+"search_food" = "搜索食材";
+"select_filter" = "已筛选食材";
+"select_vegetable" = "蔬菜";
+"select_meat" = "肉类";
+"select_dairy" = "乳制品";
+"select_grain" = "谷物";
+"select_fruit" = "水果";
+"select_seafood" = "海鲜";
+"select_herb" = "香草";
+"select_nut" = "坚果";
+
+// premium
+"premium_1_title" = "添加无限食谱";
+"premium_1" = "无限制添加和查看食谱";
+"premium_2_title" = "不用担心烹饪什么";
+"premium_2" = "不用担心烹饪什么";
+"premium_3_title" = "由您决定";
+"premium_3" = "用您喜欢的食材随心烹饪";
+"premium_subscribed" = "您已订阅";
+"premium_subheadline" = "恭喜，您已成功激活高级会员访问所有功能，尽情享用吧！";
+"premium_expiration" = "到期日期：";
+"premium_restore" = "是否要恢复购买？";
+"premium_off" = "优惠";
+
+// settings
+"settings_title" = "设置";
+"settings_user" = "用户ID：";
+"settings_premium" = "会员";
+"settings_language" = "语言";
+"settings_dark_mode" = "深色模式";
+"settings_write_me" = "写信给我";
+"settings_about_app" = "关于WhichFood";
+"settings_hello" = "你好";
+"settings_mail_title_error" = "不支持发送邮件";
+"settings_mail_message_error" = "需要配置邮件账户才能发送邮件";
+"settings_ok_button" = "确定";
+"settings_select_theme" = "选择主题";
+"settings_light_mode" = "浅色模式";
+"settings_dark_mode_button" = "深色模式";
+"settings_error_title" = "更改语言设置";
+"settings_error_message" = "如果您想使用其他语言，可以在下一页的语言选项中更改";
+"settings_close" = "关闭";
+"settings_continue" = "继续";
+"settings_account_settings" = "账户设置";
+"settings_account" = "账户";
+"settings_support" = "支持";
+"settings_feedback" = "发送反馈";
+"settings_write_comment" = "写评论";
+"settings_share" = "分享";
+"settings_appearance" = "外观";
+"settings_other_apps" = "发现其他应用";
+"settings_rights_privacy" = "权利和隐私";
+"settings_terms_of_service" = "使用条款";
+"settings_privacy_policy" = "隐私政策";
+"settings_language_change" = "语言已更改";
+"settings_language_apply_change" = "重启应用以更改语言";
+
+//show food
+"show_food_prompt1" = "能否推荐一个包含以下食材的食谱：";
+"show_food_prompt2" = "能否推荐一个包含这些食材的食谱？";
+"show_food_prompt3" = "餐点包含这些特点。请勿在前面添加任何内容。";
+"show_food_prompt4" = "请以JSON格式提供数据，仅提供JSON，不要在前后添加任何内容，json为：";
+"show_food_prompt5" = "根据是肉类、蔬菜还是甜点选择一种类型。仅选择其中之一。";
+"random_prompt" = "给我一个随机食谱";
+"json_prompt" = "就是这个JSON";
+
+// account
+"account_date" = "无";
+"account_premium" = "无";
+"account_id" = "无";
+"account_user_id" = "用户ID";
+"account_premium_name" = "会员";
+"account_last_date" = "到期日期";
+"account_copy" = "复制";
+"account_title" = "账户";
+"account_usage_api" = "已创建的食谱数量";
+
+// error alert
+"error_alert" = "错误";
+"error_occurred" = "发生错误";
+"error_ok_button" = "确定";
+"error_back_button" = "返回";
+"error_api_usage" = "您已达到API使用限制";
+"error_api" = "获取数据失败";
+"invalid_endpoint" = "无效的端点";
+"invalid_response" = "无效的响应";
+"error_no_data" = "没有数据";
+"error_serialization" = "数据解码失败";
+"error_unable_to_favorite" = "收藏该用户时出错。请重试。";
+"error_already_in_favorites" = "已添加到收藏";
+"network_error" = "网络连接有问题";
+"upload_photo_error" = "上传照片时出现问题";
+"error_delete" = "删除";
+"error_cancel" = "取消";
+"error_share" = "分享";
+"error_check_out" = "查看";
+
+// Recipe
+"recipe_name" = "食谱名称";
+
+//image to text
+"image_info" = "您需要拍摄一张手写食谱的照片";
+"take_photo" = "拍照";
+
+// CHINESE (简体中文)
+"paywall_title" = "WhichFood AI个性化食谱";
+"paywall_invest" = "开启智能烹饪之门";
+"paywall_whats_inside" = "包含什么？";
+"paywall_subscribe_now" = "立即订阅";
+"paywall_restore_purchases" = "恢复购买";
+"paywall_error_title" = "错误";
+"paywall_ok" = "确定";
+
+"feature_ai_recipe_title" = "AI食谱生成";
+"feature_ai_recipe_desc" = "根据您的食材和偏好创建个性化食谱";
+"feature_customization_title" = "高级食谱定制";
+"feature_customization_desc" = "根据饮食限制、烹饪时间和难度级别定制食谱";
+"feature_collections_title" = "食谱收藏";
+"feature_collections_desc" = "创建和管理个人食谱收藏和膳食计划";
+"feature_shopping_title" = "智能购物清单";
+"feature_shopping_desc" = "从您选择的食谱中自动生成精确用量的购物清单";
+"feature_premium_title" = "高级功能";
+"feature_premium_desc" = "无广告体验、离线访问和营养分析";
+
+"plan_yearly" = "年度订阅";
+"plan_weekly" = "每周订阅";
+"plan_most_popular" = "最受欢迎";
+"plan_best_offer" = "最佳优惠";
+"plan_subscribe_terms" = "立即订阅，仅需%@ %@。随时可取消。";
+"plan_per_year" = "每年";
+"plan_per_week" = "每周";
+"plan_weekly" = "每周";
+"plan_yearly" = "年度";
+"plan_monthly" = "每月订阅";
+
+
+"onboarding.page1.title" = "欢迎使用 WhichFood";
+"onboarding.page1.description" = "发现根据您的食材和喜好定制的美味食谱";
+"onboarding.page2.title" = "扫描您的食材";
+"onboarding.page2.description" = "只需扫描您现有的食材，即可获得个性化的食谱建议";
+"onboarding.page3.title" = "获取及时提醒";
+"onboarding.page3.description" = "通过我们的贴心通知，不错过任何一顿美食";
+"onboarding.button.next" = "下一步";
+"onboarding.notification.title" = "用餐时间到了！🍽️";
+"onboarding.notification.body" = "还不知道今天要做什么菜？我们为您准备了建议！";
+
+"next" = "下一步";
+"get_started" = "开始";
+"skip" = "跳过";
+"cooking_skills_title" = "你如何描述\n你的烹饪技能？💪";
+"cooking_skill_1" = "仍在学习基础知识 😅";
+"cooking_skill_2" = "能处理简单的食谱 😊";
+"cooking_skill_3" = "能创造不错的餐点 😎";
+"cooking_skill_4" = "潜在的大厨争霸赛选手 👨‍🍳";
+"kitchen_tools_title" = "让我们谈谈工具！你的厨房里\n有哪些设备？🥣";
+"kitchen_tools_subtitle" = "选择你喜欢的任意数量...我假设你\n已经拥有基本的厨房工具 😄";
+"tool_oven" = "烤箱";
+"tool_blender" = "搅拌机";
+"tool_microwave" = "微波炉";
+"tool_food_processor" = "食品加工机";
+"tool_air_fryer" = "空气炸锅";
+"tool_rolling_pin" = "擀面杖";
+"tool_grater" = "刨丝器";
+"tool_slow_cooker" = "慢炖锅";
+"tool_blowtorch" = "喷枪";
+"dietary_restrictions_title" = "有什么饮食限制\n是我应该知道的吗？🧐";
+"dietary_restrictions_subtitle" = "选择你喜欢的任意数量...";
+"diet_vegetarian" = "🥦 素食主义";
+"diet_vegan" = "🌱 纯素食主义";
+"diet_pescatarian" = "🐟 鱼素食主义";
+"diet_dairy_free" = "🥛 无乳制品";
+"diet_gluten_free" = "🍞 无麸质";
+"diet_halal" = "🐑 清真";
+"diet_kosher" = "🐓 犹太洁食";
+"diet_nut_allergy" = "🥜 坚果过敏";
+"diet_no_restrictions" = "👍 我什么都吃";
+"notification_title" = "你想什么时候\n收到餐点建议？🔔";
+"notification_subtitle" = "我们将向你发送符合你喜好的\n美味食谱创意";
+"people_count_title" = "你通常为多少人\n做饭？👤";
+
+"Calories" = "卡路里";
+"Carbs" = "碳水化合物";
+"Protein" = "蛋白质";
+"Fat" = "脂肪";
+"Ingredients" = "食材";
+"Instructions" = "说明";
+"analyzing_preferences" = "正在分析您的偏好";
+"customizing_recipes" = "正在定制食谱";
+"optimizing_recommendations" = "正在优化推荐";
+"finalizing_personalization" = "正在完成个性化";
+"personalizing_experience" = "正在个性化您的体验";
+"Nutrition" = "营养";
+"chefs_tip" = "厨师小贴士";
+"servings" = "份";
+
+"appearance_title" = "外观";
+"appearance_system" = "系统";
+"appearance_light" = "浅色";
+"appearance_dark" = "深色";
+"cancel" = "取消";
+
+
+// Redesign UI (auto-added)
+"Home" = "主页";
+"Favorites" = "收藏";
+"Search" = "搜索";
+"Settings" = "设置";
+"OK" = "确定";
+"Cancel" = "取消";
+"Delete" = "删除";
+"Something went wrong" = "出错了";
+"Add a photo" = "添加照片";
+"Snap a dish or pick one from your library." = "拍一张菜品照片，或从相册中选择。";
+"Take a photo" = "拍照";
+"Use the camera" = "使用相机";
+"Choose from library" = "从相册选择";
+"Pick an existing photo" = "选择已有照片";
+"Recipe from a photo" = "从照片生成食谱";
+"Save to my recipes" = "保存到我的食谱";
+"PREP" = "准备";
+"COOK" = "烹饪";
+"SERVES" = "份量";
+"LEVEL" = "难度";
+"Easy" = "简单";
+"Start cooking" = "开始烹饪";
+"Remix" = "改造";
+"Pick a twist" = "选择一个变化";
+"Make it healthier" = "更健康";
+"Make it spicier" = "更辣";
+"Make it vegetarian" = "改成素食";
+"Make it quicker" = "更快捷";
+"Remixing…" = "改造中…";
+"Let's cook something great." = "来做点好吃的吧。";
+"Good morning" = "早上好";
+"Good afternoon" = "下午好";
+"Good evening" = "晚上好";
+"Your recipes" = "你的食谱";
+"%d saved" = "已保存 %d";
+"From Ingredients" = "用食材";
+"Use what you already have" = "用你手边的食材";
+"From Photo" = "用照片";
+"Snap a dish, get the recipe" = "拍下菜品，获取食谱";
+"Describe a dish… e.g. spicy lentil soup" = "描述一道菜…例如香辣扁豆汤";
+"Your cookbook is empty" = "你的食谱本是空的";
+"No %@ recipes yet" = "暂无%@食谱";
+"No favorites yet" = "还没有收藏";
+"Tap the heart on any recipe to keep it close at hand." = "点按任意食谱上的爱心即可随手收藏。";
+"Discover" = "发现";
+"Search recipes…" = "搜索食谱…";
+"Nothing found" = "未找到结果";
+"From around the web" = "来自网络";
+"Your kitchen" = "你的厨房";
+
+
+// Redesign UI (auto-added)
+"All" = "全部";
+"Meaty" = "肉类";
+"Vegetarian" = "素食";
+"Dessert" = "甜点";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "搜索食谱";
+"Try a different keyword — or create it from your ingredients instead." = "换个关键词，或用你的食材来创建。";
+"Create a recipe from your ingredients or a food photo to get started." = "用你的食材或一张美食照片来创建第一份食谱吧。";
+"Try another filter or create something new." = "试试其他筛选，或创建新的食谱。";
+"Account" = "账户";
+"Premium" = "高级版";
+"Active" = "已激活";
+"Free" = "免费";
+"Recipes created" = "已创建食谱";
+"Language" = "语言";
+"Appearance" = "外观";
+"Send feedback" = "发送反馈";
+"Rate WhichFood" = "评价 WhichFood";
+"Share the app" = "分享应用";
+"Go Premium" = "升级高级版";
+"Premium plan · Unlimited AI recipes" = "高级版 · 无限 AI 食谱";
+"Free plan · %d AI recipes left" = "免费版 · 剩余 %d 个 AI 食谱";
+"Debug: Premium" = "调试：高级版";
+"Bypass the AI generation limit" = "绕过 AI 生成限制";
+"Terms" = "条款";
+"Privacy" = "隐私";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "无法创建食谱";
+"Try again" = "重试";
+"Close" = "关闭";
+"What are you in the mood for?" = "你想吃点什么？";
+"Pick as many as you like — we'll shape the recipe around them." = "想选多少就选多少，我们会据此定制食谱。";
+"Choose ingredients" = "选择食材";
+"No ingredients match that search." = "没有匹配该搜索的食材。";
+"What's in your kitchen?" = "你的厨房里有什么？";
+"Search ingredients" = "搜索食材";
+"Your ingredients" = "你的食材";
+"Tap one to remove it." = "点按即可移除。";
+"Generate recipe" = "生成食谱";
+"Generate" = "生成";
+"Ready to turn them into a recipe" = "准备好变成食谱了";
+"Review" = "确认";
+"%d ingredients selected" = "已选择 %d 种食材";
+
+
+// Redesign UI (auto-added)
+"Medium" = "中等";
+"Difficult" = "困难";
+"Healthy" = "健康";
+"Vegan" = "纯素";
+"Breakfast" = "早餐";
+"Lunch" = "午餐";
+"Dinner" = "晚餐";
+"Hearty" = "丰盛";

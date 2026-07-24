@@ -1,0 +1,555 @@
+/*
+  Localizable.strings
+  WhichFood
+
+  Creado por Metehan Gürgentepe el 12 de septiembre de 2023.
+*/
+
+"tabHome" = "Título aquí";
+
+// Premium
+"premiumWeekButton" = "Premium Semanal";
+"lifetimeButton" = "Premium Anual";
+"continueButton" = "Continuar";
+
+// Introducción
+"feature_1_title" = "Selecciona tus Ingredientes";
+"feature_1_subtitle" = "Elige los ingredientes que tienes en casa y deja que la app te muestre qué puedes cocinar con ayuda de la IA.";
+"feature_2_title" = "Categorías Abundantes";
+"feature_2_subtitle" = "Explora recetas que se adaptan a tu gusto desde el desayuno hasta la cena, con diversas categorías para cada comida.";
+"feature_3_title" = "Guardar Recetas";
+"feature_3_subtitle" = "Guarda tus recetas favoritas y prepáralas cuando quieras con la ayuda de la IA.";
+"feature_4_title" = "Recetas Saludables";
+"feature_4_subtitle" = "Comienza una vida saludable con recetas nutritivas y equilibradas. Descubre platos con ingredientes de temporada.";
+"lets_get_started" = "Empecemos";
+
+"footer" = "Diseñado y codificado por Metehan Gürgentepe";
+"more" = "Ver más...";
+"feature_button" = "Continuar";
+"feature_welcome" = "Bienvenido";
+
+// Receta detallada
+"detail_ingredients" = "Ingredientes";
+"detail_recipe" = "Instrucciones";
+"detail_success" = "Guardado Exitosamente";
+"detail_save" = "Guardar Receta";
+"detail_success_title" = "Éxito";
+"detail_ok_button" = "Aceptar";
+"detail_error_title" = "Error";
+"detail_error_message" = "No se pudo guardar la receta";
+"detail_try_again" = "Intentar de Nuevo";
+"detail_error_occurred" = "Se produjo un error";
+
+// Categorías de alimentos
+"category_healthy" = "Saludable";
+"category_easy" = "Fácil";
+"category_mid" = "Intermedio";
+"category_hard" = "Difícil";
+"category_enjoy" = "Divertido";
+"category_hearty" = "Sustancioso";
+"category_vegan" = "Vegano";
+"category_vegetarian" = "Vegetariano";
+"category_breakfast" = "Desayuno";
+"category_lunch" = "Almuerzo";
+"category_dinner" = "Cena";
+"category_dessert" = "Postre";
+
+// Ingredientes
+"ingredients_bread" = "Pan";
+"ingredients_garlic" = "Ajo";
+"ingredients_parsley" = "Perejil";
+"ingredients_tomato" = "Tomate";
+"ingredients_carrot" = "Zanahoria";
+"ingredients_potato" = "Patata";
+"ingredients_dill" = "Eneldo";
+"ingredients_spring_onion" = "Cebolla de Verdeo";
+"ingredients_pepper" = "Pimiento";
+"ingredients_zucchini" = "Calabacín";
+"ingredients_eggplant" = "Berenjena";
+"ingredients_rice" = "Arroz";
+"ingredients_mushroom" = "Champiñón";
+"ingredients_fresh_basil" = "Albahaca Fresca";
+"ingredients_lettuce" = "Lechuga";
+"ingredients_peas" = "Guisantes";
+"ingredients_butter" = "Mantequilla";
+"ingredients_spinach" = "Espinaca";
+"ingredients_fresh_mint" = "Menta Fresca";
+"ingredients_celery" = "Apio";
+"ingredients_thyme" = "Tomillo";
+"ingredients_egg" = "Huevo";
+"ingredients_ground_beef" = "Carne de Res Molida";
+"ingredients_chicken" = "Pollo";
+"ingredients_diced_beef" = "Carne de Res en Cubos";
+"ingredients_fish" = "Pescado";
+"ingredients_lamb" = "Cordero";
+"ingredients_turkey" = "Pavo";
+"ingredients_beef" = "Carne de Res";
+"ingredients_sausage" = "Salchicha";
+"ingredients_hotDog" = "Perro Caliente";
+"ingredients_calamari" = "Calamares";
+"ingredients_pastrami" = "Pastrami";
+"ingredients_bonito" = "Bonito";
+"ingredients_chickenNuggets" = "Nuggets de Pollo";
+"ingredients_cheese" = "Queso";
+"ingredients_yogurt" = "Yogur";
+"ingredients_milk" = "Leche";
+"ingredients_cream" = "Crema";
+"ingredients_ricotta" = "Ricotta";
+"ingredients_lemon" = "Limón";
+"ingredients_avocado" = "Aguacate";
+"ingredients_grape" = "Uva";
+"ingredients_fig" = "Higo";
+"ingredients_orange" = "Naranja";
+"ingredients_blackOlive" = "Aceituna Negra";
+"ingredients_greenApple" = "Manzana Verde";
+"ingredients_strawberry" = "Fresa";
+"ingredients_raspberry" = "Frámbuesa";
+"ingredients_blackberry" = "Mora";
+"ingredients_mulberry" = "Mora";
+"ingredients_kiwi" = "Kiwi";
+"ingredients_apple" = "Manzana";
+"ingredients_pomegranate" = "Granada";
+"ingredients_quince" = "Membrillo";
+"ingredients_walnut" = "Nuez";
+"ingredients_pineNuts" = "Piñones";
+"ingredients_pistachio" = "Pistachos";
+"ingredients_sunDriedTomato" = "Tomate Seco";
+"ingredients_coconut" = "Coco";
+"ingredients_almond" = "Almendra";
+"ingredients_hazelnut" = "Avellana";
+"ingredients_driedApricot" = "Albaricoque Seco";
+"ingredients_shrimp" = "Gambas";
+"ingredients_salmon" = "Salmón";
+"ingredients_clams" = "Mejillones";
+"ingredients_scallops" = "Almejas";
+"ingredients_lobster" = "Langosta";
+"ingredients_crab" = "Cangrejo";
+"ingredients_prawns" = "Gambas";
+"ingredients_caviar" = "Caviar";
+"ingredients_oysters" = "Asters";
+"ingredients_mussels" = "Mejillones";
+"ingredients_anchovies" = "Anchoas";
+"ingredients_sardines" = "Sardinas";
+"ingredients_haddock" = "Eglefino";
+"ingredients_cod" = "Bacalao";
+"ingredients_tuna" = "Atún";
+"ingredients_trout" = "Trucha";
+"ingredients_duck" = "Pato";
+"ingredients_veal" = "Ternera";
+"ingredients_rabbit" = "Conejo";
+"ingredients_quail" = "Codorniz";
+"ingredients_pork" = "Cerdo";
+"ingredients_bacon" = "Tocino de buey";
+"ingredients_ham" = "Jamón";
+"ingredients_cabbage" = "Col";
+"ingredients_broccoli" = "Brócoli";
+"ingredients_cauliflower" = "Coliflor";
+"ingredients_asparagus" = "Espárragos";
+"ingredients_artichoke" = "Alcachofa";
+"ingredients_kale" = "Col";
+"ingredients_brussels_sprouts" = "Coles de Bruselas";
+"ingredients_cucumber" = "Pepino";
+"ingredients_radish" = "Rábano";
+"ingredients_sweet_potato" = "Batata";
+"ingredients_beetroot" = "Remolacha";
+"ingredients_pumpkin" = "Calabaza";
+"ingredients_turnip" = "Nabo";
+"ingredients_okra" = "Okra";
+"ingredients_parsnip" = "Shakshuka";
+"ingredients_leek" = "Puerro";
+"ingredients_blueberry" = "Arándano";
+"ingredients_cranberry" = "Arándano rojo";
+"ingredients_watermelon" = "Sandía";
+"ingredients_papaya" = "Papaya";
+"ingredients_pineapple" = "Piña";
+"ingredients_mango" = "Mango";
+"ingredients_passion_fruit" = "Fruta";
+"ingredients_date" = "Fecha";
+"ingredients_dragon_fruit" = "Fruta del dragón";
+"ingredients_persimmon" = "Caqui";
+"ingredients_star_fruit" = "Fruta estrella";
+"ingredients_black_currant" = "Grosella negra";
+"ingredients_rosemary" = "Romero";
+"ingredients_sage" = "Salvia";
+"ingredients_mint" = "Menta";
+"ingredients_cilantro" = "Cilantro";
+"ingredients_bay_leaf" = "Hoja de laurel";
+"ingredients_oregano" = "Tomillo";
+"ingredients_tarragon" = "Estragón";
+"ingredients_chives" = "Cebollino";
+"ingredients_lemongrass" = "Hierba limón";
+"ingredients_marjoram" = "Albahaca";
+"ingredients_coriander" = "Cilantro";
+"ingredients_basil" = "Romero";
+"ingredients_cashew" = "Anacardo";
+"ingredients_macadamia" = "Nuez de Macadamia";
+"ingredients_pecan" = "Nuez";
+"ingredients_peanut" = "Cacahuete";
+"ingredients_cocoa" = "Cacao";
+"ingredients_chestnut" = "Castaña";
+
+// Inicio
+"home_recipe" = "Recetas";
+"home_create_button" = "Crear Receta";
+"home_no_item" = "No hay recetas guardadas";
+"home_all" = "Todo";
+"home_meaty" = "Carnoso";
+"home_vegetarian" = "Vegetariano";
+"home_dessert" = "Postre";
+"take_photo" = "Haz una foto de tu receta escrita";
+"image_info" = "Podrás añadir la foto de tu receta escrita a las recetas de la app";
+"home_favorites" = "Favoritos";
+"home_search" = "Buscar";
+
+
+
+// Seleccionar Categoría
+"next_button" = "Siguiente";
+"select_label" = "Seleccionar tipo de comida";
+"choose_label" = "Elegir uno o más";
+
+
+// Seleccionar Comida
+"apply_button" = "Crear Receta";
+"search_food" = "Buscar ingrediente";
+"select_filter" = "Ingredientes Filtrados";
+"select_vegetable" = "Vegetal";
+"select_meat" = "Carne";
+"select_dairy" = "Productos lácteos";
+"select_grain" = "Grano";
+"select_fruit" = "Fruta";
+"select_seafood" = "Mariscos";
+"select_herb" = "Hierba";
+"select_nut" = "Fruto seco";
+
+// language
+"language_turkish" = "turco";
+"language_english" = "inglés";
+"language_german" = "Alemán";
+"language_czech" = "checo";
+"language_arabic" = "árabe";
+"language_french" = "francés";
+"language_italian" = "Italiano";
+"language_russian" = "Ruso";
+"language_iranian" = "iraní";
+"language_spansish" = "español";
+
+
+
+// Premium
+"premium_1_title" = "Agregar Recetas Ilimitadas";
+"premium_1" = "Agrega y sigue recetas sin límites.";
+"premium_2_title" = "No te preocupes por qué cocinar";
+"premium_2" = "No te preocupes por qué cocinar.";
+"premium_3_title" = "Depende de ti";
+"premium_3" = "Cocina lo que quieras con los ingredientes que te gusten.";
+"premium_subscribed" = "Estás suscrito";
+"premium_subheadline" = "¡Felicidades, has activado con éxito el acceso Premium a todas las funciones de la aplicación, ¡disfrútalo!";
+"premium_expiration" = "Fecha de vencimiento: ";
+"premium_restore" = "¿Quieres restaurar las compras?";
+"premium_off" = "DESCUENTO";
+
+
+// show food prompts
+"show_food_prompt1" = "¿Puedes sugerir una receta con los ingredientes:";
+"show_food_prompt2" = "¿Puedes sugerir una receta con ingredientes? ";
+"show_food_prompt3" = "las comidas contienen estas características. No escriba nada delante de esto.";
+"show_food_prompt4" = "Proporcione los datos en formato JSON, simplemente como JSON, sin agregar nada antes ni después, el json es: ";
+"show_food_prompt5" = "Elige un tipo según sea carne, verdura o dulce. Sólo uno de estos tipos";
+"random_prompt" = "Dame una receta al azar";
+"json_prompt" = "exactamente este JSON";
+
+
+
+// Configuración
+"settings_title" = "Ajustes";
+"settings_user" = "ID de Usuario:";
+"settings_premium" = "Premium";
+"settings_language" = "Idioma";
+"settings_dark_mode" = "Modo Oscuro";
+"settings_write_me" = "Escríbeme";
+"settings_about_app" = "Acerca de WhichFood";
+"settings_hello" = "Hola";
+"settings_mail_title_error" = "No se admite el envío de correo electrónico";
+"settings_mail_message_error" = "Para enviar correos electrónicos, debes configurar una cuenta de correo electrónico.";
+"settings_ok_button" = "Aceptar";
+"settings_select_theme" = "Seleccionar Tema";
+"settings_light_mode" = "Modo Claro";
+"settings_dark_mode_button" = "Modo Oscuro";
+"settings_error_title" = "Cambiar ajustes de idioma";
+"settings_error_message" = "Si deseas utilizar la aplicación en un idioma diferente, puedes cambiarlo desde la opción de idioma en la siguiente página.";
+"settings_close" = "Cerrar";
+"settings_continue" = "Continuar";
+"settings_account_settings" = "Configuración de la cuenta";
+"settings_account" = "Cuenta";
+"settings_support" = "Soporte";
+"settings_feedback" = "Enviar comentarios";
+"settings_write_comment" = "Escribir un comentario";
+"settings_share" = "Compartir";
+"settings_appearance" = "Apariencia";
+"settings_other_apps" = "Descubre otras aplicaciones";
+"settings_rights_privacy" = "Derechos y privacidad";
+"settings_terms_of_service" = "Términos de servicio";
+"settings_privacy_policy" = "Política de privacidad";
+"settings_language_change" = "Cambio de idioma";
+"settings_language_apply_change" = "Reinicia la aplicación para cambiar el idioma";
+
+
+
+
+// cuenta
+"account_date" = "Ninguno";
+"account_premium" = "Ninguno";
+"account_id" = "Ninguno";
+"account_user_id" = "ID de usuario";
+"account_premium_name" = "Premium";
+"account_last_date" = "Fecha de validez";
+"account_copy" = "Copiar";
+"account_title" = "Cuenta";
+"account_usage_api" = "Número de recetas creadas";
+
+
+
+// Alerta de Error
+"error_alert" = "Error";
+"error_occurred" = "Se ha producido un error";
+"error_ok_button" = "Aceptar";
+"error_back_button" = "Atrás";
+"error_api_usage" = "Ha alcanzado el límite de uso de la API";
+"error_api" = "Error al obtener datos";
+"invalid_endpoint" = "Endpoint inválido";
+"invalid_response" = "Respuesta inválida";
+"error_no_data" = "Sin datos";
+"error_serialization" = "Error al decodificar datos";
+"error_unable_to_favorite" = "Hubo un error al agregar este usuario a favoritos. Por favor, inténtalo de nuevo.";
+"error_already_in_favorites" = "Ya agregado a favoritos";
+"network_error" = "Hay un problema con la conexión a Internet";
+"upload_photo_error" = "Hubo un problema al subir la foto";
+"error_delete" = "Eliminar";
+"error_cancel" = "Cancelar";
+"error_share" = "Compartir";
+"error_check_out" = "¡Atención!";
+
+
+// Receta
+"recipe_name" = "Nombre de la receta";
+
+//imagen a texto
+"image_info" = "Debes tomar una foto escrita de la receta.";
+"take_photo" = "Tomar foto";
+
+
+// Premium/Paywall
+"paywall_title" = "Recetas personalizadas con IA en WhichFood";
+"paywall_invest" = "Abre las puertas a la cocina inteligente";
+"paywall_whats_inside" = "¿Qué hay dentro?";
+"paywall_subscribe_now" = "Suscríbete ahora";
+"paywall_restore_purchases" = "Restaurar compras";
+"paywall_error_title" = "Error";
+"paywall_ok" = "Aceptar";
+"paywall_ai_recipe_title" = "Generación de Recetas con IA";
+"paywall_ai_recipe_desc" = "Crea recetas personalizadas ilimitadas basadas en tus ingredientes";
+"paywall_photo_recipe_title" = "Análisis de Foto de Receta";
+"paywall_photo_recipe_desc" = "Toma una foto de comida y obtén instantáneamente una receta detallada";
+"paywall_choose_plan" = "Elige tu plan";
+// Premium Features
+"feature_ai_recipe_title" = "Generación de Recetas con IA";
+"feature_ai_recipe_desc" = "Crea recetas personalizadas basadas en tus ingredientes y preferencias";
+"feature_customization_title" = "Personalización Avanzada de Recetas";
+"feature_customization_desc" = "Personaliza recetas según restricciones dietéticas, tiempo de cocción y nivel de dificultad";
+"feature_collections_title" = "Colecciones de Recetas";
+"feature_collections_desc" = "Crea y organiza colecciones personales de recetas y planes de comida";
+"feature_shopping_title" = "Listas de Compras Inteligentes";
+"feature_shopping_desc" = "Genera listas de compras automáticas con cantidades exactas de tus recetas seleccionadas";
+"feature_premium_title" = "Funciones Premium";
+"feature_premium_desc" = "Experiencia sin anuncios, acceso sin conexión y análisis nutricional";
+// Subscription Plans
+"plan_yearly" = "Anual";
+"plan_weekly" = "Semanal";
+"plan_most_popular" = "Más popular";
+"plan_best_offer" = "Mejor oferta";
+"plan_subscribe_terms" = "Suscríbete hoy y paga %@ %@. Cancela cuando quieras.";
+"plan_per_year" = "por año";
+"plan_per_week" = "por semana";
+"plan_weekly" = "Semanal";
+"plan_yearly" = "Anual";
+"plan_monthly" = "Mensual";
+
+// Onboarding
+"onboarding.page1.title" = "Bienvenido a WhichFood";
+"onboarding.page1.description" = "Descubre deliciosas recetas adaptadas a tus ingredientes y preferencias";
+"onboarding.page2.title" = "Escanea tus Ingredientes";
+"onboarding.page2.description" = "Simplemente escanea lo que tienes y obtén sugerencias de recetas personalizadas";
+"onboarding.page3.title" = "Recibe Recordatorios Oportunos";
+"onboarding.page3.description" = "Nunca te pierdas una comida con nuestras útiles notificaciones";
+"onboarding.button.next" = "Siguiente";
+"onboarding.notification.title" = "¡Hora de Comer! 🍽️";
+"onboarding.notification.body" = "¿No sabes qué cocinar hoy? ¡Tenemos sugerencias para ti!";
+
+"next" = "Siguiente";
+"get_started" = "Comenzar";
+"skip" = "Omitir";
+"cooking_skills_title" = "¿Cómo describirías tus\nhabilidades culinarias? 💪";
+"cooking_skill_1" = "Todavía estoy aprendiendo lo básico 😅";
+"cooking_skill_2" = "Puedo manejar recetas sencillas 😊";
+"cooking_skill_3" = "Capaz de crear comidas decentes 😎";
+"cooking_skill_4" = "Potencial concursante de MasterChef 👨‍🍳";
+"kitchen_tools_title" = "¡Hablemos de utensilios! ¿Qué tipo de\nequipamiento tienes en tu cocina? 🥣";
+"kitchen_tools_subtitle" = "Selecciona tantos como quieras... Asumo que ya\ntienes los utensilios básicos de cocina 😄";
+"tool_oven" = "Horno";
+"tool_blender" = "Licuadora";
+"tool_microwave" = "Microondas";
+"tool_food_processor" = "Procesador de alimentos";
+"tool_air_fryer" = "Freidora de aire";
+"tool_rolling_pin" = "Rodillo";
+"tool_grater" = "Rallador";
+"tool_slow_cooker" = "Olla de cocción lenta";
+"tool_blowtorch" = "Soplete de cocina";
+"dietary_restrictions_title" = "¿Hay alguna restricción dietética\nque deba conocer? 🧐";
+"dietary_restrictions_subtitle" = "Selecciona tantas como quieras...";
+"diet_vegetarian" = "🥦 Vegetariano";
+"diet_vegan" = "🌱 Vegano";
+"diet_pescatarian" = "🐟 Pescetariano";
+"diet_dairy_free" = "🥛 Sin lácteos";
+"diet_gluten_free" = "🍞 Sin gluten";
+"diet_halal" = "🐑 Halal";
+"diet_kosher" = "🐓 Kosher";
+"diet_nut_allergy" = "🥜 Alergia a los frutos secos";
+"diet_no_restrictions" = "👍 Disfruto de todo";
+"notification_title" = "¿Cuándo te gustaría recibir\nsugerencias de comidas? 🔔";
+"notification_subtitle" = "Te enviaremos deliciosas ideas de recetas\nque coincidan con tus preferencias";
+"people_count_title" = "¿Para cuántas personas\nsueles cocinar? 👤";
+
+"Calories" = "Calorías";
+"Carbs" = "Carbohidratos";
+"Protein" = "Proteínas";
+"Fat" = "Grasa";
+"Ingredients" = "Ingredientes";
+"Instructions" = "Instrucciones";
+"analyzing_preferences" = "Analizando sus preferencias";
+"customizing_recipes" = "Personalizando recetas";
+"optimizing_recommendations" = "Optimizando recomendaciones";
+"finalizing_personalization" = "Finalizando personalización";
+"personalizing_experience" = "Personalizando su experiencia";
+"Nutrition" = "Nutrición";
+"chefs_tip" = "Consejo del chef";
+"servings" = "porciones";
+
+"appearance_title" = "Apariencia";
+"appearance_system" = "Sistema";
+"appearance_light" = "Claro";
+"appearance_dark" = "Oscuro";
+"cancel" = "Cancelar";
+
+
+// Redesign UI (auto-added)
+"Home" = "Inicio";
+"Favorites" = "Favoritos";
+"Search" = "Buscar";
+"Settings" = "Ajustes";
+"OK" = "Aceptar";
+"Cancel" = "Cancelar";
+"Delete" = "Eliminar";
+"Something went wrong" = "Algo salió mal";
+"Add a photo" = "Añadir una foto";
+"Snap a dish or pick one from your library." = "Haz una foto de un plato o elige una de tu galería.";
+"Take a photo" = "Hacer una foto";
+"Use the camera" = "Usar la cámara";
+"Choose from library" = "Elegir de la galería";
+"Pick an existing photo" = "Elegir una foto existente";
+"Recipe from a photo" = "Receta a partir de una foto";
+"Save to my recipes" = "Guardar en mis recetas";
+"PREP" = "PREP.";
+"COOK" = "COCCIÓN";
+"SERVES" = "RACIONES";
+"LEVEL" = "NIVEL";
+"Easy" = "Fácil";
+"Start cooking" = "Empezar a cocinar";
+"Remix" = "Remezclar";
+"Pick a twist" = "Elige una variación";
+"Make it healthier" = "Hacerla más saludable";
+"Make it spicier" = "Hacerla más picante";
+"Make it vegetarian" = "Hacerla vegetariana";
+"Make it quicker" = "Hacerla más rápida";
+"Remixing…" = "Remezclando…";
+"Let's cook something great." = "Cocinemos algo genial.";
+"Good morning" = "Buenos días";
+"Good afternoon" = "Buenas tardes";
+"Good evening" = "Buenas noches";
+"Your recipes" = "Tus recetas";
+"%d saved" = "%d guardadas";
+"From Ingredients" = "Con ingredientes";
+"Use what you already have" = "Usa lo que ya tienes";
+"From Photo" = "Con una foto";
+"Snap a dish, get the recipe" = "Fotografía un plato y obtén la receta";
+"Describe a dish… e.g. spicy lentil soup" = "Describe un plato… p. ej. sopa de lentejas picante";
+"Your cookbook is empty" = "Tu recetario está vacío";
+"No %@ recipes yet" = "Aún no hay recetas %@";
+"No favorites yet" = "Aún no hay favoritos";
+"Tap the heart on any recipe to keep it close at hand." = "Toca el corazón de una receta para tenerla a mano.";
+"Discover" = "Descubrir";
+"Search recipes…" = "Buscar recetas…";
+"Nothing found" = "No se encontró nada";
+"From around the web" = "De la web";
+"Your kitchen" = "Tu cocina";
+
+
+// Redesign UI (auto-added)
+"All" = "Todas";
+"Meaty" = "Con carne";
+"Vegetarian" = "Vegetariana";
+"Dessert" = "Postre";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "Buscar recetas";
+"Try a different keyword — or create it from your ingredients instead." = "Prueba otra palabra clave, o créala con tus ingredientes.";
+"Create a recipe from your ingredients or a food photo to get started." = "Para empezar, crea una receta con tus ingredientes o una foto.";
+"Try another filter or create something new." = "Prueba otro filtro o crea algo nuevo.";
+"Account" = "Cuenta";
+"Premium" = "Premium";
+"Active" = "Activo";
+"Free" = "Gratis";
+"Recipes created" = "Recetas creadas";
+"Language" = "Idioma";
+"Appearance" = "Apariencia";
+"Send feedback" = "Enviar comentarios";
+"Rate WhichFood" = "Valorar WhichFood";
+"Share the app" = "Compartir la app";
+"Go Premium" = "Hazte Premium";
+"Premium plan · Unlimited AI recipes" = "Plan Premium · Recetas con IA ilimitadas";
+"Free plan · %d AI recipes left" = "Plan gratis · %d recetas con IA restantes";
+"Debug: Premium" = "Debug: Premium";
+"Bypass the AI generation limit" = "Omitir el límite de generación con IA";
+"Terms" = "Términos";
+"Privacy" = "Privacidad";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "No se pudo crear la receta";
+"Try again" = "Reintentar";
+"Close" = "Cerrar";
+"What are you in the mood for?" = "¿Qué te apetece?";
+"Pick as many as you like — we'll shape the recipe around them." = "Elige los que quieras: crearemos la receta a partir de ellos.";
+"Choose ingredients" = "Elegir ingredientes";
+"No ingredients match that search." = "Ningún ingrediente coincide con esa búsqueda.";
+"What's in your kitchen?" = "¿Qué tienes en la cocina?";
+"Search ingredients" = "Buscar ingredientes";
+"Your ingredients" = "Tus ingredientes";
+"Tap one to remove it." = "Toca uno para quitarlo.";
+"Generate recipe" = "Generar receta";
+"Generate" = "Generar";
+"Ready to turn them into a recipe" = "Listos para convertirse en receta";
+"Review" = "Revisar";
+"%d ingredients selected" = "%d ingredientes seleccionados";
+
+
+// Redesign UI (auto-added)
+"Medium" = "Media";
+"Difficult" = "Difícil";
+"Healthy" = "Saludable";
+"Vegan" = "Vegano";
+"Breakfast" = "Desayuno";
+"Lunch" = "Almuerzo";
+"Dinner" = "Cena";
+"Hearty" = "Contundente";
