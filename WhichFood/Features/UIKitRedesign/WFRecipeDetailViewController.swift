@@ -71,7 +71,7 @@ final class WFRecipeDetailViewController: UIViewController {
     }()
 
     private let metaStack = UIStackView.wf(axis: .horizontal, distribution: .fillEqually)
-    private let servingsValueLabel = WFUIMetaItemView(label: "SERVES", value: "1")
+    private let servingsValueLabel = WFUIMetaItemView(label: "SERVES".locale(), value: "1")
 
     private let nutritionSection = UIStackView.wf(axis: .vertical, spacing: 12)
     private let ingredientsCard = WFUICardView()
@@ -85,7 +85,7 @@ final class WFRecipeDetailViewController: UIViewController {
     }()
 
     private let instructionsStack = UIStackView.wf(axis: .vertical, spacing: 16)
-    private let saveButton = WFUIPrimaryButton(title: "Save to my recipes", systemImage: "bookmark.fill")
+    private let saveButton = WFUIPrimaryButton(title: "Save to my recipes".locale(), systemImage: "bookmark.fill")
 
     private lazy var favoriteButton = UIBarButtonItem(
         image: UIImage(systemName: "heart"),
@@ -257,7 +257,7 @@ final class WFRecipeDetailViewController: UIViewController {
         stack.addArrangedSubview(makeIngredientsCard())
 
         let instructionsSection = UIStackView.wf(axis: .vertical, spacing: 16, views: [
-            WFUISectionTitleLabel("Instructions"),
+            WFUISectionTitleLabel("Instructions".locale()),
             instructionsStack
         ])
         stack.addArrangedSubview(instructionsSection)
@@ -273,10 +273,10 @@ final class WFRecipeDetailViewController: UIViewController {
         card.translatesAutoresizingMaskIntoConstraints = false
 
         let items = [
-            WFUIMetaItemView(label: "PREP", value: recipe.prepTime ?? "—"),
-            WFUIMetaItemView(label: "COOK", value: recipe.cookTime),
+            WFUIMetaItemView(label: "PREP".locale(), value: recipe.prepTime ?? "—"),
+            WFUIMetaItemView(label: "COOK".locale(), value: recipe.cookTime),
             servingsValueLabel,
-            WFUIMetaItemView(label: "LEVEL", value: recipe.difficulty ?? "Easy")
+            WFUIMetaItemView(label: "LEVEL".locale(), value: recipe.difficulty ?? "Easy".locale())
         ]
 
         for (index, item) in items.enumerated() {
@@ -311,7 +311,7 @@ final class WFRecipeDetailViewController: UIViewController {
     private func makeActionRow() -> UIView {
         let cookButton = UIButton(type: .system)
         var cookConfig = UIButton.Configuration.filled()
-        cookConfig.title = "Start cooking"
+        cookConfig.title = "Start cooking".locale()
         cookConfig.image = UIImage(systemName: "play.fill")
         cookConfig.imagePadding = 8
         cookConfig.baseBackgroundColor = WFUIPalette.dark
@@ -327,7 +327,7 @@ final class WFRecipeDetailViewController: UIViewController {
 
         let remixButton = UIButton(type: .system)
         var remixConfig = UIButton.Configuration.plain()
-        remixConfig.title = "Remix"
+        remixConfig.title = "Remix".locale()
         remixConfig.image = UIImage(systemName: "arrow.clockwise")
         remixConfig.imagePadding = 7
         remixConfig.baseForegroundColor = WFUIPalette.orange
@@ -365,7 +365,7 @@ final class WFRecipeDetailViewController: UIViewController {
     private func makeIngredientsCard() -> UIView {
         let header = UIStackView.wf(axis: .horizontal, alignment: .center)
 
-        let title = WFUISectionTitleLabel("Ingredients")
+        let title = WFUISectionTitleLabel("Ingredients".locale())
         header.addArrangedSubview(title)
 
         let minusButton = UIButton(type: .system)
@@ -488,29 +488,29 @@ final class WFRecipeDetailViewController: UIViewController {
         }
         nutritionSection.isHidden = false
 
-        nutritionSection.addArrangedSubview(WFUISectionTitleLabel("Nutrition"))
+        nutritionSection.addArrangedSubview(WFUISectionTitleLabel("Nutrition".locale()))
 
         let cards = UIStackView.wf(axis: .horizontal, spacing: 9, distribution: .fillEqually, views: [
             WFUINutritionCardView(
-                label: "kcal",
+                label: "Calories".locale(),
                 value: cal.totalCalories ?? "—",
                 color: WFUIPalette.greenText,
                 background: WFUIPalette.greenBackground
             ),
             WFUINutritionCardView(
-                label: "carbs",
+                label: "Carbs".locale(),
                 value: cal.carbs,
                 color: WFUIPalette.macroCarbsText,
                 background: WFUIPalette.macroCarbsBackground
             ),
             WFUINutritionCardView(
-                label: "protein",
+                label: "Protein".locale(),
                 value: cal.protein,
                 color: WFUIPalette.macroProteinText,
                 background: WFUIPalette.macroProteinBackground
             ),
             WFUINutritionCardView(
-                label: "fat",
+                label: "Fat".locale(),
                 value: cal.fat,
                 color: WFUIPalette.macroFatText,
                 background: WFUIPalette.macroFatBackground
@@ -561,7 +561,7 @@ final class WFRecipeDetailViewController: UIViewController {
     }
 
     private func updateServingsLabels() {
-        servingsCountLabel.text = "\(servings) serv."
+        servingsCountLabel.text = "\(servings) " + "servings".locale()
         servingsValueLabel.setValue("\(servings)")
     }
 
@@ -605,19 +605,20 @@ final class WFRecipeDetailViewController: UIViewController {
     }
 
     @objc private func showRemix() {
-        let sheet = UIAlertController(title: "Remix", message: "Pick a twist", preferredStyle: .actionSheet)
-        for twist in ["Make it healthier", "Make it spicier", "Make it vegetarian", "Make it quicker"] {
-            sheet.addAction(UIAlertAction(title: twist, style: .default) { [weak self] _ in
+        let sheet = UIAlertController(title: "Remix".locale(), message: "Pick a twist".locale(), preferredStyle: .actionSheet)
+        let twists = ["Make it healthier", "Make it spicier", "Make it vegetarian", "Make it quicker"]
+        for twist in twists {
+            sheet.addAction(UIAlertAction(title: twist.locale(), style: .default) { [weak self] _ in
                 self?.performRemix(twist)
             })
         }
-        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        sheet.addAction(UIAlertAction(title: "Cancel".locale(), style: .cancel))
         sheet.popoverPresentationController?.sourceView = view
         present(sheet, animated: true)
     }
 
     private func performRemix(_ twist: String) {
-        let loading = UIAlertController(title: nil, message: "Remixing…", preferredStyle: .alert)
+        let loading = UIAlertController(title: nil, message: "Remixing…".locale(), preferredStyle: .alert)
         present(loading, animated: true)
 
         Task { @MainActor in

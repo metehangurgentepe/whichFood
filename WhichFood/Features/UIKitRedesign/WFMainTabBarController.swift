@@ -8,12 +8,17 @@ import Combine
 /// creation, the photo picker, recipe detail and error reporting.
 final class WFMainTabBarController: UITabBarController {
 
-    private let appState = WhichFoodAppState()
+    private let appState: WhichFoodAppState
     private let isPremium: Bool
     private var cancellables = Set<AnyCancellable>()
+    /// When set, the app state is pre-populated (screenshot mode) and `loadAll`
+    /// is skipped so mock data isn't overwritten by network results.
+    private let usesInjectedState: Bool
 
-    init(isPremium: Bool = false) {
+    init(isPremium: Bool = false, screenshotState: WhichFoodAppState? = nil) {
         self.isPremium = isPremium
+        self.appState = screenshotState ?? WhichFoodAppState()
+        self.usesInjectedState = screenshotState != nil
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -28,8 +33,23 @@ final class WFMainTabBarController: UITabBarController {
         configureTabs()
         observeErrors()
 
-        Task { await appState.loadAll() }
+        if !usesInjectedState {
+            Task { await appState.loadAll() }
+        }
     }
+
+    #if DEBUG
+    /// A recipe to auto-present as detail once the tab bar is on screen.
+    var pendingScreenshotDetail: RecipeResponseModel?
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let recipe = pendingScreenshotDetail {
+            pendingScreenshotDetail = nil
+            openRecipe(recipe)
+        }
+    }
+    #endif
 
     // MARK: - Setup
 
@@ -55,12 +75,12 @@ final class WFMainTabBarController: UITabBarController {
             createFromPrompt: { [weak self] text in self?.startCreation(mode: .prompt(text)) },
             openRecipe: { [weak self] recipe in self?.openRecipe(recipe) }
         )
-        home.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        home.tabBarItem = UITabBarItem(title: "Home".locale(), image: UIImage(systemName: "house"), tag: 0)
 
         // Still SwiftUI; hosted until each is ported to UIKit in turn.
         let favorites = hosting(
             WFFavoritesView(appState: appState, openRecipe: { [weak self] in self?.openRecipe($0) }),
-            title: "Favorites",
+            title: "Favorites".locale(),
             systemImage: "heart",
             tag: 1
         )
@@ -70,11 +90,11 @@ final class WFMainTabBarController: UITabBarController {
             openRecipe: { [weak self] recipe in self?.openRecipe(recipe) }
         )
         let discover = UINavigationController(rootViewController: discoverVC)
-        discover.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 2)
+        discover.tabBarItem = UITabBarItem(title: "Search".locale(), image: UIImage(systemName: "magnifyingglass"), tag: 2)
 
         let settings = hosting(
             WFSettingsHandoffView(appState: appState, premiumFromLaunch: isPremium),
-            title: "Settings",
+            title: "Settings".locale(),
             systemImage: "gearshape",
             tag: 3
         )
@@ -171,11 +191,11 @@ final class WFMainTabBarController: UITabBarController {
 
     private func presentError(_ message: String) {
         let alert = UIAlertController(
-            title: "Something went wrong",
+            title: "Something went wrong".locale(),
             message: message,
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel) { [weak self] _ in
+        alert.addAction(UIAlertAction(title: "OK".locale(), style: .cancel) { [weak self] _ in
             self?.appState.errorMessage = nil
         })
 
@@ -205,12 +225,12 @@ final class WFPhotoSourceSheetViewController: UIViewController {
         view.backgroundColor = WFUIPalette.background
 
         let titleLabel = UILabel()
-        titleLabel.text = "Add a photo"
+        titleLabel.text = "Add a photo".locale()
         titleLabel.font = WFUIFont.heading(20, weight: .bold)
         titleLabel.textColor = WFUIPalette.text
 
         let subtitleLabel = UILabel()
-        subtitleLabel.text = "Snap a dish or pick one from your library."
+        subtitleLabel.text = "Snap a dish or pick one from your library.".locale()
         subtitleLabel.font = WFUIFont.body(13)
         subtitleLabel.textColor = WFUIPalette.secondaryText
         subtitleLabel.numberOfLines = 0
@@ -220,15 +240,15 @@ final class WFPhotoSourceSheetViewController: UIViewController {
         var options: [UIView] = []
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             options.append(makeOption(
-                title: "Take a photo",
-                subtitle: "Use the camera",
+                title: "Take a photo".locale(),
+                subtitle: "Use the camera".locale(),
                 icon: "camera.fill",
                 source: .camera
             ))
         }
         options.append(makeOption(
-            title: "Choose from library",
-            subtitle: "Pick an existing photo",
+            title: "Choose from library".locale(),
+            subtitle: "Pick an existing photo".locale(),
             icon: "photo.on.rectangle",
             source: .photoLibrary
         ))

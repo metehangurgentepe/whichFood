@@ -422,3 +422,116 @@
 "appearance_light" = "Licht";
 "appearance_dark" = "Donker";
 "cancel" = "Annuleren";
+
+
+// Redesign UI (auto-added)
+"Home" = "Home";
+"Favorites" = "Favorieten";
+"Search" = "Zoeken";
+"Settings" = "Instellingen";
+"OK" = "OK";
+"Cancel" = "Annuleren";
+"Delete" = "Verwijderen";
+"Something went wrong" = "Er ging iets mis";
+"Add a photo" = "Foto toevoegen";
+"Snap a dish or pick one from your library." = "Maak een foto van een gerecht of kies er een uit je bibliotheek.";
+"Take a photo" = "Foto maken";
+"Use the camera" = "Camera gebruiken";
+"Choose from library" = "Kies uit bibliotheek";
+"Pick an existing photo" = "Kies een bestaande foto";
+"Recipe from a photo" = "Recept van een foto";
+"Save to my recipes" = "Opslaan in mijn recepten";
+"PREP" = "VOORBER.";
+"COOK" = "KOKEN";
+"SERVES" = "PORTIES";
+"LEVEL" = "NIVEAU";
+"Easy" = "Makkelijk";
+"Start cooking" = "Begin met koken";
+"Remix" = "Remix";
+"Pick a twist" = "Kies een variatie";
+"Make it healthier" = "Gezonder maken";
+"Make it spicier" = "Pittiger maken";
+"Make it vegetarian" = "Vegetarisch maken";
+"Make it quicker" = "Sneller maken";
+"Remixing…" = "Remixen…";
+"Let's cook something great." = "Laten we iets lekkers koken.";
+"Good morning" = "Goedemorgen";
+"Good afternoon" = "Goedemiddag";
+"Good evening" = "Goedenavond";
+"Your recipes" = "Jouw recepten";
+"%d saved" = "%d opgeslagen";
+"From Ingredients" = "Van ingrediënten";
+"Use what you already have" = "Gebruik wat je al hebt";
+"From Photo" = "Van een foto";
+"Snap a dish, get the recipe" = "Fotografeer een gerecht, krijg het recept";
+"Describe a dish… e.g. spicy lentil soup" = "Beschrijf een gerecht… bijv. pittige linzensoep";
+"Your cookbook is empty" = "Je kookboek is leeg";
+"No %@ recipes yet" = "Nog geen %@-recepten";
+"No favorites yet" = "Nog geen favorieten";
+"Tap the heart on any recipe to keep it close at hand." = "Tik op het hartje van een recept om het bij de hand te houden.";
+"Discover" = "Ontdekken";
+"Search recipes…" = "Recepten zoeken…";
+"Nothing found" = "Niets gevonden";
+"From around the web" = "Van het web";
+"Your kitchen" = "Jouw keuken";
+
+
+// Redesign UI (auto-added)
+"All" = "Alle";
+"Meaty" = "Vlees";
+"Vegetarian" = "Vegetarisch";
+"Dessert" = "Dessert";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "Recepten zoeken";
+"Try a different keyword — or create it from your ingredients instead." = "Probeer een ander trefwoord — of maak het van je ingrediënten.";
+"Create a recipe from your ingredients or a food photo to get started." = "Maak om te beginnen een recept van je ingrediënten of een foto.";
+"Try another filter or create something new." = "Probeer een ander filter of maak iets nieuws.";
+"Account" = "Account";
+"Premium" = "Premium";
+"Active" = "Actief";
+"Free" = "Gratis";
+"Recipes created" = "Gemaakte recepten";
+"Language" = "Taal";
+"Appearance" = "Weergave";
+"Send feedback" = "Feedback sturen";
+"Rate WhichFood" = "WhichFood beoordelen";
+"Share the app" = "App delen";
+"Go Premium" = "Word Premium";
+"Premium plan · Unlimited AI recipes" = "Premium-abonnement · Onbeperkt AI-recepten";
+"Free plan · %d AI recipes left" = "Gratis abonnement · %d AI-recepten over";
+"Debug: Premium" = "Debug: Premium";
+"Bypass the AI generation limit" = "AI-generatielimiet omzeilen";
+"Terms" = "Voorwaarden";
+"Privacy" = "Privacy";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "Recept kon niet worden gemaakt";
+"Try again" = "Opnieuw proberen";
+"Close" = "Sluiten";
+"What are you in the mood for?" = "Waar heb je zin in?";
+"Pick as many as you like — we'll shape the recipe around them." = "Kies er zoveel je wilt — we bouwen het recept eromheen.";
+"Choose ingredients" = "Ingrediënten kiezen";
+"No ingredients match that search." = "Geen ingrediënten komen overeen met die zoekopdracht.";
+"What's in your kitchen?" = "Wat heb je in je keuken?";
+"Search ingredients" = "Ingrediënten zoeken";
+"Your ingredients" = "Jouw ingrediënten";
+"Tap one to remove it." = "Tik erop om te verwijderen.";
+"Generate recipe" = "Recept genereren";
+"Generate" = "Genereren";
+"Ready to turn them into a recipe" = "Klaar om er een recept van te maken";
+"Review" = "Overzicht";
+"%d ingredients selected" = "%d ingrediënten geselecteerd";
+
+
+// Redesign UI (auto-added)
+"Medium" = "Gemiddeld";
+"Difficult" = "Moeilijk";
+"Healthy" = "Gezond";
+"Vegan" = "Veganistisch";
+"Breakfast" = "Ontbijt";
+"Lunch" = "Lunch";
+"Dinner" = "Diner";
+"Hearty" = "Stevig";

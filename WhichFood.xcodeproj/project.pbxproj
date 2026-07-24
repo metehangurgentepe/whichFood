@@ -139,6 +139,7 @@
 		A1000001300C000100000013 /* WFRecipeDetailHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000002300C000100000013 /* WFRecipeDetailHost.swift */; };
 		A1000001300C000100000014 /* WFHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000002300C000100000014 /* WFHomeViewController.swift */; };
 		A1000001300C000100000015 /* WFMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000002300C000100000015 /* WFMainTabBarController.swift */; };
+		A1000001300C000100000020 /* WFScreenshotSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000002300C000100000020 /* WFScreenshotSupport.swift */; };
 		A1000001300C000100000016 /* WFCreationFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000002300C000100000016 /* WFCreationFlowController.swift */; };
 		A1000001300C000100000017 /* MealDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000002300C000100000017 /* MealDBService.swift */; };
 		A1000001300C000100000018 /* WFCameraScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000002300C000100000018 /* WFCameraScanViewController.swift */; };
@@ -332,6 +333,7 @@
 		A1000002300C000100000013 /* WFRecipeDetailHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFRecipeDetailHost.swift; sourceTree = "<group>"; };
 		A1000002300C000100000014 /* WFHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFHomeViewController.swift; sourceTree = "<group>"; };
 		A1000002300C000100000015 /* WFMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFMainTabBarController.swift; sourceTree = "<group>"; };
+		A1000002300C000100000020 /* WFScreenshotSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFScreenshotSupport.swift; sourceTree = "<group>"; };
 		A1000002300C000100000016 /* WFCreationFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFCreationFlowController.swift; sourceTree = "<group>"; };
 		A1000002300C000100000017 /* MealDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDBService.swift; sourceTree = "<group>"; };
 		A1000002300C000100000018 /* WFCameraScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFCameraScanViewController.swift; sourceTree = "<group>"; };
@@ -824,6 +826,7 @@
 				A1000002300C000100000013 /* WFRecipeDetailHost.swift */,
 				A1000002300C000100000014 /* WFHomeViewController.swift */,
 				A1000002300C000100000015 /* WFMainTabBarController.swift */,
+				A1000002300C000100000020 /* WFScreenshotSupport.swift */,
 				A1000002300C000100000016 /* WFCreationFlowController.swift */,
 				A1000002300C000100000018 /* WFCameraScanViewController.swift */,
 				A1000002300C000100000019 /* WFDiscoverViewController.swift */,
@@ -1032,6 +1035,7 @@
 				A1000001300C000100000013 /* WFRecipeDetailHost.swift in Sources */,
 				A1000001300C000100000014 /* WFHomeViewController.swift in Sources */,
 				A1000001300C000100000015 /* WFMainTabBarController.swift in Sources */,
+				A1000001300C000100000020 /* WFScreenshotSupport.swift in Sources */,
 				A1000001300C000100000016 /* WFCreationFlowController.swift in Sources */,
 				A1000001300C000100000018 /* WFCameraScanViewController.swift in Sources */,
 				A1000001300C000100000019 /* WFDiscoverViewController.swift in Sources */,

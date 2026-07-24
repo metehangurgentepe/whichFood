@@ -13,6 +13,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
+
+        #if DEBUG
+        if WFScreenshotSupport.isActive {
+            window.rootViewController = WFScreenshotSupport.makeRoot()
+            self.window = window
+            window.makeKeyAndVisible()
+            setInitialThemeMode(mode: getThemeMode() ?? "light")
+            return
+        }
+        #endif
+
         showHome(window: window)
         let themeMode = getThemeMode()
         setInitialThemeMode(mode: themeMode ?? "dark")

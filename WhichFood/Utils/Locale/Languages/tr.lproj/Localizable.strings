@@ -478,3 +478,116 @@
 "appearance_light" = "Açık";
 "appearance_dark" = "Koyu";
 "cancel" = "İptal";
+
+
+// Redesign UI (auto-added)
+"Home" = "Ana Sayfa";
+"Favorites" = "Favoriler";
+"Search" = "Ara";
+"Settings" = "Ayarlar";
+"OK" = "Tamam";
+"Cancel" = "İptal";
+"Delete" = "Sil";
+"Something went wrong" = "Bir şeyler ters gitti";
+"Add a photo" = "Fotoğraf ekle";
+"Snap a dish or pick one from your library." = "Bir yemeğin fotoğrafını çek ya da galerinden seç.";
+"Take a photo" = "Fotoğraf çek";
+"Use the camera" = "Kamerayı kullan";
+"Choose from library" = "Galeriden seç";
+"Pick an existing photo" = "Mevcut bir fotoğraf seç";
+"Recipe from a photo" = "Fotoğraftan tarif";
+"Save to my recipes" = "Tariflerime kaydet";
+"PREP" = "HAZIRLIK";
+"COOK" = "PİŞİRME";
+"SERVES" = "KİŞİLİK";
+"LEVEL" = "SEVİYE";
+"Easy" = "Kolay";
+"Start cooking" = "Pişirmeye başla";
+"Remix" = "Yeniden yorumla";
+"Pick a twist" = "Bir varyasyon seç";
+"Make it healthier" = "Daha sağlıklı yap";
+"Make it spicier" = "Daha acılı yap";
+"Make it vegetarian" = "Vejetaryen yap";
+"Make it quicker" = "Daha hızlı yap";
+"Remixing…" = "Yeniden yorumlanıyor…";
+"Let's cook something great." = "Hadi harika bir şey pişirelim.";
+"Good morning" = "Günaydın";
+"Good afternoon" = "İyi günler";
+"Good evening" = "İyi akşamlar";
+"Your recipes" = "Tariflerin";
+"%d saved" = "%d kayıtlı";
+"From Ingredients" = "Malzemelerden";
+"Use what you already have" = "Elindekileri kullan";
+"From Photo" = "Fotoğraftan";
+"Snap a dish, get the recipe" = "Yemeği çek, tarifi al";
+"Describe a dish… e.g. spicy lentil soup" = "Bir yemek tarif et… örn. acılı mercimek çorbası";
+"Your cookbook is empty" = "Yemek kitabın boş";
+"No %@ recipes yet" = "Henüz %@ tarif yok";
+"No favorites yet" = "Henüz favori yok";
+"Tap the heart on any recipe to keep it close at hand." = "Bir tarifi elinin altında tutmak için kalbe dokun.";
+"Discover" = "Keşfet";
+"Search recipes…" = "Tarif ara…";
+"Nothing found" = "Sonuç bulunamadı";
+"From around the web" = "İnternetten";
+"Your kitchen" = "Mutfağın";
+
+
+// Redesign UI (auto-added)
+"All" = "Tümü";
+"Meaty" = "Etli";
+"Vegetarian" = "Vejetaryen";
+"Dessert" = "Tatlı";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "Tarif ara";
+"Try a different keyword — or create it from your ingredients instead." = "Farklı bir kelime dene — ya da malzemelerinden oluştur.";
+"Create a recipe from your ingredients or a food photo to get started." = "Başlamak için malzemelerinden ya da bir yemek fotoğrafından tarif oluştur.";
+"Try another filter or create something new." = "Başka bir filtre dene ya da yeni bir şey oluştur.";
+"Account" = "Hesap";
+"Premium" = "Premium";
+"Active" = "Aktif";
+"Free" = "Ücretsiz";
+"Recipes created" = "Oluşturulan tarifler";
+"Language" = "Dil";
+"Appearance" = "Görünüm";
+"Send feedback" = "Geri bildirim gönder";
+"Rate WhichFood" = "WhichFood'u değerlendir";
+"Share the app" = "Uygulamayı paylaş";
+"Go Premium" = "Premium'a geç";
+"Premium plan · Unlimited AI recipes" = "Premium plan · Sınırsız AI tarif";
+"Free plan · %d AI recipes left" = "Ücretsiz plan · %d AI tarif kaldı";
+"Debug: Premium" = "Hata ayıklama: Premium";
+"Bypass the AI generation limit" = "AI oluşturma limitini atla";
+"Terms" = "Koşullar";
+"Privacy" = "Gizlilik";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "Tarif oluşturulamadı";
+"Try again" = "Tekrar dene";
+"Close" = "Kapat";
+"What are you in the mood for?" = "Canın ne istiyor?";
+"Pick as many as you like — we'll shape the recipe around them." = "İstediğin kadar seç — tarifi ona göre şekillendiririz.";
+"Choose ingredients" = "Malzemeleri seç";
+"No ingredients match that search." = "Bu aramaya uyan malzeme yok.";
+"What's in your kitchen?" = "Mutfağında neler var?";
+"Search ingredients" = "Malzeme ara";
+"Your ingredients" = "Malzemelerin";
+"Tap one to remove it." = "Kaldırmak için birine dokun.";
+"Generate recipe" = "Tarif oluştur";
+"Generate" = "Oluştur";
+"Ready to turn them into a recipe" = "Tarife dönüştürmeye hazır";
+"Review" = "Gözden geçir";
+"%d ingredients selected" = "%d malzeme seçildi";
+
+
+// Redesign UI (auto-added)
+"Medium" = "Orta";
+"Difficult" = "Zor";
+"Healthy" = "Sağlıklı";
+"Vegan" = "Vegan";
+"Breakfast" = "Kahvaltı";
+"Lunch" = "Öğle yemeği";
+"Dinner" = "Akşam yemeği";
+"Hearty" = "Doyurucu";

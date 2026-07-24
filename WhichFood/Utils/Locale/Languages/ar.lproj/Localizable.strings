@@ -443,3 +443,116 @@
 "appearance_light" = "فاتح";
 "appearance_dark" = "داكن";
 "cancel" = "إلغاء";
+
+
+// Redesign UI (auto-added)
+"Home" = "الرئيسية";
+"Favorites" = "المفضلة";
+"Search" = "بحث";
+"Settings" = "الإعدادات";
+"OK" = "موافق";
+"Cancel" = "إلغاء";
+"Delete" = "حذف";
+"Something went wrong" = "حدث خطأ ما";
+"Add a photo" = "إضافة صورة";
+"Snap a dish or pick one from your library." = "التقط صورة لطبق أو اختر واحدة من مكتبتك.";
+"Take a photo" = "التقاط صورة";
+"Use the camera" = "استخدام الكاميرا";
+"Choose from library" = "اختيار من المكتبة";
+"Pick an existing photo" = "اختيار صورة موجودة";
+"Recipe from a photo" = "وصفة من صورة";
+"Save to my recipes" = "حفظ في وصفاتي";
+"PREP" = "التحضير";
+"COOK" = "الطهي";
+"SERVES" = "يكفي لـ";
+"LEVEL" = "المستوى";
+"Easy" = "سهل";
+"Start cooking" = "ابدأ الطهي";
+"Remix" = "إعادة مزج";
+"Pick a twist" = "اختر تعديلاً";
+"Make it healthier" = "اجعلها أكثر صحة";
+"Make it spicier" = "اجعلها أكثر حرارة";
+"Make it vegetarian" = "اجعلها نباتية";
+"Make it quicker" = "اجعلها أسرع";
+"Remixing…" = "جارٍ إعادة المزج…";
+"Let's cook something great." = "لنطبخ شيئًا رائعًا.";
+"Good morning" = "صباح الخير";
+"Good afternoon" = "مساء الخير";
+"Good evening" = "مساء الخير";
+"Your recipes" = "وصفاتك";
+"%d saved" = "%d محفوظة";
+"From Ingredients" = "من المكوّنات";
+"Use what you already have" = "استخدم ما لديك";
+"From Photo" = "من صورة";
+"Snap a dish, get the recipe" = "صوّر الطبق واحصل على الوصفة";
+"Describe a dish… e.g. spicy lentil soup" = "صف طبقًا… مثل شوربة العدس الحارة";
+"Your cookbook is empty" = "كتاب وصفاتك فارغ";
+"No %@ recipes yet" = "لا توجد وصفات %@ بعد";
+"No favorites yet" = "لا مفضلات بعد";
+"Tap the heart on any recipe to keep it close at hand." = "اضغط على القلب في أي وصفة لتبقى في متناولك.";
+"Discover" = "اكتشف";
+"Search recipes…" = "ابحث عن وصفات…";
+"Nothing found" = "لا توجد نتائج";
+"From around the web" = "من الويب";
+"Your kitchen" = "مطبخك";
+
+
+// Redesign UI (auto-added)
+"All" = "الكل";
+"Meaty" = "باللحم";
+"Vegetarian" = "نباتي";
+"Dessert" = "حلوى";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "ابحث عن وصفات";
+"Try a different keyword — or create it from your ingredients instead." = "جرّب كلمة مختلفة — أو أنشئها من مكوّناتك.";
+"Create a recipe from your ingredients or a food photo to get started." = "للبدء، أنشئ وصفة من مكوّناتك أو من صورة طعام.";
+"Try another filter or create something new." = "جرّب فلترًا آخر أو أنشئ شيئًا جديدًا.";
+"Account" = "الحساب";
+"Premium" = "بريميوم";
+"Active" = "مفعّل";
+"Free" = "مجاني";
+"Recipes created" = "الوصفات المنشأة";
+"Language" = "اللغة";
+"Appearance" = "المظهر";
+"Send feedback" = "إرسال ملاحظات";
+"Rate WhichFood" = "قيّم WhichFood";
+"Share the app" = "مشاركة التطبيق";
+"Go Premium" = "احصل على بريميوم";
+"Premium plan · Unlimited AI recipes" = "خطة بريميوم · وصفات ذكاء اصطناعي بلا حدود";
+"Free plan · %d AI recipes left" = "الخطة المجانية · بقي %d وصفة ذكاء اصطناعي";
+"Debug: Premium" = "تصحيح: بريميوم";
+"Bypass the AI generation limit" = "تجاوز حد إنشاء الذكاء الاصطناعي";
+"Terms" = "الشروط";
+"Privacy" = "الخصوصية";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "تعذّر إنشاء الوصفة";
+"Try again" = "حاول مجددًا";
+"Close" = "إغلاق";
+"What are you in the mood for?" = "ماذا تشتهي؟";
+"Pick as many as you like — we'll shape the recipe around them." = "اختر ما تشاء — سنبني الوصفة حولها.";
+"Choose ingredients" = "اختيار المكوّنات";
+"No ingredients match that search." = "لا توجد مكوّنات تطابق البحث.";
+"What's in your kitchen?" = "ماذا لديك في مطبخك؟";
+"Search ingredients" = "ابحث عن مكوّنات";
+"Your ingredients" = "مكوّناتك";
+"Tap one to remove it." = "اضغط لإزالته.";
+"Generate recipe" = "إنشاء الوصفة";
+"Generate" = "إنشاء";
+"Ready to turn them into a recipe" = "جاهزة لتتحوّل إلى وصفة";
+"Review" = "مراجعة";
+"%d ingredients selected" = "تم اختيار %d مكوّن";
+
+
+// Redesign UI (auto-added)
+"Medium" = "متوسط";
+"Difficult" = "صعب";
+"Healthy" = "صحي";
+"Vegan" = "نباتي صرف";
+"Breakfast" = "فطور";
+"Lunch" = "غداء";
+"Dinner" = "عشاء";
+"Hearty" = "مشبع";

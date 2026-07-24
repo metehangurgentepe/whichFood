@@ -198,11 +198,11 @@ final class WFCreationFlowController: UINavigationController {
         appState.errorMessage = nil
 
         let alert = UIAlertController(
-            title: "Couldn't create a recipe",
+            title: "Couldn't create a recipe".locale(),
             message: "\(reason)\n\nWant to try again?",
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "Try again", style: .default) { [weak self] _ in
+        alert.addAction(UIAlertAction(title: "Try again".locale(), style: .default) { [weak self] _ in
             guard let self else { return }
             switch self.mode {
             case .ingredients: self.generateFromIngredients()
@@ -210,7 +210,7 @@ final class WFCreationFlowController: UINavigationController {
             case .prompt(let text): self.generate(fromDescription: text)
             }
         })
-        alert.addAction(UIAlertAction(title: "Close", style: .cancel) { [weak self] _ in
+        alert.addAction(UIAlertAction(title: "Close".locale(), style: .cancel) { [weak self] _ in
             self?.finish()
         })
         present(alert, animated: true)
@@ -256,13 +256,13 @@ final class WFPreferencesViewController: UIViewController {
         view.backgroundColor = WFUIPalette.background
 
         let titleLabel = UILabel()
-        titleLabel.text = "What are you in the mood for?"
+        titleLabel.text = "What are you in the mood for?".locale()
         titleLabel.font = WFUIFont.heading(25, weight: .bold)
         titleLabel.textColor = WFUIPalette.text
         titleLabel.numberOfLines = 0
 
         let subtitleLabel = UILabel()
-        subtitleLabel.text = "Pick as many as you like — we'll shape the recipe around them."
+        subtitleLabel.text = "Pick as many as you like — we'll shape the recipe around them.".locale()
         subtitleLabel.font = WFUIFont.body(14)
         subtitleLabel.textColor = WFUIPalette.secondaryText
         subtitleLabel.numberOfLines = 0
@@ -270,7 +270,7 @@ final class WFPreferencesViewController: UIViewController {
         wrapView.translatesAutoresizingMaskIntoConstraints = false
         wrapView.setItems(options.map(makeOptionButton))
 
-        let button = WFUIPrimaryButton(title: "Choose ingredients")
+        let button = WFUIPrimaryButton(title: "Choose ingredients".locale())
         button.addTarget(self, action: #selector(handleNext), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
 
@@ -294,7 +294,7 @@ final class WFPreferencesViewController: UIViewController {
     }
 
     private func makeOptionButton(_ option: String) -> UIView {
-        let button = WFUIPillButton(title: option)
+        let button = WFUIPillButton(title: option.locale())
         button.setSelectedState(selected.contains(option))
         button.addAction(UIAction { [weak self, weak button] _ in
             guard let self, let button else { return }
@@ -340,7 +340,7 @@ final class WFIngredientSelectionViewController: UIViewController {
         label.textColor = WFUIPalette.secondaryText
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.text = "No ingredients match that search."
+        label.text = "No ingredients match that search.".locale()
         label.isHidden = true
         return label
     }()
@@ -370,7 +370,7 @@ final class WFIngredientSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = WFUIPalette.background
-        title = "What's in your kitchen?"
+        title = "What's in your kitchen?".locale()
 
         setupSearchController()
         setupLayout()
@@ -389,7 +389,7 @@ final class WFIngredientSelectionViewController: UIViewController {
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search ingredients"
+        searchController.searchBar.placeholder = "Search ingredients".locale()
 
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -600,12 +600,12 @@ final class WFSelectedIngredientsSheetViewController: UIViewController {
         view.backgroundColor = WFUIPalette.background
 
         let titleLabel = UILabel()
-        titleLabel.text = "Your ingredients"
+        titleLabel.text = "Your ingredients".locale()
         titleLabel.font = WFUIFont.heading(20, weight: .bold)
         titleLabel.textColor = WFUIPalette.text
 
         let subtitleLabel = UILabel()
-        subtitleLabel.text = "Tap one to remove it."
+        subtitleLabel.text = "Tap one to remove it.".locale()
         subtitleLabel.font = WFUIFont.body(13)
         subtitleLabel.textColor = WFUIPalette.secondaryText
 
@@ -615,7 +615,7 @@ final class WFSelectedIngredientsSheetViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(wrapView)
 
-        let generateButton = WFUIPrimaryButton(title: "Generate recipe")
+        let generateButton = WFUIPrimaryButton(title: "Generate recipe".locale())
         generateButton.translatesAutoresizingMaskIntoConstraints = false
         generateButton.addTarget(self, action: #selector(handleGenerate), for: .touchUpInside)
 
@@ -809,7 +809,7 @@ final class WFUIReviewBarView: UIControl {
         let button = UIButton(type: .system)
 
         var config = UIButton.Configuration.filled()
-        config.title = "Generate"
+        config.title = "Generate".locale()
         config.baseBackgroundColor = WFUIPalette.orange
         config.baseForegroundColor = .white
         config.background.cornerRadius = 15
@@ -835,7 +835,7 @@ final class WFUIReviewBarView: UIControl {
         layer.shadowOffset = CGSize(width: 0, height: 8)
 
         let subtitleLabel = UILabel()
-        subtitleLabel.text = "Ready to turn them into a recipe"
+        subtitleLabel.text = "Ready to turn them into a recipe".locale()
         subtitleLabel.font = WFUIFont.body(11.5)
         subtitleLabel.textColor = UIColor.white.withAlphaComponent(0.68)
 
@@ -844,7 +844,7 @@ final class WFUIReviewBarView: UIControl {
         ])
 
         let reviewLabel = UILabel()
-        reviewLabel.text = "Review"
+        reviewLabel.text = "Review".locale()
         reviewLabel.font = WFUIFont.body(13, weight: .bold)
         reviewLabel.textColor = WFUIPalette.amber
 
@@ -885,6 +885,6 @@ final class WFUIReviewBarView: UIControl {
     }
 
     func setCount(_ count: Int) {
-        countLabel.text = "\(count) ingredients selected"
+        countLabel.text = String(format: "%d ingredients selected".locale(), count)
     }
 }

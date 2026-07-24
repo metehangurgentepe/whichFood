@@ -440,3 +440,116 @@
 "appearance_light" = "浅色";
 "appearance_dark" = "深色";
 "cancel" = "取消";
+
+
+// Redesign UI (auto-added)
+"Home" = "主页";
+"Favorites" = "收藏";
+"Search" = "搜索";
+"Settings" = "设置";
+"OK" = "确定";
+"Cancel" = "取消";
+"Delete" = "删除";
+"Something went wrong" = "出错了";
+"Add a photo" = "添加照片";
+"Snap a dish or pick one from your library." = "拍一张菜品照片，或从相册中选择。";
+"Take a photo" = "拍照";
+"Use the camera" = "使用相机";
+"Choose from library" = "从相册选择";
+"Pick an existing photo" = "选择已有照片";
+"Recipe from a photo" = "从照片生成食谱";
+"Save to my recipes" = "保存到我的食谱";
+"PREP" = "准备";
+"COOK" = "烹饪";
+"SERVES" = "份量";
+"LEVEL" = "难度";
+"Easy" = "简单";
+"Start cooking" = "开始烹饪";
+"Remix" = "改造";
+"Pick a twist" = "选择一个变化";
+"Make it healthier" = "更健康";
+"Make it spicier" = "更辣";
+"Make it vegetarian" = "改成素食";
+"Make it quicker" = "更快捷";
+"Remixing…" = "改造中…";
+"Let's cook something great." = "来做点好吃的吧。";
+"Good morning" = "早上好";
+"Good afternoon" = "下午好";
+"Good evening" = "晚上好";
+"Your recipes" = "你的食谱";
+"%d saved" = "已保存 %d";
+"From Ingredients" = "用食材";
+"Use what you already have" = "用你手边的食材";
+"From Photo" = "用照片";
+"Snap a dish, get the recipe" = "拍下菜品，获取食谱";
+"Describe a dish… e.g. spicy lentil soup" = "描述一道菜…例如香辣扁豆汤";
+"Your cookbook is empty" = "你的食谱本是空的";
+"No %@ recipes yet" = "暂无%@食谱";
+"No favorites yet" = "还没有收藏";
+"Tap the heart on any recipe to keep it close at hand." = "点按任意食谱上的爱心即可随手收藏。";
+"Discover" = "发现";
+"Search recipes…" = "搜索食谱…";
+"Nothing found" = "未找到结果";
+"From around the web" = "来自网络";
+"Your kitchen" = "你的厨房";
+
+
+// Redesign UI (auto-added)
+"All" = "全部";
+"Meaty" = "肉类";
+"Vegetarian" = "素食";
+"Dessert" = "甜点";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "搜索食谱";
+"Try a different keyword — or create it from your ingredients instead." = "换个关键词，或用你的食材来创建。";
+"Create a recipe from your ingredients or a food photo to get started." = "用你的食材或一张美食照片来创建第一份食谱吧。";
+"Try another filter or create something new." = "试试其他筛选，或创建新的食谱。";
+"Account" = "账户";
+"Premium" = "高级版";
+"Active" = "已激活";
+"Free" = "免费";
+"Recipes created" = "已创建食谱";
+"Language" = "语言";
+"Appearance" = "外观";
+"Send feedback" = "发送反馈";
+"Rate WhichFood" = "评价 WhichFood";
+"Share the app" = "分享应用";
+"Go Premium" = "升级高级版";
+"Premium plan · Unlimited AI recipes" = "高级版 · 无限 AI 食谱";
+"Free plan · %d AI recipes left" = "免费版 · 剩余 %d 个 AI 食谱";
+"Debug: Premium" = "调试：高级版";
+"Bypass the AI generation limit" = "绕过 AI 生成限制";
+"Terms" = "条款";
+"Privacy" = "隐私";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "无法创建食谱";
+"Try again" = "重试";
+"Close" = "关闭";
+"What are you in the mood for?" = "你想吃点什么？";
+"Pick as many as you like — we'll shape the recipe around them." = "想选多少就选多少，我们会据此定制食谱。";
+"Choose ingredients" = "选择食材";
+"No ingredients match that search." = "没有匹配该搜索的食材。";
+"What's in your kitchen?" = "你的厨房里有什么？";
+"Search ingredients" = "搜索食材";
+"Your ingredients" = "你的食材";
+"Tap one to remove it." = "点按即可移除。";
+"Generate recipe" = "生成食谱";
+"Generate" = "生成";
+"Ready to turn them into a recipe" = "准备好变成食谱了";
+"Review" = "确认";
+"%d ingredients selected" = "已选择 %d 种食材";
+
+
+// Redesign UI (auto-added)
+"Medium" = "中等";
+"Difficult" = "困难";
+"Healthy" = "健康";
+"Vegan" = "纯素";
+"Breakfast" = "早餐";
+"Lunch" = "午餐";
+"Dinner" = "晚餐";
+"Hearty" = "丰盛";

@@ -438,3 +438,116 @@
 "appearance_light" = "Светлая";
 "appearance_dark" = "Тёмная";
 "cancel" = "Отмена";
+
+
+// Redesign UI (auto-added)
+"Home" = "Главная";
+"Favorites" = "Избранное";
+"Search" = "Поиск";
+"Settings" = "Настройки";
+"OK" = "ОК";
+"Cancel" = "Отмена";
+"Delete" = "Удалить";
+"Something went wrong" = "Что-то пошло не так";
+"Add a photo" = "Добавить фото";
+"Snap a dish or pick one from your library." = "Сфотографируйте блюдо или выберите фото из галереи.";
+"Take a photo" = "Сделать фото";
+"Use the camera" = "Использовать камеру";
+"Choose from library" = "Выбрать из галереи";
+"Pick an existing photo" = "Выбрать существующее фото";
+"Recipe from a photo" = "Рецепт по фото";
+"Save to my recipes" = "Сохранить в мои рецепты";
+"PREP" = "ПОДГОТ.";
+"COOK" = "ГОТОВКА";
+"SERVES" = "ПОРЦИИ";
+"LEVEL" = "УРОВЕНЬ";
+"Easy" = "Легко";
+"Start cooking" = "Начать готовить";
+"Remix" = "Переделать";
+"Pick a twist" = "Выберите вариацию";
+"Make it healthier" = "Сделать полезнее";
+"Make it spicier" = "Сделать острее";
+"Make it vegetarian" = "Сделать вегетарианским";
+"Make it quicker" = "Сделать быстрее";
+"Remixing…" = "Переделываем…";
+"Let's cook something great." = "Приготовим что-нибудь вкусное.";
+"Good morning" = "Доброе утро";
+"Good afternoon" = "Добрый день";
+"Good evening" = "Добрый вечер";
+"Your recipes" = "Ваши рецепты";
+"%d saved" = "%d сохранено";
+"From Ingredients" = "Из ингредиентов";
+"Use what you already have" = "Используйте то, что есть";
+"From Photo" = "По фото";
+"Snap a dish, get the recipe" = "Сфотографируйте блюдо — получите рецепт";
+"Describe a dish… e.g. spicy lentil soup" = "Опишите блюдо… напр. острый чечевичный суп";
+"Your cookbook is empty" = "Ваша книга рецептов пуста";
+"No %@ recipes yet" = "Пока нет рецептов «%@»";
+"No favorites yet" = "Пока нет избранного";
+"Tap the heart on any recipe to keep it close at hand." = "Нажмите на сердечко у рецепта, чтобы он был под рукой.";
+"Discover" = "Обзор";
+"Search recipes…" = "Поиск рецептов…";
+"Nothing found" = "Ничего не найдено";
+"From around the web" = "Со всего интернета";
+"Your kitchen" = "Ваша кухня";
+
+
+// Redesign UI (auto-added)
+"All" = "Все";
+"Meaty" = "Мясные";
+"Vegetarian" = "Вегетарианские";
+"Dessert" = "Десерты";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "Поиск рецептов";
+"Try a different keyword — or create it from your ingredients instead." = "Попробуйте другое слово — или создайте рецепт из своих ингредиентов.";
+"Create a recipe from your ingredients or a food photo to get started." = "Чтобы начать, создайте рецепт из ингредиентов или по фото.";
+"Try another filter or create something new." = "Попробуйте другой фильтр или создайте что-то новое.";
+"Account" = "Аккаунт";
+"Premium" = "Премиум";
+"Active" = "Активен";
+"Free" = "Бесплатно";
+"Recipes created" = "Создано рецептов";
+"Language" = "Язык";
+"Appearance" = "Оформление";
+"Send feedback" = "Отправить отзыв";
+"Rate WhichFood" = "Оценить WhichFood";
+"Share the app" = "Поделиться приложением";
+"Go Premium" = "Оформить Премиум";
+"Premium plan · Unlimited AI recipes" = "Премиум · Безлимитные AI-рецепты";
+"Free plan · %d AI recipes left" = "Бесплатно · осталось %d AI-рецептов";
+"Debug: Premium" = "Отладка: Премиум";
+"Bypass the AI generation limit" = "Обойти лимит AI-генераций";
+"Terms" = "Условия";
+"Privacy" = "Конфиденциальность";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "Не удалось создать рецепт";
+"Try again" = "Повторить";
+"Close" = "Закрыть";
+"What are you in the mood for?" = "Чего вам хочется?";
+"Pick as many as you like — we'll shape the recipe around them." = "Выберите сколько угодно — составим рецепт из них.";
+"Choose ingredients" = "Выбрать ингредиенты";
+"No ingredients match that search." = "Нет ингредиентов по этому запросу.";
+"What's in your kitchen?" = "Что у вас на кухне?";
+"Search ingredients" = "Поиск ингредиентов";
+"Your ingredients" = "Ваши ингредиенты";
+"Tap one to remove it." = "Нажмите, чтобы удалить.";
+"Generate recipe" = "Создать рецепт";
+"Generate" = "Создать";
+"Ready to turn them into a recipe" = "Готовы превратиться в рецепт";
+"Review" = "Обзор";
+"%d ingredients selected" = "Выбрано ингредиентов: %d";
+
+
+// Redesign UI (auto-added)
+"Medium" = "Средне";
+"Difficult" = "Сложно";
+"Healthy" = "Полезное";
+"Vegan" = "Веганское";
+"Breakfast" = "Завтрак";
+"Lunch" = "Обед";
+"Dinner" = "Ужин";
+"Hearty" = "Сытное";

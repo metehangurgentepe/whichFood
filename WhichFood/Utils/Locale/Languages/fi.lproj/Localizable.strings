@@ -422,3 +422,116 @@
 "appearance_light" = "Vaalea";
 "appearance_dark" = "Tumma";
 "cancel" = "Peruuta";
+
+
+// Redesign UI (auto-added)
+"Home" = "Koti";
+"Favorites" = "Suosikit";
+"Search" = "Haku";
+"Settings" = "Asetukset";
+"OK" = "OK";
+"Cancel" = "Peruuta";
+"Delete" = "Poista";
+"Something went wrong" = "Jokin meni pieleen";
+"Add a photo" = "Lisää kuva";
+"Snap a dish or pick one from your library." = "Ota kuva ruoasta tai valitse kuva kirjastosta.";
+"Take a photo" = "Ota kuva";
+"Use the camera" = "Käytä kameraa";
+"Choose from library" = "Valitse kirjastosta";
+"Pick an existing photo" = "Valitse olemassa oleva kuva";
+"Recipe from a photo" = "Resepti kuvasta";
+"Save to my recipes" = "Tallenna resepteihini";
+"PREP" = "VALM.";
+"COOK" = "KYPS.";
+"SERVES" = "ANNOKSET";
+"LEVEL" = "TASO";
+"Easy" = "Helppo";
+"Start cooking" = "Aloita kokkaus";
+"Remix" = "Muokkaa";
+"Pick a twist" = "Valitse muunnos";
+"Make it healthier" = "Tee terveellisemmäksi";
+"Make it spicier" = "Tee tulisemmaksi";
+"Make it vegetarian" = "Tee kasvisruoaksi";
+"Make it quicker" = "Tee nopeammaksi";
+"Remixing…" = "Muokataan…";
+"Let's cook something great." = "Laitetaan jotain hyvää.";
+"Good morning" = "Hyvää huomenta";
+"Good afternoon" = "Hyvää iltapäivää";
+"Good evening" = "Hyvää iltaa";
+"Your recipes" = "Reseptisi";
+"%d saved" = "%d tallennettu";
+"From Ingredients" = "Aineksista";
+"Use what you already have" = "Käytä mitä sinulla on";
+"From Photo" = "Kuvasta";
+"Snap a dish, get the recipe" = "Kuvaa annos, saat reseptin";
+"Describe a dish… e.g. spicy lentil soup" = "Kuvaile ruokaa… esim. tulinen linssikeitto";
+"Your cookbook is empty" = "Reseptikirjasi on tyhjä";
+"No %@ recipes yet" = "Ei vielä %@-reseptejä";
+"No favorites yet" = "Ei vielä suosikkeja";
+"Tap the heart on any recipe to keep it close at hand." = "Napauta reseptin sydäntä pitääksesi sen käsillä.";
+"Discover" = "Löydä";
+"Search recipes…" = "Hae reseptejä…";
+"Nothing found" = "Ei tuloksia";
+"From around the web" = "Verkosta";
+"Your kitchen" = "Keittiösi";
+
+
+// Redesign UI (auto-added)
+"All" = "Kaikki";
+"Meaty" = "Liharuoat";
+"Vegetarian" = "Kasvis";
+"Dessert" = "Jälkiruoat";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "Hae reseptejä";
+"Try a different keyword — or create it from your ingredients instead." = "Kokeile toista hakusanaa — tai luo se aineksistasi.";
+"Create a recipe from your ingredients or a food photo to get started." = "Aloita luomalla resepti aineksistasi tai ruokakuvasta.";
+"Try another filter or create something new." = "Kokeile toista suodatinta tai luo jotain uutta.";
+"Account" = "Tili";
+"Premium" = "Premium";
+"Active" = "Aktiivinen";
+"Free" = "Ilmainen";
+"Recipes created" = "Luodut reseptit";
+"Language" = "Kieli";
+"Appearance" = "Ulkoasu";
+"Send feedback" = "Lähetä palautetta";
+"Rate WhichFood" = "Arvioi WhichFood";
+"Share the app" = "Jaa sovellus";
+"Go Premium" = "Hanki Premium";
+"Premium plan · Unlimited AI recipes" = "Premium · Rajattomat tekoälyreseptit";
+"Free plan · %d AI recipes left" = "Ilmainen · %d tekoälyreseptiä jäljellä";
+"Debug: Premium" = "Debug: Premium";
+"Bypass the AI generation limit" = "Ohita tekoälyn luontiraja";
+"Terms" = "Ehdot";
+"Privacy" = "Yksityisyys";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "Reseptin luonti epäonnistui";
+"Try again" = "Yritä uudelleen";
+"Close" = "Sulje";
+"What are you in the mood for?" = "Mitä tekisi mieli?";
+"Pick as many as you like — we'll shape the recipe around them." = "Valitse niin monta kuin haluat — muotoilemme reseptin niiden ympärille.";
+"Choose ingredients" = "Valitse ainekset";
+"No ingredients match that search." = "Hakua vastaavia aineksia ei löytynyt.";
+"What's in your kitchen?" = "Mitä keittiöstäsi löytyy?";
+"Search ingredients" = "Hae aineksia";
+"Your ingredients" = "Aineksesi";
+"Tap one to remove it." = "Napauta poistaaksesi.";
+"Generate recipe" = "Luo resepti";
+"Generate" = "Luo";
+"Ready to turn them into a recipe" = "Valmiina reseptiksi";
+"Review" = "Tarkista";
+"%d ingredients selected" = "%d ainesta valittu";
+
+
+// Redesign UI (auto-added)
+"Medium" = "Keskitaso";
+"Difficult" = "Vaikea";
+"Healthy" = "Terveellinen";
+"Vegan" = "Vegaaninen";
+"Breakfast" = "Aamiainen";
+"Lunch" = "Lounas";
+"Dinner" = "Illallinen";
+"Hearty" = "Täyttävä";

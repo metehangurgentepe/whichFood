@@ -474,3 +474,116 @@
 "appearance_light" = "Hell";
 "appearance_dark" = "Dunkel";
 "cancel" = "Abbrechen";
+
+
+// Redesign UI (auto-added)
+"Home" = "Start";
+"Favorites" = "Favoriten";
+"Search" = "Suche";
+"Settings" = "Einstellungen";
+"OK" = "OK";
+"Cancel" = "Abbrechen";
+"Delete" = "Löschen";
+"Something went wrong" = "Etwas ist schiefgelaufen";
+"Add a photo" = "Foto hinzufügen";
+"Snap a dish or pick one from your library." = "Fotografiere ein Gericht oder wähle eines aus deiner Mediathek.";
+"Take a photo" = "Foto aufnehmen";
+"Use the camera" = "Kamera verwenden";
+"Choose from library" = "Aus Mediathek wählen";
+"Pick an existing photo" = "Vorhandenes Foto wählen";
+"Recipe from a photo" = "Rezept aus einem Foto";
+"Save to my recipes" = "Zu meinen Rezepten hinzufügen";
+"PREP" = "VORBER.";
+"COOK" = "KOCHEN";
+"SERVES" = "PORTIONEN";
+"LEVEL" = "NIVEAU";
+"Easy" = "Einfach";
+"Start cooking" = "Loskochen";
+"Remix" = "Remix";
+"Pick a twist" = "Wähle eine Variante";
+"Make it healthier" = "Gesünder machen";
+"Make it spicier" = "Schärfer machen";
+"Make it vegetarian" = "Vegetarisch machen";
+"Make it quicker" = "Schneller machen";
+"Remixing…" = "Wird neu gemischt…";
+"Let's cook something great." = "Lass uns etwas Tolles kochen.";
+"Good morning" = "Guten Morgen";
+"Good afternoon" = "Guten Tag";
+"Good evening" = "Guten Abend";
+"Your recipes" = "Deine Rezepte";
+"%d saved" = "%d gespeichert";
+"From Ingredients" = "Aus Zutaten";
+"Use what you already have" = "Nutze, was du schon hast";
+"From Photo" = "Aus Foto";
+"Snap a dish, get the recipe" = "Gericht fotografieren, Rezept erhalten";
+"Describe a dish… e.g. spicy lentil soup" = "Beschreibe ein Gericht… z. B. scharfe Linsensuppe";
+"Your cookbook is empty" = "Dein Kochbuch ist leer";
+"No %@ recipes yet" = "Noch keine %@-Rezepte";
+"No favorites yet" = "Noch keine Favoriten";
+"Tap the heart on any recipe to keep it close at hand." = "Tippe bei einem Rezept auf das Herz, um es griffbereit zu haben.";
+"Discover" = "Entdecken";
+"Search recipes…" = "Rezepte suchen…";
+"Nothing found" = "Nichts gefunden";
+"From around the web" = "Aus dem Web";
+"Your kitchen" = "Deine Küche";
+
+
+// Redesign UI (auto-added)
+"All" = "Alle";
+"Meaty" = "Fleisch";
+"Vegetarian" = "Vegetarisch";
+"Dessert" = "Dessert";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "Rezepte suchen";
+"Try a different keyword — or create it from your ingredients instead." = "Versuche ein anderes Stichwort – oder erstelle es aus deinen Zutaten.";
+"Create a recipe from your ingredients or a food photo to get started." = "Erstelle zum Start ein Rezept aus deinen Zutaten oder einem Foto.";
+"Try another filter or create something new." = "Probiere einen anderen Filter oder erstelle etwas Neues.";
+"Account" = "Konto";
+"Premium" = "Premium";
+"Active" = "Aktiv";
+"Free" = "Kostenlos";
+"Recipes created" = "Erstellte Rezepte";
+"Language" = "Sprache";
+"Appearance" = "Erscheinungsbild";
+"Send feedback" = "Feedback senden";
+"Rate WhichFood" = "WhichFood bewerten";
+"Share the app" = "App teilen";
+"Go Premium" = "Premium holen";
+"Premium plan · Unlimited AI recipes" = "Premium-Plan · Unbegrenzte KI-Rezepte";
+"Free plan · %d AI recipes left" = "Gratis-Plan · %d KI-Rezepte übrig";
+"Debug: Premium" = "Debug: Premium";
+"Bypass the AI generation limit" = "KI-Generierungslimit umgehen";
+"Terms" = "AGB";
+"Privacy" = "Datenschutz";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "Rezept konnte nicht erstellt werden";
+"Try again" = "Erneut versuchen";
+"Close" = "Schließen";
+"What are you in the mood for?" = "Worauf hast du Lust?";
+"Pick as many as you like — we'll shape the recipe around them." = "Wähle so viele du magst – wir gestalten das Rezept darum.";
+"Choose ingredients" = "Zutaten wählen";
+"No ingredients match that search." = "Keine Zutaten passen zu dieser Suche.";
+"What's in your kitchen?" = "Was hast du in der Küche?";
+"Search ingredients" = "Zutaten suchen";
+"Your ingredients" = "Deine Zutaten";
+"Tap one to remove it." = "Zum Entfernen antippen.";
+"Generate recipe" = "Rezept generieren";
+"Generate" = "Generieren";
+"Ready to turn them into a recipe" = "Bereit, daraus ein Rezept zu machen";
+"Review" = "Überblick";
+"%d ingredients selected" = "%d Zutaten ausgewählt";
+
+
+// Redesign UI (auto-added)
+"Medium" = "Mittel";
+"Difficult" = "Schwer";
+"Healthy" = "Gesund";
+"Vegan" = "Vegan";
+"Breakfast" = "Frühstück";
+"Lunch" = "Mittagessen";
+"Dinner" = "Abendessen";
+"Hearty" = "Herzhaft";

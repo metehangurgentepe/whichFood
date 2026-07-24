@@ -428,3 +428,116 @@
 "appearance_light" = "روشن";
 "appearance_dark" = "تیره";
 "cancel" = "لغو";
+
+
+// Redesign UI (auto-added)
+"Home" = "Home";
+"Favorites" = "Favorites";
+"Search" = "Search";
+"Settings" = "Settings";
+"OK" = "OK";
+"Cancel" = "Cancel";
+"Delete" = "Delete";
+"Something went wrong" = "Something went wrong";
+"Add a photo" = "Add a photo";
+"Snap a dish or pick one from your library." = "Snap a dish or pick one from your library.";
+"Take a photo" = "Take a photo";
+"Use the camera" = "Use the camera";
+"Choose from library" = "Choose from library";
+"Pick an existing photo" = "Pick an existing photo";
+"Recipe from a photo" = "Recipe from a photo";
+"Save to my recipes" = "Save to my recipes";
+"PREP" = "PREP";
+"COOK" = "COOK";
+"SERVES" = "SERVES";
+"LEVEL" = "LEVEL";
+"Easy" = "Easy";
+"Start cooking" = "Start cooking";
+"Remix" = "Remix";
+"Pick a twist" = "Pick a twist";
+"Make it healthier" = "Make it healthier";
+"Make it spicier" = "Make it spicier";
+"Make it vegetarian" = "Make it vegetarian";
+"Make it quicker" = "Make it quicker";
+"Remixing…" = "Remixing…";
+"Let's cook something great." = "Let's cook something great.";
+"Good morning" = "Good morning";
+"Good afternoon" = "Good afternoon";
+"Good evening" = "Good evening";
+"Your recipes" = "Your recipes";
+"%d saved" = "%d saved";
+"From Ingredients" = "From Ingredients";
+"Use what you already have" = "Use what you already have";
+"From Photo" = "From Photo";
+"Snap a dish, get the recipe" = "Snap a dish, get the recipe";
+"Describe a dish… e.g. spicy lentil soup" = "Describe a dish… e.g. spicy lentil soup";
+"Your cookbook is empty" = "Your cookbook is empty";
+"No %@ recipes yet" = "No %@ recipes yet";
+"No favorites yet" = "No favorites yet";
+"Tap the heart on any recipe to keep it close at hand." = "Tap the heart on any recipe to keep it close at hand.";
+"Discover" = "Discover";
+"Search recipes…" = "Search recipes…";
+"Nothing found" = "Nothing found";
+"From around the web" = "From around the web";
+"Your kitchen" = "Your kitchen";
+
+
+// Redesign UI (auto-added)
+"All" = "All";
+"Meaty" = "Meaty";
+"Vegetarian" = "Vegetarian";
+"Dessert" = "Dessert";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "Search recipes";
+"Try a different keyword — or create it from your ingredients instead." = "Try a different keyword — or create it from your ingredients instead.";
+"Create a recipe from your ingredients or a food photo to get started." = "Create a recipe from your ingredients or a food photo to get started.";
+"Try another filter or create something new." = "Try another filter or create something new.";
+"Account" = "Account";
+"Premium" = "Premium";
+"Active" = "Active";
+"Free" = "Free";
+"Recipes created" = "Recipes created";
+"Language" = "Language";
+"Appearance" = "Appearance";
+"Send feedback" = "Send feedback";
+"Rate WhichFood" = "Rate WhichFood";
+"Share the app" = "Share the app";
+"Go Premium" = "Go Premium";
+"Premium plan · Unlimited AI recipes" = "Premium plan · Unlimited AI recipes";
+"Free plan · %d AI recipes left" = "Free plan · %d AI recipes left";
+"Debug: Premium" = "Debug: Premium";
+"Bypass the AI generation limit" = "Bypass the AI generation limit";
+"Terms" = "Terms";
+"Privacy" = "Privacy";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "Couldn't create a recipe";
+"Try again" = "Try again";
+"Close" = "Close";
+"What are you in the mood for?" = "What are you in the mood for?";
+"Pick as many as you like — we'll shape the recipe around them." = "Pick as many as you like — we'll shape the recipe around them.";
+"Choose ingredients" = "Choose ingredients";
+"No ingredients match that search." = "No ingredients match that search.";
+"What's in your kitchen?" = "What's in your kitchen?";
+"Search ingredients" = "Search ingredients";
+"Your ingredients" = "Your ingredients";
+"Tap one to remove it." = "Tap one to remove it.";
+"Generate recipe" = "Generate recipe";
+"Generate" = "Generate";
+"Ready to turn them into a recipe" = "Ready to turn them into a recipe";
+"Review" = "Review";
+"%d ingredients selected" = "%d ingredients selected";
+
+
+// Redesign UI (auto-added)
+"Medium" = "Medium";
+"Difficult" = "Difficult";
+"Healthy" = "Healthy";
+"Vegan" = "Vegan";
+"Breakfast" = "Breakfast";
+"Lunch" = "Lunch";
+"Dinner" = "Dinner";
+"Hearty" = "Hearty";

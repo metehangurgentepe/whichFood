@@ -439,3 +439,116 @@
 "appearance_light" = "Svijetlo";
 "appearance_dark" = "Tamno";
 "cancel" = "Odustani";
+
+
+// Redesign UI (auto-added)
+"Home" = "Početna";
+"Favorites" = "Favoriti";
+"Search" = "Pretraga";
+"Settings" = "Postavke";
+"OK" = "U redu";
+"Cancel" = "Odustani";
+"Delete" = "Izbriši";
+"Something went wrong" = "Nešto je pošlo po zlu";
+"Add a photo" = "Dodaj fotografiju";
+"Snap a dish or pick one from your library." = "Slikaj jelo ili odaberi fotografiju iz galerije.";
+"Take a photo" = "Snimi fotografiju";
+"Use the camera" = "Koristi kameru";
+"Choose from library" = "Odaberi iz galerije";
+"Pick an existing photo" = "Odaberi postojeću fotografiju";
+"Recipe from a photo" = "Recept iz fotografije";
+"Save to my recipes" = "Spremi u moje recepte";
+"PREP" = "PRIPREMA";
+"COOK" = "KUHANJE";
+"SERVES" = "OSOBA";
+"LEVEL" = "RAZINA";
+"Easy" = "Lako";
+"Start cooking" = "Počni kuhati";
+"Remix" = "Remiks";
+"Pick a twist" = "Odaberi varijaciju";
+"Make it healthier" = "Učini zdravijim";
+"Make it spicier" = "Učini ljućim";
+"Make it vegetarian" = "Učini vegetarijanskim";
+"Make it quicker" = "Učini bržim";
+"Remixing…" = "Remiksiranje…";
+"Let's cook something great." = "Skuhajmo nešto sjajno.";
+"Good morning" = "Dobro jutro";
+"Good afternoon" = "Dobar dan";
+"Good evening" = "Dobra večer";
+"Your recipes" = "Vaši recepti";
+"%d saved" = "%d spremljeno";
+"From Ingredients" = "Iz sastojaka";
+"Use what you already have" = "Iskoristi što već imaš";
+"From Photo" = "Iz fotografije";
+"Snap a dish, get the recipe" = "Slikaj jelo, dobij recept";
+"Describe a dish… e.g. spicy lentil soup" = "Opiši jelo… npr. ljuta juha od leće";
+"Your cookbook is empty" = "Vaša kuharica je prazna";
+"No %@ recipes yet" = "Još nema %@ recepata";
+"No favorites yet" = "Još nema favorita";
+"Tap the heart on any recipe to keep it close at hand." = "Dodirni srce na receptu da ti bude pri ruci.";
+"Discover" = "Otkrij";
+"Search recipes…" = "Pretraži recepte…";
+"Nothing found" = "Ništa nije pronađeno";
+"From around the web" = "S weba";
+"Your kitchen" = "Vaša kuhinja";
+
+
+// Redesign UI (auto-added)
+"All" = "Sve";
+"Meaty" = "Mesno";
+"Vegetarian" = "Vegetarijansko";
+"Dessert" = "Desert";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "Pretraži recepte";
+"Try a different keyword — or create it from your ingredients instead." = "Pokušaj s drugom ključnom riječi — ili je stvori iz svojih sastojaka.";
+"Create a recipe from your ingredients or a food photo to get started." = "Za početak stvori recept iz sastojaka ili fotografije jela.";
+"Try another filter or create something new." = "Pokušaj s drugim filtrom ili stvori nešto novo.";
+"Account" = "Račun";
+"Premium" = "Premium";
+"Active" = "Aktivno";
+"Free" = "Besplatno";
+"Recipes created" = "Stvoreni recepti";
+"Language" = "Jezik";
+"Appearance" = "Izgled";
+"Send feedback" = "Pošalji povratnu informaciju";
+"Rate WhichFood" = "Ocijeni WhichFood";
+"Share the app" = "Podijeli aplikaciju";
+"Go Premium" = "Postani Premium";
+"Premium plan · Unlimited AI recipes" = "Premium plan · Neograničeni AI recepti";
+"Free plan · %d AI recipes left" = "Besplatni plan · preostalo %d AI recepata";
+"Debug: Premium" = "Debug: Premium";
+"Bypass the AI generation limit" = "Zaobiđi ograničenje AI generiranja";
+"Terms" = "Uvjeti";
+"Privacy" = "Privatnost";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "Recept nije moguće stvoriti";
+"Try again" = "Pokušaj ponovno";
+"Close" = "Zatvori";
+"What are you in the mood for?" = "Što ti se jede?";
+"Pick as many as you like — we'll shape the recipe around them." = "Odaberi koliko želiš — recept ćemo oblikovati oko njih.";
+"Choose ingredients" = "Odaberi sastojke";
+"No ingredients match that search." = "Nema sastojaka koji odgovaraju pretrazi.";
+"What's in your kitchen?" = "Što imaš u kuhinji?";
+"Search ingredients" = "Pretraži sastojke";
+"Your ingredients" = "Vaši sastojci";
+"Tap one to remove it." = "Dodirni za uklanjanje.";
+"Generate recipe" = "Generiraj recept";
+"Generate" = "Generiraj";
+"Ready to turn them into a recipe" = "Spremno za pretvaranje u recept";
+"Review" = "Pregled";
+"%d ingredients selected" = "Odabrano %d sastojaka";
+
+
+// Redesign UI (auto-added)
+"Medium" = "Srednje";
+"Difficult" = "Teško";
+"Healthy" = "Zdravo";
+"Vegan" = "Vegansko";
+"Breakfast" = "Doručak";
+"Lunch" = "Ručak";
+"Dinner" = "Večera";
+"Hearty" = "Zasitno";

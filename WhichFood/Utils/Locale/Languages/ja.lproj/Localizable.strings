@@ -423,3 +423,116 @@
 "appearance_light" = "ライト";
 "appearance_dark" = "ダーク";
 "cancel" = "キャンセル";
+
+
+// Redesign UI (auto-added)
+"Home" = "ホーム";
+"Favorites" = "お気に入り";
+"Search" = "検索";
+"Settings" = "設定";
+"OK" = "OK";
+"Cancel" = "キャンセル";
+"Delete" = "削除";
+"Something went wrong" = "問題が発生しました";
+"Add a photo" = "写真を追加";
+"Snap a dish or pick one from your library." = "料理を撮影するか、ライブラリから選んでください。";
+"Take a photo" = "写真を撮る";
+"Use the camera" = "カメラを使う";
+"Choose from library" = "ライブラリから選択";
+"Pick an existing photo" = "既存の写真を選ぶ";
+"Recipe from a photo" = "写真からレシピ";
+"Save to my recipes" = "マイレシピに保存";
+"PREP" = "準備";
+"COOK" = "調理";
+"SERVES" = "人前";
+"LEVEL" = "レベル";
+"Easy" = "かんたん";
+"Start cooking" = "調理を始める";
+"Remix" = "アレンジ";
+"Pick a twist" = "アレンジを選ぶ";
+"Make it healthier" = "よりヘルシーに";
+"Make it spicier" = "より辛く";
+"Make it vegetarian" = "ベジタリアンに";
+"Make it quicker" = "より手早く";
+"Remixing…" = "アレンジ中…";
+"Let's cook something great." = "何か美味しいものを作りましょう。";
+"Good morning" = "おはようございます";
+"Good afternoon" = "こんにちは";
+"Good evening" = "こんばんは";
+"Your recipes" = "あなたのレシピ";
+"%d saved" = "%d件保存";
+"From Ingredients" = "材料から";
+"Use what you already have" = "あるものを使おう";
+"From Photo" = "写真から";
+"Snap a dish, get the recipe" = "料理を撮ってレシピを取得";
+"Describe a dish… e.g. spicy lentil soup" = "料理を説明…例：スパイシーなレンズ豆スープ";
+"Your cookbook is empty" = "レシピブックは空です";
+"No %@ recipes yet" = "%@のレシピはまだありません";
+"No favorites yet" = "お気に入りはまだありません";
+"Tap the heart on any recipe to keep it close at hand." = "レシピのハートをタップして手元に保存しましょう。";
+"Discover" = "見つける";
+"Search recipes…" = "レシピを検索…";
+"Nothing found" = "何も見つかりません";
+"From around the web" = "ウェブから";
+"Your kitchen" = "あなたのキッチン";
+
+
+// Redesign UI (auto-added)
+"All" = "すべて";
+"Meaty" = "肉料理";
+"Vegetarian" = "ベジタリアン";
+"Dessert" = "デザート";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "レシピを検索";
+"Try a different keyword — or create it from your ingredients instead." = "別のキーワードを試すか、手持ちの材料から作りましょう。";
+"Create a recipe from your ingredients or a food photo to get started." = "まずは材料や写真からレシピを作りましょう。";
+"Try another filter or create something new." = "別のフィルターを試すか、新しく作りましょう。";
+"Account" = "アカウント";
+"Premium" = "プレミアム";
+"Active" = "有効";
+"Free" = "無料";
+"Recipes created" = "作成したレシピ";
+"Language" = "言語";
+"Appearance" = "外観";
+"Send feedback" = "フィードバックを送る";
+"Rate WhichFood" = "WhichFoodを評価";
+"Share the app" = "アプリを共有";
+"Go Premium" = "プレミアムにする";
+"Premium plan · Unlimited AI recipes" = "プレミアムプラン · AIレシピ無制限";
+"Free plan · %d AI recipes left" = "無料プラン · 残り%d件のAIレシピ";
+"Debug: Premium" = "デバッグ：プレミアム";
+"Bypass the AI generation limit" = "AI生成の上限を回避";
+"Terms" = "利用規約";
+"Privacy" = "プライバシー";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "レシピを作成できませんでした";
+"Try again" = "再試行";
+"Close" = "閉じる";
+"What are you in the mood for?" = "どんな気分ですか？";
+"Pick as many as you like — we'll shape the recipe around them." = "好きなだけ選んでください。それを元にレシピを作ります。";
+"Choose ingredients" = "材料を選ぶ";
+"No ingredients match that search." = "検索に一致する材料がありません。";
+"What's in your kitchen?" = "キッチンには何がありますか？";
+"Search ingredients" = "材料を検索";
+"Your ingredients" = "あなたの材料";
+"Tap one to remove it." = "タップして削除します。";
+"Generate recipe" = "レシピを生成";
+"Generate" = "生成";
+"Ready to turn them into a recipe" = "レシピにする準備ができました";
+"Review" = "確認";
+"%d ingredients selected" = "%d個の材料を選択";
+
+
+// Redesign UI (auto-added)
+"Medium" = "普通";
+"Difficult" = "難しい";
+"Healthy" = "ヘルシー";
+"Vegan" = "ヴィーガン";
+"Breakfast" = "朝食";
+"Lunch" = "昼食";
+"Dinner" = "夕食";
+"Hearty" = "ボリューム";

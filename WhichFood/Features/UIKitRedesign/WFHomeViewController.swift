@@ -36,7 +36,7 @@ final class WFHomeViewController: UIViewController {
 
     private let headlineLabel: UILabel = {
         let label = UILabel()
-        label.text = "Let's cook something great."
+        label.text = "Let's cook something great.".locale()
         label.font = WFUIFont.heading(24, weight: .bold)
         label.textColor = WFUIPalette.text
         label.numberOfLines = 0
@@ -46,7 +46,7 @@ final class WFHomeViewController: UIViewController {
     private let promptField = UISearchTextField()
     private let promptSendButton = UIButton(type: .system)
 
-    private let sectionTitleLabel = WFUISectionTitleLabel("Your recipes")
+    private let sectionTitleLabel = WFUISectionTitleLabel("Your recipes".locale())
 
     private let savedCountLabel: UILabel = {
         let label = UILabel()
@@ -144,15 +144,15 @@ final class WFHomeViewController: UIViewController {
 
     private func makeActionCards() -> UIView {
         let ingredientsCard = WFUIHomeActionCard(
-            title: "From Ingredients",
-            subtitle: "Use what you already have",
+            title: "From Ingredients".locale(),
+            subtitle: "Use what you already have".locale(),
             icon: "basket",
             accent: WFUIPalette.orange
         ) { [weak self] in self?.createFromIngredients() }
 
         let photoCard = WFUIHomeActionCard(
-            title: "From Photo",
-            subtitle: "Snap a dish, get the recipe",
+            title: "From Photo".locale(),
+            subtitle: "Snap a dish, get the recipe".locale(),
             icon: "camera",
             accent: WFUIPalette.green
         ) { [weak self] in self?.createFromPhoto() }
@@ -166,7 +166,7 @@ final class WFHomeViewController: UIViewController {
     /// Native search-style field (same structure as the Discover / ingredient
     /// search bars) that describes a dish for the AI to write up.
     private func makePromptField() -> UIView {
-        promptField.placeholder = "Describe a dish… e.g. spicy lentil soup"
+        promptField.placeholder = "Describe a dish… e.g. spicy lentil soup".locale()
         promptField.font = WFUIFont.body(14)
         promptField.returnKeyType = .go
         promptField.delegate = self
@@ -306,14 +306,14 @@ final class WFHomeViewController: UIViewController {
 
     private var greeting: String {
         switch Calendar.current.component(.hour, from: Date()) {
-        case 5..<12: return "Good morning"
-        case 12..<18: return "Good afternoon"
-        default: return "Good evening"
+        case 5..<12: return "Good morning".locale()
+        case 12..<18: return "Good afternoon".locale()
+        default: return "Good evening".locale()
         }
     }
 
     private func reload() {
-        savedCountLabel.text = "\(appState.savedRecipes.count) saved"
+        savedCountLabel.text = String(format: "%d saved".locale(), appState.savedRecipes.count)
 
         for case let chip as WFUIChipButton in filtersStack.arrangedSubviews {
             chip.setSelectedState(chip.title == selectedFilter)
@@ -333,11 +333,11 @@ final class WFHomeViewController: UIViewController {
             emptyStateView.configure(
                 icon: "fork.knife.circle",
                 title: selectedFilter == "All"
-                    ? "Your cookbook is empty"
-                    : "No \(selectedFilter.lowercased()) recipes yet",
+                    ? "Your cookbook is empty".locale()
+                    : String(format: "No %@ recipes yet".locale(), selectedFilter.lowercased()),
                 message: selectedFilter == "All"
-                    ? "Create a recipe from your ingredients or a food photo to get started."
-                    : "Try another filter or create something new."
+                    ? "Create a recipe from your ingredients or a food photo to get started.".locale()
+                    : "Try another filter or create something new.".locale()
             )
         }
 
@@ -470,7 +470,7 @@ final class WFUIChipButton: UIButton {
         super.init(frame: .zero)
 
         var config = UIButton.Configuration.plain()
-        config.title = title
+        config.title = title.locale()
         config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15)
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
             var outgoing = incoming
@@ -621,7 +621,7 @@ extension WFUIRecipeCardView {
     ) -> UIContextMenuConfiguration? {
         UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [weak self] _ in
             let delete = UIAction(
-                title: "Delete",
+                title: "Delete".locale(),
                 image: UIImage(systemName: "trash"),
                 attributes: .destructive
             ) { _ in

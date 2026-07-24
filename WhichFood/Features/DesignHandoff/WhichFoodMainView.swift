@@ -324,7 +324,7 @@ struct WFFavoritesView: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 18) {
-                    Text("Favorites")
+                    Text("Favorites".locale())
                         .font(WFFont.heading(24, weight: .bold))
                         .foregroundColor(WFPalette.text)
 
@@ -333,9 +333,9 @@ struct WFFavoritesView: View {
                             Image(systemName: "heart")
                                 .font(.system(size: 44, weight: .light))
                                 .foregroundColor(WFPalette.border)
-                            Text("No favorites yet")
+                            Text("No favorites yet".locale())
                                 .font(WFFont.heading(16, weight: .bold))
-                            Text("Tap the heart on any recipe to keep it close at hand.")
+                            Text("Tap the heart on any recipe to keep it close at hand.".locale())
                                 .font(WFFont.body(13))
                                 .foregroundColor(WFPalette.secondaryText)
                                 .multilineTextAlignment(.center)
@@ -463,14 +463,14 @@ struct WFSettingsHandoffView: View {
 
     private var rows: [(String, String, String, () -> Void)] {
         [
-            ("Account", "", "person", {}),
-            ("Premium", appState.effectiveIsPremium || premiumFromLaunch ? "Active" : "Free", "crown", { showPremium = true }),
-            ("Recipes created", "\(appState.currentUser?.numberOfUsageApi ?? 0)", "sparkles", {}),
-            ("Language", Locale.current.localizedString(forLanguageCode: Bundle.main.preferredLocalizations.first ?? "en") ?? "English", "globe", { openSystemSettings() }),
-            ("Appearance", appearanceTitle, appearance.iconName, { showAppearancePicker = true }),
-            ("Send feedback", "", "envelope", { openURL(URL(string: "mailto:\(Constants.Links.email.rawValue)")!) }),
-            ("Rate WhichFood", "", "star", { openURL(URL(string: Constants.Links.appStoreLink.rawValue)!) }),
-            ("Share the app", "", "square.and.arrow.up", { shareApp = true })
+            ("Account".locale(), "", "person", {}),
+            ("Premium".locale(), appState.effectiveIsPremium || premiumFromLaunch ? "Active".locale() : "Free".locale(), "crown", { showPremium = true }),
+            ("Recipes created".locale(), "\(appState.currentUser?.numberOfUsageApi ?? 0)", "sparkles", {}),
+            ("Language".locale(), Locale.current.localizedString(forLanguageCode: Bundle.main.preferredLocalizations.first ?? "en") ?? "English", "globe", { openSystemSettings() }),
+            ("Appearance".locale(), appearanceTitle, appearance.iconName, { showAppearancePicker = true }),
+            ("Send feedback".locale(), "", "envelope", { openURL(URL(string: "mailto:\(Constants.Links.email.rawValue)")!) }),
+            ("Rate WhichFood".locale(), "", "star", { openURL(URL(string: Constants.Links.appStoreLink.rawValue)!) }),
+            ("Share the app".locale(), "", "square.and.arrow.up", { shareApp = true })
         ]
     }
 
@@ -478,7 +478,7 @@ struct WFSettingsHandoffView: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Settings")
+                    Text("Settings".locale())
                         .font(WFFont.heading(24, weight: .bold))
                         .foregroundColor(WFPalette.text)
 
@@ -489,17 +489,17 @@ struct WFSettingsHandoffView: View {
                             .background(Color.white.opacity(0.22))
                             .clipShape(Circle())
                         VStack(alignment: .leading, spacing: 3) {
-                            Text("Your kitchen")
+                            Text("Your kitchen".locale())
                                 .font(WFFont.heading(15, weight: .bold))
                             Text(appState.effectiveIsPremium || premiumFromLaunch
-                                 ? "Premium plan · Unlimited AI recipes"
-                                 : "Free plan · \(appState.generationsLeft) AI recipes left")
+                                 ? "Premium plan · Unlimited AI recipes".locale()
+                                 : String(format: "Free plan · %d AI recipes left".locale(), appState.generationsLeft))
                                 .font(WFFont.body(12))
                                 .foregroundColor(.white.opacity(0.86))
                         }
                         Spacer()
                         if !(appState.effectiveIsPremium || premiumFromLaunch) {
-                            Button("Go Premium") { showPremium = true }
+                            Button("Go Premium".locale()) { showPremium = true }
                                 .font(WFFont.heading(11.5, weight: .bold))
                                 .foregroundColor(WFPalette.text)
                                 .padding(.horizontal, 12)
@@ -555,10 +555,10 @@ struct WFSettingsHandoffView: View {
                                 .foregroundColor(WFPalette.green)
                                 .frame(width: 24)
                             VStack(alignment: .leading, spacing: 2) {
-                                Text("Debug: Premium")
+                                Text("Debug: Premium".locale())
                                     .font(WFFont.body(14, weight: .semibold))
                                     .foregroundColor(WFPalette.text)
-                                Text("Bypass the AI generation limit")
+                                Text("Bypass the AI generation limit".locale())
                                     .font(WFFont.body(11.5))
                                     .foregroundColor(WFPalette.secondaryText)
                             }
@@ -574,9 +574,9 @@ struct WFSettingsHandoffView: View {
 
                     HStack(spacing: 6) {
                         Text("WhichFood 1.0 ·")
-                        Button("Terms") { openURL(URL(string: Constants.Links.termsOfService.rawValue)!) }
+                        Button("Terms".locale()) { openURL(URL(string: Constants.Links.termsOfService.rawValue)!) }
                         Text("·")
-                        Button("Privacy") { openURL(URL(string: Constants.Links.privacyPolicy.rawValue)!) }
+                        Button("Privacy".locale()) { openURL(URL(string: Constants.Links.privacyPolicy.rawValue)!) }
                     }
                     .font(WFFont.body(12, weight: .semibold))
                     .foregroundColor(WFPalette.tertiaryText)

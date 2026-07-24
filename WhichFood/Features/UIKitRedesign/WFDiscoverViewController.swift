@@ -31,7 +31,7 @@ final class WFDiscoverViewController: UIViewController {
     private let ownGridStack = UIStackView.wf(axis: .vertical, spacing: 14)
 
     private let externalSection = UIStackView.wf(axis: .vertical, spacing: 14)
-    private let externalTitleLabel = WFUISectionTitleLabel("From around the web")
+    private let externalTitleLabel = WFUISectionTitleLabel("From around the web".locale())
     private let externalGridStack = UIStackView.wf(axis: .vertical, spacing: 14)
 
     private let emptyStateView = WFUIEmptyStateView()
@@ -53,7 +53,7 @@ final class WFDiscoverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = WFUIPalette.background
-        title = "Discover"
+        title = "Discover".locale()
 
         setupSearchController()
         setupLayout()
@@ -66,7 +66,7 @@ final class WFDiscoverViewController: UIViewController {
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search recipes"
+        searchController.searchBar.placeholder = "Search recipes".locale()
 
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -155,8 +155,8 @@ final class WFDiscoverViewController: UIViewController {
         if isEmpty {
             emptyStateView.configure(
                 icon: "magnifyingglass",
-                title: "Nothing found",
-                message: "Try a different keyword — or create it from your ingredients instead."
+                title: "Nothing found".locale(),
+                message: "Try a different keyword — or create it from your ingredients instead.".locale()
             )
         }
     }

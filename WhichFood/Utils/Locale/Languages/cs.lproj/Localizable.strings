@@ -441,3 +441,116 @@
 "appearance_light" = "Světlý";
 "appearance_dark" = "Tmavý";
 "cancel" = "Zrušit";
+
+
+// Redesign UI (auto-added)
+"Home" = "Domů";
+"Favorites" = "Oblíbené";
+"Search" = "Hledat";
+"Settings" = "Nastavení";
+"OK" = "OK";
+"Cancel" = "Zrušit";
+"Delete" = "Smazat";
+"Something went wrong" = "Něco se pokazilo";
+"Add a photo" = "Přidat fotku";
+"Snap a dish or pick one from your library." = "Vyfoťte jídlo nebo vyberte fotku z knihovny.";
+"Take a photo" = "Vyfotit";
+"Use the camera" = "Použít fotoaparát";
+"Choose from library" = "Vybrat z knihovny";
+"Pick an existing photo" = "Vybrat existující fotku";
+"Recipe from a photo" = "Recept z fotky";
+"Save to my recipes" = "Uložit do mých receptů";
+"PREP" = "PŘÍPRAVA";
+"COOK" = "VAŘENÍ";
+"SERVES" = "PORCE";
+"LEVEL" = "ÚROVEŇ";
+"Easy" = "Snadné";
+"Start cooking" = "Začít vařit";
+"Remix" = "Remix";
+"Pick a twist" = "Vyberte variaci";
+"Make it healthier" = "Udělat zdravější";
+"Make it spicier" = "Udělat pikantnější";
+"Make it vegetarian" = "Udělat vegetariánské";
+"Make it quicker" = "Udělat rychlejší";
+"Remixing…" = "Míchání…";
+"Let's cook something great." = "Uvařme něco skvělého.";
+"Good morning" = "Dobré ráno";
+"Good afternoon" = "Dobré odpoledne";
+"Good evening" = "Dobrý večer";
+"Your recipes" = "Vaše recepty";
+"%d saved" = "%d uloženo";
+"From Ingredients" = "Ze surovin";
+"Use what you already have" = "Využij, co máš doma";
+"From Photo" = "Z fotky";
+"Snap a dish, get the recipe" = "Vyfoť jídlo, získej recept";
+"Describe a dish… e.g. spicy lentil soup" = "Popiš jídlo… např. pikantní čočková polévka";
+"Your cookbook is empty" = "Vaše kuchařka je prázdná";
+"No %@ recipes yet" = "Zatím žádné recepty %@";
+"No favorites yet" = "Zatím žádné oblíbené";
+"Tap the heart on any recipe to keep it close at hand." = "Klepnutím na srdíčko u receptu ho máte po ruce.";
+"Discover" = "Objevujte";
+"Search recipes…" = "Hledat recepty…";
+"Nothing found" = "Nic nenalezeno";
+"From around the web" = "Z webu";
+"Your kitchen" = "Vaše kuchyně";
+
+
+// Redesign UI (auto-added)
+"All" = "Vše";
+"Meaty" = "Masité";
+"Vegetarian" = "Vegetariánské";
+"Dessert" = "Dezert";
+
+
+// Redesign UI (auto-added)
+"Search recipes" = "Hledat recepty";
+"Try a different keyword — or create it from your ingredients instead." = "Zkuste jiné klíčové slovo — nebo ho vytvořte ze surovin.";
+"Create a recipe from your ingredients or a food photo to get started." = "Začněte vytvořením receptu ze surovin nebo z fotky jídla.";
+"Try another filter or create something new." = "Zkuste jiný filtr nebo vytvořte něco nového.";
+"Account" = "Účet";
+"Premium" = "Premium";
+"Active" = "Aktivní";
+"Free" = "Zdarma";
+"Recipes created" = "Vytvořené recepty";
+"Language" = "Jazyk";
+"Appearance" = "Vzhled";
+"Send feedback" = "Odeslat zpětnou vazbu";
+"Rate WhichFood" = "Ohodnotit WhichFood";
+"Share the app" = "Sdílet aplikaci";
+"Go Premium" = "Získat Premium";
+"Premium plan · Unlimited AI recipes" = "Premium · Neomezené AI recepty";
+"Free plan · %d AI recipes left" = "Zdarma · zbývá %d AI receptů";
+"Debug: Premium" = "Ladění: Premium";
+"Bypass the AI generation limit" = "Obejít limit AI generování";
+"Terms" = "Podmínky";
+"Privacy" = "Soukromí";
+
+
+// Redesign UI (auto-added)
+"Couldn't create a recipe" = "Recept se nepodařilo vytvořit";
+"Try again" = "Zkusit znovu";
+"Close" = "Zavřít";
+"What are you in the mood for?" = "Na co máte chuť?";
+"Pick as many as you like — we'll shape the recipe around them." = "Vyberte, kolik chcete — recept vytvoříme podle nich.";
+"Choose ingredients" = "Vybrat suroviny";
+"No ingredients match that search." = "Hledání neodpovídají žádné suroviny.";
+"What's in your kitchen?" = "Co máte v kuchyni?";
+"Search ingredients" = "Hledat suroviny";
+"Your ingredients" = "Vaše suroviny";
+"Tap one to remove it." = "Klepnutím odeberete.";
+"Generate recipe" = "Vytvořit recept";
+"Generate" = "Vytvořit";
+"Ready to turn them into a recipe" = "Připraveno stát se receptem";
+"Review" = "Přehled";
+"%d ingredients selected" = "Vybráno %d surovin";
+
+
+// Redesign UI (auto-added)
+"Medium" = "Střední";
+"Difficult" = "Obtížné";
+"Healthy" = "Zdravé";
+"Vegan" = "Veganské";
+"Breakfast" = "Snídaně";
+"Lunch" = "Oběd";
+"Dinner" = "Večeře";
+"Hearty" = "Vydatné";

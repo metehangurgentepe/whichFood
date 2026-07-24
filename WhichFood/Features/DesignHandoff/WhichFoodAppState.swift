@@ -12,6 +12,11 @@ final class WhichFoodAppState: ObservableObject {
     /// Browsable recipes from TheMealDB. Empty for non-English users.
     @Published var externalRecipes: [RecipeResponseModel] = []
     @Published var isLoadingLibrary = false
+    #if DEBUG
+    /// When true (screenshot capture mode), the async loaders are no-ops so the
+    /// injected mock recipes aren't overwritten by empty persistence/network data.
+    var isScreenshotSeeded = false
+    #endif
     @Published var isGenerating = false
     @Published var errorMessage: String?
     /// True when the most recent generation failed because the free-tier limit
@@ -47,6 +52,9 @@ final class WhichFoodAppState: ObservableObject {
     }
 
     func loadAll() async {
+        #if DEBUG
+        if isScreenshotSeeded { return }
+        #endif
         async let library: Void = loadLibrary()
         async let catalog: Void = loadCatalog()
         async let favorites: Void = loadFavorites()
@@ -62,6 +70,9 @@ final class WhichFoodAppState: ObservableObject {
     }
 
     func loadLibrary() async {
+        #if DEBUG
+        if isScreenshotSeeded { return }
+        #endif
         isLoadingLibrary = true
         defer { isLoadingLibrary = false }
         do {
@@ -81,6 +92,9 @@ final class WhichFoodAppState: ObservableObject {
     }
 
     func loadFavorites() async {
+        #if DEBUG
+        if isScreenshotSeeded { return }
+        #endif
         await withCheckedContinuation { continuation in
             PersistenceManager.retrieveFavorites { result in
                 Task { @MainActor in
